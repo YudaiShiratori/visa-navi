@@ -79,17 +79,16 @@ module.exports = {
           },
         ],
         "import/no-named-as-default-member": "off",
+        "@typescript-eslint/no-explicit-any": "off", // any型を許可
+        "@typescript-eslint/no-unsafe-member-access": "off", // anyプロパティへのアクセスを許可
+        "@typescript-eslint/no-unsafe-assignment": "off", // any型の代入を許可
         "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
-        "@typescript-eslint/no-unused-vars": [
-          "error",
-          { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }
-        ],
       },
     },
 
     // Node
     {
-      files: [".eslintrc.js"],
+      files: [".eslintrc.{js,cjs}"],
       env: {
         node: true,
       },
