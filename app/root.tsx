@@ -11,7 +11,6 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 
-import { ThemeProvider } from "~/components/theme-provider";
 import { getUser } from "~/session.server";
 import stylesheet from "~/tailwind.css";
 
@@ -39,19 +38,12 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full bg-background text-foreground antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-screen flex-col">
-            <main className="flex-1">
-              <Outlet />
-            </main>
-          </div>
-        </ThemeProvider>
+      <body className="h-full bg-white">
+        <div className="relative flex min-h-screen flex-col">
+          <main className="flex-1">
+            <Outlet />
+          </main>
+        </div>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
