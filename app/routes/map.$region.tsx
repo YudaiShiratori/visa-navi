@@ -2,20 +2,22 @@ import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
 import { CountrySelector } from "~/components/country-selector";
+import { type RegionId } from "~/constants/colors";
 import { getCountriesByRegion } from "~/data/countries";
+
+// 有効なリージョンのリスト
+const validRegions = ["asia", "europe", "americas", "oceania", "africa", "middle-east"];
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const region = params.region;
-  if (!region) {
-    throw new Response("地域が指定されていません", { status: 404 });
+  
+  // リージョンの検証
+  if (!region || !validRegions.includes(region)) {
+    throw new Response("無効な地域です", { status: 404 });
   }
 
   const countries = getCountriesByRegion(region);
-  if (countries.length === 0) {
-    throw new Response("指定された地域は存在しません", { status: 404 });
-  }
-
-  return json({ region, countries });
+  return json({ region: region as RegionId, countries });
 }
 
 export default function RegionRoute() {

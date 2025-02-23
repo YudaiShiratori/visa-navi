@@ -19,95 +19,103 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
   };
 
   return (
-    <div className="overflow-hidden rounded-xl bg-blue-50 shadow-lg">
+    <div className="overflow-hidden rounded-xl bg-white shadow-lg">
       {/* ヘッダー */}
-      <div className="relative bg-gradient-to-r from-[#007AFF] to-[#0066DD] px-6 py-16">
-        <h1 className="text-center text-4xl font-bold text-white">{country.name}</h1>
-        <p className="mt-2 text-center text-lg text-white/90">首都: {country.capital}</p>
+      <div className="relative bg-gradient-to-r from-[#007AFF] to-[#0066DD] px-6 py-8 sm:px-8 sm:py-10">
+        <h1 className="text-center text-md font-bold text-white sm:text-3xl">{country.name}</h1>
       </div>
 
       {/* ビザステータス */}
-      <div className="border-b border-blue-100 px-6 py-8">
+      <div className="border-b border-gray-100 px-6 py-8 sm:px-8">
         <div className="text-center">
-          <div className="mb-2 text-2xl font-semibold text-gray-700">
+          <div className="mb-3">
             <span
-              className="rounded-full px-3 py-1 text-sm text-white"
+              className="rounded-full px-4 py-1.5 text-base font-medium text-white sm:px-5 sm:py-2 sm:text-lg"
               style={{ backgroundColor: statusColors[country.visaRequirement.type] }}
             >
               {visaTypeText[country.visaRequirement.type]}
             </span>
           </div>
-          <div className="text-5xl font-bold text-gray-700">
+          <div className="text-4xl font-bold text-gray-800 sm:text-5xl">
             {country.visaRequirement.duration}日間
           </div>
-          <div className="mt-4 flex justify-center gap-2">
-            {country.visaRequirement.purpose.map((p) => (
-              <span key={p} className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700">
-                {p === "tourism" ? "観光" : p === "business" ? "商用" : "乗り継ぎ"}
-              </span>
-            ))}
-          </div>
+          {country.visaRequirement.purpose && (
+            <div className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 sm:gap-3">
+              {country.visaRequirement.purpose.map((p) => (
+                <span key={p} className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 sm:px-4 sm:py-1.5 sm:text-base">
+                  {p === "tourism" ? "観光" : p === "business" ? "商用" : "乗り継ぎ"}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
 
-      {/* 必要書類 */}
-      <div className="border-b border-blue-100 px-6 py-6">
-        <h2 className="mb-4 text-lg font-semibold text-gray-700">必要書類</h2>
-        <ul className="space-y-2">
-          {country.documents.map((doc, i) => (
-            <li key={i} className="flex items-center gap-2 text-gray-600">
-              <span className="text-green-500">✓</span> {doc}
-            </li>
-          ))}
-        </ul>
-      </div>
-
       {/* 条件 */}
-      <div className="border-b border-blue-100 px-6 py-6">
-        <h2 className="mb-4 text-lg font-semibold text-gray-700">入国条件</h2>
-        <ul className="space-y-2">
-          {country.conditions.map((condition, i) => (
-            <li key={i} className="flex items-center gap-2 text-gray-600">
-              <span className="text-blue-500">•</span> {condition}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* 注意事項 */}
-      {country.notes ? (
-        <div className="border-b border-blue-100 px-6 py-6">
-          <h2 className="mb-4 text-lg font-semibold text-gray-700">注意事項</h2>
-          <ul className="space-y-2">
-            {country.notes.map((note, i) => (
-              <li key={i} className="flex items-center gap-2 text-gray-600">
-                <span className="text-yellow-500">!</span> {note}
+      {country.conditions && country.conditions.length > 0 && (
+        <div className="border-b border-gray-100 px-6 py-8 sm:px-8">
+          <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">必要条件</h2>
+          <ul className="space-y-3">
+            {country.conditions.map((condition, i) => (
+              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+                <span className="mt-1 text-blue-500">•</span>
+                {condition}
               </li>
             ))}
           </ul>
         </div>
-      ) : null}
+      )}
+
+      {/* 必要書類 */}
+      {country.documents && country.documents.length > 0 && (
+        <div className="border-b border-gray-100 px-6 py-8 sm:px-8">
+          <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">必要書類</h2>
+          <ul className="space-y-3">
+            {country.documents.map((doc, i) => (
+              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+                <span className="mt-1 text-green-500">✓</span>
+                {doc}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {/* 注意事項 */}
+      {country.notes && country.notes.length > 0 && (
+        <div className="border-b border-gray-100 px-6 py-8 sm:px-8">
+          <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">注意事項</h2>
+          <ul className="space-y-3">
+            {country.notes.map((note, i) => (
+              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+                <span className="mt-1 text-yellow-500">!</span>
+                {note}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* リンク */}
-      <div className="space-y-2 bg-white/50 px-6 py-4">
+      <div className="space-y-2 bg-gray-50 px-6 py-6 sm:px-8">
         <a
-          href={country.officialLinks.mofa}
+          href={country.officialLinks?.mofa}
           target="_blank"
           rel="noopener noreferrer"
-          className="block rounded-lg border border-blue-100 bg-white p-4 transition hover:bg-blue-50"
+          className="block rounded-lg bg-white p-3 text-base font-medium text-blue-600 shadow-sm transition hover:bg-blue-50 sm:p-4 sm:text-lg"
         >
           外務省の公式情報を確認する →
         </a>
-        {country.officialLinks.embassy ? (
+        {country.officialLinks?.embassy && (
           <a
             href={country.officialLinks.embassy}
             target="_blank"
             rel="noopener noreferrer"
-            className="block rounded-lg border border-blue-100 bg-white p-4 transition hover:bg-blue-50"
+            className="block rounded-lg bg-white p-3 text-base font-medium text-blue-600 shadow-sm transition hover:bg-blue-50 sm:p-4 sm:text-lg"
           >
             大使館のウェブサイトを確認する →
           </a>
-        ) : null}
+        )}
       </div>
     </div>
   );

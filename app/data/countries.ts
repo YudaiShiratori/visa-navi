@@ -1,6 +1,7 @@
 export interface VisaRequirement {
   type: "visa_free" | "evisa" | "visa_required";
   duration: number;
+  purpose?: ("tourism" | "business" | "transit")[];
 }
 
 export interface Country {
@@ -8,6 +9,13 @@ export interface Country {
   name: string;
   region: string;
   visaRequirement: VisaRequirement;
+  conditions?: string[];
+  documents?: string[];
+  notes?: string[];
+  officialLinks?: {
+    mofa: string;
+    embassy?: string;
+  };
   lastUpdated: string;
 }
 
@@ -20,6 +28,21 @@ export const countries: Country[] = [
       type: "visa_free",
       duration: 30,
     },
+    conditions: [
+      "パスポートの残存有効期間が6ヶ月以上必要",
+      "観光目的のみ"
+    ],
+    documents: [
+      "有効なパスポート",
+      "帰国便の予約証明"
+    ],
+    notes: [
+      "30日を超える滞在にはビザの取得が必要"
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/thailand.html",
+      embassy: "https://www.thaiembassy.jp/"
+    },
     lastUpdated: "2024-03-20",
   },
   {
@@ -29,6 +52,16 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "evisa",
       duration: 30,
+    },
+    conditions: [
+      "パスポートの残存有効期間が6ヶ月以上必要"
+    ],
+    documents: [
+      "有効なパスポート",
+      "電子ビザの申請書"
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/vietnam.html"
     },
     lastUpdated: "2024-03-20",
   },
@@ -942,5 +975,7 @@ export const getCountriesByRegion = (region: string) => {
 };
 
 export const getCountryById = (id: string) => {
-  return countries.find((country) => country.id === id);
+  // IDを小文字に変換して検索
+  const lowerId = id.toLowerCase();
+  return countries.find((country) => country.id.toLowerCase() === lowerId);
 };
