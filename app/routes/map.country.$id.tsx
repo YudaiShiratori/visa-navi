@@ -1,8 +1,9 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-import { VisaInfoCard } from "~/components/visa-info-card";
-import { getCountryById } from "~/data/countries";
+import { VisaInfoCard } from "../components/visa-info-card";
+import { getCountryById } from "../data/countries";
+import { Header } from "../components/header";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { id } = params;
@@ -32,16 +33,19 @@ export default function CountryRoute() {
   console.log('Rendering country:', country);
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <Link
-          to={`/map/${country.region}`}
-          className="text-sm text-blue-600 hover:text-blue-800"
-        >
-          ← 地域選択に戻る
-        </Link>
+    <div>
+      <Header />
+      <div className="container mx-auto px-4 py-8">
+        <div className="mb-8">
+          <Link
+            to={`/map/${country.region}`}
+            className="text-sm text-blue-600 hover:text-blue-800"
+          >
+            ← 地域選択に戻る
+          </Link>
+        </div>
+        <VisaInfoCard country={country} />
       </div>
-      <VisaInfoCard country={country} />
     </div>
   );
 } 

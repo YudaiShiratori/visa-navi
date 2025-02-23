@@ -4,6 +4,7 @@ import { Link, useLoaderData } from "@remix-run/react";
 import { CountrySelector } from "~/components/country-selector";
 import { type RegionId } from "~/constants/colors";
 import { getCountriesByRegion } from "~/data/countries";
+import { Header } from "~/components/header";
 
 // 有効なリージョンのリスト
 const validRegions = ["asia", "europe", "americas", "oceania", "africa", "middle-east"];
@@ -24,16 +25,19 @@ export default function RegionRoute() {
   const { region, countries } = useLoaderData<typeof loader>();
 
   return (
-    <div className="py-8">
-      <div className="mb-8">
-        <Link
-          to="/map"
-          className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-        >
-          ← 地域選択に戻る
-        </Link>
+    <div>
+      <Header />
+      <div className="py-8">
+        <div className="mb-8">
+          <Link
+            to="/map"
+            className="text-sm text-blue-600 hover:text-blue-800"
+          >
+            ← 地域選択に戻る
+          </Link>
+        </div>
+        <CountrySelector region={region} countries={countries} />
       </div>
-      <CountrySelector region={region} countries={countries} />
     </div>
   );
 }
