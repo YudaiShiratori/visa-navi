@@ -1,8 +1,8 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
-import { VisaInfoCard } from "~/components/visa-info-card";
-import { getCountryById } from "~/data/countries";
+import { VisaInfoCard } from "../components/visa-info-card";
+import { getCountryById } from "../data/countries";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { country: countryId } = params;

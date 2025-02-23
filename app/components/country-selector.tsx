@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import type { Country } from "~/data/countries";
+import { InteractiveMap } from "./interactive-map";
 
 type CountrySelectorProps = {
   region: string;
@@ -8,19 +9,9 @@ type CountrySelectorProps = {
 
 export function CountrySelector({ region, countries }: CountrySelectorProps) {
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-          {getRegionName(region)}の国々
-        </h2>
-        <Link
-          to="/map"
-          className="text-sm text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
-        >
-          ← 地域選択に戻る
-        </Link>
-      </div>
-
+    <div className="space-y-8">
+      <InteractiveMap region={region} countries={countries} />
+      
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {countries.map((country) => (
           <Link
