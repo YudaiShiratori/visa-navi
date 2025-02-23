@@ -1,25 +1,27 @@
 import { useNavigate } from "@remix-run/react";
-import { memo, useState } from "react";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
+import { memo, useState, useEffect } from "react";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
+
+import { visaStatusColors } from "~/constants/colors";
 
 import type { Country } from "~/data/countries";
-import { visaStatusColors } from "~/constants/colors";
 
 const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
-type InteractiveMapProps = {
+interface InteractiveMapProps {
   countries: Country[];
   region: string;
-};
+}
+
+interface MousePosition {
+  x: number;
+  y: number;
+}
 
 export const InteractiveMap = memo(({ countries, region }: InteractiveMapProps) => {
   const navigate = useNavigate();
   const [tooltipContent, setTooltipContent] = useState("");
+  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 });
 
   const regionConfig = {
     asia: { center: [100, 25], zoom: 3 },
@@ -29,18 +31,27 @@ export const InteractiveMap = memo(({ countries, region }: InteractiveMapProps) 
     oceania: { center: [140, -25], zoom: 3.5 },
   }[region] || { center: [0, 0], zoom: 1 };
 
+  // マウス位置の更新
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="relative h-[500px] w-full max-w-3xl mx-auto rounded-xl bg-white shadow-lg">
+    <div className="relative mx-auto h-[500px] w-full max-w-3xl rounded-xl bg-white shadow-lg">
       <ComposableMap
         projection="geoMercator"
         projectionConfig={{
           scale: 800,
         }}
       >
-        <ZoomableGroup
-          center={regionConfig.center as [number, number]}
-          zoom={regionConfig.zoom}
-        >
+        <ZoomableGroup center={regionConfig.center as [number, number]} zoom={regionConfig.zoom}>
           <Geographies geography={geoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
@@ -90,32 +101,41 @@ export const InteractiveMap = memo(({ countries, region }: InteractiveMapProps) 
         </ZoomableGroup>
       </ComposableMap>
 
-      {tooltipContent && (
+      {tooltipContent ? (
         <div
           className="pointer-events-none absolute rounded bg-black/75 px-2 py-1 text-sm text-white"
           style={{
-            left: `${window.event?.clientX}px`,
-            top: `${window.event?.clientY}px`,
+            left: `${mousePosition.x}px`,
+            top: `${mousePosition.y}px`,
             transform: "translate(-50%, -100%)",
           }}
         >
           {tooltipContent}
         </div>
-      )}
+      ) : null}
 
       <div className="absolute bottom-4 right-4 rounded-lg bg-white p-4 shadow-lg">
         <div className="mb-2 text-sm font-semibold text-gray-700">ビザステータス</div>
         <div className="space-y-2">
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full" style={{ backgroundColor: visaStatusColors.visa_free.main }} />
+            <div
+              className="h-3 w-3 rounded-full"
+              style={{ backgroundColor: visaStatusColors.visa_free.main }}
+            />
             <span className="text-xs text-gray-600">ビザ免除</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full" style={{ backgroundColor: visaStatusColors.evisa.main }} />
+            <div
+              className="h-3 w-3 rounded-full"
+              style={{ backgroundColor: visaStatusColors.evisa.main }}
+            />
             <span className="text-xs text-gray-600">電子ビザ</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="h-3 w-3 rounded-full" style={{ backgroundColor: visaStatusColors.visa_required.main }} />
+            <div
+              className="h-3 w-3 rounded-full"
+              style={{ backgroundColor: visaStatusColors.visa_required.main }}
+            />
             <span className="text-xs text-gray-600">ビザ必須</span>
           </div>
         </div>
@@ -124,4 +144,4 @@ export const InteractiveMap = memo(({ countries, region }: InteractiveMapProps) 
   );
 });
 
-InteractiveMap.displayName = "InteractiveMap"; 
+InteractiveMap.displayName = "InteractiveMap";

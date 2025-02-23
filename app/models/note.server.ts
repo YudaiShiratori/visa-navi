@@ -1,6 +1,6 @@
-import type { User, Note } from "@prisma/client";
-
 import { prisma } from "~/db.server";
+
+import type { User, Note } from "@prisma/client";
 
 export function getNote({
   id,
@@ -42,10 +42,7 @@ export function createNote({
   });
 }
 
-export function deleteNote({
-  id,
-  userId,
-}: Pick<Note, "id"> & { userId: User["id"] }) {
+export function deleteNote({ id, userId }: Pick<Note, "id"> & { userId: User["id"] }) {
   return prisma.note.deleteMany({
     where: { id, userId },
   });

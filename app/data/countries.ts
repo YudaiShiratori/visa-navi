@@ -18,9 +18,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "vietnam",
@@ -28,9 +28,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "evisa",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "singapore",
@@ -38,9 +38,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "malaysia",
@@ -48,9 +48,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "korea",
@@ -58,9 +58,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "china",
@@ -68,9 +68,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_required",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "taiwan",
@@ -78,9 +78,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "philippines",
@@ -88,9 +88,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "indonesia",
@@ -98,9 +98,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "india",
@@ -108,9 +108,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "evisa",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "cambodia",
@@ -118,9 +118,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "laos",
@@ -128,9 +128,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_required",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "myanmar",
@@ -138,9 +138,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "evisa",
-      duration: 28
+      duration: 28,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "mongolia",
@@ -148,9 +148,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "bangladesh",
@@ -158,9 +158,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_required",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "srilanka",
@@ -168,9 +168,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "evisa",
-      duration: 30
+      duration: 30,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "hongkong",
@@ -178,9 +178,9 @@ export const countries: Country[] = [
     region: "asia",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "france",
@@ -188,9 +188,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "germany",
@@ -198,9 +198,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "italy",
@@ -208,9 +208,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "spain",
@@ -218,9 +218,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "uk",
@@ -228,9 +228,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "evisa",
-      duration: 180
+      duration: 180,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "switzerland",
@@ -238,9 +238,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "netherlands",
@@ -248,9 +248,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "belgium",
@@ -258,9 +258,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "austria",
@@ -268,9 +268,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "sweden",
@@ -278,9 +278,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "norway",
@@ -288,9 +288,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "denmark",
@@ -298,9 +298,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "finland",
@@ -308,9 +308,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "poland",
@@ -318,9 +318,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "czech",
@@ -328,9 +328,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "portugal",
@@ -338,9 +338,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "ireland",
@@ -348,9 +348,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "greece",
@@ -358,9 +358,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "hungary",
@@ -368,9 +368,9 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "romania",
@@ -378,569 +378,569 @@ export const countries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90
+      duration: 90,
     },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "bulgaria",
     name: "ブルガリア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "croatia",
     name: "クロアチア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "slovakia",
     name: "スロバキア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "slovenia",
     name: "スロベニア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "estonia",
     name: "エストニア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "latvia",
     name: "ラトビア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "lithuania",
     name: "リトアニア",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "malta",
     name: "マルタ",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "cyprus",
     name: "キプロス",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "iceland",
     name: "アイスランド",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "usa",
     name: "アメリカ合衆国",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "canada",
     name: "カナダ",
     region: "americas",
     visaRequirement: { type: "evisa", duration: 180 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "mexico",
     name: "メキシコ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 180 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "brazil",
     name: "ブラジル",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "argentina",
     name: "アルゼンチン",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "chile",
     name: "チリ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "peru",
     name: "ペルー",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 180 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "colombia",
     name: "コロンビア",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "venezuela",
     name: "ベネズエラ",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "ecuador",
     name: "エクアドル",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "bolivia",
     name: "ボリビア",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "paraguay",
     name: "パラグアイ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "uruguay",
     name: "ウルグアイ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "guyana",
     name: "ガイアナ",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "suriname",
     name: "スリナム",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "guatemala",
     name: "グアテマラ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "honduras",
     name: "ホンジュラス",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "elsalvador",
     name: "エルサルバドル",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "nicaragua",
     name: "ニカラグア",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "costarica",
     name: "コスタリカ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "panama",
     name: "パナマ",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 180 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "cuba",
     name: "キューバ",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "jamaica",
     name: "ジャマイカ",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "haiti",
     name: "ハイチ",
     region: "americas",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "dominicanrepublic",
     name: "ドミニカ共和国",
     region: "americas",
     visaRequirement: { type: "visa_free", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "southafrica",
     name: "南アフリカ",
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "egypt",
     name: "エジプト",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "morocco",
     name: "モロッコ",
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "kenya",
     name: "ケニア",
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "tanzania",
     name: "タンザニア",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "ethiopia",
     name: "エチオピア",
     region: "africa",
     visaRequirement: { type: "evisa", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "nigeria",
     name: "ナイジェリア",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "ghana",
     name: "ガーナ",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "senegal",
     name: "セネガル",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "uganda",
     name: "ウガンダ",
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "algeria",
     name: "アルジェリア",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "tunisia",
     name: "チュニジア",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "sudan",
     name: "スーダン",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "cameroon",
     name: "カメルーン",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "ivorycoast",
     name: "コートジボワール",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "madagascar",
     name: "マダガスカル",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "zambia",
     name: "ザンビア",
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "mozambique",
     name: "モザンビーク",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "angola",
     name: "アンゴラ",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "namibia",
     name: "ナミビア",
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "australia",
     name: "オーストラリア",
     region: "oceania",
     visaRequirement: { type: "evisa", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "newzealand",
     name: "ニュージーランド",
     region: "oceania",
     visaRequirement: { type: "evisa", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "fiji",
     name: "フィジー",
     region: "oceania",
     visaRequirement: { type: "visa_free", duration: 120 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "papuanewguinea",
     name: "パプアニューギニア",
     region: "oceania",
     visaRequirement: { type: "visa_required", duration: 60 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "solomonislands",
     name: "ソロモン諸島",
     region: "oceania",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "vanuatu",
     name: "バヌアツ",
     region: "oceania",
     visaRequirement: { type: "visa_free", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "samoa",
     name: "サモア",
     region: "oceania",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "tonga",
     name: "トンガ",
     region: "oceania",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "uae",
     name: "アラブ首長国連邦",
     region: "middle-east",
     visaRequirement: { type: "visa_free", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "qatar",
     name: "カタール",
     region: "middle-east",
     visaRequirement: { type: "visa_free", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "bahrain",
     name: "バーレーン",
     region: "middle-east",
     visaRequirement: { type: "evisa", duration: 14 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "kuwait",
     name: "クウェート",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "oman",
     name: "オマーン",
     region: "middle-east",
     visaRequirement: { type: "evisa", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "israel",
     name: "イスラエル",
     region: "middle-east",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "jordan",
     name: "ヨルダン",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "lebanon",
     name: "レバノン",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "iran",
     name: "イラン",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "iraq",
     name: "イラク",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "saudiarabia",
     name: "サウジアラビア",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 90 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "syria",
     name: "シリア",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "yemen",
     name: "イエメン",
     region: "middle-east",
     visaRequirement: { type: "visa_required", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "azerbaijan",
     name: "アゼルバイジャン",
     region: "middle-east",
     visaRequirement: { type: "evisa", duration: 30 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "armenia",
     name: "アルメニア",
     region: "middle-east",
     visaRequirement: { type: "visa_free", duration: 180 },
-    lastUpdated: "2024-03-20"
+    lastUpdated: "2024-03-20",
   },
   {
     id: "georgia",
     name: "ジョージア",
     region: "middle-east",
     visaRequirement: { type: "visa_free", duration: 365 },
-    lastUpdated: "2024-03-20"
-  }
+    lastUpdated: "2024-03-20",
+  },
 ];
 
 export const getCountriesByRegion = (region: string) => {
-  return countries.filter(country => country.region === region);
+  return countries.filter((country) => country.region === region);
 };
 
 export const getCountryById = (id: string) => {
-  return countries.find(country => country.id === id);
-}; 
+  return countries.find((country) => country.id === id);
+};

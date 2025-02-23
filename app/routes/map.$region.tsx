@@ -1,5 +1,6 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
+
 import { CountrySelector } from "~/components/country-selector";
 import { getCountriesByRegion } from "~/data/countries";
 
@@ -33,4 +34,4 @@ export default function RegionRoute() {
       <CountrySelector region={region} countries={countries} />
     </div>
   );
-} 
+}

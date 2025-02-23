@@ -1,10 +1,8 @@
-import { format } from "date-fns";
-import { ja } from "date-fns/locale";
 import type { Country } from "~/data/countries";
 
-type VisaInfoCardProps = {
+interface VisaInfoCardProps {
   country: Country;
-};
+}
 
 export function VisaInfoCard({ country }: VisaInfoCardProps) {
   const visaTypeText = {
@@ -15,9 +13,9 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
 
   // ビザステータスに応じた色を設定
   const statusColors = {
-    visa_free: "#63B3ED",     // 明るい青
-    evisa: "#F6AD55",         // オレンジ
-    visa_required: "#FC8181"  // 赤
+    visa_free: "#63B3ED", // 明るい青
+    evisa: "#F6AD55", // オレンジ
+    visa_required: "#FC8181", // 赤
   };
 
   return (
@@ -32,7 +30,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
       <div className="border-b border-blue-100 px-6 py-8">
         <div className="text-center">
           <div className="mb-2 text-2xl font-semibold text-gray-700">
-            <span 
+            <span
               className="rounded-full px-3 py-1 text-sm text-white"
               style={{ backgroundColor: statusColors[country.visaRequirement.type] }}
             >
@@ -77,7 +75,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
       </div>
 
       {/* 注意事項 */}
-      {country.notes && (
+      {country.notes ? (
         <div className="border-b border-blue-100 px-6 py-6">
           <h2 className="mb-4 text-lg font-semibold text-gray-700">注意事項</h2>
           <ul className="space-y-2">
@@ -88,7 +86,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
             ))}
           </ul>
         </div>
-      )}
+      ) : null}
 
       {/* リンク */}
       <div className="space-y-2 bg-white/50 px-6 py-4">
@@ -100,7 +98,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
         >
           外務省の公式情報を確認する →
         </a>
-        {country.officialLinks.embassy && (
+        {country.officialLinks.embassy ? (
           <a
             href={country.officialLinks.embassy}
             target="_blank"
@@ -109,8 +107,8 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           >
             大使館のウェブサイトを確認する →
           </a>
-        )}
+        ) : null}
       </div>
     </div>
   );
-} 
+}

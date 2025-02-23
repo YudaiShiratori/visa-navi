@@ -28,12 +28,7 @@ export default function CountryRoute() {
           to={`/map/${country.region}`}
           className="inline-flex items-center rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-[#007AFF] shadow-sm transition-all hover:bg-[#E8F0FF] hover:shadow"
         >
-          <svg
-            className="mr-2 h-4 w-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -47,4 +42,4 @@ export default function CountryRoute() {
       <VisaInfoCard country={country} />
     </div>
   );
-} 
+}
