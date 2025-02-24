@@ -1,6 +1,12 @@
 export interface VisaRequirement {
   type: "visa_free" | "evisa" | "visa_required";
   duration: number;
+  // 電子ビザが利用可能かどうか
+  evisaAvailable?: boolean;
+  // ビザなし入国が可能かどうか
+  visaFreeEntry?: boolean;
+  // ビザなし入国の場合の滞在可能期間
+  visaFreeDuration?: number;
   purpose?: ("tourism" | "business" | "transit")[];
 }
 
@@ -966,6 +972,19 @@ export const countries: Country[] = [
     name: "ジョージア",
     region: "asia",
     visaRequirement: { type: "visa_free", duration: 365 },
+    lastUpdated: "2024-03-20",
+  },
+  {
+    id: "TR",
+    name: "トルコ",
+    region: "asia",
+    visaRequirement: {
+      type: "evisa",
+      duration: 90,
+      evisaAvailable: true,
+      visaFreeEntry: true,
+      visaFreeDuration: 90,
+    },
     lastUpdated: "2024-03-20",
   },
 ];

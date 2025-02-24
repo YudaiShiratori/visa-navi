@@ -104,15 +104,21 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
               borderWidth: "1px",
             }}
           >
-            <div className="flex items-center space-x-3">
+            <div className="flex items-start justify-between">
               <div className="flex-1">
-                <h3
-                  className="text-lg font-semibold"
-                  style={{ color: visaStatusColors[country.visaRequirement.type].main }}
-                >
-                  {country.name}
-                </h3>
-                <p className="mt-1 text-sm text-gray-600">
+                <div className="flex items-center gap-3">
+                  <h3 className="text-lg font-semibold">{country.name}</h3>
+                  {country.visaRequirement.duration && (
+                    <div 
+                      className="text-lg font-bold" 
+                      style={{ color: visaStatusColors[country.visaRequirement.type].main }}
+                    >
+                      {country.visaRequirement.duration}
+                      <span className="ml-0.5 text-sm">日間</span>
+                    </div>
+                  )}
+                </div>
+                <div className="mt-2 flex flex-wrap gap-2">
                   <span
                     className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
                     style={{
@@ -120,18 +126,23 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
                       color: visaStatusColors[country.visaRequirement.type].main,
                     }}
                   >
-                    {country.visaRequirement.type === "visa_free" && (
-                      `ビザ免除 ${country.visaRequirement.duration}日`
-                    )}
+                    {country.visaRequirement.type === "visa_free" && "ビザ免除"}
                     {country.visaRequirement.type === "evisa" && "電子ビザ"}
                     {country.visaRequirement.type === "visa_required" && "要ビザ"}
                   </span>
-                  {country.visaRequirement.duration && (
-                    <span className="ml-2 text-xs text-gray-500">
-                      最大{country.visaRequirement.duration}日間
+                  
+                  {country.visaRequirement.evisaAvailable && (
+                    <span
+                      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+                      style={{
+                        backgroundColor: visaStatusColors.evisa.light,
+                        color: visaStatusColors.evisa.main,
+                      }}
+                    >
+                      電子ビザ利用可
                     </span>
                   )}
-                </p>
+                </div>
               </div>
               <svg
                 className="h-5 w-5 text-gray-400 transition-colors group-hover:text-gray-900"

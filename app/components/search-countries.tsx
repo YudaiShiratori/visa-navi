@@ -67,20 +67,31 @@ export function SearchCountries() {
             <Link
               key={country.id}
               to={`/map/country/${country.id.toLowerCase()}`}
-              className="flex items-center space-x-3 border-b border-gray-100 px-4 py-3 hover:bg-gray-50"
+              className="flex items-center justify-between border-b border-gray-100 px-4 py-3 hover:bg-gray-50"
               onClick={() => setIsExpanded(false)}
             >
               <div className="flex-1">
                 <div className="font-medium">{country.name}</div>
                 <div
-                  className="text-sm"
-                  style={{ color: visaStatusColors[country.visaRequirement.type].main }}
+                  className="mt-1 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+                  style={{
+                    backgroundColor: visaStatusColors[country.visaRequirement.type].light,
+                    color: visaStatusColors[country.visaRequirement.type].main,
+                  }}
                 >
-                  {country.visaRequirement.type === "visa_free" && `ビザ免除 ${country.visaRequirement.duration}日`}
+                  {country.visaRequirement.type === "visa_free" && "ビザ免除"}
                   {country.visaRequirement.type === "evisa" && "電子ビザ"}
                   {country.visaRequirement.type === "visa_required" && "要ビザ"}
                 </div>
               </div>
+              {country.visaRequirement.duration && (
+                <div className="ml-4 text-right">
+                  <div className="text-lg font-bold text-gray-900">
+                    {country.visaRequirement.duration}
+                    <span className="ml-1 text-sm">日間</span>
+                  </div>
+                </div>
+              )}
             </Link>
           ))}
         </div>
