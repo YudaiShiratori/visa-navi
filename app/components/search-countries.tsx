@@ -1,11 +1,16 @@
-import { useState, useMemo } from "react";
 import { Link } from "@remix-run/react";
-import { countries } from "~/data/countries";
+import { useState, useMemo } from "react";
+
 import { visaStatusColors } from "~/constants/colors";
+import { countries } from "~/data/countries";
 
 // ひらがな・カタカナ変換用のマッピング
 const kanaMap: { [key: string]: string } = {
-  'あ': 'ア', 'い': 'イ', 'う': 'ウ', 'え': 'エ', 'お': 'オ',
+  あ: "ア",
+  い: "イ",
+  う: "ウ",
+  え: "エ",
+  お: "オ",
   // ... 他のひらがな・カタカナのマッピング
 };
 
@@ -13,7 +18,7 @@ function convertToComparableString(str: string): string {
   // ひらがなをカタカナに変換
   let result = str;
   Object.entries(kanaMap).forEach(([hiragana, katakana]) => {
-    result = result.replace(new RegExp(hiragana, 'g'), katakana);
+    result = result.replace(new RegExp(hiragana, "g"), katakana);
   });
   return result.toLowerCase();
 }
@@ -24,11 +29,11 @@ export function SearchCountries() {
 
   const filteredCountries = useMemo(() => {
     if (!searchQuery) return [];
-    
+
     const normalizedQuery = convertToComparableString(searchQuery);
-    
+
     return countries
-      .filter(country => {
+      .filter((country) => {
         const normalizedName = convertToComparableString(country.name);
         return normalizedName.includes(normalizedQuery);
       })
@@ -98,4 +103,4 @@ export function SearchCountries() {
       )}
     </div>
   );
-} 
+}

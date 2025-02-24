@@ -34,20 +34,12 @@ export const countries: Country[] = [
       type: "visa_free",
       duration: 30,
     },
-    conditions: [
-      "パスポートの残存有効期間が6ヶ月以上必要",
-      "観光目的のみ"
-    ],
-    documents: [
-      "有効なパスポート",
-      "帰国便の予約証明"
-    ],
-    notes: [
-      "30日を超える滞在にはビザの取得が必要"
-    ],
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "観光目的のみ"],
+    documents: ["有効なパスポート", "帰国便の予約証明"],
+    notes: ["30日を超える滞在にはビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/thailand.html",
-      embassy: "https://www.thaiembassy.jp/"
+      embassy: "https://www.thaiembassy.jp/",
     },
     lastUpdated: "2024-03-20",
   },
@@ -59,15 +51,10 @@ export const countries: Country[] = [
       type: "evisa",
       duration: 30,
     },
-    conditions: [
-      "パスポートの残存有効期間が6ヶ月以上必要"
-    ],
-    documents: [
-      "有効なパスポート",
-      "電子ビザの申請書"
-    ],
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    documents: ["有効なパスポート", "電子ビザの申請書"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/vietnam.html"
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/vietnam.html",
     },
     lastUpdated: "2024-03-20",
   },

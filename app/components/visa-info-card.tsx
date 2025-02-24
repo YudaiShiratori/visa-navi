@@ -22,7 +22,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
     <div className="overflow-hidden rounded-xl bg-white shadow-lg">
       {/* ヘッダー */}
       <div className="relative bg-gradient-to-r from-[#007AFF] to-[#0066DD] px-6 py-8 sm:px-8 sm:py-10">
-        <h1 className="text-center text-md font-bold text-white sm:text-3xl">{country.name}</h1>
+        <h1 className="text-md text-center font-bold text-white sm:text-3xl">{country.name}</h1>
       </div>
 
       {/* ビザステータス */}
@@ -42,7 +42,10 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           {country.visaRequirement.purpose && (
             <div className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-5 sm:gap-3">
               {country.visaRequirement.purpose.map((p) => (
-                <span key={p} className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 sm:px-4 sm:py-1.5 sm:text-base">
+                <span
+                  key={p}
+                  className="rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 sm:px-4 sm:py-1.5 sm:text-base"
+                >
                   {p === "tourism" ? "観光" : p === "business" ? "商用" : "乗り継ぎ"}
                 </span>
               ))}
@@ -57,7 +60,10 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">必要条件</h2>
           <ul className="space-y-3">
             {country.conditions.map((condition, i) => (
-              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+              <li
+                key={i}
+                className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg"
+              >
                 <span className="mt-1 text-blue-500">•</span>
                 {condition}
               </li>
@@ -72,7 +78,10 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">必要書類</h2>
           <ul className="space-y-3">
             {country.documents.map((doc, i) => (
-              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+              <li
+                key={i}
+                className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg"
+              >
                 <span className="mt-1 text-green-500">✓</span>
                 {doc}
               </li>
@@ -87,7 +96,10 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           <h2 className="mb-4 text-xl font-bold text-gray-800 sm:mb-5 sm:text-2xl">注意事項</h2>
           <ul className="space-y-3">
             {country.notes.map((note, i) => (
-              <li key={i} className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg">
+              <li
+                key={i}
+                className="flex items-start gap-2 text-base text-gray-700 sm:gap-3 sm:text-lg"
+              >
                 <span className="mt-1 text-yellow-500">!</span>
                 {note}
               </li>

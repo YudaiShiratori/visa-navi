@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import type { RegionId } from "~/constants/colors";
+
 import { regionColors } from "~/constants/colors";
+
+import type { RegionId } from "~/constants/colors";
 import type { Country } from "~/data/countries";
 
 interface WorldMapProps {
@@ -10,11 +12,26 @@ interface WorldMapProps {
 }
 
 const regionBounds: Record<RegionId, [[number, number], [number, number]]> = {
-  asia: [[15, 35], [50, 150]],
-  europe: [[35, -10], [70, 40]],
-  americas: [[-55, -130], [70, -30]],
-  oceania: [[-45, 110], [0, 180]],
-  africa: [[-35, -20], [35, 50]],
+  asia: [
+    [15, 35],
+    [50, 150],
+  ],
+  europe: [
+    [35, -10],
+    [70, 40],
+  ],
+  americas: [
+    [-55, -130],
+    [70, -30],
+  ],
+  oceania: [
+    [-45, 110],
+    [0, 180],
+  ],
+  africa: [
+    [-35, -20],
+    [35, 50],
+  ],
 };
 
 export function WorldMap({ region }: WorldMapProps) {
@@ -65,4 +82,4 @@ export function WorldMap({ region }: WorldMapProps) {
       </MapContainer>
     </div>
   );
-} 
+}

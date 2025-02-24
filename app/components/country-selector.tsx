@@ -3,7 +3,6 @@ import { useState } from "react";
 
 import { visaStatusColors } from "~/constants/colors";
 
-
 import { ClientOnly } from "./client-only";
 import { WorldMap } from "./world-map";
 
@@ -24,13 +23,10 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
   const filteredCountries = countries
     .filter((country) => {
       // 検索フィルター
-      const matchesSearch = country.name
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase());
+      const matchesSearch = country.name.toLowerCase().includes(searchQuery.toLowerCase());
 
       // ビザ要件フィルター
-      const matchesVisa =
-        visaFilter === "all" || country.visaRequirement.type === visaFilter;
+      const matchesVisa = visaFilter === "all" || country.visaRequirement.type === visaFilter;
 
       return matchesSearch && matchesVisa;
     })
@@ -47,10 +43,7 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
     <div className="space-y-8">
       <div className="relative mx-auto aspect-[2/1] w-full max-w-3xl overflow-hidden rounded-2xl bg-blue-50 shadow-lg">
         <ClientOnly>
-          <WorldMap
-            region={region}
-            countries={countries}
-          />
+          <WorldMap region={region} countries={countries} />
         </ClientOnly>
       </div>
 
@@ -88,9 +81,7 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
       </div>
 
       {/* 検索結果カウント */}
-      <div className="text-sm text-gray-600">
-        {filteredCountries.length}カ国が見つかりました
-      </div>
+      <div className="text-sm text-gray-600">{filteredCountries.length}カ国が見つかりました</div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredCountries.map((country) => (
@@ -109,8 +100,8 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
                 <div className="flex items-center gap-3">
                   <h3 className="text-lg font-semibold">{country.name}</h3>
                   {country.visaRequirement.duration && (
-                    <div 
-                      className="text-lg font-bold" 
+                    <div
+                      className="text-lg font-bold"
                       style={{ color: visaStatusColors[country.visaRequirement.type].main }}
                     >
                       {country.visaRequirement.duration}
@@ -130,7 +121,7 @@ export function CountrySelector({ region, countries }: CountrySelectorProps) {
                     {country.visaRequirement.type === "evisa" && "電子ビザ"}
                     {country.visaRequirement.type === "visa_required" && "要ビザ"}
                   </span>
-                  
+
                   {country.visaRequirement.evisaAvailable && (
                     <span
                       className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"

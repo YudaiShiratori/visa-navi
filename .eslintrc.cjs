@@ -15,19 +15,20 @@ module.exports = {
   },
 
   // Base config
-  extends: ["eslint:recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "prettier"
+  ],
 
   overrides: [
     // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
       plugins: ["react", "jsx-a11y"],
-      extends: [
-        "plugin:react/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-      ],
       settings: {
         react: {
           version: "detect",
@@ -79,10 +80,11 @@ module.exports = {
           },
         ],
         "import/no-named-as-default-member": "off",
-        "@typescript-eslint/no-explicit-any": "off", // any型を許可
-        "@typescript-eslint/no-unsafe-member-access": "off", // anyプロパティへのアクセスを許可
-        "@typescript-eslint/no-unsafe-assignment": "off", // any型の代入を許可
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
         "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "@typescript-eslint/no-unused-vars": "warn",
       },
     },
 

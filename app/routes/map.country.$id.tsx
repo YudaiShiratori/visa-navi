@@ -1,13 +1,13 @@
 import { json, type LoaderFunctionArgs } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 
+import { Header } from "../components/header";
 import { VisaInfoCard } from "../components/visa-info-card";
 import { getCountryById } from "../data/countries";
-import { Header } from "../components/header";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { id } = params;
-  console.log('Loading country:', id);
+  console.log("Loading country:", id);
 
   if (!id) {
     throw new Response("国が指定されていません", { status: 404 });
@@ -19,7 +19,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   }
 
   const country = getCountryById(id.toLowerCase());
-  console.log('Found country:', country);
+  console.log("Found country:", country);
 
   if (!country) {
     throw new Response("指定された国は存在しません", { status: 404 });
@@ -30,17 +30,14 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function CountryRoute() {
   const { country } = useLoaderData<typeof loader>();
-  console.log('Rendering country:', country);
+  console.log("Rendering country:", country);
 
   return (
     <div>
       <Header />
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <Link
-            to={`/map/${country.region}`}
-            className="text-sm text-blue-600 hover:text-blue-800"
-          >
+          <Link to={`/map/${country.region}`} className="text-sm text-blue-600 hover:text-blue-800">
             ← 地域選択に戻る
           </Link>
         </div>
@@ -48,4 +45,4 @@ export default function CountryRoute() {
       </div>
     </div>
   );
-} 
+}

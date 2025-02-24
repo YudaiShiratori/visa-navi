@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import type { RegionId } from "~/constants/colors";
+
 import { regionColors } from "~/constants/colors";
+
+import type { RegionId } from "~/constants/colors";
 
 interface Region {
   id: RegionId;
@@ -41,7 +43,9 @@ export function RegionMap({ regions, activeRegion, setActiveRegion }: RegionMapP
       <div
         className="absolute inset-0 z-10"
         style={{
-          backgroundColor: activeRegion ? regionColors[activeRegion as RegionId].light : "transparent",
+          backgroundColor: activeRegion
+            ? regionColors[activeRegion as RegionId].light
+            : "transparent",
           opacity: 0.3,
           pointerEvents: "none",
           transition: "background-color 0.3s ease",
@@ -53,6 +57,20 @@ export function RegionMap({ regions, activeRegion, setActiveRegion }: RegionMapP
         className="h-full w-full"
         scrollWheelZoom={false}
         zoomControl={false}
+        onMouseOver={(e: { latlng: { lat: any; lng: any } }) => {
+          const lat = e.latlng.lat;
+          const lng = e.latlng.lng;
+
+          const region = regions.find((r) => {
+            const [[south, west], [north, east]] = r.bounds;
+            return lat >= south && lat <= north && lng >= west && lng <= east;
+          });
+
+          if (region) {
+            setActiveRegion(region.id);
+          }
+        }}
+        onMouseOut={() => setActiveRegion(null)}
       >
         <TileLayer
           url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager_labels_under/{z}/{x}/{y}.png"
@@ -62,4 +80,4 @@ export function RegionMap({ regions, activeRegion, setActiveRegion }: RegionMapP
       </MapContainer>
     </div>
   );
-} 
+}

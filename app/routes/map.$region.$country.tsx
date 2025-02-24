@@ -9,7 +9,7 @@ const validRegions = ["asia", "europe", "americas", "oceania", "africa", "middle
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { region, country: countryId } = params;
-  console.log('Loading country:', countryId, 'in region:', region);
+  console.log("Loading country:", countryId, "in region:", region);
 
   // リージョンの検証
   if (!region || !validRegions.includes(region)) {
@@ -26,7 +26,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
   }
 
   const country = getCountryById(countryId.toLowerCase());
-  console.log('Found country:', country);
+  console.log("Found country:", country);
 
   if (!country) {
     throw new Response("指定された国は存在しません", { status: 404 });
@@ -42,7 +42,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function CountryRoute() {
   const { country } = useLoaderData<typeof loader>();
-  console.log('Rendering country:', country);
+  console.log("Rendering country:", country);
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -1,7 +1,9 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
-import { ClientOnly } from "./client-only";
+
 import { type RegionId, regionColors } from "~/constants/colors";
+
+import { ClientOnly } from "./client-only";
 import { RegionMap } from "./region-map";
 
 interface Region {
@@ -14,27 +16,42 @@ const regions: Region[] = [
   {
     id: "asia",
     name: "アジア",
-    bounds: [[15, 35], [50, 150]],
+    bounds: [
+      [15, 35],
+      [50, 150],
+    ],
   },
   {
     id: "europe",
     name: "ヨーロッパ",
-    bounds: [[35, -10], [70, 40]],
+    bounds: [
+      [35, -10],
+      [70, 40],
+    ],
   },
   {
     id: "americas",
     name: "南北アメリカ",
-    bounds: [[-55, -130], [70, -30]],
+    bounds: [
+      [-55, -130],
+      [70, -30],
+    ],
   },
   {
     id: "oceania",
     name: "オセアニア",
-    bounds: [[-45, 110], [0, 180]],
+    bounds: [
+      [-45, 110],
+      [0, 180],
+    ],
   },
   {
     id: "africa",
     name: "アフリカ",
-    bounds: [[-35, -20], [35, 50]],
+    bounds: [
+      [-35, -20],
+      [35, 50],
+    ],
   },
 ];
 
