@@ -10,12 +10,11 @@ interface WorldMapProps {
 }
 
 const regionBounds: Record<RegionId, [[number, number], [number, number]]> = {
-  asia: [[15, 70], [50, 150]],
+  asia: [[15, 35], [50, 150]],
   europe: [[35, -10], [70, 40]],
   americas: [[-55, -130], [70, -30]],
   oceania: [[-45, 110], [0, 180]],
   africa: [[-35, -20], [35, 50]],
-  "middle-east": [[12, 35], [42, 65]],
 };
 
 export function WorldMap({ region }: WorldMapProps) {

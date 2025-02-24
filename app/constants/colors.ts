@@ -1,4 +1,4 @@
-export type RegionId = "asia" | "europe" | "americas" | "oceania" | "africa" | "middle-east";
+export type RegionId = "asia" | "europe" | "americas" | "oceania" | "africa";
 
 interface RegionColor {
   main: string;
@@ -31,11 +31,6 @@ export const regionColors: Record<RegionId, RegionColor> = {
     main: "#FCC419", // 黄色 - サハラ砂漠のイメージ
     light: "#FCC41915",
     hover: "#F59F00",
-  },
-  "middle-east": {
-    main: "#CFA8FF", // 紫系 - アラビアンナイトのイメージ
-    light: "#CFA8FF15",
-    hover: "#BE8EFF",
   },
 };
 

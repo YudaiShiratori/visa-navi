@@ -14,7 +14,7 @@ const regions: Region[] = [
   {
     id: "asia",
     name: "アジア",
-    bounds: [[0, 60], [60, 150]],
+    bounds: [[15, 35], [50, 150]],
   },
   {
     id: "europe",
@@ -35,11 +35,6 @@ const regions: Region[] = [
     id: "africa",
     name: "アフリカ",
     bounds: [[-35, -20], [35, 50]],
-  },
-  {
-    id: "middle-east",
-    name: "中東",
-    bounds: [[12, 35], [42, 65]],
   },
 ];
 
