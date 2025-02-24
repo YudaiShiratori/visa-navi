@@ -12,11 +12,13 @@ import {
 
 import { getUser } from "~/session.server";
 import stylesheet from "~/tailwind.css";
+import leafletStyles from "leaflet/dist/leaflet.css";
 
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: leafletStyles },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
   {
     rel: "stylesheet",

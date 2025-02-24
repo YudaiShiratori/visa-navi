@@ -1,44 +1,45 @@
 import { Link } from "@remix-run/react";
 import { useState } from "react";
-
+import { ClientOnly } from "./client-only";
 import { type RegionId, regionColors } from "~/constants/colors";
+import { RegionMap } from "./region-map";
 
 interface Region {
   id: RegionId;
   name: string;
-  coords: string;
+  bounds: [[number, number], [number, number]];
 }
 
 const regions: Region[] = [
   {
     id: "asia",
     name: "アジア",
-    coords: "430,100,650,300",
+    bounds: [[0, 60], [60, 150]],
   },
   {
     id: "europe",
     name: "ヨーロッパ",
-    coords: "280,80,420,200",
+    bounds: [[35, -10], [70, 40]],
   },
   {
     id: "americas",
     name: "南北アメリカ",
-    coords: "50,50,220,420",
+    bounds: [[-55, -130], [70, -30]],
   },
   {
     id: "oceania",
     name: "オセアニア",
-    coords: "530,300,680,420",
+    bounds: [[-45, 110], [0, 180]],
   },
   {
     id: "africa",
     name: "アフリカ",
-    coords: "270,200,400,420",
+    bounds: [[-35, -20], [35, 50]],
   },
   {
     id: "middle-east",
     name: "中東",
-    coords: "400,180,500,280",
+    bounds: [[12, 35], [42, 65]],
   },
 ];
 
@@ -47,54 +48,14 @@ export function MapSelector() {
 
   return (
     <div className="space-y-8">
-      <div className="relative mx-auto h-[500px] w-full max-w-3xl overflow-hidden rounded-2xl bg-blue-50 shadow-lg">
-        <div className="relative h-full w-full">
-          <img
-            src="/images/world-map.png"
-            alt="世界地図"
-            className="h-full w-full object-cover transition-opacity duration-300"
-            useMap="#worldmap"
+      <div className="relative mx-auto aspect-[2/1] w-full max-w-3xl overflow-hidden rounded-2xl bg-blue-50 shadow-lg">
+        <ClientOnly>
+          <RegionMap
+            regions={regions}
+            activeRegion={activeRegion}
+            setActiveRegion={setActiveRegion}
           />
-          <map name="worldmap">
-            {regions.map((region) => (
-              <area
-                key={region.id}
-                shape="rect"
-                coords={region.coords}
-                href={`/map/${region.id}`}
-                alt={region.name}
-                onMouseEnter={() => setActiveRegion(region.id)}
-                onMouseLeave={() => setActiveRegion(null)}
-              />
-            ))}
-          </map>
-          {activeRegion ? (
-            <div
-              className="animate-fade-in pointer-events-none absolute"
-              style={{
-                top: regions.find((r) => r.id === activeRegion)?.coords.split(",")[1] + "px",
-                left: regions.find((r) => r.id === activeRegion)?.coords.split(",")[0] + "px",
-                width: `${
-                  parseInt(
-                    regions.find((r) => r.id === activeRegion)?.coords.split(",")[2] || "0"
-                  ) -
-                  parseInt(regions.find((r) => r.id === activeRegion)?.coords.split(",")[0] || "0")
-                }px`,
-                height: `${
-                  parseInt(
-                    regions.find((r) => r.id === activeRegion)?.coords.split(",")[3] || "0"
-                  ) -
-                  parseInt(regions.find((r) => r.id === activeRegion)?.coords.split(",")[1] || "0")
-                }px`,
-                backgroundColor: regionColors[activeRegion as keyof typeof regionColors].light,
-                border: `2px solid ${regionColors[activeRegion as keyof typeof regionColors].main}`,
-                borderRadius: "12px",
-                boxShadow: `0 0 20px ${regionColors[activeRegion as keyof typeof regionColors].hover}30`,
-                transition: "all 0.3s ease-in-out",
-              }}
-            />
-          ) : null}
-        </div>
+        </ClientOnly>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -122,10 +83,6 @@ export function MapSelector() {
                 クリックして{region.name}の国を選択
               </p>
             </div>
-            <div
-              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-5"
-              style={{ backgroundColor: regionColors[region.id].hover }}
-            />
           </Link>
         ))}
       </div>

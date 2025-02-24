@@ -2,7 +2,9 @@ import { Link } from "@remix-run/react";
 
 import { visaStatusColors } from "~/constants/colors";
 
-import { InteractiveMap } from "./interactive-map";
+
+import { ClientOnly } from "./client-only";
+import { WorldMap } from "./world-map";
 
 import type { Country } from "~/data/countries";
 
@@ -14,7 +16,14 @@ interface CountrySelectorProps {
 export function CountrySelector({ region, countries }: CountrySelectorProps) {
   return (
     <div className="space-y-8">
-      <InteractiveMap region={region} countries={countries} />
+      <div className="relative mx-auto aspect-[2/1] w-full max-w-3xl overflow-hidden rounded-2xl bg-blue-50 shadow-lg">
+        <ClientOnly>
+          <WorldMap
+            region={region}
+            countries={countries}
+          />
+        </ClientOnly>
+      </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {countries.map((country) => (
