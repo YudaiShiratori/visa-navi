@@ -30,7 +30,7 @@ export default function Index() {
               to="/map"
               className="inline-block rounded-lg bg-blue-600 px-8 py-4 text-lg font-medium text-white transition hover:bg-blue-700"
             >
-              地域を選択する →
+              ビザ情報を調べる →
             </Link>
           </div>
         </div>
