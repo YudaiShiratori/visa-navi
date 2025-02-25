@@ -9,4 +9,6 @@ export default {
     v3_singleFetch: true,
     v3_throwAbortReason: true,
   },
+  publicPath: "/build/",
+  assetsBuildDirectory: "public/build",
 };
