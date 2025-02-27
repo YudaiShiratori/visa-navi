@@ -15,7 +15,8 @@
     "test": "vitest --passWithNoTests",
     "test:e2e": "cypress open",
     "typecheck": "tsc && tsc -p cypress",
-    "validate": "npm-run-all --parallel \"test -- --run\" lint typecheck test:e2e"
+    "validate": "npm-run-all --parallel \"test -- --run\" lint typecheck test:e2e",
+    "prepare": "husky install"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -73,6 +74,8 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-testing-library": "^7.0.0",
     "happy-dom": "^15.11.6",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.4.3",
     "msw": "^2.6.6",
     "npm-run-all2": "^7.0.1",
     "postcss": "^8.4.49",
@@ -88,5 +91,11 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   }
 }
