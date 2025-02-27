@@ -15,7 +15,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response("国が見つかりません", { status: 404 });
   }
 
-  return Response.json({ country });
+  // jsonヘルパーの代わりにResponseオブジェクトを直接使用
+  return new Response(JSON.stringify({ country }), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 }
 
 export default function CountryDetail() {
