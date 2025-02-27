@@ -11,4 +11,7 @@ export default {
   },
   publicPath: "/build/",
   assetsBuildDirectory: "public/build",
+  mdx: {
+    resolveMdx: true,
+  },
 };
