@@ -14,7 +14,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
   // リージョンの検証
   if (!region || !validRegions.includes(region)) {
-    throw new Response("無効な地域です", { status: 404 });
+    throw new Response("無効なです", { status: 404 });
   }
 
   const countries = getCountriesByRegion(region);

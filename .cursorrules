@@ -34,16 +34,23 @@
    - 問題発生時の解決策提案を含めた迅速な報告
 ## 技術スタックと制約
 ### コア技術
-- TypeScript: ^5.0.0
-- Node.js: ^20.0.0
+- TypeScript: ^5.1.6
+- Node.js: ^18.x
 ### フロントエンド
-- Next.js: ^15.1.3
-- React: ^19.0.0
-- Tailwind CSS: ^3.4.17
-- shadcn/ui: ^2.1.8
-### バックエンド
-- SQLite: ^3.0.0
-- Prisma: ^5.0.0
+- Remix: ^2.16.0
+- React: ^18.3.1
+- React DOM: ^18.3.1
+- Tailwind CSS: ^3.4.15
+### マップ関連
+- Leaflet: ^1.9.4
+- React Leaflet: ^4.2.1
+- React Simple Maps: ^1.0.0
+- Topojson Client: ^3.1.0
+### 開発ツール
+- ESLint: ^8.57.1
+- Prettier: ^3.3.3
+- Vitest: ^3.0.7
+- Cypress: ^13.16.0
 ## 品質管理プロトコル
 ### 1. コード品質
 - TypeScriptの厳格な型チェック
@@ -63,27 +70,35 @@
 - 一貫したデザインシステムの維持
 ## プロジェクト構造規約
 
-new/
-├── src/
-│   ├── app/                 # ページコンポーネント
-│   │   └── api/            # APIルート
-│   ├── components/          # 再利用可能なコンポーネント
-│   │   ├── ui/             # 基本UI要素
-│   │   └── layout/         # レイアウトコンポーネント
-│   ├── lib/                # ユーティリティ関数とヘルパー
-│   │   ├── prisma/         # Prismaクライアント
-│   │   └── utils/          # 汎用ユーティリティ
+visa-navi/
+├── app/                    # アプリケーションのメインディレクトリ
+│   ├── components/         # 再利用可能なコンポーネント
+│   ├── constants/          # 定数定義
+│   ├── data/               # データ関連ファイル
+│   ├── routes/             # Remixのルート定義
+│   ├── styles/             # スタイル関連ファイル
 │   ├── types/              # TypeScript型定義
-│   └── styles/             # グローバルスタイル
-├── prisma/                  # Prismaスキーマと設定
-└── public/                  # 静的アセット
+│   ├── utils/              # ユーティリティ関数
+│   ├── entry.client.tsx    # クライアントエントリーポイント
+│   ├── entry.server.tsx    # サーバーエントリーポイント
+│   ├── root.tsx            # ルートコンポーネント
+│   └── tailwind.css        # Tailwind CSSのエントリーポイント
+├── public/                 # 静的アセット
+├── build/                  # ビルド出力ディレクトリ
+├── cypress/                # E2Eテスト
+├── mocks/                  # モックデータ
+└── test/                   # テストファイル
 
 ## 重要な制約
 1. コード配置
-   - 共通処理は src/lib/utils/ に配置
-   - UIコンポーネントは src/components/ui/ に配置
-   - APIエンドポイントは src/app/api/[endpoint]/route.ts に配置
-   - Prisma関連の処理は src/lib/prisma/ に配置
+   - ルートコンポーネントは app/routes/ に配置
+   - 共通コンポーネントは app/components/ に配置
+   - ユーティリティ関数は app/utils/ に配置
+   - 型定義は app/types/ に配置
+2. ルーティング規約
+   - ファイル名に基づくルーティング（Remixの規約に従う）
+   - _index.tsx はルートパスのコンポーネント
+   - $param.tsx は動的パラメータを含むルート
 ## 実装プロセス
 ### 1. 初期分析フェーズ
 markdown
@@ -101,9 +116,9 @@ markdown
 - 継続的な検証
 - コード品質の維持
 ### 3. 検証フェーズ
-- 単体テスト
+- 単体テスト（Vitest）
 - 統合テスト
-- パフォーマンステスト
+- E2Eテスト（Cypress）
 ### 4. 最終確認
 - 要件との整合性
 - コード品質
