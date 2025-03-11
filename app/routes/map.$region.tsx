@@ -29,7 +29,7 @@ export default function RegionRoute() {
       <Header />
       <div className="py-8">
         <div className="mb-8">
-          <Link to="/map" className="text-sm text-blue-600 hover:text-blue-800">
+          <Link to="/" className="text-sm text-blue-600 hover:text-blue-800">
             ← 地域選択に戻る
           </Link>
         </div>

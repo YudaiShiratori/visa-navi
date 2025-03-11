@@ -1,4 +1,10 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import {
+  Link,
+  useLoaderData,
+  useRouteError,
+  isRouteErrorResponse,
+  useNavigate,
+} from "@remix-run/react";
 import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useState } from "react";
 
 import { Header } from "~/components/header";
@@ -26,10 +32,16 @@ export async function loader({ params }: LoaderFunctionArgs) {
 export default function CountryDetail() {
   const { country } = useLoaderData<typeof loader>();
   const [activeTab, setActiveTab] = useState<"info" | "conditions" | "links">("info");
+  const navigate = useNavigate();
 
   // ビザステータスに基づく色を取得
   const statusColor =
     visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
+
+  // 前の画面に戻る関数
+  const goBack = () => {
+    navigate(-1);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -38,8 +50,8 @@ export default function CountryDetail() {
       <div className="px-4 pb-16 pt-24">
         <div className="container mx-auto max-w-4xl">
           {/* 戻るリンク */}
-          <Link
-            to="/map"
+          <button
+            onClick={goBack}
             className="group mb-6 inline-flex items-center text-gray-600 transition-colors hover:text-blue-600"
           >
             <span className="mr-2 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-sm transition-colors group-hover:bg-blue-50">
@@ -52,8 +64,8 @@ export default function CountryDetail() {
                 />
               </svg>
             </span>
-            地図に戻る
-          </Link>
+            戻る
+          </button>
 
           {/* メインカード */}
           <div className="overflow-hidden rounded-2xl bg-white shadow-lg">
