@@ -7,7 +7,26 @@ import { SearchCountries } from "~/components/search-countries";
 
 import type { MetaFunction } from "@remix-run/node";
 
-export const meta: MetaFunction = () => [{ title: "ビザ免除情報チェッカー" }];
+export const meta: MetaFunction = () => {
+  const title = "ビザ免除情報チェッカー | 日本人旅行者向けビザ情報";
+  const description =
+    "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。";
+  const url = "https://visa-navi.example.com";
+
+  return [
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: url },
+    { property: "og:image", content: `${url}/images/og-image.jpg` },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    { name: "twitter:image", content: `${url}/images/og-image.jpg` },
+    { tagName: "link", rel: "canonical", href: url },
+  ];
+};
 
 export default function Index() {
   return (
@@ -118,6 +137,26 @@ export default function Index() {
           </div>
         </div>
       </footer>
+
+      {/* JSON-LD 構造化データ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "ビザ免除情報チェッカー",
+            url: "https://visa-navi.example.com",
+            description:
+              "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://visa-navi.example.com/search?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }

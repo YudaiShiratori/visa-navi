@@ -9,9 +9,52 @@ import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useSt
 
 import { Header } from "~/components/header";
 import { visaStatusColors } from "~/constants/colors";
-import { countries } from "~/data/countries";
+import { countries, type Country as CountryType } from "~/data/countries";
 
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction, json } from "@remix-run/node";
+
+// 拡張したCountry型（実際のデータに追加のプロパティがある場合）
+interface Country extends CountryType {
+  additionalInfo?: string;
+}
+
+interface CountryData {
+  country: Country;
+}
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  if (!data) {
+    return [
+      { title: "国が見つかりません | ビザ免除情報チェッカー" },
+      { name: "description", content: "指定された国の情報が見つかりませんでした。" },
+    ];
+  }
+
+  const { country } = data;
+  const title = `${country.name}のビザ情報 | ビザ免除情報チェッカー`;
+  const description = `日本人旅行者向けの${country.name}のビザ情報。${country.name}のビザ要件、滞在可能日数、入国条件などを確認できます。`;
+  const url = `https://visa-navi.example.com/map/country/${country.id}`;
+
+  return [
+    { title },
+    { name: "description", content: description },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
+    { property: "og:url", content: url },
+    {
+      property: "og:image",
+      content: `https://visa-navi.example.com/images/countries/${country.id}.jpg`,
+    },
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:title", content: title },
+    { name: "twitter:description", content: description },
+    {
+      name: "twitter:image",
+      content: `https://visa-navi.example.com/images/countries/${country.id}.jpg`,
+    },
+    { tagName: "link", rel: "canonical", href: url },
+  ];
+};
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const countryId = params.id;
@@ -21,27 +64,30 @@ export async function loader({ params }: LoaderFunctionArgs) {
     throw new Response("国が見つかりません", { status: 404 });
   }
 
-  // jsonヘルパーの代わりにResponseオブジェクトを直接使用
-  return new Response(JSON.stringify({ country }), {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  // json関数を使用して型安全な応答を返す
+  return { country } as const;
 }
 
-export default function CountryDetail() {
-  const { country } = useLoaderData<typeof loader>();
-  const [activeTab, setActiveTab] = useState<"info" | "conditions" | "links">("info");
+// visaStatusColorsにデフォルト値を追加
+const defaultVisaStatus: (typeof visaStatusColors)["visa_required"] = {
+  main: "#6b7280", // グレー
+  light: "#6b728015", // 薄いグレー
+  hover: "#4b5563", // ホバー時のグレー
+};
+
+export default function CountryRoute() {
   const navigate = useNavigate();
+  const { country } = useLoaderData<typeof loader>();
+  const [activeTab, setActiveTab] = useState("info");
 
-  // ビザステータスに基づく色を取得
-  const statusColor =
-    visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
-
-  // 前の画面に戻る関数
   const goBack = () => {
     navigate(-1);
   };
+
+  // ビザステータスに基づいて色を決定
+  const statusColor =
+    visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors] ||
+    defaultVisaStatus;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -280,7 +326,8 @@ export default function CountryDetail() {
                     </div>
                   </div>
 
-                  {country.additionalInfo && (
+                  {/* 追加情報セクション - notesを使用 */}
+                  {country.notes && country.notes.length > 0 && (
                     <div className="rounded-xl border border-blue-100 bg-blue-50 p-6">
                       <h3 className="mb-4 flex items-center text-lg font-semibold text-gray-900">
                         <svg
@@ -299,7 +346,13 @@ export default function CountryDetail() {
                         追加情報
                       </h3>
 
-                      <p className="text-gray-700">{country.additionalInfo}</p>
+                      <ul className="list-disc pl-5 text-gray-700">
+                        {country.notes.map((note, index) => (
+                          <li key={index} className="mb-2">
+                            {note}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   )}
                 </div>
@@ -601,6 +654,33 @@ export default function CountryDetail() {
           </div>
         </div>
       </div>
+
+      {/* JSON-LD 構造化データ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TravelInformation",
+            name: `${country.name}のビザ情報`,
+            description: `日本人旅行者向けの${country.name}のビザ情報。${country.name}のビザ要件、滞在可能日数、入国条件などを確認できます。`,
+            url: `https://visa-navi.example.com/map/country/${country.id}`,
+            about: {
+              "@type": "Country",
+              name: country.name,
+            },
+            audience: {
+              "@type": "Audience",
+              audienceType: "日本人旅行者",
+            },
+            isPartOf: {
+              "@type": "WebSite",
+              name: "ビザ免除情報チェッカー",
+              url: "https://visa-navi.example.com",
+            },
+          }),
+        }}
+      />
     </div>
   );
 }
