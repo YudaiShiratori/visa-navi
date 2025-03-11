@@ -4,11 +4,13 @@
     "app/**/*.ts",
     "app/**/*.tsx",
     "app/types/**/*.d.ts",
-    "remix.env.d.ts"
+    "remix.env.d.ts",
+    "test/**/*.ts",
+    "test/**/*.d.ts"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",

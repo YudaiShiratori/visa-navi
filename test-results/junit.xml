@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="17" failures="0" errors="0" time="0.01885">
-    <testsuite name="app/components/Button.test.tsx" timestamp="2025-03-11T17:45:40.795Z" hostname="YudaiShiratorinoMacBook-Pro.local" tests="9" failures="0" errors="0" skipped="0" time="0.016909875">
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; renders children correctly" time="0.007336042">
+<testsuites name="vitest tests" tests="17" failures="0" errors="0" time="0.018205917">
+    <testsuite name="app/components/Button.test.tsx" timestamp="2025-03-11T18:02:04.540Z" hostname="YudaiShiratorinoMacBook-Pro.local" tests="9" failures="0" errors="0" skipped="0" time="0.015854917">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; renders children correctly" time="0.006834708">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; calls onClick when clicked" time="0.002579916">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; calls onClick when clicked" time="0.0023735">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies primary variant styles by default" time="0.001028292">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies primary variant styles by default" time="0.001050125">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies secondary variant styles when specified" time="0.000873791">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies secondary variant styles when specified" time="0.000829083">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies outline variant styles when specified" time="0.001032875">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies outline variant styles when specified" time="0.000872375">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies size classes correctly" time="0.001427">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies size classes correctly" time="0.001315">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies disabled styles when disabled" time="0.000616834">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies disabled styles when disabled" time="0.000590583">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies custom className" time="0.000632833">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; applies custom className" time="0.000638167">
         </testcase>
-        <testcase classname="app/components/Button.test.tsx" name="Button &gt; sets the correct button type" time="0.000745417">
+        <testcase classname="app/components/Button.test.tsx" name="Button &gt; sets the correct button type" time="0.000720667">
         </testcase>
     </testsuite>
-    <testsuite name="app/utils/string.test.ts" timestamp="2025-03-11T17:45:40.797Z" hostname="YudaiShiratorinoMacBook-Pro.local" tests="8" failures="0" errors="0" skipped="0" time="0.001940125">
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; toUpperCase &gt; should convert string to uppercase" time="0.000576375">
+    <testsuite name="app/utils/string.test.ts" timestamp="2025-03-11T18:02:04.540Z" hostname="YudaiShiratorinoMacBook-Pro.local" tests="8" failures="0" errors="0" skipped="0" time="0.002351">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; toUpperCase &gt; should convert string to uppercase" time="0.000683625">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; toLowerCase &gt; should convert string to lowercase" time="0.000113416">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; toLowerCase &gt; should convert string to lowercase" time="0.000202708">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; capitalize &gt; should capitalize the first letter of a string" time="0.000146208">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; capitalize &gt; should capitalize the first letter of a string" time="0.000157042">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; capitalize &gt; should handle empty strings" time="0.000065625">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; capitalize &gt; should handle empty strings" time="0.00006975">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; truncate &gt; should truncate string if it exceeds max length" time="0.000131125">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; truncate &gt; should truncate string if it exceeds max length" time="0.000134291">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; truncate &gt; should handle empty strings" time="0.0000515">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; truncate &gt; should handle empty strings" time="0.000049667">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; isValidUrl &gt; should return true for valid URLs" time="0.000123417">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; isValidUrl &gt; should return true for valid URLs" time="0.000133625">
         </testcase>
-        <testcase classname="app/utils/string.test.ts" name="string utils &gt; isValidUrl &gt; should return false for invalid URLs" time="0.000079916">
+        <testcase classname="app/utils/string.test.ts" name="string utils &gt; isValidUrl &gt; should return false for invalid URLs" time="0.000080791">
         </testcase>
     </testsuite>
 </testsuites>
