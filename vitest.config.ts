@@ -11,5 +11,23 @@ export default defineConfig({
     globals: true,
     environment: "happy-dom",
     setupFiles: ["./test/setup-test-env.ts"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "json", "html"],
+      exclude: [
+        "node_modules/",
+        "test/",
+        "**/*.d.ts",
+        "**/*.test.{ts,tsx}",
+        "cypress/",
+        "public/build/",
+      ],
+    },
+    reporters: ["default", "junit"],
+    outputFile: {
+      junit: "./test-results/junit.xml",
+    },
+    include: ["app/**/*.{test,spec}.{ts,tsx}"],
+    exclude: ["node_modules", "public/build/**/*"],
   },
 });
