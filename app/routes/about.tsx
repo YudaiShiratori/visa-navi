@@ -9,11 +9,11 @@ export const meta: MetaFunction = () => [{ title: "このサイトについて |
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
 
       {/* ヒーローセクション */}
-      <div className="px-4 pb-20 pt-28">
+      <div className="flex-grow px-4 pb-16 pt-8">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col items-center gap-12 md:flex-row">
             <div className="animate-slide-up space-y-6 md:w-1/2">
@@ -181,7 +181,7 @@ export default function About() {
       </div>
 
       {/* フッター */}
-      <footer className="bg-gray-900 py-12 text-white">
+      <footer className="mt-auto bg-gray-900 py-12 text-white">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="mb-6 md:mb-0">

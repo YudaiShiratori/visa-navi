@@ -25,9 +25,9 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="h-full bg-white">
-        <div className="relative flex min-h-screen flex-col">
-          <main className="flex-1">
+      <body className="flex h-full flex-col bg-white">
+        <div className="flex min-h-screen w-full flex-col">
+          <main className="flex-grow">
             <Outlet />
           </main>
         </div>

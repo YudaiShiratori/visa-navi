@@ -2,23 +2,8 @@ import { Link } from "@remix-run/react";
 import { useState, useEffect } from "react";
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <header
-      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 py-3 shadow-md backdrop-blur-sm" : "bg-transparent py-5"
-      }`}
-    >
+    <header className="bg-transparent py-5">
       <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/" className="group flex items-center space-x-2">
           <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 shadow-md transition-all duration-300 group-hover:shadow-lg">

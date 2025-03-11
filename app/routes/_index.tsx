@@ -11,10 +11,10 @@ export const meta: MetaFunction = () => [{ title: "ビザ免除情報チェッ�
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white pb-20">
+    <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
 
-      <div className="pb-12 pt-28">
+      <div className="flex-grow pb-16 pt-8">
         <div className="container mx-auto max-w-6xl px-4">
           <h1 className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-center text-4xl font-bold text-transparent">
             ビザ情報を調べる
@@ -70,7 +70,7 @@ export default function Index() {
       </div>
 
       {/* フッター */}
-      <footer className="bg-gray-900 py-12 text-white">
+      <footer className="mt-auto bg-gray-900 py-12 text-white">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="mb-6 md:mb-0">
@@ -96,7 +96,7 @@ export default function Index() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-6">
-              <Link to="/map" className="text-gray-300 transition-colors hover:text-white">
+              <Link to="/" className="text-gray-300 transition-colors hover:text-white">
                 ビザ情報を調べる
               </Link>
               <Link to="/about" className="text-gray-300 transition-colors hover:text-white">
