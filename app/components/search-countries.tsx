@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 
 import { visaStatusColors } from "~/constants/colors";
 import { countries } from "~/data/countries";
@@ -27,6 +27,40 @@ function convertToComparableString(str: string): string {
 export function SearchCountries() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 画面サイズの変更を検知
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    // 初期チェック
+    checkIfMobile();
+
+    // リサイズイベントのリスナー
+    window.addEventListener("resize", checkIfMobile);
+
+    // クリーンアップ
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
+
+  // 検索ボックス外のクリックを検知してドロップダウンを閉じる
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const filteredCountries = useMemo(() => {
     if (!searchQuery) return [];
@@ -60,12 +94,12 @@ export function SearchCountries() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={searchRef}>
       <div className="flex items-center">
         <input
           type="text"
           placeholder="国名で検索..."
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 pr-10"
+          className="w-full rounded-lg border border-gray-300 px-4 py-2 pr-10 text-sm sm:text-base"
           value={searchQuery}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setIsExpanded(true)}
@@ -86,7 +120,9 @@ export function SearchCountries() {
       </div>
 
       {isExpanded && filteredCountries.length > 0 && (
-        <div className="absolute z-50 mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg">
+        <div
+          className={`absolute z-30 mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg ${isMobile ? "max-h-[60vh] overflow-y-auto" : ""}`}
+        >
           {filteredCountries.map((country) => (
             <Link
               key={country.id}
@@ -98,9 +134,9 @@ export function SearchCountries() {
               }}
             >
               <div className="flex-1">
-                <div className="font-medium">{country.name}</div>
+                <div className="text-sm font-medium sm:text-base">{country.name}</div>
                 <div
-                  className="mt-1 inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium"
+                  className="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium"
                   style={{
                     backgroundColor: visaStatusColors[country.visaRequirement.type].light,
                     color: visaStatusColors[country.visaRequirement.type].main,
@@ -113,9 +149,9 @@ export function SearchCountries() {
               </div>
               {country.visaRequirement.duration && (
                 <div className="ml-4 text-right">
-                  <div className="text-lg font-bold text-gray-900">
+                  <div className="text-base font-bold text-gray-900 sm:text-lg">
                     {country.visaRequirement.duration}
-                    <span className="ml-1 text-sm">日間</span>
+                    <span className="ml-1 text-xs sm:text-sm">日間</span>
                   </div>
                 </div>
               )}

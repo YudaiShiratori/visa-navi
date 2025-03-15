@@ -97,6 +97,25 @@ export default function AnalyticsDashboard() {
     message?: string | null;
   }>();
   const [activeTab, setActiveTab] = useState<string>("overview");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 画面サイズの変更を検知
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // 初期チェック
+    checkIfMobile();
+
+    // リサイズイベントのリスナー
+    window.addEventListener("resize", checkIfMobile);
+
+    // クリーンアップ
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
 
   // ページビューの最大値を計算（グラフの高さの正規化に使用）
   const maxPageViews = Math.max(...analyticsData.pageViews.map((day) => day.count), 1);
@@ -105,29 +124,31 @@ export default function AnalyticsDashboard() {
     <div className="min-h-screen bg-gray-50">
       <Header showAdminLink={true} />
 
-      <div className="container mx-auto max-w-7xl px-4 py-8">
-        <h1 className="mb-8 text-3xl font-bold text-gray-800">アクセス解析ダッシュボード</h1>
+      <div className="container relative z-10 mx-auto max-w-7xl px-4 py-4 md:py-8">
+        <h1 className="mb-4 text-2xl font-bold text-gray-800 md:mb-8 md:text-3xl">
+          アクセス解析ダッシュボード
+        </h1>
 
         {error && (
-          <div className="mb-6 rounded-lg bg-red-50 p-4 text-red-700">
+          <div className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-700 md:mb-6 md:p-4 md:text-base">
             <p>{error}</p>
-            <p className="mt-2 text-sm">Google Analyticsの設定を確認してください。</p>
+            <p className="mt-2 text-xs md:text-sm">Google Analyticsの設定を確認してください。</p>
           </div>
         )}
 
         {message && (
-          <div className="mb-6 rounded-lg bg-yellow-50 p-4 text-yellow-700">
+          <div className="mb-4 rounded-lg bg-yellow-50 p-3 text-sm text-yellow-700 md:mb-6 md:p-4 md:text-base">
             <p>{message}</p>
-            <p className="mt-2 text-sm">
+            <p className="mt-2 text-xs md:text-sm">
               Google
               Analyticsのデータが収集されるまで時間がかかる場合があります。しばらく待ってから再度お試しください。
             </p>
           </div>
         )}
 
-        <div className="mb-6 flex space-x-4 border-b border-gray-200">
+        <div className="mb-4 flex space-x-2 overflow-x-auto border-b border-gray-200 pb-1 md:mb-6 md:space-x-4 md:pb-0">
           <button
-            className={`px-4 pb-4 ${
+            className={`whitespace-nowrap px-3 pb-2 text-sm md:px-4 md:pb-4 md:text-base ${
               activeTab === "overview"
                 ? "border-b-2 border-blue-500 font-medium text-blue-600"
                 : "text-gray-500 hover:text-gray-700"
@@ -137,7 +158,7 @@ export default function AnalyticsDashboard() {
             概要
           </button>
           <button
-            className={`px-4 pb-4 ${
+            className={`whitespace-nowrap px-3 pb-2 text-sm md:px-4 md:pb-4 md:text-base ${
               activeTab === "pages"
                 ? "border-b-2 border-blue-500 font-medium text-blue-600"
                 : "text-gray-500 hover:text-gray-700"
@@ -147,7 +168,7 @@ export default function AnalyticsDashboard() {
             ページビュー
           </button>
           <button
-            className={`px-4 pb-4 ${
+            className={`whitespace-nowrap px-3 pb-2 text-sm md:px-4 md:pb-4 md:text-base ${
               activeTab === "search"
                 ? "border-b-2 border-blue-500 font-medium text-blue-600"
                 : "text-gray-500 hover:text-gray-700"
@@ -157,7 +178,7 @@ export default function AnalyticsDashboard() {
             検索キーワード
           </button>
           <button
-            className={`px-4 pb-4 ${
+            className={`whitespace-nowrap px-3 pb-2 text-sm md:px-4 md:pb-4 md:text-base ${
               activeTab === "regions"
                 ? "border-b-2 border-blue-500 font-medium text-blue-600"
                 : "text-gray-500 hover:text-gray-700"
@@ -169,92 +190,106 @@ export default function AnalyticsDashboard() {
         </div>
 
         {activeTab === "overview" && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-4 text-xl font-semibold">過去7日間のページビュー</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <div className="rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-xl">
+                過去7日間のページビュー
+              </h2>
               {analyticsData.pageViews.length > 0 ? (
-                <div className="flex h-64 items-end space-x-2">
+                <div className="flex h-48 items-end space-x-1 md:h-64 md:space-x-2">
                   {analyticsData.pageViews.map((day) => (
                     <div key={day.date} className="flex flex-1 flex-col items-center">
                       <div
                         className="w-full rounded-t bg-blue-500"
                         style={{ height: `${(day.count / maxPageViews) * 100}%` }}
                       ></div>
-                      <div className="mt-2 text-xs text-gray-500">{day.date.split("-")[2]}</div>
+                      <div className="mt-1 text-xs text-gray-500 md:mt-2">
+                        {day.date.split("-")[2]}
+                      </div>
                       <div className="text-xs font-medium text-gray-700">{day.count}</div>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="flex h-64 items-center justify-center">
-                  <p className="text-gray-500">データがありません</p>
+                <div className="flex h-48 items-center justify-center md:h-64">
+                  <p className="text-sm text-gray-500 md:text-base">データがありません</p>
                 </div>
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-4 text-xl font-semibold">人気のページ</h2>
+            <div className="rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-xl">人気のページ</h2>
               {analyticsData.topPages.length > 0 ? (
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-sm md:space-y-4 md:text-base">
                   {analyticsData.topPages.map((page) => (
                     <li key={page.path} className="flex items-center justify-between">
-                      <span className="text-gray-700">{page.path}</span>
+                      <span className="truncate pr-2 text-gray-700" title={page.path}>
+                        {page.path}
+                      </span>
                       <span className="font-medium text-blue-600">{page.views}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-500">データがありません</p>
+                <p className="text-sm text-gray-500 md:text-base">データがありません</p>
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-4 text-xl font-semibold">人気の検索キーワード</h2>
+            <div className="rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-xl">
+                人気の検索キーワード
+              </h2>
               {analyticsData.topSearchTerms.length > 0 ? (
-                <ul className="space-y-4">
+                <ul className="space-y-2 text-sm md:space-y-4 md:text-base">
                   {analyticsData.topSearchTerms.map((term) => (
                     <li key={term.term} className="flex items-center justify-between">
-                      <span className="text-gray-700">{term.term}</span>
+                      <span className="truncate pr-2 text-gray-700" title={term.term}>
+                        {term.term}
+                      </span>
                       <span className="font-medium text-blue-600">{term.count}</span>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p className="text-gray-500">データがありません</p>
+                <p className="text-sm text-gray-500 md:text-base">データがありません</p>
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-4 text-xl font-semibold">人気の地域・国</h2>
-              <div className="space-y-6">
+            <div className="rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-3 text-lg font-semibold md:mb-4 md:text-xl">人気の地域・国</h2>
+              <div className="space-y-4 text-sm md:space-y-6 md:text-base">
                 <div>
-                  <h3 className="mb-2 text-lg font-medium">地域</h3>
+                  <h3 className="mb-2 text-base font-medium md:text-lg">地域</h3>
                   {analyticsData.topRegions.length > 0 ? (
-                    <ul className="space-y-2">
+                    <ul className="space-y-1 md:space-y-2">
                       {analyticsData.topRegions.map((region) => (
                         <li key={region.region} className="flex items-center justify-between">
-                          <span className="text-gray-700">{region.region}</span>
+                          <span className="truncate pr-2 text-gray-700" title={region.region}>
+                            {region.region}
+                          </span>
                           <span className="font-medium text-blue-600">{region.count}</span>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-gray-500">データがありません</p>
+                    <p className="text-sm text-gray-500 md:text-base">データがありません</p>
                   )}
                 </div>
                 <div>
-                  <h3 className="mb-2 text-lg font-medium">国</h3>
+                  <h3 className="mb-2 text-base font-medium md:text-lg">国</h3>
                   {analyticsData.topCountries.length > 0 ? (
-                    <ul className="space-y-2">
+                    <ul className="space-y-1 md:space-y-2">
                       {analyticsData.topCountries.map((country) => (
                         <li key={country.country} className="flex items-center justify-between">
-                          <span className="text-gray-700">{country.country}</span>
+                          <span className="truncate pr-2 text-gray-700" title={country.country}>
+                            {country.country}
+                          </span>
                           <span className="font-medium text-blue-600">{country.count}</span>
                         </li>
                       ))}
                     </ul>
                   ) : (
-                    <p className="text-gray-500">データがありません</p>
+                    <p className="text-sm text-gray-500 md:text-base">データがありません</p>
                   )}
                 </div>
               </div>
@@ -263,128 +298,166 @@ export default function AnalyticsDashboard() {
         )}
 
         {activeTab === "pages" && (
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <h2 className="mb-6 text-xl font-semibold">ページビュー詳細</h2>
+          <div className="overflow-x-auto rounded-lg bg-white p-4 shadow-md md:p-6">
+            <h2 className="mb-4 text-lg font-semibold md:mb-6 md:text-xl">ページビュー詳細</h2>
             {analyticsData.topPages.length > 0 ? (
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">ページパス</th>
-                    <th className="px-4 py-3 text-right font-semibold text-gray-700">ビュー数</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {analyticsData.topPages.map((page) => (
-                    <tr key={page.path} className="border-b border-gray-100">
-                      <td className="px-4 py-3 text-gray-700">{page.path}</td>
-                      <td className="px-4 py-3 text-right font-medium text-blue-600">
-                        {page.views}
-                      </td>
+              <div className="min-w-full overflow-hidden">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="px-2 py-2 text-left text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                        ページパス
+                      </th>
+                      <th className="px-2 py-2 text-right text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                        ビュー数
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {analyticsData.topPages.map((page) => (
+                      <tr key={page.path} className="border-b border-gray-100">
+                        <td
+                          className="truncate px-2 py-2 text-xs text-gray-700 md:px-4 md:py-3 md:text-sm"
+                          title={page.path}
+                        >
+                          {page.path}
+                        </td>
+                        <td className="px-2 py-2 text-right text-xs font-medium text-blue-600 md:px-4 md:py-3 md:text-sm">
+                          {page.views}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <p className="text-gray-500">データがありません</p>
+              <p className="text-sm text-gray-500 md:text-base">データがありません</p>
             )}
           </div>
         )}
 
         {activeTab === "search" && (
-          <div className="rounded-lg bg-white p-6 shadow-md">
-            <h2 className="mb-6 text-xl font-semibold">検索キーワード詳細</h2>
+          <div className="overflow-x-auto rounded-lg bg-white p-4 shadow-md md:p-6">
+            <h2 className="mb-4 text-lg font-semibold md:mb-6 md:text-xl">検索キーワード詳細</h2>
             {analyticsData.topSearchTerms.length > 0 ? (
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="px-4 py-3 text-left font-semibold text-gray-700">
-                      検索キーワード
-                    </th>
-                    <th className="px-4 py-3 text-right font-semibold text-gray-700">検索回数</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {analyticsData.topSearchTerms.map((term) => (
-                    <tr key={term.term} className="border-b border-gray-100">
-                      <td className="px-4 py-3 text-gray-700">{term.term}</td>
-                      <td className="px-4 py-3 text-right font-medium text-blue-600">
-                        {term.count}
-                      </td>
+              <div className="min-w-full overflow-hidden">
+                <table className="min-w-full divide-y divide-gray-200">
+                  <thead>
+                    <tr className="border-b border-gray-200">
+                      <th className="px-2 py-2 text-left text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                        検索キーワード
+                      </th>
+                      <th className="px-2 py-2 text-right text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                        検索回数
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {analyticsData.topSearchTerms.map((term) => (
+                      <tr key={term.term} className="border-b border-gray-100">
+                        <td
+                          className="truncate px-2 py-2 text-xs text-gray-700 md:px-4 md:py-3 md:text-sm"
+                          title={term.term}
+                        >
+                          {term.term}
+                        </td>
+                        <td className="px-2 py-2 text-right text-xs font-medium text-blue-600 md:px-4 md:py-3 md:text-sm">
+                          {term.count}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             ) : (
-              <p className="text-gray-500">データがありません</p>
+              <p className="text-sm text-gray-500 md:text-base">データがありません</p>
             )}
           </div>
         )}
 
         {activeTab === "regions" && (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-6 text-xl font-semibold">地域別アクセス</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+            <div className="overflow-x-auto rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-4 text-lg font-semibold md:mb-6 md:text-xl">地域別アクセス</h2>
               {analyticsData.topRegions.length > 0 ? (
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="px-4 py-3 text-left font-semibold text-gray-700">地域</th>
-                      <th className="px-4 py-3 text-right font-semibold text-gray-700">
-                        アクセス数
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {analyticsData.topRegions.map((region) => (
-                      <tr key={region.region} className="border-b border-gray-100">
-                        <td className="px-4 py-3 text-gray-700">{region.region}</td>
-                        <td className="px-4 py-3 text-right font-medium text-blue-600">
-                          {region.count}
-                        </td>
+                <div className="min-w-full overflow-hidden">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="px-2 py-2 text-left text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                          地域
+                        </th>
+                        <th className="px-2 py-2 text-right text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                          アクセス数
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {analyticsData.topRegions.map((region) => (
+                        <tr key={region.region} className="border-b border-gray-100">
+                          <td
+                            className="truncate px-2 py-2 text-xs text-gray-700 md:px-4 md:py-3 md:text-sm"
+                            title={region.region}
+                          >
+                            {region.region}
+                          </td>
+                          <td className="px-2 py-2 text-right text-xs font-medium text-blue-600 md:px-4 md:py-3 md:text-sm">
+                            {region.count}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               ) : (
-                <p className="text-gray-500">データがありません</p>
+                <p className="text-sm text-gray-500 md:text-base">データがありません</p>
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
-              <h2 className="mb-6 text-xl font-semibold">国別アクセス</h2>
+            <div className="overflow-x-auto rounded-lg bg-white p-4 shadow-md md:p-6">
+              <h2 className="mb-4 text-lg font-semibold md:mb-6 md:text-xl">国別アクセス</h2>
               {analyticsData.topCountries.length > 0 ? (
-                <table className="w-full">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="px-4 py-3 text-left font-semibold text-gray-700">国</th>
-                      <th className="px-4 py-3 text-right font-semibold text-gray-700">
-                        アクセス数
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {analyticsData.topCountries.map((country) => (
-                      <tr key={country.country} className="border-b border-gray-100">
-                        <td className="px-4 py-3 text-gray-700">{country.country}</td>
-                        <td className="px-4 py-3 text-right font-medium text-blue-600">
-                          {country.count}
-                        </td>
+                <div className="min-w-full overflow-hidden">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead>
+                      <tr className="border-b border-gray-200">
+                        <th className="px-2 py-2 text-left text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                          国
+                        </th>
+                        <th className="px-2 py-2 text-right text-xs font-semibold text-gray-700 md:px-4 md:py-3 md:text-sm">
+                          アクセス数
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-gray-100">
+                      {analyticsData.topCountries.map((country) => (
+                        <tr key={country.country} className="border-b border-gray-100">
+                          <td
+                            className="truncate px-2 py-2 text-xs text-gray-700 md:px-4 md:py-3 md:text-sm"
+                            title={country.country}
+                          >
+                            {country.country}
+                          </td>
+                          <td className="px-2 py-2 text-right text-xs font-medium text-blue-600 md:px-4 md:py-3 md:text-sm">
+                            {country.count}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               ) : (
-                <p className="text-gray-500">データがありません</p>
+                <p className="text-sm text-gray-500 md:text-base">データがありません</p>
               )}
             </div>
           </div>
         )}
 
-        <div className="mt-8 text-center text-sm text-gray-500">
+        <div className="mt-6 text-center text-xs text-gray-500 md:mt-8 md:text-sm">
           <p>最終更新: {new Date().toLocaleString("ja-JP")}</p>
           <p className="mt-1">データソース: Google Analytics 4</p>
           {!hasRealData && (
-            <p className="mt-4">
+            <p className="mt-3 md:mt-4">
               <a
                 href="https://support.google.com/analytics/answer/9304153?hl=ja"
                 target="_blank"

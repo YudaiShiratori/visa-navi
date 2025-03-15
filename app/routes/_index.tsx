@@ -48,20 +48,20 @@ export default function Index() {
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />
 
-      <div className="flex-grow pb-16 pt-8">
+      <div className="relative z-10 flex-grow pb-8 pt-4 md:pb-16 md:pt-8">
         <div className="container mx-auto max-w-6xl px-4">
-          <h1 className="mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-center text-4xl font-bold text-transparent">
+          <h1 className="mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-center text-3xl font-bold text-transparent md:mb-4 md:text-4xl">
             ビザ情報を調べる
           </h1>
-          <p className="mx-auto mb-16 max-w-2xl text-center text-gray-600">
+          <p className="mx-auto mb-8 max-w-2xl px-2 text-center text-sm text-gray-600 md:mb-16 md:text-base">
             地域から選ぶか、国名で検索して、日本人旅行者向けのビザ情報を確認できます。
           </p>
 
-          <div className="space-y-20">
-            <section className="animate-fade-in rounded-2xl bg-white p-8 shadow-xl">
-              <h2 className="mb-6 flex items-center text-2xl font-bold">
+          <div className="space-y-10 md:space-y-20">
+            <section className="animate-fade-in rounded-xl bg-white p-4 shadow-lg md:rounded-2xl md:p-8 md:shadow-xl">
+              <h2 className="mb-4 flex items-center text-xl font-bold md:mb-6 md:text-2xl">
                 <svg
-                  className="mr-2 h-6 w-6 text-blue-500"
+                  className="mr-2 h-5 w-5 text-blue-500 md:h-6 md:w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -80,10 +80,10 @@ export default function Index() {
               </div>
             </section>
 
-            <section className="animate-slide-up">
-              <h2 className="mb-8 flex items-center justify-center text-2xl font-bold">
+            <section className="animate-slide-up px-2 md:px-0">
+              <h2 className="mb-6 flex items-center justify-center text-xl font-bold md:mb-8 md:text-2xl">
                 <svg
-                  className="mr-2 h-6 w-6 text-purple-500"
+                  className="mr-2 h-5 w-5 text-purple-500 md:h-6 md:w-6"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

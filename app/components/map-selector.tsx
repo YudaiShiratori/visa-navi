@@ -1,5 +1,5 @@
 import { Link } from "@remix-run/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { type RegionId, regionColors } from "~/constants/colors";
 import { sendGAEvent } from "~/utils/analytics";
@@ -70,6 +70,25 @@ const regions: Region[] = [
 
 export function MapSelector() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // 画面サイズの変更を検知
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // 初期チェック
+    checkIfMobile();
+
+    // リサイズイベントのリスナー
+    window.addEventListener("resize", checkIfMobile);
+
+    // クリーンアップ
+    return () => {
+      window.removeEventListener("resize", checkIfMobile);
+    };
+  }, []);
 
   const handleRegionSelect = (regionId: string, regionName: string) => {
     // 地域選択イベントを送信
@@ -80,19 +99,21 @@ export function MapSelector() {
   };
 
   return (
-    <div className="space-y-12">
-      <div className="relative mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-xl">
-        <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-white/50 backdrop-blur-sm">
-          <div className="max-w-md rounded-xl bg-white/80 p-8 text-center shadow-lg">
-            <h3 className="mb-2 text-xl font-bold text-gray-800">
+    <div className="space-y-8 md:space-y-12">
+      <div className="relative z-10 mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg md:rounded-3xl md:shadow-xl">
+        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-white/50 backdrop-blur-sm">
+          <div className="mx-4 w-full max-w-md rounded-xl bg-white/80 p-4 text-center shadow-lg md:p-8">
+            <h3 className="mb-2 text-lg font-bold text-gray-800 md:text-xl">
               {activeRegion
                 ? regions.find((r) => r.id === activeRegion)?.name + "を選択"
                 : "地域を選択してください"}
             </h3>
-            <p className="text-sm text-gray-600">
+            <p className="text-xs text-gray-600 md:text-sm">
               {activeRegion
                 ? regions.find((r) => r.id === activeRegion)?.description
-                : "地図上の地域にカーソルを合わせるか、下のカードから選択してください"}
+                : isMobile
+                  ? "下のカードから地域を選択してください"
+                  : "地図上の地域にカーソルを合わせるか、下のカードから選択してください"}
             </p>
           </div>
         </div>
@@ -105,12 +126,12 @@ export function MapSelector() {
         </ClientOnly>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-6 md:px-0 lg:grid-cols-3">
         {regions.map((region) => (
           <Link
             key={region.id}
             to={`/map/${region.id}`}
-            className="group relative transform overflow-hidden rounded-xl p-6 transition-all duration-300 hover:-translate-y-2"
+            className="group relative transform overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 md:p-6 md:hover:-translate-y-2"
             style={{
               backgroundColor: `${regionColors[region.id].light}30`,
               borderColor: regionColors[region.id].main,
@@ -124,15 +145,15 @@ export function MapSelector() {
             onMouseLeave={() => setActiveRegion(null)}
             onClick={() => handleRegionSelect(region.id, region.name)}
           >
-            <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent"></div>
+            <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
 
             <div className="relative z-10">
               <div
-                className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl"
+                className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl md:mb-4 md:h-14 md:w-14"
                 style={{ backgroundColor: `${regionColors[region.id].main}20` }}
               >
                 <svg
-                  className="h-8 w-8"
+                  className="h-6 w-6 md:h-8 md:w-8"
                   style={{ color: regionColors[region.id].main }}
                   fill="none"
                   viewBox="0 0 24 24"
@@ -148,20 +169,20 @@ export function MapSelector() {
               </div>
 
               <h3
-                className="mb-2 text-2xl font-bold"
+                className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
                 style={{ color: regionColors[region.id].main }}
               >
                 {region.name}
               </h3>
-              <p className="mb-4 text-sm text-gray-600">{region.description}</p>
+              <p className="mb-3 text-xs text-gray-600 md:mb-4 md:text-sm">{region.description}</p>
 
               <div
-                className="flex items-center text-sm font-medium"
+                className="flex items-center text-xs font-medium md:text-sm"
                 style={{ color: regionColors[region.id].main }}
               >
                 選択する
                 <svg
-                  className="ml-1 h-4 w-4 transform transition-transform group-hover:translate-x-1"
+                  className="ml-1 h-3 w-3 transform transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
