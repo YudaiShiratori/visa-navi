@@ -18,7 +18,8 @@ try {
  */
 export async function getPageViewsLast7Days() {
   if (!analyticsDataClient || !propertyId) {
-    return getMockPageViewsLast7Days();
+    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+    return [];
   }
 
   try {
@@ -43,7 +44,8 @@ export async function getPageViewsLast7Days() {
     });
 
     if (!response || !response.rows || response.rows.length === 0) {
-      return getMockPageViewsLast7Days();
+      console.log("Google Analytics APIからデータが返されませんでした");
+      return [];
     }
 
     return response.rows.map((row) => {
@@ -60,7 +62,11 @@ export async function getPageViewsLast7Days() {
     });
   } catch (error) {
     console.error("Google Analytics APIからのデータ取得に失敗しました:", error);
-    return getMockPageViewsLast7Days();
+    if (error instanceof Error) {
+      console.error("エラーの詳細:", error.message);
+      console.error("エラーのスタックトレース:", error.stack);
+    }
+    return [];
   }
 }
 
@@ -69,7 +75,8 @@ export async function getPageViewsLast7Days() {
  */
 export async function getTopPages() {
   if (!analyticsDataClient || !propertyId) {
-    return getMockTopPages();
+    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+    return [];
   }
 
   try {
@@ -103,7 +110,8 @@ export async function getTopPages() {
     });
 
     if (!response || !response.rows) {
-      return getMockTopPages();
+      console.log("Google Analytics APIからデータが返されませんでした");
+      return [];
     }
 
     return response.rows.map((row) => {
@@ -114,7 +122,11 @@ export async function getTopPages() {
     });
   } catch (error) {
     console.error("Google Analytics APIからのデータ取得に失敗しました:", error);
-    return getMockTopPages();
+    if (error instanceof Error) {
+      console.error("エラーの詳細:", error.message);
+      console.error("エラーのスタックトレース:", error.stack);
+    }
+    return [];
   }
 }
 
@@ -123,7 +135,8 @@ export async function getTopPages() {
  */
 export async function getTopSearchTerms() {
   if (!analyticsDataClient || !propertyId) {
-    return getMockTopSearchTerms();
+    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+    return [];
   }
 
   try {
@@ -169,7 +182,8 @@ export async function getTopSearchTerms() {
     });
 
     if (!response || !response.rows) {
-      return getMockTopSearchTerms();
+      console.log("Google Analytics APIからデータが返されませんでした");
+      return [];
     }
 
     return response.rows.map((row) => {
@@ -180,7 +194,11 @@ export async function getTopSearchTerms() {
     });
   } catch (error) {
     console.error("Google Analytics APIからのデータ取得に失敗しました:", error);
-    return getMockTopSearchTerms();
+    if (error instanceof Error) {
+      console.error("エラーの詳細:", error.message);
+      console.error("エラーのスタックトレース:", error.stack);
+    }
+    return [];
   }
 }
 
@@ -189,7 +207,8 @@ export async function getTopSearchTerms() {
  */
 export async function getTopRegions() {
   if (!analyticsDataClient || !propertyId) {
-    return getMockTopRegions();
+    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+    return [];
   }
 
   try {
@@ -235,7 +254,8 @@ export async function getTopRegions() {
     });
 
     if (!response || !response.rows) {
-      return getMockTopRegions();
+      console.log("Google Analytics APIからデータが返されませんでした");
+      return [];
     }
 
     return response.rows.map((row) => {
@@ -246,7 +266,11 @@ export async function getTopRegions() {
     });
   } catch (error) {
     console.error("Google Analytics APIからのデータ取得に失敗しました:", error);
-    return getMockTopRegions();
+    if (error instanceof Error) {
+      console.error("エラーの詳細:", error.message);
+      console.error("エラーのスタックトレース:", error.stack);
+    }
+    return [];
   }
 }
 
@@ -255,7 +279,8 @@ export async function getTopRegions() {
  */
 export async function getTopCountries() {
   if (!analyticsDataClient || !propertyId) {
-    return getMockTopCountries();
+    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+    return [];
   }
 
   try {
@@ -301,7 +326,8 @@ export async function getTopCountries() {
     });
 
     if (!response || !response.rows) {
-      return getMockTopCountries();
+      console.log("Google Analytics APIからデータが返されませんでした");
+      return [];
     }
 
     return response.rows.map((row) => {
@@ -312,7 +338,11 @@ export async function getTopCountries() {
     });
   } catch (error) {
     console.error("Google Analytics APIからのデータ取得に失敗しました:", error);
-    return getMockTopCountries();
+    if (error instanceof Error) {
+      console.error("エラーの詳細:", error.message);
+      console.error("エラーのスタックトレース:", error.stack);
+    }
+    return [];
   }
 }
 
