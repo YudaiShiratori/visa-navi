@@ -13,5 +13,16 @@ export default {
   assetsBuildDirectory: "public/build",
   mdx: {
     interopBehavior: "require",
+    resolve: {
+      commonJs: true,
+    },
+    rehypePlugins: [],
+    remarkPlugins: [],
+    recmaPlugins: [],
+    transformCommonJsImports: true,
+    esm: {
+      mode: "all",
+      development: true,
+    },
   },
 };
