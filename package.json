@@ -15,7 +15,7 @@
     "test": "vitest --passWithNoTests",
     "test:coverage": "vitest run --coverage",
     "test:e2e": "cypress open",
-    "typecheck": "tsc && tsc -p cypress",
+    "typecheck": "tsc --noEmit && tsc -p cypress/tsconfig.json --noEmit",
     "validate": "npm-run-all --parallel \"test -- --run\" lint typecheck test:e2e",
     "prepare": "husky install"
   },
@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "@google-analytics/data": "^4.12.1",
+    "@mdx-js/mdx": "^3.1.0",
     "@remix-run/css-bundle": "^2.16.0",
     "@remix-run/node": "^2.16.0",
     "@remix-run/react": "^2.16.0",
@@ -100,8 +101,10 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write",
-      "eslint --fix",
-      "npm run typecheck"
+      "eslint --fix"
+    ],
+    "*.{ts,tsx}": [
+      "tsc --noEmit --skipLibCheck"
     ]
   }
 }

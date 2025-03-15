@@ -1,10 +1,11 @@
-import { BetaAnalyticsDataClient } from "@google-analytics/data";
+import pkg from "@google-analytics/data";
+const { BetaAnalyticsDataClient } = pkg;
 
 // Google Analytics Data APIクライアントの初期化
 const propertyId = process.env.GA_PROPERTY_ID;
 
 // APIクライアントの初期化
-let analyticsDataClient: BetaAnalyticsDataClient | null = null;
+let analyticsDataClient: typeof BetaAnalyticsDataClient.prototype | null = null;
 
 try {
   // Google Cloud認証情報を使用してクライアントを初期化
