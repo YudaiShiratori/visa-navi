@@ -11,10 +11,10 @@ export default {
   },
   publicPath: "/build/",
   assetsBuildDirectory: "public/build",
-  mdx: {
-    interopBehavior: "require",
-    resolve: {
-      commonJs: true,
-    },
+  mdx: async () => {
+    const { remarkGfm } = await import("remark-gfm");
+    return {
+      remarkPlugins: [remarkGfm],
+    };
   },
 };
