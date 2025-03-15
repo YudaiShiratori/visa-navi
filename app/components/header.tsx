@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 import { useState, useEffect } from "react";
 
-export function Header() {
+export function Header({ showAdminLink = false }: { showAdminLink?: boolean }) {
   return (
     <header className="bg-transparent py-5">
       <div className="container mx-auto flex items-center justify-between px-4">

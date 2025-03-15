@@ -1,10 +1,21 @@
 import { cssBundleHref } from "@remix-run/css-bundle";
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { json } from "@remix-run/node";
+import {
+  Links,
+  LiveReload,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from "@remix-run/react";
+import { Analytics } from "@vercel/analytics/react";
 import leafletStyles from "leaflet/dist/leaflet.css";
 
 import stylesheet from "~/tailwind.css";
+import { getGoogleAnalyticsScript } from "~/utils/analytics";
 
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction, LoaderFunction } from "@remix-run/node";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
@@ -32,12 +43,32 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async () => {
+  return json({
+    gaTrackingId: process.env.GOOGLE_ANALYTICS_ID,
+  });
+};
+
 export default function App() {
+  const { gaTrackingId } = useLoaderData<{ gaTrackingId: string }>();
+
   return (
     <html lang="ja" className="h-full">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        {/* Google Analytics */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${gaTrackingId}');
+            `,
+          }}
+        />
         <Meta />
         <Links />
       </head>
@@ -50,6 +81,7 @@ export default function App() {
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <Analytics />
       </body>
     </html>
   );

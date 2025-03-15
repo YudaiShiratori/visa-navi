@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { Link } from "@remix-run/react";
+import { Link, useLocation } from "@remix-run/react";
+import { useEffect } from "react";
 
 import { Header } from "~/components/header";
 import { MapSelector } from "~/components/map-selector";
 import { SearchCountries } from "~/components/search-countries";
+import { sendGAEvent } from "~/utils/analytics";
 
 import type { MetaFunction } from "@remix-run/node";
 
@@ -29,6 +31,19 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // ページビューを追跡
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_path: location.pathname,
+        page_title: "トップページ",
+        page_location: window.location.href,
+      });
+    }
+  }, [location]);
+
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">
       <Header />

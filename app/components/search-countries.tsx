@@ -3,6 +3,7 @@ import { useState, useMemo } from "react";
 
 import { visaStatusColors } from "~/constants/colors";
 import { countries } from "~/data/countries";
+import { sendGAEvent } from "~/utils/analytics";
 
 // ひらがな・カタカナ変換用のマッピング
 const kanaMap: { [key: string]: string } = {
@@ -40,6 +41,24 @@ export function SearchCountries() {
       .slice(0, 5); // 最初の5件のみ表示
   }, [searchQuery]);
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+
+    // 3文字以上の検索クエリの場合、検索イベントを送信
+    if (query.length >= 3) {
+      sendGAEvent("search", {
+        search_term: query,
+      });
+    }
+  };
+
+  const handleCountrySelect = (countryName: string) => {
+    // 国選択イベントを送信
+    sendGAEvent("select_country", {
+      country_name: countryName,
+    });
+  };
+
   return (
     <div className="relative">
       <div className="flex items-center">
@@ -48,7 +67,7 @@ export function SearchCountries() {
           placeholder="国名で検索..."
           className="w-full rounded-lg border border-gray-300 px-4 py-2 pr-10"
           value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
+          onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setIsExpanded(true)}
         />
         <svg
@@ -73,7 +92,10 @@ export function SearchCountries() {
               key={country.id}
               to={`/map/country/${country.id.toLowerCase()}`}
               className="flex items-center justify-between border-b border-gray-100 px-4 py-3 hover:bg-gray-50"
-              onClick={() => setIsExpanded(false)}
+              onClick={() => {
+                handleCountrySelect(country.name);
+                setIsExpanded(false);
+              }}
             >
               <div className="flex-1">
                 <div className="font-medium">{country.name}</div>
