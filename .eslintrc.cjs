@@ -7,6 +7,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: null,
   },
   env: {
     browser: true,
@@ -23,6 +24,10 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "prettier"
   ],
+
+  rules: {
+    "import/no-unresolved": "off",
+  },
 
   overrides: [
     // React
@@ -51,7 +56,7 @@ module.exports = {
         "import/resolver": {
           typescript: {
             alwaysTryTypes: true,
-            project: "./tsconfig.json",
+            project: false,
           },
         },
       },

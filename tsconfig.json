@@ -6,7 +6,9 @@
     "app/types/**/*.d.ts",
     "remix.env.d.ts",
     "test/**/*.ts",
-    "test/**/*.d.ts"
+    "test/**/*.d.ts",
+    "next-app/src/**/*.ts",
+    "next-app/src/**/*.tsx"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],

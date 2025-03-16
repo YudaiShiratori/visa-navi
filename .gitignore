@@ -10,3 +10,34 @@ node_modules
 /prisma/data.db-journal
 
 service-account-key.json
+
+# Next.js関連
+.next/
+next-app/.next/
+next-app/node_modules/
+next-app/.cache/
+next-app/out/
+next-app/build/
+next-app/.vercel/
+next-app/*.tsbuildinfo
+next-app/next-env.d.ts
+
+# 環境変数
+next-app/.env*
+next-app/.env.local
+next-app/.env.development.local
+next-app/.env.test.local
+next-app/.env.production.local
+
+# ログファイル
+next-app/npm-debug.log*
+next-app/yarn-debug.log*
+next-app/yarn-error.log*
+
+# 画像ファイル（必要に応じて）
+next-app/public/images/maps/
+next-app/public/images/japan-passport.pngg
+
+# macOS関連
+.DS_Store
+next-app/.DS_Store

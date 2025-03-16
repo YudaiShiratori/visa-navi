@@ -16,6 +16,7 @@
     "test:coverage": "vitest run --coverage",
     "test:e2e": "cypress open",
     "typecheck": "tsc --noEmit && tsc -p cypress/tsconfig.json --noEmit",
+    "typecheck:next": "tsc -p next-app/tsconfig.json --noEmit",
     "validate": "npm-run-all --parallel \"test -- --run\" lint typecheck test:e2e",
     "prepare": "husky install"
   },
@@ -101,12 +102,19 @@
     "node": "18.x"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix --max-warnings=0"
     ],
     "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix --max-warnings=0"
+    ],
+    "app/**/*.{ts,tsx}": [
       "tsc --noEmit --skipLibCheck"
+    ],
+    "next-app/src/**/*.{ts,tsx}": [
+      "cd next-app && tsc --noEmit"
     ]
   }
 }
