@@ -105,11 +105,11 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix --max-warnings=0"
+      "eslint --fix --max-warnings=0 --rule 'import/order: error'"
     ],
     "*.{ts,tsx}": [
       "prettier --write",
-      "eslint --fix --max-warnings=0",
+      "eslint --fix --max-warnings=0 --rule 'import/order: error'",
       "node -e \"try { require('child_process').execSync('bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next', {stdio: 'inherit'}); }\""
     ]
   }
