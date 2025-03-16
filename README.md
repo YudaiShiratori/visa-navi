@@ -16,8 +16,30 @@
 - 地図表示: React Simple Maps
 - デプロイ: Vercel
 - データベース: Supabase
+- パッケージマネージャー: [Bun](https://bun.sh/)
 
 ## 開発環境のセットアップ
+
+### Bunを使用する場合（推奨）
+
+```bash
+# Bunのインストール（まだインストールしていない場合）
+curl -fsSL https://bun.sh/install | bash
+
+# リポジトリのクローン
+git clone https://github.com/yourusername/visanavi.git
+
+# プロジェクトディレクトリへ移動
+cd visanavi
+
+# 依存関係のインストール
+bun install
+
+# 開発サーバーの起動
+bun run dev
+```
+
+### npmを使用する場合
 
 ```bash
 # リポジトリのクローン
@@ -37,6 +59,7 @@ npm run dev
 
 - Node.js 18.0.0以上
 - npm 8.0.0以上
+- または Bun 1.0.0以上（推奨）
 
 ## 免責事項
 
