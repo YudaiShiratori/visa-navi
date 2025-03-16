@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node -e \"try { require('child_process').execSync('bunx --bun next dev', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx next dev', {stdio: 'inherit'}); }\"",
-    "build": "next build",
+    "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "node -e \"try { require('child_process').execSync('bunx --bun eslint --fix \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx eslint --fix \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); }\"",
     "format": "node -e \"try { require('child_process').execSync('bunx --bun prettier --write \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx prettier --write \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); }\"",
