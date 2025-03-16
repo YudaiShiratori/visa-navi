@@ -6,7 +6,6 @@ import { getCountryById } from "../../../../data/countries";
 
 import type { Metadata } from "next";
 
-
 interface Props {
   params: {
     id: string;
@@ -46,7 +45,7 @@ export default function CountryPage({ params }: Props) {
     visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
 
   return (
-    <div className="py-8 md:py-12">
+    <div className="mt-8 py-8 md:py-12">
       <div className="container mx-auto max-w-4xl px-4">
         <div className="mb-8 flex items-center">
           <Link href="/map" className="mr-2 flex items-center text-blue-600 hover:text-blue-800">

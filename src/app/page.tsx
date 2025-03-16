@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex-grow pb-8 pt-4 md:pb-16 md:pt-8">
+    <div className="mt-8 flex-grow pb-8 pt-8 md:pb-16 md:pt-12">
       <div className="container mx-auto max-w-6xl px-4">
         <h1 className="mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-center text-3xl font-bold text-transparent md:mb-4 md:text-4xl">
           ビザ情報を調べる

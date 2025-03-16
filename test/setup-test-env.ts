@@ -1,4 +1,4 @@
-import { installGlobals } from "@remix-run/node";
 import "@testing-library/jest-dom";
 
-installGlobals();
+// グローバル設定は@testing-library/jest-domのインポートで十分なので、
+// @remix-run/nodeの依存関係を削除しました

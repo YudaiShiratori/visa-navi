@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -39,7 +38,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto mt-8 px-4 py-8">
       <div className="mb-8">
         <Link
           href="/"

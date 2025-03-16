@@ -17,7 +17,7 @@ export function Footer() {
 
           <div className="mt-4 flex justify-center space-x-4">
             <Link href="/about" className="text-sm text-gray-600 hover:text-blue-600">
-              このサービスについて
+              ビザナビについて
             </Link>
           </div>
         </div>

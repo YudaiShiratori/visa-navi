@@ -4,12 +4,20 @@
 // cy.cleanupUser() // cleanup the user
 // cy.logout() // logout
 
+// モジュール拡張を使用して型を拡張
 declare global {
-  namespace Cypress {
-    interface Chainable {
-      // 認証関連のコマンドを削除
-    }
+  // namespaceの代わりにモジュール拡張を使用
+  interface Cypress {
+    // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+    Chainable: Chainable;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface Chainable {
+    // 将来的にカスタムコマンドを追加する場合はここに定義
   }
 }
+
+// カスタムコマンドをここに追加できます
 
 export {};

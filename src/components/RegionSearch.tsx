@@ -127,76 +127,14 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
     }
   }, [searchQuery, countries]);
 
-  // ビザタイプごとの国数をカウント
-  const visaFreeCount = filteredCountries.filter(
-    (c) => c.visaRequirement.type === "visa_free"
-  ).length;
-  const eVisaCount = filteredCountries.filter((c) => c.visaRequirement.type === "evisa").length;
-  const visaRequiredCount = filteredCountries.filter(
-    (c) => c.visaRequirement.type === "visa_required"
-  ).length;
-
   return (
     <>
-      <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-        <div className="flex overflow-hidden rounded-lg border border-green-200 bg-white shadow-sm">
-          <div className="flex w-16 items-center justify-center bg-green-500 text-white">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-          <div className="flex-1 p-4">
-            <h3 className="text-sm font-medium text-gray-500">ビザ免除</h3>
-            <p className="text-2xl font-bold text-green-600">{visaFreeCount}カ国</p>
-          </div>
-        </div>
-
-        <div className="flex overflow-hidden rounded-lg border border-blue-200 bg-white shadow-sm">
-          <div className="flex w-16 items-center justify-center bg-blue-500 text-white">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
-          </div>
-          <div className="flex-1 p-4">
-            <h3 className="text-sm font-medium text-gray-500">電子ビザ</h3>
-            <p className="text-2xl font-bold text-blue-600">{eVisaCount}カ国</p>
-          </div>
-        </div>
-
-        <div className="flex overflow-hidden rounded-lg border border-red-200 bg-white shadow-sm">
-          <div className="flex w-16 items-center justify-center bg-red-500 text-white">
-            <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-          </div>
-          <div className="flex-1 p-4">
-            <h3 className="text-sm font-medium text-gray-500">要ビザ</h3>
-            <p className="text-2xl font-bold text-red-600">{visaRequiredCount}カ国</p>
-          </div>
-        </div>
-      </div>
-
       <div className="mb-6">
-        <div className="relative">
+        <div className="relative mx-auto max-w-xl">
           <input
             type="text"
             placeholder="国名で検索..."
-            className="w-full rounded-lg border border-gray-300 px-4 py-2 pr-10"
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 pr-10 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -214,7 +152,9 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
             />
           </svg>
         </div>
-        <p className="mt-2 text-sm text-gray-500">{filteredCountries.length}カ国が見つかりました</p>
+        <p className="mt-2 text-center text-sm text-gray-500">
+          {filteredCountries.length}カ国が見つかりました
+        </p>
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
@@ -223,36 +163,51 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
           const statusColor =
             visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
 
+          // ビザステータスのテキスト
+          const visaStatusText =
+            country.visaRequirement.type === "visa_free"
+              ? "ビザ免除"
+              : country.visaRequirement.type === "evisa"
+                ? "電子ビザ"
+                : "ビザ必要";
+
           return (
             <Link
               key={country.id}
               href={`/country/${country.id}`}
-              className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md"
+              className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
               <div className="flex flex-1 flex-col p-4">
-                <h3 className="mb-2 text-lg font-medium text-gray-900">
+                <h3 className="mb-3 text-lg font-medium text-gray-900">
                   {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
                     ? highlightMatch(country.name, searchQuery)
                     : country.name}
                 </h3>
+
                 <div className="mt-auto flex items-center justify-between">
                   <div
-                    className="rounded-full px-2 py-1 text-xs font-medium"
+                    className="rounded-full px-3 py-1 text-xs font-medium"
                     style={{
                       backgroundColor: statusColor.light,
                       color: statusColor.main,
                     }}
                   >
-                    {country.visaRequirement.type === "visa_free"
-                      ? "ビザ免除"
-                      : country.visaRequirement.type === "evisa"
-                        ? "電子ビザ"
-                        : "ビザ必要"}
+                    {visaStatusText}
                   </div>
+
                   {country.visaRequirement.duration && (
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-lg font-bold text-gray-700">
-                      {country.visaRequirement.duration}
+                    <div className="flex flex-col items-center">
+                      <div
+                        className="flex h-14 w-14 items-center justify-center rounded-full text-xl font-bold"
+                        style={{
+                          backgroundColor: statusColor.light,
+                          color: statusColor.main,
+                        }}
+                      >
+                        {country.visaRequirement.duration}
+                      </div>
+                      <span className="mt-1 text-xs text-gray-500">日間</span>
                     </div>
                   )}
                 </div>

@@ -104,10 +104,10 @@
     ],
     "*.{ts,tsx}": [
       "prettier --write",
-      "eslint --fix --max-warnings=0 || true"
+      "eslint --fix --max-warnings=0"
     ],
     "src/**/*.{ts,tsx}": [
-      "tsc --noEmit --skipLibCheck --jsx preserve || true"
+      "tsc --noEmit --skipLibCheck --jsx preserve"
     ]
   }
 }

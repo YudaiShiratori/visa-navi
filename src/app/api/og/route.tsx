@@ -1,6 +1,5 @@
-import { NextRequest } from "next/server";
-import * as React from 'react';
 import { ImageResponse } from "@vercel/og";
+import { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
