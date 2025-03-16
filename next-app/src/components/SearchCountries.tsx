@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useMemo, useEffect, useRef } from "react";
-
 
 import { visaStatusColors } from "../constants/colors";
 import { countries } from "../data/countries";
@@ -95,15 +93,77 @@ function convertToComparableString(str: string): string {
   return result.toLowerCase();
 }
 
+// ビザタイプのテキスト表示
+const visaTypeText = {
+  visa_free: "ビザ免除",
+  evisa: "電子ビザ",
+  visa_required: "ビザ必須",
+};
+
+// ビザタイプのアイコン
+const visaTypeIcons = {
+  visa_free: (
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+    </svg>
+  ),
+  evisa: (
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+      />
+    </svg>
+  ),
+  visa_required: (
+    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+      />
+    </svg>
+  ),
+};
+
 export function SearchCountries() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsMobile] = useState(false);
   const router = useRouter();
+
+  // 最近の検索を読み込む
+  useEffect(() => {
+    const savedSearches = localStorage.getItem("recentSearches");
+    if (savedSearches) {
+      try {
+        setRecentSearches(JSON.parse(savedSearches));
+      } catch (e) {
+        console.error("Failed to parse recent searches", e);
+      }
+    }
+  }, []);
+
+  // 最近の検索を保存する
+  const saveRecentSearch = (countryId: string) => {
+    const country = countries.find((c) => c.id === countryId);
+    if (!country) return;
+
+    const newRecentSearches = [countryId, ...recentSearches.filter((id) => id !== countryId)].slice(
+      0,
+      5
+    );
+    setRecentSearches(newRecentSearches);
+    localStorage.setItem("recentSearches", JSON.stringify(newRecentSearches));
+  };
 
   // 画面サイズの検出
   useEffect(() => {
@@ -174,6 +234,9 @@ export function SearchCountries() {
   const handleFocus = () => {
     if (searchQuery.trim() && filteredCountries.length > 0) {
       setIsExpanded(true);
+    } else if (recentSearches.length > 0) {
+      // 検索クエリがなく、最近の検索がある場合は表示
+      setIsExpanded(true);
     }
   };
 
@@ -181,7 +244,7 @@ export function SearchCountries() {
   const handleSearch = (query: string) => {
     setSearchQuery(query);
     setSelectedIndex(-1);
-    setIsExpanded(true);
+    setIsExpanded(query.trim().length > 0 || recentSearches.length > 0);
 
     // 3文字以上の検索クエリの場合、検索イベントを送信
     if (query.length >= 3) {
@@ -195,18 +258,23 @@ export function SearchCountries() {
   const handleCountrySelect = (countryId: string) => {
     setIsExpanded(false);
     setSearchQuery("");
+    saveRecentSearch(countryId);
     sendGAEvent("country_selected", { country_id: countryId });
     router.push(`/country/${countryId}`);
   };
 
   // キーボード操作
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (!isExpanded || filteredCountries.length === 0) return;
+    if (!isExpanded) return;
+
+    const totalItems = searchQuery.trim() ? filteredCountries.length : recentSearches.length;
+
+    if (totalItems === 0) return;
 
     switch (e.key) {
       case "ArrowDown":
         e.preventDefault();
-        setSelectedIndex((prev) => (prev < filteredCountries.length - 1 ? prev + 1 : prev));
+        setSelectedIndex((prev) => (prev < totalItems - 1 ? prev + 1 : prev));
         break;
       case "ArrowUp":
         e.preventDefault();
@@ -214,8 +282,12 @@ export function SearchCountries() {
         break;
       case "Enter":
         e.preventDefault();
-        if (selectedIndex >= 0 && filteredCountries[selectedIndex]) {
-          handleCountrySelect(filteredCountries[selectedIndex].id);
+        if (selectedIndex >= 0) {
+          if (searchQuery.trim() && filteredCountries[selectedIndex]) {
+            handleCountrySelect(filteredCountries[selectedIndex].id);
+          } else if (recentSearches[selectedIndex]) {
+            handleCountrySelect(recentSearches[selectedIndex]);
+          }
         }
         break;
       case "Escape":
@@ -225,119 +297,166 @@ export function SearchCountries() {
     }
   };
 
+  // 最近の検索から国を取得
+  const getRecentCountries = () => {
+    return recentSearches
+      .map((id) => countries.find((country) => country.id === id))
+      .filter(Boolean);
+  };
+
   return (
     <div className="relative" ref={searchRef}>
       <div className="flex items-center">
-        <input
-          ref={inputRef}
-          type="text"
-          placeholder="国名で検索..."
-          className="w-full rounded-lg border border-gray-300 px-4 py-2 pr-10 text-sm sm:text-base"
-          value={searchQuery}
-          onChange={(e) => handleSearch(e.target.value)}
-          onFocus={handleFocus}
-          onKeyDown={handleKeyDown}
-          aria-label="国名を入力"
-          aria-autocomplete="list"
-          aria-controls="country-search-results"
-          aria-owns={
-            isExpanded && filteredCountries.length > 0 ? "country-search-results" : undefined
-          }
-        />
-        <svg
-          className="absolute right-3 h-5 w-5 text-gray-400"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+        <div className="relative w-full">
+          <input
+            ref={inputRef}
+            type="text"
+            placeholder="国名で検索..."
+            className="w-full rounded-lg border border-gray-300 px-4 py-3 pr-10 text-sm transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200 sm:text-base"
+            value={searchQuery}
+            onChange={(e) => handleSearch(e.target.value)}
+            onFocus={handleFocus}
+            onKeyDown={handleKeyDown}
+            aria-label="国名を入力"
+            aria-autocomplete="list"
+            aria-controls={isExpanded ? "country-search-results" : undefined}
+            aria-activedescendant={
+              selectedIndex >= 0 ? `country-option-${selectedIndex}` : undefined
+            }
           />
-        </svg>
+          <div className="absolute right-3 top-1/2 -translate-y-1/2">
+            {searchQuery ? (
+              <button
+                onClick={() => {
+                  setSearchQuery("");
+                  inputRef.current?.focus();
+                }}
+                className="text-gray-400 hover:text-gray-600"
+                aria-label="検索をクリア"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            ) : (
+              <svg
+                className="h-5 w-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            )}
+          </div>
+        </div>
       </div>
 
-      {isExpanded && filteredCountries.length > 0 && (
+      {isExpanded && (
         <div
           id="country-search-results"
           ref={resultsRef}
-          className={`absolute z-30 mt-1 w-full rounded-lg border border-gray-200 bg-white shadow-lg ${isMobile ? "max-h-[60vh]" : "max-h-[50vh]"} overflow-y-auto`}
+          className="absolute z-50 mt-2 max-h-80 w-full overflow-y-auto rounded-lg border border-gray-200 bg-white shadow-lg"
           role="listbox"
+          aria-label="検索結果"
+          aria-expanded={isExpanded}
         >
-          {filteredCountries.map((country, index) => (
-            <Link
-              key={country.id}
-              href={`/country/${country.id.toLowerCase()}`}
-              className={`flex items-center justify-between border-b border-gray-100 px-4 py-3 hover:bg-gray-50 ${selectedIndex === index ? "bg-blue-50" : ""}`}
-              onClick={() => {
-                handleCountrySelect(country.id);
-                setIsExpanded(false);
-              }}
-              role="option"
-              aria-selected={selectedIndex === index}
-              onMouseEnter={() => setSelectedIndex(index)}
-            >
-              <div className="flex-1">
-                <div className="text-sm font-medium sm:text-base">
-                  {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    ? highlightMatch(country.name, searchQuery)
-                    : country.name}
-                </div>
-                <div
-                  className="mt-1 inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium"
-                  style={{
-                    backgroundColor: visaStatusColors[country.visaRequirement.type].light,
-                    color: visaStatusColors[country.visaRequirement.type].main,
-                  }}
-                >
-                  {country.visaRequirement.type === "visa_free" && "ビザ免除"}
-                  {country.visaRequirement.type === "evisa" && "電子ビザ"}
-                  {country.visaRequirement.type === "visa_required" && "要ビザ"}
-                </div>
+          {searchQuery.trim() ? (
+            filteredCountries.length > 0 ? (
+              <div className="py-2">
+                <div className="px-4 py-1 text-xs font-semibold text-gray-500">検索結果</div>
+                {filteredCountries.map((country, index) => (
+                  <button
+                    key={country.id}
+                    id={`country-option-${index}`}
+                    className={`flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-blue-50 ${
+                      selectedIndex === index ? "bg-blue-50" : ""
+                    }`}
+                    onClick={() => handleCountrySelect(country.id)}
+                    role="option"
+                    aria-selected={selectedIndex === index}
+                  >
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-100">
+                      <div className="relative h-6 w-10">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          {country.id.toUpperCase().split("").slice(0, 2).join("")}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium">{country.name}</div>
+                      <div className="text-xs text-gray-500">{country.region}</div>
+                    </div>
+                    <div
+                      className="ml-2 flex items-center rounded-full px-2 py-1 text-xs font-medium text-white"
+                      style={{
+                        backgroundColor: visaStatusColors[country.visaRequirement.type].main,
+                      }}
+                    >
+                      <span className="mr-1">{visaTypeIcons[country.visaRequirement.type]}</span>
+                      {visaTypeText[country.visaRequirement.type]}
+                    </div>
+                  </button>
+                ))}
               </div>
-              {country.visaRequirement.duration && (
-                <div className="ml-4 text-right">
-                  <div className="text-base font-bold text-gray-900 sm:text-lg">
-                    {country.visaRequirement.duration}
-                    <span className="ml-1 text-xs sm:text-sm">日間</span>
-                  </div>
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
-      )}
-
-      {isExpanded && searchQuery && filteredCountries.length === 0 && (
-        <div className="absolute z-30 mt-1 w-full rounded-lg border border-gray-200 bg-white p-4 text-center shadow-lg">
-          <p className="text-sm text-gray-500">
-            「{searchQuery}」に一致する国が見つかりませんでした
-          </p>
+            ) : (
+              <div className="p-4 text-center text-gray-500">
+                「{searchQuery}」に一致する国が見つかりませんでした
+              </div>
+            )
+          ) : recentSearches.length > 0 ? (
+            <div className="py-2">
+              <div className="px-4 py-1 text-xs font-semibold text-gray-500">最近の検索</div>
+              {getRecentCountries().map((country, index) => {
+                if (!country) return null;
+                return (
+                  <button
+                    key={country.id}
+                    id={`country-option-${index}`}
+                    className={`flex w-full items-center px-4 py-3 text-left transition-colors hover:bg-blue-50 ${
+                      selectedIndex === index ? "bg-blue-50" : ""
+                    }`}
+                    onClick={() => handleCountrySelect(country.id)}
+                    role="option"
+                    aria-selected={selectedIndex === index}
+                  >
+                    <div className="mr-3 flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-gray-100">
+                      <div className="relative h-6 w-10">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          {country.id.toUpperCase().split("").slice(0, 2).join("")}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex-grow">
+                      <div className="font-medium">{country.name}</div>
+                      <div className="text-xs text-gray-500">{country.region}</div>
+                    </div>
+                    <div
+                      className="ml-2 flex items-center rounded-full px-2 py-1 text-xs font-medium text-white"
+                      style={{
+                        backgroundColor: visaStatusColors[country.visaRequirement.type].main,
+                      }}
+                    >
+                      <span className="mr-1">{visaTypeIcons[country.visaRequirement.type]}</span>
+                      {visaTypeText[country.visaRequirement.type]}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          ) : null}
         </div>
       )}
     </div>
-  );
-}
-
-// 検索クエリにマッチする部分をハイライト表示する関数
-function highlightMatch(text: string, query: string) {
-  if (!query) return text;
-
-  const normalizedText = text.toLowerCase();
-  const normalizedQuery = query.toLowerCase();
-  const index = normalizedText.indexOf(normalizedQuery);
-
-  if (index === -1) return text;
-
-  return (
-    <>
-      {text.substring(0, index)}
-      <span className="bg-yellow-100 font-medium">
-        {text.substring(index, index + query.length)}
-      </span>
-      {text.substring(index + query.length)}
-    </>
   );
 }

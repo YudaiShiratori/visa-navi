@@ -1,11 +1,13 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { ClientOnly } from "./ClientOnly";
 import { RegionMap } from "./RegionMap";
 import { type RegionId, regionColors } from "../constants/colors";
+import { countries } from "../data/countries";
 import { sendGAEvent } from "../utils/analytics";
 
 interface Region {
@@ -14,7 +16,23 @@ interface Region {
   bounds: [[number, number], [number, number]];
   description: string;
   icon: string;
+  countryCount?: number;
 }
+
+// 地域ごとの国の数を計算
+const getRegionWithCountryCounts = (): Region[] => {
+  const countryCounts: Record<string, number> = {};
+
+  countries.forEach((country) => {
+    const region = country.region;
+    countryCounts[region] = (countryCounts[region] || 0) + 1;
+  });
+
+  return regions.map((region) => ({
+    ...region,
+    countryCount: countryCounts[region.id] || 0,
+  }));
+};
 
 const regions: Region[] = [
   {
@@ -91,7 +109,13 @@ const regions: Region[] = [
 
 export function MapSelector() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
+  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+  const [tooltipContent, setTooltipContent] = useState("");
+  const mapRef = useRef<HTMLDivElement>(null);
+  const regionsWithCounts = getRegionWithCountryCounts();
 
   // 画面サイズの変更を検知
   useEffect(() => {
@@ -119,10 +143,61 @@ export function MapSelector() {
     });
   };
 
+  const handleMapMouseMove = (e: React.MouseEvent) => {
+    if (!mapRef.current || !hoveredRegion) return;
+
+    const rect = mapRef.current.getBoundingClientRect();
+    setTooltipPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top - 40,
+    });
+  };
+
+  const handleRegionHover = (regionId: string | null) => {
+    setHoveredRegion(regionId);
+
+    if (regionId) {
+      const region = regionsWithCounts.find((r) => r.id === regionId);
+      if (region) {
+        setTooltipContent(`${region.name} (${region.countryCount}カ国)`);
+        setShowTooltip(true);
+      }
+    } else {
+      setShowTooltip(false);
+    }
+  };
+
   return (
     <div className="space-y-8 md:space-y-12">
-      <div className="relative z-10 mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg md:rounded-3xl md:shadow-xl">
-        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-white/50 backdrop-blur-sm">
+      <div
+        ref={mapRef}
+        className="relative z-10 mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg transition-all duration-300 hover:shadow-xl md:rounded-3xl md:shadow-xl"
+        onMouseMove={handleMapMouseMove}
+      >
+        {/* ツールチップ */}
+        <AnimatePresence>
+          {showTooltip && !isMobile && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="pointer-events-none absolute z-30 rounded-lg bg-black bg-opacity-75 px-3 py-1 text-sm text-white shadow-lg"
+              style={{
+                left: `${tooltipPosition.x}px`,
+                top: `${tooltipPosition.y}px`,
+                transform: "translate(-50%, -100%)",
+              }}
+            >
+              {tooltipContent}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div
+          className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-300 ${
+            hoveredRegion ? "opacity-0" : "opacity-100"
+          }`}
+        >
           <div className="mx-4 w-full max-w-md rounded-xl bg-white/80 p-4 text-center shadow-lg md:p-8">
             <h3 className="mb-2 text-lg font-bold text-gray-800 md:text-xl">
               {activeRegion
@@ -143,81 +218,96 @@ export function MapSelector() {
             regions={regions}
             activeRegion={activeRegion}
             setActiveRegion={setActiveRegion}
+            onRegionHover={handleRegionHover}
           />
         </ClientOnly>
       </div>
 
       <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-6 md:px-0 lg:grid-cols-3">
-        {regions.map((region) => (
-          <Link
+        {regionsWithCounts.map((region) => (
+          <motion.div
             key={region.id}
-            href={`/region/${region.id}`}
-            className="group relative transform overflow-hidden rounded-xl p-4 transition-all duration-300 hover:-translate-y-1 md:p-6 md:hover:-translate-y-2"
-            style={{
-              backgroundColor: `${regionColors[region.id].light}30`,
-              borderColor: regionColors[region.id].main,
-              borderWidth: activeRegion === region.id ? "2px" : "1px",
-              boxShadow:
-                activeRegion === region.id
-                  ? `0 10px 25px -5px ${regionColors[region.id].main}30`
-                  : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-            }}
-            onMouseEnter={() => setActiveRegion(region.id)}
-            onMouseLeave={() => setActiveRegion(null)}
-            onClick={() => handleRegionSelect(region.id, region.name)}
+            whileHover={{ y: -8, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
+            <Link
+              href={`/region/${region.id}`}
+              className="group relative flex h-full flex-col overflow-hidden rounded-xl p-4 transition-all duration-300 md:p-6"
+              style={{
+                backgroundColor: `${regionColors[region.id].light}30`,
+                borderColor: regionColors[region.id].main,
+                borderWidth: activeRegion === region.id ? "2px" : "1px",
+                boxShadow:
+                  activeRegion === region.id
+                    ? `0 10px 25px -5px ${regionColors[region.id].main}30`
+                    : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+              }}
+              onMouseEnter={() => setActiveRegion(region.id)}
+              onMouseLeave={() => setActiveRegion(null)}
+              onClick={() => handleRegionSelect(region.id, region.name)}
+            >
+              <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
 
-            <div className="relative z-10">
-              <div
-                className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl md:mb-4 md:h-14 md:w-14"
-                style={{ backgroundColor: `${regionColors[region.id].main}20` }}
-              >
-                <svg
-                  className="h-6 w-6 md:h-8 md:w-8"
+              <div className="relative z-10 flex flex-grow flex-col">
+                <div
+                  className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl md:mb-4 md:h-16 md:w-16"
+                  style={{ backgroundColor: `${regionColors[region.id].main}20` }}
+                >
+                  <svg
+                    className="h-6 w-6 md:h-8 md:w-8"
+                    style={{ color: regionColors[region.id].main }}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d={region.icon}
+                    />
+                  </svg>
+                </div>
+
+                <h3
+                  className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
                   style={{ color: regionColors[region.id].main }}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d={region.icon}
-                  />
-                </svg>
-              </div>
+                  {region.name}
+                </h3>
+                <p className="mb-3 text-xs text-gray-600 md:mb-4 md:text-sm">
+                  {region.description}
+                </p>
 
-              <h3
-                className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
-                style={{ color: regionColors[region.id].main }}
-              >
-                {region.name}
-              </h3>
-              <p className="mb-3 text-xs text-gray-600 md:mb-4 md:text-sm">{region.description}</p>
+                <div className="mt-auto flex items-center justify-between">
+                  <div
+                    className="flex items-center text-xs font-medium md:text-sm"
+                    style={{ color: regionColors[region.id].main }}
+                  >
+                    選択する
+                    <svg
+                      className="ml-1 h-3 w-3 transform transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
 
-              <div
-                className="flex items-center text-xs font-medium md:text-sm"
-                style={{ color: regionColors[region.id].main }}
-              >
-                選択する
-                <svg
-                  className="ml-1 h-3 w-3 transform transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
+                  <span className="rounded-full bg-white bg-opacity-50 px-2 py-1 text-xs font-medium text-gray-700">
+                    {region.countryCount}カ国
+                  </span>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -18,9 +18,15 @@ interface RegionMapProps {
   regions: Region[];
   activeRegion: string | null;
   setActiveRegion: (region: string | null) => void;
+  onRegionHover?: (regionId: string | null) => void;
 }
 
-export function RegionMap({ regions, activeRegion, setActiveRegion }: RegionMapProps) {
+export function RegionMap({
+  regions,
+  activeRegion,
+  setActiveRegion,
+  onRegionHover,
+}: RegionMapProps) {
   const [Map, setMap] = useState<{
     MapContainer: any;
     TileLayer: any;
@@ -82,6 +88,7 @@ export function RegionMap({ regions, activeRegion, setActiveRegion }: RegionMapP
         regions={regions}
         activeRegion={activeRegion}
         setActiveRegion={setActiveRegion}
+        onRegionHover={onRegionHover}
         useMap={Map.useMap}
       />
     </MapContainer>
@@ -93,11 +100,13 @@ function RegionHighlighter({
   regions,
   activeRegion,
   setActiveRegion,
+  onRegionHover,
   useMap,
 }: {
   regions: Region[];
   activeRegion: string | null;
   setActiveRegion: (region: string | null) => void;
+  onRegionHover?: (regionId: string | null) => void;
   useMap: any;
 }) {
   const map = useMap();
@@ -125,6 +134,17 @@ function RegionHighlighter({
     }
   }, [activeRegion, map, regions]);
 
+  // マウスイベントハンドラー
+  const handleMouseEnter = (regionId: string) => {
+    setActiveRegion(regionId);
+    if (onRegionHover) onRegionHover(regionId);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveRegion(null);
+    if (onRegionHover) onRegionHover(null);
+  };
+
   // 地域ごとに矩形を描画
   return (
     <>
@@ -150,14 +170,14 @@ function RegionHighlighter({
               style={{
                 position: "absolute",
                 border: `2px solid ${color}`,
-                backgroundColor: isActive ? `${color}20` : "transparent",
+                backgroundColor: isActive ? `${color}30` : "transparent",
                 borderRadius: "4px",
                 transition: "all 0.3s ease",
                 pointerEvents: "auto",
                 cursor: "pointer",
               }}
-              onMouseEnter={() => setActiveRegion(region.id)}
-              onMouseLeave={() => setActiveRegion(null)}
+              onMouseEnter={() => handleMouseEnter(region.id)}
+              onMouseLeave={handleMouseLeave}
             />
           </div>
         );
