@@ -4,17 +4,17 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "dev": "bunx --bun next dev",
+    "dev": "node -e \"try { require('child_process').execSync('bunx --bun next dev', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx next dev', {stdio: 'inherit'}); }\"",
     "build": "next build",
     "start": "next start",
-    "lint": "bunx --bun eslint --fix \"src/**/*.{js,jsx,ts,tsx}\"",
-    "format": "bunx --bun prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "bun run format && bun run lint",
-    "test": "bunx --bun vitest --passWithNoTests",
-    "test:coverage": "bunx --bun vitest run --coverage",
-    "test:e2e": "bunx --bun cypress open",
-    "typecheck": "bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next && bunx --bun tsc -p cypress/tsconfig.json --noEmit",
-    "validate": "bunx --bun npm-run-all --parallel \"test -- --run\" lint typecheck test:e2e",
+    "lint": "node -e \"try { require('child_process').execSync('bunx --bun eslint --fix \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx eslint --fix \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); }\"",
+    "format": "node -e \"try { require('child_process').execSync('bunx --bun prettier --write \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx prettier --write \\\"src/**/*.{js,jsx,ts,tsx}\\\"', {stdio: 'inherit'}); }\"",
+    "lint:fix": "npm run format && npm run lint",
+    "test": "node -e \"try { require('child_process').execSync('bunx --bun vitest --passWithNoTests', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx vitest --passWithNoTests', {stdio: 'inherit'}); }\"",
+    "test:coverage": "node -e \"try { require('child_process').execSync('bunx --bun vitest run --coverage', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx vitest run --coverage', {stdio: 'inherit'}); }\"",
+    "test:e2e": "node -e \"try { require('child_process').execSync('bunx --bun cypress open', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx cypress open', {stdio: 'inherit'}); }\"",
+    "typecheck": "node -e \"try { require('child_process').execSync('bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next && bunx --bun tsc -p cypress/tsconfig.json --noEmit', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next && npx tsc -p cypress/tsconfig.json --noEmit', {stdio: 'inherit'}); }\"",
+    "validate": "node -e \"try { require('child_process').execSync('bunx --bun npm-run-all --parallel \\\"test -- --run\\\" lint typecheck test:e2e', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx npm-run-all --parallel \\\"test -- --run\\\" lint typecheck test:e2e', {stdio: 'inherit'}); }\"",
     "prepare": "npx husky install"
   },
   "eslintIgnore": [
@@ -107,7 +107,7 @@
     "*.{ts,tsx}": [
       "prettier --write",
       "eslint --fix --max-warnings=0",
-      "bash -c 'bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next'"
+      "bash -c 'node -e \"try { require(\\'child_process\\').execSync(\\'bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next\\', {stdio: \\'inherit\\'}); } catch(e) { require(\\'child_process\\').execSync(\\'npx tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next\\', {stdio: \\'inherit\\'}); }\"'"
     ]
   }
 }
