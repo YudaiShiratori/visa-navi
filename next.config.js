@@ -5,6 +5,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  distDir: ".next",
   images: {
     domains: ["visa-navi.example.com"],
   },
