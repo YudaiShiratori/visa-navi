@@ -1,35 +1,51 @@
 {
-  "exclude": ["node_modules", "build", "public"],
-  "include": [
-    "app/**/*.ts",
-    "app/**/*.tsx",
-    "app/types/**/*.d.ts",
-    "remix.env.d.ts",
-    "test/**/*.ts",
-    "test/**/*.d.ts",
-    "next-app/src/**/*.ts",
-    "next-app/src/**/*.tsx"
-  ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "module": "ES2022",
-    "moduleResolution": "Bundler",
-    "resolveJsonModule": true,
-    "target": "ES2022",
-    "strict": true,
+    // Enable latest features
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "target": "ESNext",
+    "module": "esnext",
+    "moduleDetection": "force",
+    "jsx": "preserve",
+    "jsxImportSource": "react",
     "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
+    // Bundler mode
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    // Best practices
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    // Some stricter flags (disabled by default)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noPropertyAccessFromIndexSignature": false,
+    "incremental": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./app/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
-    "skipLibCheck": true,
-
-    // Remix takes care of building everything in `remix build`.
-    "noEmit": true
-  }
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

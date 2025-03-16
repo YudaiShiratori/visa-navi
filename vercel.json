@@ -1,9 +1,0 @@
-{
-  "buildCommand": "NODE_OPTIONS='--experimental-json-modules' npm run build",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "remix",
-  "env": {
-    "NODE_OPTIONS": "--experimental-json-modules"
-  }
-} 

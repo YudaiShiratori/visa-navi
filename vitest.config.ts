@@ -20,14 +20,14 @@ export default defineConfig({
         "**/*.d.ts",
         "**/*.test.{ts,tsx}",
         "cypress/",
-        "public/build/",
+        ".next/",
       ],
     },
     reporters: ["default", "junit"],
     outputFile: {
       junit: "./test-results/junit.xml",
     },
-    include: ["app/**/*.{test,spec}.{ts,tsx}"],
-    exclude: ["node_modules", "public/build/**/*"],
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+    exclude: ["node_modules", ".next/**/*"],
   },
 });

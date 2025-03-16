@@ -7,10 +7,12 @@
 ## 特徴
 
 - 📅 ビザの有効期限や滞在可能期間などビザ要件詳細の表示
+- 🗺️ 地域別の国選択が可能な世界地図インターフェース
+- 🔍 国名検索機能
 
 ## 技術スタック
 
-- フロントエンド: [Remix](https://remix.run/), TypeScript, Tailwind CSS
+- フロントエンド: [Next.js](https://nextjs.org/), TypeScript, Tailwind CSS
 - 地図表示: React Simple Maps
 - デプロイ: Vercel
 - データベース: Supabase

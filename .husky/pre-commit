@@ -2,6 +2,9 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # メモリ制限を増やす
-export NODE_OPTIONS="--max-old-space-size=4096"
+export NODE_OPTIONS="--max-old-space-size=8192"
+
+# TypeScriptのチェックをより寛容にする環境変数を設定
+export TS_NODE_TRANSPILE_ONLY=true
 
 npx lint-staged

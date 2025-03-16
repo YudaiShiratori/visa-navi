@@ -1,3 +1,4 @@
+import * as React from 'react';
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -5,13 +6,11 @@ import { getCountryById } from "../../../data/countries";
 
 import type { Metadata } from "next";
 
-interface Props {
-  params: {
-    id: string;
-  };
+interface CountryParams {
+  id: string;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: CountryParams }): Promise<Metadata> {
   const country = getCountryById(params.id);
 
   if (!country) {
@@ -32,7 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CountryPage({ params }: Props) {
+export default function CountryPage({ params }: { params: CountryParams }) {
   const country = getCountryById(params.id);
 
   if (!country) {
