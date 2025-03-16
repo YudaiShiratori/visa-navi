@@ -28,6 +28,18 @@ export default {
     "hover:bg-gray-100",
     "hover:text-blue-800",
     "hover:shadow",
+    "flex",
+    "flex-col",
+    "items-center",
+    "justify-between",
+    "w-full",
+    "h-full",
+    "p-4",
+    "m-4",
+    "text-sm",
+    "text-lg",
+    "font-medium",
+    "font-bold",
   ],
   theme: {
     extend: {
@@ -52,4 +64,7 @@ export default {
     },
   },
   plugins: [],
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
 };

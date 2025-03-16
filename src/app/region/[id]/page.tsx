@@ -35,10 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `${regionName}の国々の日本国籍保持者向けビザ要件、滞在可能期間、入国条件などの情報。`,
       images: [`/api/og?title=${encodeURIComponent(`${regionName}のビザ情報`)}`],
     },
+    metadataBase: new URL("https://visa-navi.example.com"),
   };
 }
 
-export default function RegionPage({ params }: Props) {
+export default async function RegionPage({ params }: Props) {
   const regionId = params.id;
   const regionName = regionNames[regionId];
 

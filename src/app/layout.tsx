@@ -40,6 +40,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://visa-navi.example.com",
   },
+  metadataBase: new URL("https://visa-navi.example.com"),
 };
 
 export default function RootLayout({
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="h-full">
       <head>
         <link
           rel="stylesheet"
@@ -70,7 +71,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={inter.className}>
+      <body className={`${inter.className} h-full`}>
         <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">
           <Header />
           <div className="flex-grow">{children}</div>
