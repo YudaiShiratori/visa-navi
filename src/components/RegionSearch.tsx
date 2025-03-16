@@ -137,6 +137,16 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
             className="w-full rounded-lg border border-gray-300 px-4 py-3 pr-10 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onCompositionEnd={(e) => {
+              const target = e.target as HTMLInputElement;
+              setSearchQuery(target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                e.preventDefault();
+              }
+              if ("isComposing" in e && e.isComposing) return;
+            }}
           />
           <svg
             className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"

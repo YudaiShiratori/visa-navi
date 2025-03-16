@@ -15,39 +15,39 @@ interface RegionColor {
 
 export const regionColors: Record<RegionId, RegionColor> = {
   asia: {
-    main: "#FF6B6B", // 赤系 - アジアのイメージ
-    light: "#FF6B6B15",
-    hover: "#FA5252",
+    main: "#E03131", // 深い赤 - アジアのイメージ
+    light: "#E0313115",
+    hover: "#C92A2A",
   },
   europe: {
-    main: "#4D96FF", // 青系 - EUのイメージ
-    light: "#4D96FF15",
-    hover: "#228BE6",
+    main: "#1971C2", // 濃い青 - EUのイメージ
+    light: "#1971C215",
+    hover: "#1864AB",
   },
   "north-america": {
-    main: "#20C997", // エメラルドグリーン - 北米の自然のイメージ
-    light: "#20C99715",
-    hover: "#12B886",
+    main: "#2F9E44", // 深い緑 - 北米の自然のイメージ
+    light: "#2F9E4415",
+    hover: "#2B8A3E",
   },
   "south-america": {
-    main: "#38D9A9", // ターコイズ - 南米の自然のイメージ
-    light: "#38D9A915",
-    hover: "#0CA678",
+    main: "#E8590C", // 深いオレンジ - 南米の情熱のイメージ
+    light: "#E8590C15",
+    hover: "#D9480F",
   },
   oceania: {
-    main: "#38D9A9", // ターコイズ - 海のイメージ
-    light: "#38D9A915",
-    hover: "#0CA678",
+    main: "#3BC9DB", // 明るい青 - 太平洋のイメージ
+    light: "#3BC9DB15",
+    hover: "#22B8CF",
   },
   africa: {
-    main: "#FCC419", // 黄色 - サハラ砂漠のイメージ
-    light: "#FCC41915",
-    hover: "#F59F00",
+    main: "#F08C00", // 琥珀色 - アフリカの大地のイメージ
+    light: "#F08C0015",
+    hover: "#E67700",
   },
   "middle-east": {
-    main: "#F783AC", // ピンク - 中東のイメージ
-    light: "#F783AC15",
-    hover: "#E64980",
+    main: "#AE3EC9", // 紫 - 中東の神秘的なイメージ
+    light: "#AE3EC915",
+    hover: "#9C36B5",
   },
 };
 
