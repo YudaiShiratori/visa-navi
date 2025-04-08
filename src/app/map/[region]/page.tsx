@@ -118,7 +118,7 @@ export default function RegionPage({ params }: RegionParams) {
             return (
               <Link
                 key={country.id}
-                href={`/map/country/${country.id}`}
+                href={`/country/${country.id}`}
                 className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md"
               >
                 <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
