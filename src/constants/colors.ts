@@ -1,11 +1,11 @@
 export type RegionId =
   | "asia"
   | "europe"
-  | "north-america"
-  | "south-america"
+  | "north_america"
+  | "south_america"
   | "oceania"
   | "africa"
-  | "middle-east";
+  | "middle_east";
 
 interface RegionColor {
   main: string;
@@ -24,12 +24,12 @@ export const regionColors: Record<RegionId, RegionColor> = {
     light: "#1971C215",
     hover: "#1864AB",
   },
-  "north-america": {
+  north_america: {
     main: "#2F9E44", // 深い緑 - 北米の自然のイメージ
     light: "#2F9E4415",
     hover: "#2B8A3E",
   },
-  "south-america": {
+  south_america: {
     main: "#E8590C", // 深いオレンジ - 南米の情熱のイメージ
     light: "#E8590C15",
     hover: "#D9480F",
@@ -44,7 +44,7 @@ export const regionColors: Record<RegionId, RegionColor> = {
     light: "#F08C0015",
     hover: "#E67700",
   },
-  "middle-east": {
+  middle_east: {
     main: "#AE3EC9", // 紫 - 中東の神秘的なイメージ
     light: "#AE3EC915",
     hover: "#9C36B5",

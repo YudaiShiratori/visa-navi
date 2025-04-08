@@ -10,11 +10,11 @@ import type { Metadata } from "next";
 const regionNames: Record<string, string> = {
   asia: "アジア",
   europe: "ヨーロッパ",
-  "north-america": "北米",
-  "south-america": "南米",
+  north_america: "北米",
+  south_america: "南米",
   oceania: "オセアニア",
   africa: "アフリカ",
-  "middle-east": "中東",
+  middle_east: "中東",
 };
 
 interface Props {
