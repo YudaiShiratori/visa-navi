@@ -620,8 +620,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザ（VLS）の取得が必要",
+      "学生・就労目的の場合は目的に応じたビザが必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/france.html",
+      embassy: "https://jp.ambafrance.org/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "germany",
@@ -630,8 +646,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には滞在許可（Aufenthaltserlaubnis）が必要",
+      "学生・就労目的の場合は目的に応じたビザが必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/germany.html",
+      embassy: "https://japan.diplo.de/ja-ja",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "italy",
@@ -640,8 +672,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "入国から8日以内に滞在許可証の申請が必要な場合あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/italy.html",
+      embassy: "https://ambtokyo.esteri.it/ja/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "spain",
@@ -650,8 +698,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/spain.html",
+      embassy: "https://www.exteriores.gob.es/Embajadas/tokio/ja/Paginas/index.aspx",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "uk",
@@ -660,8 +724,26 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "evisa",
       duration: 180,
+      evisaAvailable: true,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋6ヶ月以上必要",
+      "ETA（電子渡航認証）の取得が必要",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書", "ETA申請"],
+    notes: [
+      "2024年4月よりETA（Electronic Travel Authorization）の取得が必要",
+      "ETAは£10で2年間有効",
+      "1回の訪問につき最長6ヶ月滞在可能",
+      "就労・留学目的の場合は別途ビザが必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/uk.html",
+      embassy: "https://www.gov.uk/world/japan/news.ja",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "switzerland",
@@ -670,8 +752,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "EU加盟国ではないがシェンゲン協定には加盟している",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/switzerland.html",
+      embassy: "https://www.eda.admin.ch/tokyo",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "netherlands",
@@ -680,8 +778,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザ（MVV）の取得が必要",
+      "ホテルやアパートでの滞在登録が必要な場合あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/netherlands.html",
+      embassy: "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/japan",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "belgium",
@@ -690,8 +804,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "8日以上滞在する場合は滞在地の市役所への登録が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/belgium.html",
+      embassy: "https://japan.diplomatie.belgium.be/ja",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "austria",
@@ -700,8 +830,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "3日以上滞在する場合は滞在登録（Meldezettel）が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/austria.html",
+      embassy: "https://www.bmeia.gv.at/ja/oeb-tokio/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "sweden",
@@ -710,8 +856,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "1年以上の滞在を計画している場合はID番号の取得が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/sweden.html",
+      embassy: "https://www.swedenabroad.se/ja/embassies/日本-東京/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "norway",
@@ -720,8 +882,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "EU加盟国ではないがシェンゲン協定には加盟している",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/norway.html",
+      embassy: "https://www.norway.no/ja/japan/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "denmark",
@@ -730,8 +908,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/denmark.html",
+      embassy: "https://japan.um.dk/ja",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "finland",
@@ -740,8 +934,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "3ヶ月以上滞在する場合は住民登録が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/finland.html",
+      embassy: "https://finlandabroad.fi/web/jpn/frontpage",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "poland",
@@ -750,8 +960,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "滞在先の住所は入国時に申告必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/poland.html",
+      embassy: "https://www.gov.pl/web/japonia-ja",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "czech",
@@ -760,8 +986,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "入国から3営業日以内に滞在地を報告する必要がある場合あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/czech.html",
+      embassy: "https://www.mzv.cz/tokyo/ja/index.html",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "portugal",
@@ -770,8 +1012,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "3日以上滞在する場合は入国管理局での登録が必要な場合あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/portugal.html",
+      embassy: "https://www.tokyo.embaixadaportugal.mne.gov.pt/ja/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "ireland",
@@ -780,8 +1038,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "十分な滞在資金の証明が必要",
+      "帰国/次の目的地への航空券が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "最長90日間滞在可能",
+      "シェンゲン協定には加盟していないため、シェンゲン圏とは別に90日間の滞在が可能",
+      "就労・留学目的の場合は事前にビザの取得が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/ireland.html",
+      embassy: "https://www.dfa.ie/irish-embassy/japan/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "greece",
@@ -790,8 +1064,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "ギリシャ本土と島嶼部間の移動にはフェリーの予約が推奨",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/greece.html",
+      embassy: "https://www.mfa.gr/japan/ja/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "hungary",
@@ -800,8 +1090,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "宿泊施設での宿泊登録が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/hungary.html",
+      embassy: "https://tokio.mfa.gov.hu/jpn",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "romania",
@@ -810,8 +1116,24 @@ export const countries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
+      purpose: ["tourism", "business", "transit"],
     },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "十分な滞在資金の証明が必要",
+    ],
+    documents: ["有効なパスポート", "帰国便の予約証明", "宿泊予約確認書"],
+    notes: [
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
+      "90日を超える滞在には長期滞在ビザの取得が必要",
+      "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/romania.html",
+      embassy: "https://www.romaniaembassy.jp/ja/",
+    },
+    lastUpdated: "2024-05-21",
   },
   {
     id: "bulgaria",
