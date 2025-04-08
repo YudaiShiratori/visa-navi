@@ -173,14 +173,6 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
           const statusColor =
             visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
 
-          // ビザステータスのテキスト
-          const visaStatusText =
-            country.visaRequirement.type === "visa_free"
-              ? "ビザ免除"
-              : country.visaRequirement.type === "evisa"
-                ? "電子ビザ"
-                : "ビザ必要";
-
           return (
             <Link
               key={country.id}
@@ -195,7 +187,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                     : country.name}
                 </h3>
 
-                <div className="mt-auto flex items-center justify-between">
+                <div className="mt-auto flex flex-col gap-2">
                   <div
                     className="rounded-full px-3 py-1 text-xs font-medium"
                     style={{
@@ -203,13 +195,18 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       color: statusColor.main,
                     }}
                   >
-                    {visaStatusText}
+                    {country.visaRequirement.type === "visa_free"
+                      ? "ビザなしで入国可能"
+                      : country.visaRequirement.type === "evisa"
+                        ? "ビザの事前取得が必要（電子ビザ可）"
+                        : "ビザの事前取得が必要"}
                   </div>
 
                   {country.visaRequirement.duration && (
-                    <div className="flex flex-col items-center">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-gray-500">滞在可能期間:</span>
                       <div
-                        className="flex h-14 w-14 items-center justify-center rounded-full text-xl font-bold"
+                        className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold"
                         style={{
                           backgroundColor: statusColor.light,
                           color: statusColor.main,
@@ -217,7 +214,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       >
                         {country.visaRequirement.duration}
                       </div>
-                      <span className="mt-1 text-xs text-gray-500">日間</span>
+                      <span className="text-xs text-gray-500">日間</span>
                     </div>
                   )}
                 </div>

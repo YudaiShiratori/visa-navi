@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 import { SearchCountries } from "../../components/SearchCountries";
 import { visaStatusColors } from "../../constants/colors";
 import { getCountriesByRegion } from "../../data/countries";
@@ -111,7 +110,7 @@ export default function MapPage() {
                       <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
                       <div className="flex flex-1 flex-col p-4">
                         <h3 className="mb-2 text-lg font-medium text-gray-900">{country.name}</h3>
-                        <div className="mt-auto flex items-center justify-between">
+                        <div className="mt-auto flex flex-col gap-2">
                           <div
                             className="rounded-full px-2 py-1 text-xs font-medium"
                             style={{
@@ -120,16 +119,26 @@ export default function MapPage() {
                             }}
                           >
                             {country.visaRequirement.type === "visa_free"
-                              ? "ビザ免除"
+                              ? "ビザなしで入国可能"
                               : country.visaRequirement.type === "evisa"
-                                ? "電子ビザ"
-                                : "ビザ必要"}
+                                ? "ビザの事前取得が必要（電子ビザ可）"
+                                : "ビザの事前取得が必要"}
                           </div>
-                          <span className="text-sm text-gray-500">
-                            {country.visaRequirement.duration
-                              ? `${country.visaRequirement.duration}日`
-                              : ""}
-                          </span>
+                          {country.visaRequirement.duration && (
+                            <div className="flex items-center justify-between">
+                              <span className="text-xs text-gray-500">滞在可能期間:</span>
+                              <div
+                                className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold"
+                                style={{
+                                  backgroundColor: statusColor.light,
+                                  color: statusColor.main,
+                                }}
+                              >
+                                {country.visaRequirement.duration}
+                              </div>
+                              <span className="text-xs text-gray-500">日間</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </Link>

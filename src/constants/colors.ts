@@ -58,9 +58,9 @@ export const visaStatusColors = {
     hover: "#16a34a", // ホバー時の緑
   },
   evisa: {
-    main: "#3b82f6", // 青
-    light: "#3b82f615", // 薄い青（背景用）
-    hover: "#2563eb", // ホバー時の青
+    main: "#ef4444", // 赤（オレンジから変更）
+    light: "#ef444415", // 薄い赤（背景用）
+    hover: "#dc2626", // ホバー時の赤
   },
   visa_required: {
     main: "#ef4444", // 赤

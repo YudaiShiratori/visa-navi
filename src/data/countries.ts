@@ -1,13 +1,16 @@
 export interface VisaRequirement {
   type: "visa_free" | "evisa" | "visa_required";
   duration: number;
-  // 電子ビザが利用可能かどうか
   evisaAvailable?: boolean;
-  // ビザなし入国が可能かどうか
   visaFreeEntry?: boolean;
-  // ビザなし入国の場合の滞在可能期間
-  visaFreeDuration?: number;
-  purpose?: ("tourism" | "business" | "transit")[];
+  purpose?: string[];
+  conditions?: string[];
+  documents?: string[];
+  notes?: string[];
+  officialLinks?: {
+    ministry?: string;
+    embassy?: string;
+  };
 }
 
 export interface Country {
@@ -2765,8 +2768,6 @@ export const countries: Country[] = [
       type: "evisa",
       duration: 90,
       evisaAvailable: true,
-      visaFreeEntry: true,
-      visaFreeDuration: 90,
       purpose: ["tourism", "business"],
     },
     conditions: [
@@ -2822,4 +2823,10 @@ export const getCountryById = (id: string) => {
   // IDを小文字に変換して検索
   const lowerId = id.toLowerCase();
   return countries.find((country) => country.id.toLowerCase() === lowerId);
+};
+
+export const visaTypeDescriptions = {
+  visa_free: "ビザ不要（入国時にパスポートのみで入国可能）",
+  evisa: "電子ビザ必要（事前にオンラインでビザ申請が必要）",
+  visa_required: "ビザ必要（大使館での申請が必要）",
 };

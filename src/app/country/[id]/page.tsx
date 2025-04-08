@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { visaStatusColors } from "@/constants/colors";
+
 import { getCountryById } from "../../../data/countries";
 
 import type { Metadata } from "next";
@@ -85,6 +87,57 @@ export default function CountryPage({ params }: { params: CountryParams }) {
           </div>
 
           <div className="p-6">
+            <div
+              className="mb-6 rounded-lg border-2 p-4"
+              style={{
+                borderColor:
+                  country.visaRequirement.type === "visa_free"
+                    ? visaStatusColors.visa_free.main
+                    : "#ef4444",
+                backgroundColor:
+                  country.visaRequirement.type === "visa_free"
+                    ? visaStatusColors.visa_free.light
+                    : "#fef2f2",
+              }}
+            >
+              <div className="flex items-center">
+                <div
+                  className="mr-4 flex h-12 w-12 items-center justify-center rounded-full"
+                  style={{
+                    backgroundColor:
+                      country.visaRequirement.type === "visa_free"
+                        ? visaStatusColors.visa_free.main
+                        : "#ef4444",
+                    color: "white",
+                  }}
+                >
+                  {country.visaRequirement.type === "visa_free" ? "✓" : "!"}
+                </div>
+                <div>
+                  <h3
+                    className="text-lg font-semibold"
+                    style={{
+                      color:
+                        country.visaRequirement.type === "visa_free"
+                          ? visaStatusColors.visa_free.main
+                          : "#ef4444",
+                    }}
+                  >
+                    {country.visaRequirement.type === "visa_free"
+                      ? "ビザなしで入国可能"
+                      : "ビザの事前取得が必要"}
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    {country.visaRequirement.type === "visa_free"
+                      ? "パスポートのみで入国できます"
+                      : country.visaRequirement.evisaAvailable
+                        ? "🌐 電子ビザ（e-Visa）での申請が可能です"
+                        : "大使館または領事館でビザを申請する必要があります"}
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <div className="mb-6 rounded-lg bg-blue-50 p-4">
               <h3 className="mb-2 text-lg font-semibold text-blue-800">滞在可能期間</h3>
               <p className="text-blue-700">
