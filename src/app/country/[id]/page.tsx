@@ -149,7 +149,30 @@ export default function CountryPage({ params }: { params: CountryParams }) {
             {country.notes && (
               <div className="rounded-lg bg-yellow-50 p-4">
                 <h3 className="mb-2 text-lg font-semibold text-yellow-800">注意事項</h3>
-                <p className="text-yellow-700">{country.notes}</p>
+                {Array.isArray(country.notes) ? (
+                  <ul className="space-y-2">
+                    {country.notes.map((note, index) => (
+                      <li key={index} className="flex items-start">
+                        <svg
+                          className="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-yellow-500"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                          />
+                        </svg>
+                        <span className="text-yellow-700">{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-yellow-700">{country.notes}</p>
+                )}
               </div>
             )}
 
@@ -179,7 +202,13 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                           d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                         />
                       </svg>
-                      {key === "mofa" ? "外務省" : key === "embassy" ? "大使館" : key}
+                      {key === "mofa"
+                        ? "外務省"
+                        : key === "embassy"
+                          ? "大使館"
+                          : key === "k_eta"
+                            ? "K-ETA申請"
+                            : key}
                     </a>
                   ))}
                 </div>

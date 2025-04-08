@@ -328,10 +328,22 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
                       className="flex items-center rounded-lg border border-gray-200 bg-white p-3 text-blue-600 transition-all hover:bg-blue-50 hover:text-blue-800 hover:shadow"
                     >
                       <span className="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-blue-100 text-blue-500">
-                        {key === "mofa" ? "🏛️" : key === "embassy" ? "🏢" : "🔗"}
+                        {key === "mofa"
+                          ? "🏛️"
+                          : key === "embassy"
+                            ? "🏢"
+                            : key === "k_eta"
+                              ? "📱"
+                              : "🔗"}
                       </span>
                       <span className="font-medium">
-                        {key === "mofa" ? "外務省" : key === "embassy" ? "大使館" : key}
+                        {key === "mofa"
+                          ? "外務省"
+                          : key === "embassy"
+                            ? "大使館"
+                            : key === "k_eta"
+                              ? "K-ETA申請"
+                              : key}
                       </span>
                       <svg
                         className="ml-auto h-5 w-5"
