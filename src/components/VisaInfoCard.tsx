@@ -181,61 +181,6 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           </div>
         )}
 
-        {/* 必要書類 */}
-        {country.documents && country.documents.length > 0 && (
-          <div className="mb-4 overflow-hidden rounded-lg border border-gray-200 transition-all duration-300">
-            <button
-              className="flex w-full items-center justify-between bg-gray-50 px-4 py-3 text-left hover:bg-gray-100"
-              onClick={() => toggleSection("documents")}
-              aria-expanded={isSectionExpanded("documents")}
-            >
-              <h2 className="flex items-center text-lg font-semibold text-gray-800">
-                <svg
-                  className="mr-2 h-5 w-5 text-blue-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-                必要書類
-              </h2>
-              <svg
-                className={`h-5 w-5 transform text-gray-500 transition-transform ${
-                  isSectionExpanded("documents") ? "rotate-180" : ""
-                }`}
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-            {isSectionExpanded("documents") && (
-              <div className="p-4">
-                <ul className="space-y-2">
-                  {country.documents.map((document, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2 mt-1 text-blue-500">📄</span>
-                      <span className="text-gray-700">{document}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
-
         {/* 注意事項 */}
         {country.notes && country.notes.length > 0 && (
           <div className="mb-4 overflow-hidden rounded-lg border border-yellow-200 bg-yellow-50 transition-all duration-300">

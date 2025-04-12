@@ -180,32 +180,6 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                 </div>
               )}
 
-              {country.documents && (
-                <div className="mb-6">
-                  <h3 className="mb-3 text-lg font-semibold text-gray-800">必要書類</h3>
-                  <ul className="space-y-2">
-                    {country.documents.map((document: string, index: number) => (
-                      <li key={index} className="flex items-start">
-                        <svg
-                          className="mr-2 mt-1 h-5 w-5 flex-shrink-0 text-blue-500"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                          />
-                        </svg>
-                        <span className="text-gray-700">{document}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
               {country.notes && (
                 <div className="rounded-lg bg-yellow-50 p-4">
                   <h3 className="mb-2 text-lg font-semibold text-yellow-800">注意事項</h3>
