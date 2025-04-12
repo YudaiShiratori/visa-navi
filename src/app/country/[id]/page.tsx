@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+
 import { visaStatusColors } from "@/constants/colors";
 
 import { getCountryById } from "../../../data/countries";
+import { getRegionDisplayName } from "../../../utils/regionHelper";
 
 import type { Metadata } from "next";
 
@@ -39,12 +41,14 @@ export default function CountryPage({ params }: { params: CountryParams }) {
     notFound();
   }
 
+  const regionDisplayName = getRegionDisplayName(country.region);
+
   return (
     <div className="container mx-auto mt-8 px-4 py-8">
       <div className="mb-8">
         <Link
-          href="/"
-          className="inline-flex items-center rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-[#007AFF] shadow-sm transition-all hover:bg-[#E8F0FF] hover:shadow"
+          href={`/region/${country.region}`}
+          className="inline-flex items-center rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-[#007AFF]"
         >
           <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -54,7 +58,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          ホームに戻る
+          {regionDisplayName}一覧に戻る
         </Link>
       </div>
 

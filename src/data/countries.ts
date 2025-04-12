@@ -1,6 +1,6 @@
 export interface VisaRequirement {
   type: "visa_free" | "evisa" | "visa_required";
-  duration: number;
+  duration?: number; // Make duration optional
   evisaAvailable?: boolean;
   visaFreeEntry?: boolean;
   purpose?: string[];
@@ -2265,7 +2265,7 @@ export const countries: Country[] = [
     name: "アルジェリア",
     code: "DZ",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 0 },
+    visaRequirement: { type: "visa_required" }, // Remove duration: 0
     notes: ["ビザが必要。東京の大使館で申請可能。"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/algeria/index.html" },
     lastUpdated: "2024-07-27",
@@ -2275,7 +2275,7 @@ export const countries: Country[] = [
     name: "アンゴラ",
     code: "AO",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 0 },
+    visaRequirement: { type: "visa_required" }, // Remove duration: 0
     notes: ["ビザが必要。東京の大使館で申請可能。"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/angola/index.html" },
     lastUpdated: "2024-07-27",
