@@ -216,7 +216,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                 </div>
               )}
 
-              {country.notes && (
+              {country.notes && Array.isArray(country.notes) && country.notes.length > 0 && (
                 <div className="rounded-lg bg-yellow-50 p-4">
                   <h3 className="mb-2 text-lg font-semibold text-yellow-800">注意事項</h3>
                   {Array.isArray(country.notes) ? (

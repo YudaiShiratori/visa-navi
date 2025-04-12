@@ -9,7 +9,7 @@ interface VisaInfoCardProps {
 }
 
 export function VisaInfoCard({ country }: VisaInfoCardProps) {
-  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+  const [expandedSection, setExpandedSection] = useState<string | null>("conditions");
 
   const visaTypeText = {
     visa_free: "ビザ免除",
@@ -47,7 +47,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
 
   // セクションが展開されているかどうかを確認
   const isSectionExpanded = (section: string) => {
-    return expandedSection === section || expandedSection === null;
+    return expandedSection === section;
   };
 
   return (
