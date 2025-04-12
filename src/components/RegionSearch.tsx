@@ -180,24 +180,24 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
               className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
-              <div className="relative flex flex-1 flex-col p-6">
-                <h3 className="text-lg font-medium text-gray-900">
+              <div className="relative flex flex-1 flex-col p-5">
+                <h3 className="mr-28 text-lg font-medium text-gray-900 lg:mr-0">
+                  {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
+                    ? highlightMatch(country.name, searchQuery)
+                    : country.name}
                   {country.code && (
-                    <span className="mr-2 inline-block align-middle">
+                    <span className="ml-2 inline-block align-middle">
                       <span
                         className={`fi fi-${country.code.toLowerCase()}`}
                         style={{ width: "20px", height: "15px", display: "inline-block" }}
                       ></span>
                     </span>
                   )}
-                  {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
-                    ? highlightMatch(country.name, searchQuery)
-                    : country.name}
                 </h3>
 
-                <div className="mt-1">
+                <div className="mr-28 mt-1 w-fit lg:mr-0">
                   <div
-                    className="inline-block rounded-full px-3 py-1 text-xs font-medium"
+                    className="rounded-full px-3 py-1 text-xs font-medium"
                     style={{
                       backgroundColor: statusColor.light,
                       color: statusColor.main,
@@ -211,8 +211,8 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                   </div>
                 </div>
 
-                {country.visaRequirement.duration && (
-                  <div className="absolute right-4 top-1/2 flex -translate-y-1/2 transform flex-col items-end gap-1">
+                {country.visaRequirement.duration ? (
+                  <div className="absolute bottom-6 right-4 flex flex-shrink-0 flex-col items-end">
                     <span className="text-xs text-gray-500">滞在可能期間</span>
                     <div>
                       <span className="text-2xl font-bold" style={{ color: statusColor.main }}>
@@ -221,6 +221,8 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       <span className="ml-1 text-base text-gray-500">日間</span>
                     </div>
                   </div>
+                ) : (
+                  <></>
                 )}
               </div>
             </Link>
