@@ -3771,6 +3771,25 @@ export const getCountryById = (id: string) => {
   return countries.find((country) => country.id.toLowerCase() === lowerId);
 };
 
+// 同じリージョン内で前後の国を取得するための関数
+export const getAdjacentCountries = (id: string) => {
+  const country = getCountryById(id);
+  if (!country) return { prev: null, next: null };
+
+  const sameRegionCountries = getCountriesByRegion(country.region);
+  const currentIndex = sameRegionCountries.findIndex(
+    (c) => c.id.toLowerCase() === id.toLowerCase()
+  );
+
+  if (currentIndex === -1) return { prev: null, next: null };
+
+  const prev = currentIndex > 0 ? sameRegionCountries[currentIndex - 1] : null;
+  const next =
+    currentIndex < sameRegionCountries.length - 1 ? sameRegionCountries[currentIndex + 1] : null;
+
+  return { prev, next };
+};
+
 export const visaTypeDescriptions = {
   visa_free: "ビザ不要（入国時にパスポートのみで入国可能）",
   evisa: "電子ビザ必要（事前にオンラインでビザ申請が必要）",

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { visaStatusColors } from "@/constants/colors";
 
-import { getCountryById } from "../../../data/countries";
+import { getCountryById, getAdjacentCountries } from "../../../data/countries";
 import { getRegionDisplayName } from "../../../utils/regionHelper";
 
 import type { Metadata } from "next";
@@ -41,9 +41,52 @@ export default function CountryPage({ params }: { params: CountryParams }) {
   }
 
   const regionDisplayName = getRegionDisplayName(country.region);
+  const { prev, next } = getAdjacentCountries(params.id);
 
   return (
-    <div className="py-8 md:py-12">
+    <div className="relative py-8 md:py-12">
+      {/* PC画面のみ表示される左右の矢印ナビゲーション */}
+      {prev && (
+        <Link
+          href={`/country/${prev.id}`}
+          className="fixed left-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-lg transition-all hover:bg-white hover:shadow-xl md:left-8 md:flex md:h-16 md:w-16"
+          title={prev.name}
+        >
+          <svg
+            className="h-8 w-8 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </Link>
+      )}
+
+      {next && (
+        <Link
+          href={`/country/${next.id}`}
+          className="fixed right-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-lg transition-all hover:bg-white hover:shadow-xl md:right-8 md:flex md:h-16 md:w-16"
+          title={next.name}
+        >
+          <svg
+            className="h-8 w-8 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </Link>
+      )}
+
       <div className="container mx-auto max-w-6xl px-4">
         <div className="mb-8 flex items-center">
           <Link
