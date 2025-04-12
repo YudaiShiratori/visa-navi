@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: `${regionName}の国々の日本国籍保持者向けビザ要件、滞在可能期間、入国条件などの情報。`,
       images: [`/api/og?title=${encodeURIComponent(`${regionName}のビザ情報`)}`],
     },
-    metadataBase: new URL("https://visa-navi.example.com"),
+    metadataBase: new URL("https://visa-navi.vercel.app"),
   };
 }
 

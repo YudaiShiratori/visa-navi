@@ -71,6 +71,24 @@ export default function RootLayout({
             `,
           }}
         />
+        {/* 構造化データ（JSON-LD） */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "ビザナビ",
+              url: "https://visa-navi.vercel.app",
+              description: "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービス",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://visa-navi.vercel.app/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </head>
       <body className={`${inter.className} h-full`}>
         <div className="flex min-h-screen flex-col bg-gradient-to-b from-blue-50 to-white">

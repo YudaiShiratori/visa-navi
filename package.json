@@ -16,7 +16,8 @@
     "test:e2e": "node -e \"try { require('child_process').execSync('bunx --bun cypress open', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx cypress open', {stdio: 'inherit'}); }\"",
     "typecheck": "node -e \"try { require('child_process').execSync('bunx --bun tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next && bunx --bun tsc -p cypress/tsconfig.json --noEmit', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx tsc --noEmit --skipLibCheck --jsx preserve --excludeDirectories .next && npx tsc -p cypress/tsconfig.json --noEmit', {stdio: 'inherit'}); }\"",
     "validate": "node -e \"try { require('child_process').execSync('bunx --bun npm-run-all --parallel \\\"test -- --run\\\" lint typecheck test:e2e', {stdio: 'inherit'}); } catch(e) { require('child_process').execSync('npx npm-run-all --parallel \\\"test -- --run\\\" lint typecheck test:e2e', {stdio: 'inherit'}); }\"",
-    "prepare": "npx husky install"
+    "prepare": "npx husky install",
+    "postbuild": "next-sitemap"
   },
   "eslintIgnore": [
     "/node_modules",
@@ -87,6 +88,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.4.3",
     "msw": "^2.6.6",
+    "next-sitemap": "^4.2.3",
     "npm-run-all2": "^7.0.1",
     "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",

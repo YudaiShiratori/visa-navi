@@ -34,23 +34,56 @@ export async function generateMetadata({ params }: { params: CountryParams }): P
 }
 
 export default function CountryPage({ params }: { params: CountryParams }) {
-  const country = getCountryById(params.id);
+  const { id } = params;
+  const country = getCountryById(id);
 
   if (!country) {
     notFound();
   }
 
+  const adjacentCountries = getAdjacentCountries(id);
   const regionDisplayName = getRegionDisplayName(country.region);
-  const { prev, next } = getAdjacentCountries(params.id);
+
+  // BreadcrumbList用のJSON-LDデータ
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "ホーム",
+        item: "https://visa-navi.vercel.app",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: regionDisplayName,
+        item: `https://visa-navi.vercel.app/region/${country.region}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: country.name,
+        item: `https://visa-navi.vercel.app/country/${id}`,
+      },
+    ],
+  };
 
   return (
     <div className="relative py-8 md:py-12">
+      {/* JSON-LD構造化データ */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* PC画面のみ表示される左右の矢印ナビゲーション */}
-      {prev && (
+      {adjacentCountries.prev && (
         <Link
-          href={`/country/${prev.id}`}
+          href={`/country/${adjacentCountries.prev.id}`}
           className="fixed left-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-lg transition-all hover:bg-white hover:shadow-xl md:left-8 md:flex md:h-16 md:w-16"
-          title={prev.name}
+          title={adjacentCountries.prev.name}
         >
           <svg
             className="h-8 w-8 text-gray-600"
@@ -69,11 +102,11 @@ export default function CountryPage({ params }: { params: CountryParams }) {
         </Link>
       )}
 
-      {next && (
+      {adjacentCountries.next && (
         <Link
-          href={`/country/${next.id}`}
+          href={`/country/${adjacentCountries.next.id}`}
           className="fixed right-2 top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full bg-white/80 shadow-lg transition-all hover:bg-white hover:shadow-xl md:right-8 md:flex md:h-16 md:w-16"
-          title={next.name}
+          title={adjacentCountries.next.name}
         >
           <svg
             className="h-8 w-8 text-gray-600"
