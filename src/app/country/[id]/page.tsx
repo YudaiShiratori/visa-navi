@@ -112,18 +112,11 @@ export default function CountryPage({ params }: { params: CountryParams }) {
         </div>
 
         <div className="mx-auto max-w-4xl">
-          <div className="mb-8 text-center">
-            <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
-              {country.name}のビザ情報
-            </h1>
-            <p className="text-gray-600">日本国籍保持者向けビザ情報</p>
-          </div>
-
           <div className="overflow-hidden rounded-xl bg-white shadow-lg">
             <div className="border-b border-gray-200 bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
               <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
                 <div>
-                  <h2 className="text-2xl font-bold">{country.name}</h2>
+                  <h2 className="text-2xl font-bold">{country.name}のビザ情報</h2>
                 </div>
                 {country.code && (
                   <div className="flex items-center justify-center md:ml-auto md:justify-end">
