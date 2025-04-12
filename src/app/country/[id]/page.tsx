@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-
 import { visaStatusColors } from "@/constants/colors";
 
 import { getCountryById } from "../../../data/countries";
@@ -77,7 +76,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                 <h2 className="text-2xl font-bold">{country.name}</h2>
               </div>
               {country.code && (
-                <div className="ml-auto flex items-center justify-end">
+                <div className="flex items-center justify-center md:ml-auto md:justify-end">
                   <span
                     className={`fi fi-${country.code.toLowerCase()}`}
                     style={{ width: "60px", height: "45px", display: "block" }}
