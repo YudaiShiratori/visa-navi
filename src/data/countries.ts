@@ -2715,6 +2715,655 @@ export const countries: Country[] = [
     },
     lastUpdated: "2024-03-20",
   },
+  {
+    id: "uae",
+    name: "アラブ首長国連邦",
+    code: "AE",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["30日を超える滞在にはビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/uae.html",
+      embassy: "https://www.uaeembassy.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "yemen",
+    name: "イエメン",
+    code: "YE",
+    region: "middle_east",
+    visaRequirement: { type: "visa_required", duration: 0 },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["入国にはビザが必要", "現在、外務省より退避勧告（危険レベル4）が発令中"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/yemen/index.html",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "israel",
+    name: "イスラエル",
+    code: "IL",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["90日を超える滞在にはビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/israel.html",
+      embassy: "https://embassies.gov.il/tokyo/Pages/default.aspx",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "iraq",
+    name: "イラク",
+    code: "IQ",
+    region: "middle_east",
+    visaRequirement: { type: "visa_required", duration: 0 },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["入国にはビザが必要", "現在、外務省より退避勧告（危険レベル4）が発令中"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/iraq/index.html",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "iran",
+    name: "イラン",
+    code: "IR",
+    region: "middle_east",
+    visaRequirement: { type: "visa_required", duration: 0 },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["入国にはビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/iran.html",
+      embassy: "https://japan.mfa.gov.ir/ja",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "oman",
+    name: "オマーン",
+    code: "OM",
+    region: "middle_east",
+    visaRequirement: {
+      type: "evisa", // 14日以内ビザ不要だが、条件付きなのでe-Visa必須とする
+      duration: 14, // ビザ不要の期間
+      evisaAvailable: true,
+      purpose: ["tourism"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "e-Visa取得"],
+    notes: [
+      "観光目的で14日以内の滞在の場合、一定の条件を満たせばビザ不要。それ以外はe-Visaの取得が必要。",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/oman.html",
+      embassy: "https://www.omanembassy.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "qatar",
+    name: "カタール",
+    code: "QA",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_free", // 到着時無料ビザなので実質ビザ不要
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
+    notes: ["到着時に空港で無料のビザが発行される"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/qatar.html",
+      embassy: "https://tokyo.embassy.qa/en",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "kuwait",
+    name: "クウェート",
+    code: "KW",
+    region: "middle_east",
+    visaRequirement: {
+      type: "evisa", // 到着時ビザまたはe-Visa
+      duration: 90,
+      evisaAvailable: true,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
+    notes: ["到着時に空港でビザを取得可能（有料）。事前にe-Visaの取得も可能。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/kuwait.html",
+      embassy: "http://kuwait-embassy.or.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "saudi_arabia",
+    name: "サウジアラビア",
+    code: "SA",
+    region: "middle_east",
+    visaRequirement: {
+      type: "evisa",
+      duration: 90, // 観光e-Visaの場合
+      evisaAvailable: true,
+      purpose: ["tourism"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["観光目的の場合はe-Visa、商用目的の場合は別途ビザの取得が必要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/saudiarabia.html",
+      embassy: "https://embassies.mofa.gov.sa/sites/japan/EN/Pages/default.aspx",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "turkey",
+    name: "トルコ",
+    code: "TR",
+    region: "middle_east", // または Europe に分類されることもある
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["90日を超える滞在にはビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/turkey.html",
+      embassy: "http://tokyo.be.mfa.gov.tr/Mission",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "bahrain",
+    name: "バーレーン",
+    code: "BH",
+    region: "middle_east",
+    visaRequirement: {
+      type: "evisa", // e-Visaまたは到着時ビザ
+      duration: 14, // e-Visaの一般的な期間
+      evisaAvailable: true,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["e-Visaまたは到着時に空港でビザを取得可能（有料）。滞在期間はビザ種別による。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/bahrain.html",
+      embassy: "https://www.mofa.gov.bh/tokyo/Home.aspx",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "jordan",
+    name: "ヨルダン",
+    code: "JO",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_required", // 到着時ビザ取得可能だが、分類上は required
+      duration: 30, // 到着時ビザの場合
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["到着時に空港でビザを取得可能（有料）。ヨルダンパスなどの利用も検討。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/jordan.html",
+      embassy: "http://www.jordanembassy.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "lebanon",
+    name: "レバノン",
+    code: "LB",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_free", // 到着時無料ビザなので実質ビザ不要
+      duration: 30,
+      purpose: ["tourism"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
+    notes: ["観光目的の場合、到着時に空港で無料のビザが発行される。商用は事前取得推奨。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/lebanon.html",
+      embassy: "http://www.lebanonembassy.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "australia",
+    name: "オーストラリア",
+    code: "AU",
+    region: "oceania",
+    visaRequirement: {
+      type: "evisa", // ETAS は電子ビザの一種と分類
+      duration: 90,
+      evisaAvailable: true,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が滞在期間中有効であること", "ETAS取得"],
+    notes: ["電子渡航認証システム（ETAS）の事前登録が必要。", "ワーキングホリデーなど別途ビザあり"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/australia.html",
+      embassy: "https://japan.embassy.gov.au/tkyojapanese/home.html",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "papua_new_guinea",
+    name: "パプアニューギニア",
+    code: "PG",
+    region: "oceania",
+    visaRequirement: {
+      type: "evisa", // e-Visaまたは到着ビザ
+      duration: 60, // 観光e-Visaの場合
+      evisaAvailable: true,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
+    notes: ["観光・商用目的の場合、事前にe-Visaまたは到着時にビザ（一部空港）を取得可能。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html",
+      embassy: "http://www.png.or.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "fiji",
+    name: "フィジー",
+    code: "FJ",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 120, // 4ヶ月
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
+    notes: ["観光・商用目的の場合、4ヶ月以内の滞在はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html",
+      embassy: "http://www.fijiembassy.jp/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  {
+    id: "new_zealand",
+    name: "ニュージーランド",
+    code: "NZ",
+    region: "oceania",
+    visaRequirement: {
+      type: "evisa", // NZeTA は電子ビザの一種と分類
+      duration: 90,
+      evisaAvailable: true,
+      purpose: ["tourism", "business", "transit"],
+    },
+    conditions: ["パスポートの残存有効期間が滞在期間＋3ヶ月以上必要", "NZeTA取得"],
+    notes: ["電子渡航認証（NZeTA）の事前登録が必要。", "ワーキングホリデーなど別途ビザあり"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/newzealand.html",
+      embassy:
+        "https://www.mfat.govt.nz/ja/countries-and-regions/north-asia/japan/new-zealand-embassy/",
+    },
+    lastUpdated: "2024-07-26",
+  },
+  // Oceania Countries Start (Based on user provided list)
+  {
+    id: "australia",
+    name: "オーストラリア連邦",
+    code: "AU",
+    region: "oceania",
+    visaRequirement: {
+      type: "evisa", // ETA is required
+      duration: 90, // 3ヶ月
+      evisaAvailable: true,
+      purpose: ["tourism", "business", "visit"],
+    },
+    conditions: ["帰国時まで有効な旅券が必要"],
+    documents: ["ETA（電子渡航認証）の事前取得が必要"],
+    notes: [
+      "黄熱に感染する危険のある国から来る1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/australia.html", // Existing link, might need update
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "northern_mariana_islands",
+    name: "北マリアナ諸島（サイパン）",
+    code: "MP",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free", // Guam-CNMI VWP / VWP
+      duration: 90, // Max VWP duration
+      purpose: ["tourism", "business"],
+    },
+    conditions: [
+      "45日以内: グアム－北マリアナ諸島ビザ免除プログラム（Guam-CNMI VWP）。旅券残存帰国日まで有効（入国時45日以上が望ましい）。出国用航空券。Guam-CNMI ETAが必要。",
+      "46日以上90日以内: アメリカビザ免除プログラム(VWP)。旅券残存帰国日まで有効（入国時90日以上が望ましい）。ESTA事前取得とVWP要件充足が必要。",
+    ],
+    notes: ["ESTAだけではない アメリカビザ免除のための10の条件参照"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "kiribati",
+    name: "キリバス共和国",
+    code: "KI",
+    region: "oceania",
+    visaRequirement: { type: "visa_free", duration: 30, purpose: ["tourism"] }, // Assuming tourism
+    conditions: ["旅券残存出国時6ヵ月以上"],
+    documents: ["出国用航空券", "十分な滞在費用"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "guam",
+    name: "グアム（米国）",
+    code: "GU",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free", // Guam-CNMI VWP / VWP
+      duration: 90, // Max VWP duration
+      purpose: ["tourism", "business"],
+    },
+    conditions: [
+      "45日以内: グアム－北マリアナ諸島ビザ免除プログラム（Guam-CNMI VWP）。旅券残存帰国日まで有効（入国時45日以上が望ましい）。出国用航空券。Guam-CNMI ETAが必要。",
+      "46日以上90日以内: アメリカビザ免除プログラム(VWP)。旅券残存帰国日まで有効（入国時90日以上が望ましい）。ESTA事前取得とVWP要件充足が必要。",
+    ],
+    notes: ["ESTAだけではない アメリカビザ免除のための10の条件参照"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "cook_islands",
+    name: "クック諸島", // (ニュージーランド領)
+    code: "CK",
+    region: "oceania",
+    visaRequirement: { type: "visa_free", duration: 30, purpose: ["tourism"] }, // Assuming tourism
+    conditions: ["旅券残存出国時6ヵ月以上"],
+    documents: ["出国用航空券", "ホテル予約確認"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "samoa",
+    name: "サモア独立国",
+    code: "WS",
+    region: "oceania",
+    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] }, // Assuming tourism
+    conditions: ["旅券残存出国時6ヵ月以上"],
+    documents: ["出国用航空券", "滞在資金", "滞在先の住所・連絡先"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "solomon_islands",
+    name: "ソロモン諸島",
+    code: "SB",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free", // Arrival permit
+      duration: 45,
+      purpose: ["tourism"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上"],
+    documents: ["出国用航空券", "十分な滞在費用"],
+    notes: [
+      "入国時に45日以内の滞在許可証 が発行される",
+      "黄熱に感染する危険のある国から来る9か月以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "tuvalu",
+    name: "ツバル",
+    code: "TV",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free", // Arrival permit
+      duration: 30,
+      purpose: ["tourism"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上"],
+    documents: ["出国用航空券", "十分な滞在費用"],
+    notes: ["入国時に30日以内で出国日までの滞在許可が付与される"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "tonga",
+    name: "トンガ王国",
+    code: "TO",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_required", // Visa on arrival for tourism
+      duration: 31,
+      purpose: ["tourism"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上", "未使用査証欄1頁以上"],
+    documents: ["出国用航空券"],
+    notes: [
+      "観光目的の場合は到着空港で入国時に31日間滞在可能なビザが発給される",
+      "就労（取材を含む）目的は、事前に入国許可申請が必要",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "nauru",
+    name: "ナウル共和国",
+    code: "NR",
+    region: "oceania",
+    visaRequirement: { type: "visa_required", duration: 0 },
+    notes: ["目的に関わらず事前にビザ取得が必要", "取得方法はナウル入国管理局に確認が必要"],
+    officialLinks: {
+      mofa: "", // Needs official link
+      embassy: "https://www.naurugov.nr/about-nauru/visiting-nauru/visa-requirements.aspx", // From user text
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "niue",
+    name: "ニウエ",
+    code: "NU",
+    region: "oceania",
+    visaRequirement: { type: "visa_free", duration: 30, purpose: ["tourism"] }, // Assuming tourism
+    conditions: ["旅券残存出国時3ヵ月以上", "滞在先が決まっていること"],
+    documents: ["出国用航空券", "滞在費用証明"],
+    notes: ["黄熱に感染する危険のある国から来る生後9か月以上の渡航者は黄熱予防接種証明書が必要"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "new_caledonia",
+    name: "ニューカレドニア", // (フランス領)
+    code: "NC",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90, // within 180 days
+      purpose: ["tourism"],
+    },
+    conditions: ["旅券残存出国時3ヵ月以上", "未使用査証欄見開き2頁以上"],
+    documents: ["出国用航空券"],
+    notes: [
+      "海外旅行保険、滞在費用証明（ホテル予約提示なら1日EUR65、無提示なら1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
+      "黄熱に感染する危険のある国から来る1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "new_zealand",
+    name: "ニュージーランド",
+    code: "NZ",
+    region: "oceania",
+    visaRequirement: {
+      type: "evisa", // NZeTA is required
+      duration: 90, // 3ヶ月
+      evisaAvailable: true,
+      purpose: ["tourism", "business", "study", "official", "transit"],
+    },
+    conditions: ["旅券残存3ヵ月＋滞在日数以上", "未使用査証欄1頁以上"],
+    documents: [
+      "NZeTA(電子渡航認証)の事前取得が必要",
+      "出国用航空券",
+      "滞在資金（1ヵ月あたりNZD400、宿泊費未払の場合はNZD1,000相当）",
+      "第三国へのビザ（必要な場合）",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/newzealand.html", // Existing link
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "vanuatu",
+    name: "バヌアツ共和国",
+    code: "VU",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_required", // Visa on arrival for tourism, required for business
+      duration: 120,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上"],
+    documents: ["出国用航空券"],
+    notes: ["観光目的は到着空港で120日の観光ビザが発給される", "業務目的は事前にビザ取得が必要"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "papua_new_guinea",
+    name: "パプアニューギニア独立国",
+    code: "PG",
+    region: "oceania",
+    visaRequirement: { type: "visa_required", duration: 0 },
+    conditions: ["事前にビザ取得が必要"],
+    notes: [
+      "観光、業務目的の到着ビザは2020年3月から発給停止中",
+      "外交・公用目的に限りポートモレスビー・ジャクソン国際空港での到着ビザ取得が可能",
+      "黄熱に感染する危険のある国から来る1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港を経由した渡航者も証明書が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html", // Existing link
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "palau",
+    name: "パラオ共和国",
+    code: "PW",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism", "business", "visit"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上", "未使用査証欄1頁以上"],
+    documents: ["出国用航空券", "滞在費用証明"],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "fiji",
+    name: "フィジー共和国",
+    code: "FJ",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 120, // 4ヶ月
+      purpose: ["tourism", "business_meeting"], // 業務は打合せのみ2週間
+    },
+    conditions: ["旅券残存入国時6ヵ月＋滞在日数以上", "未使用査証欄1頁以上"],
+    documents: ["出国用航空券"],
+    notes: [
+      "4ヶ月以内の観光、2週間以内の業務目的（業務打合せ）はビザ不要",
+      "滞在費用証明の持参が望ましい",
+      "黄熱に感染する危険のある国から来る1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html", // Existing link
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "french_polynesia",
+    name: "フランス領ポリネシア（タヒチ）",
+    code: "PF",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90, // within 180 days
+      purpose: ["tourism"],
+    },
+    conditions: ["旅券残存出国時3ヵ月以上", "未使用査証欄見開き2頁以上"],
+    documents: ["出国用航空券"],
+    notes: [
+      "海外旅行保険、滞在費用証明（ホテル予約提示なら1日EUR65、無提示なら1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
+      "黄熱に感染する危険のある国から来る1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "marshall_islands",
+    name: "マーシャル諸島共和国",
+    code: "MH",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_required", // Visa on arrival
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["旅券残存入国時6ヵ月以上", "未使用査証欄1頁以上"],
+    documents: ["出国用航空券", "滞在費用"],
+    notes: [
+      "観光目的は到着空港でビザを取得",
+      "業務目的の滞在は事前に現地移民局から許可を得て到着空港でビザを取得",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "micronesia",
+    name: "ミクロネシア連邦",
+    code: "FM",
+    region: "oceania",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism", "business_exploration"], // 取引先決定のための業務
+    },
+    conditions: ["旅券残存入国時120日＋滞在日数以上"],
+    documents: ["出国用航空券", "次の訪問国のビザ（必要な場合）"],
+    notes: [
+      "海外旅行保険の加入が望ましい",
+      "取引先会社決定のための業務目的はビザ不要",
+      "取引先会社が決定していて具体的な業務や金銭の動きがある場合は、ビジネスパーミットの取得が必要",
+    ],
+    officialLinks: { mofa: "" }, // Needs official link
+    lastUpdated: "2024-07-27",
+  },
+  // Oceania Countries End
 ];
 
 export const getCountriesByRegion = (region: string) => {
