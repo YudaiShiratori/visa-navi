@@ -534,12 +534,18 @@ export const asiaCountries: Country[] = [
       duration: 30,
       purpose: ["tourism", "business"],
     },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["30日を超える滞在、就労目的の場合はビザが必要"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "30日以内の観光・商用目的の滞在はビザ不要",
+    ],
+    notes: [
+      "30日を超える滞在、就労目的の場合はビザが必要",
+      "商用目的の場合は滞在証明や招聘状があると良い",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kazakhstan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "kyrgyzstan",
@@ -551,12 +557,15 @@ export const asiaCountries: Country[] = [
       duration: 60,
       purpose: ["tourism", "business"],
     },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["60日を超える滞在の場合は現地で滞在登録が必要"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "60日以内の観光・商用目的の滞在はビザ不要",
+    ],
+    notes: ["60日を超える滞在の場合は現地で滞在登録が必要", "就労目的の場合は別途ビザ申請が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kyrgyz/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "tajikistan",
@@ -569,25 +578,35 @@ export const asiaCountries: Country[] = [
       evisaAvailable: true,
       purpose: ["tourism", "business"],
     },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "e-Visaの事前取得"],
-    notes: ["e-Visaはオンラインで申請可能"],
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "e-Visaの事前取得が必要"],
+    notes: [
+      "e-Visaはオンラインで申請可能（通常3日程度で発給）",
+      "観光・商用目的のe-Visaは最大60日間の滞在が可能",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/tajikistan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "turkmenistan",
     name: "トルクメニスタン",
     code: "TM",
     region: "asia",
-    visaRequirement: { type: "visa_required" },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
-    notes: ["ビザの事前取得が必要。招聘状が必要となる場合が多い。"],
+    visaRequirement: {
+      type: "visa_required",
+      duration: 10, // 一般的な観光ビザの期間
+    },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "必ず事前にビザの取得が必要"],
+    notes: [
+      "ビザの事前取得が必要。招聘状が必要となる場合が多い",
+      "現地ツアー会社などを通じた手配が一般的",
+      "ビザ申請には1週間程度かかる場合がある",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/turkmenistan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "uzbekistan",
@@ -599,63 +618,84 @@ export const asiaCountries: Country[] = [
       duration: 30,
       purpose: ["tourism"],
     },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["30日を超える滞在、観光以外の目的の場合はビザが必要"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "30日以内の観光目的の滞在はビザ不要",
+    ],
+    notes: [
+      "30日を超える滞在、観光以外の目的の場合はビザが必要",
+      "入国時に出国用航空券の提示を求められる場合がある",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uzbekistan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "afghanistan",
     name: "アフガニスタン",
     code: "AF",
     region: "asia",
-    visaRequirement: { type: "visa_required" },
-    conditions: ["パスポート残存有効期間が6ヶ月以上必要"],
-    notes: ["ビザが必要。現在、外務省より退避勧告（危険レベル4）が発令中。"],
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30, // 一般的なビザの期間
+    },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "事前にビザの取得が必要"],
+    notes: [
+      "現在、外務省より退避勧告（危険レベル4）が発令中",
+      "安全状況により入国が制限される場合がある",
+      "渡航には厳重な注意が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/afghanistan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "bhutan",
     name: "ブータン",
     code: "BT",
     region: "asia",
-    visaRequirement: { type: "visa_required" },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
-    notes: ["入国にはビザと事前手配（公定料金に基づくツアーなど）が必要。"],
+    visaRequirement: {
+      type: "visa_required",
+      duration: 15, // 一般的な観光ビザの期間
+    },
+    conditions: [
+      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "政府公認の旅行代理店を通じた申請が必要",
+      "事前に政府認定の旅行会社によるツアー手配が必要",
+    ],
+    notes: [
+      "ビザは認定旅行会社を通じて申請",
+      "政府が定める1日あたりの最低消費額（サステナブル・デベロップメント・フィー）の支払いが必要",
+      "個人での自由旅行は基本的に認められていない",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bhutan/index.html",
     },
-    lastUpdated: "2024-07-27",
-  },
-  {
-    id: "syria",
-    name: "シリア",
-    code: "SY",
-    region: "middle_east",
-    visaRequirement: { type: "visa_required" },
-    conditions: ["パスポート残存有効期間が6ヶ月以上必要"],
-    notes: ["ビザが必要。現在、外務省より退避勧告（危険レベル4）が発令中。"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/syria/index.html",
-    },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
   {
     id: "timor_leste",
     name: "東ティモール",
     code: "TL",
     region: "asia",
-    visaRequirement: { type: "visa_required", duration: 30 }, // Visa on arrival
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
-    notes: ["主要な空港・港で到着ビザ（30日間）の取得が可能（有料）。"],
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30, // 到着ビザの期間
+    },
+    conditions: [
+      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "入国時に到着ビザの取得が必要（有料）",
+    ],
+    notes: [
+      "主要な空港・港で到着ビザ（30日間）の取得が可能（US$30程度）",
+      "滞在延長は現地移民局にて申請可能",
+      "出国用航空券の所持が必要な場合がある",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/timor-leste/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-28",
   },
 ];

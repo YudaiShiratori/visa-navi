@@ -216,4 +216,28 @@ export const middleEastCountries: Country[] = [
     },
     lastUpdated: "2024-07-26",
   },
+  {
+    id: "syria",
+    name: "シリア",
+    code: "SY",
+    region: "middle_east",
+    visaRequirement: {
+      type: "visa_required",
+      duration: 15, // 一般的な観光ビザの期間
+    },
+    conditions: [
+      "パスポート残存有効期間が6ヶ月以上必要",
+      "事前にビザの取得が必要",
+      "未使用査証欄が2ページ以上必要",
+    ],
+    notes: [
+      "現在、外務省より退避勧告（危険レベル4）が発令中",
+      "ビザ申請には招へい状や身元引受書が必要な場合がある",
+      "イスラエル入国スタンプがあるパスポートでは入国できない可能性がある",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/syria/index.html",
+    },
+    lastUpdated: "2024-07-28",
+  },
 ];
