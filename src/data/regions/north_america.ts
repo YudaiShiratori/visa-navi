@@ -7,24 +7,28 @@ export const northAmericaCountries: Country[] = [
     code: "US",
     region: "north_america",
     visaRequirement: {
-      type: "visa_free",
+      type: "evisa",
       duration: 90,
+      evisaAvailable: true,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、短期業務、通過目的の滞在はビザ免除プログラム(Visa Waiver Program)あり",
+      "パスポートの残存有効期間が帰国日まで有効なもの（入国時90日以上が望ましい）",
+      "IC旅券または機械読取式旅券が必要",
       "ESTA（電子渡航認証）の取得が必要",
       "十分な滞在資金の証明が必要",
     ],
     notes: [
       "ESTAは2年間有効で、複数回の入国が可能",
+      "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証)の事前取得以外にも多数あり",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "canada",
@@ -32,24 +36,27 @@ export const northAmericaCountries: Country[] = [
     code: "CA",
     region: "north_america",
     visaRequirement: {
-      type: "visa_free",
+      type: "evisa",
       duration: 180,
+      evisaAvailable: true,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
-      "eTA（電子渡航認証）の取得が必要",
+      "6ヶ月以内の観光、通過、知人・親族訪問、出張、会議出席、学会発表、市場調査、契約締結等のビジター目的の滞在はビザ不要",
+      "2016年3月15日より空路で入国または乗り継ぎする場合はeTA（電子渡航認証）の取得が必要",
+      "パスポートの残存有効期間が出国予定日+1日以上必要",
+      "IC旅券または機械読取式旅券が必要",
       "十分な滞在資金の証明が必要",
     ],
     notes: [
-      "eTAは5年間有効で、複数回の入国が可能",
+      "eTAは5年間有効（またはパスポートの有効期限まで）で、複数回の入国が可能",
       "180日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/canada/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "mexico",
@@ -62,19 +69,24 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "180日以内の通過、観光、業務（現地で報酬を得ない活動に限る)、通過目的の滞在はビザ不要",
+      "パスポートの残存有効期間が帰国時まで有効なもの",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
+      "入国審査官判断により滞在可能日数が決定されるので、希望する滞在日数を明記した書類（業務目的の場合はインビテーションレター）の提示が推奨される",
       "十分な滞在資金の証明が必要",
     ],
     notes: [
+      "現在、日本国政府はメキシコのゲレロ州チルパンシンゴ市及びその周辺地域に渡航中止勧告を発出しています",
+      "陸路入国の場合は、入国地または事前にウェブサイトで取得するFMM(出入国カード)が必要（空路は不要）",
+      "入国時に観光の場合は滞在中の費用保証として残高証明書またはクレジットカード、業務の場合はギャランティーレター（英文会社推薦状）の提示を求められる場合あり",
       "180日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にFMM（入国カード）の記入が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/mexico/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "guatemala",
@@ -87,11 +99,17 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務、知人訪問目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
+      "ホテル予約証明書の所持が必要",
       "十分な滞在資金の証明が必要",
     ],
     notes: [
+      "中米4カ国協定により、エルサルバドル、グアテマラ、ニカラグア、ホンジュラスにおいて、最初に入国した国の入国日から換算して90日以内であれば、ビザ無しで滞在及び4カ国間の移動が可能",
+      "黄熱に感染する危険のある国から来る渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
@@ -99,7 +117,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/guatemala/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "honduras",
@@ -112,11 +130,17 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "ホテル予約証明書の所持が必要",
     ],
     notes: [
+      "中米4カ国協定により、エルサルバドル、グアテマラ、ニカラグア、ホンジュラスにおいて、最初に入国した国の入国日から換算して90日以内であれば、ビザ無しで滞在及び4カ国間の移動が可能",
+      "黄熱に感染する危険のある国から来る、1歳から60歳の渡航者は黄熱予防接種証明書が必要",
+      "黄熱予防接種証明書の携行が必要な場合あり",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にRTN（納税者登録番号）の取得が必要な場合あり",
@@ -124,7 +148,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/honduras/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "elsalvador",
@@ -137,11 +161,17 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務、外交・公用目的の滞在はビザ不要",
+      "2023年1月以降、エルサルバドル政府の一方的な措置として、査証免除対象国の入国者に対して180日以内の滞在許可が付与",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "滞在費用証明（USD1,500以上）の持参が必要",
     ],
     notes: [
+      "中米4カ国協定により、エルサルバドル、グアテマラ、ニカラグア、ホンジュラスにおいて、最初に入国した国の入国日から換算して90日以内であれば、ビザ無しで滞在及び4カ国間の移動が可能",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
@@ -149,7 +179,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/elsalvador/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "nicaragua",
@@ -162,11 +192,15 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務、外交・公用目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "入国審査時にツーリストカードの購入(USD10)が必要",
     ],
     notes: [
+      "中米4カ国協定により、エルサルバドル、グアテマラ、ニカラグア、ホンジュラスにおいて、最初に入国した国の入国日から換算して90日以内であれば、ビザ無しで滞在及び4カ国間の移動が可能",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
@@ -174,20 +208,30 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/nicaragua/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "belize",
     name: "ベリーズ",
     code: "BZ",
     region: "north_america",
-    visaRequirement: { type: "visa_free", duration: 180 },
-    conditions: ["パスポート残存有効期間が滞在日数以上必要", "出国用航空券"],
-    notes: ["180日以内の観光・商用目的はビザ不要。"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business", "transit"],
+    },
+    conditions: [
+      "90日以内の観光、業務、外交・公用目的の滞在はビザ不要",
+      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
+      "出国用航空券の所持が必要",
+      "滞在費用証明（1日あたりUSD50相当額）の持参が必要",
+    ],
+    notes: ["90日を超える滞在にはビザの取得が必要", "就労・留学目的の場合は別途ビザが必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belize/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "costarica",
@@ -196,15 +240,17 @@ export const northAmericaCountries: Country[] = [
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 180,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "180日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が帰国日まで必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "滞在費用証明の持参が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にDIMEX（外国人ID）の取得が必要な場合あり",
@@ -212,7 +258,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/costarica/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "panama",
@@ -225,11 +271,15 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務目的滞在はビザ不要",
+      "パスポートの残存有効期間が入国時3か月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "滞在費（USD500以上の現金、クレジットカード等）が必要",
     ],
     notes: [
+      "現在、日本国政府はダリエン県、エンベラ自治区の各中部・南部地域、並びにクナ・ヤラ自治区の南部地域に渡航中止勧告を発出しています",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "180日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
@@ -237,82 +287,96 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/panama/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "cuba",
     name: "キューバ",
     code: "CU",
-    region: "americas",
+    region: "north_america",
     visaRequirement: {
-      type: "visa_required",
-      duration: 30,
-      purpose: ["tourism", "business", "transit"],
+      type: "evisa",
+      duration: 90,
+      evisaAvailable: true,
+      purpose: ["tourism"],
     },
     conditions: [
+      "業務目的はビザが必要",
+      "90日以内の観光目的はe-Visaが必要",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "全ての外国籍及び国外在住のキューバ国籍の入国者は、事前に滞在期間を全てカバーした海外旅行傷害保険の加入が必要",
     ],
     notes: [
+      "海外旅行保険は、キューバにおいて承認されている保険会社（国際的な業務を行っており、アメリカ系以外の会社）であること",
+      "クレジットカード付帯の場合、本人名義の英文保険証券の持参が必要",
+      "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "東京の大使館でビザ申請が可能",
-      "ビザは30日間有効で、30日間の滞在が可能",
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cuba/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "jamaica",
     name: "ジャマイカ",
     code: "JM",
-    region: "americas",
+    region: "north_america",
     visaRequirement: {
-      type: "visa_required",
+      type: "visa_free",
       duration: 30,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "30日以内の観光・就労を伴わない業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "出入国カード兼税関申告書は出発30日前からオンラインで提出が必要（2023年9月1日～）",
     ],
     notes: [
-      "東京の大使館でビザ申請が可能",
-      "ビザは30日間有効で、30日間の滞在が可能",
-      "入国時に指紋採取が必要",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
+      "30日を超える滞在にはビザの取得が必要",
+      "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/jamaica/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "haiti",
     name: "ハイチ",
     code: "HT",
-    region: "americas",
+    region: "north_america",
     visaRequirement: {
-      type: "visa_required",
-      duration: 30,
+      type: "visa_free",
+      duration: 90,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "到着時に現金でUSD10の観光料金の支払いが必要",
     ],
     notes: [
-      "東京の大使館でビザ申請が可能",
-      "ビザは30日間有効で、30日間の滞在が可能",
-      "入国時に指紋採取が必要",
+      "現在、日本国政府はハイチ全土に退避勧告を発出しています。ハイチへの渡航は、どのような目的であれ止めてください",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "90日を超える滞在にはビザの取得が必要",
+      "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/haiti/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "dominicanrepublic",
@@ -321,15 +385,19 @@ export const northAmericaCountries: Country[] = [
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 30,
-      purpose: ["tourism", "business", "transit"],
+      duration: 90,
+      purpose: ["tourism"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "3ヵ月以内の観光目的の滞在はビザ不要",
+      "業務目的の場合はビザが必要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
     ],
     notes: [
+      "ブラジルのミナスジェライス（Mina Gerais）州、エスピリト・サント（Espirito Santo）州、サンパウロ（Sao Paulo）州、リオデジャネイロ(Rio de Janeiro）州から来る1歳以上の渡航者及び乗り継ぎのために12時間以上空港に滞在する渡航者は黄熱予防接種証明書が必要",
       "30日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にRNC（納税者登録番号）の取得が必要な場合あり",
@@ -337,7 +405,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/dominicanrepublic/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "bahamas",
@@ -350,11 +418,14 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "十分な滞在費用証明の持参が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -362,7 +433,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bahamas/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "barbados",
@@ -375,11 +446,14 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "滞在先が確保されていることが必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -387,7 +461,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/barbados/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "trinidadtobago",
@@ -400,11 +474,14 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "現地滞在先が確保されていることが必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国です",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -412,7 +489,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/trinidadtobago/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "saintlucia",
@@ -421,23 +498,26 @@ export const northAmericaCountries: Country[] = [
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 42,
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "42日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6か月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "宿泊予約確認書の持参が必要",
     ],
     notes: [
-      "90日を超える滞在にはビザの取得が必要",
+      "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
+      "42日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintlucia/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "saintvincentgrenadines",
@@ -450,11 +530,14 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "3か月以内の滞在はビザ不要",
+      "パスポートの残存有効期間が6か月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "宿泊予約確認書の持参が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -462,7 +545,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintvincentgrenadines/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "antiguabarbuda",
@@ -471,15 +554,19 @@ export const northAmericaCountries: Country[] = [
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 180,
       purpose: ["tourism", "business"],
     },
     conditions: [
+      "6か月以内の滞在はビザ不要",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "宿泊予約確認書の持参が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -487,7 +574,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/antiguabarbuda/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "grenada",
@@ -500,11 +587,15 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "3か月以内の滞在はビザ不要",
+      "パスポートの残存有効期間が6か月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "宿泊予約確認書の持参が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -512,7 +603,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/grenada/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "saintkittsnevis",
@@ -525,11 +616,15 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "90日以内の観光、業務目的の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6か月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
+      "宿泊予約確認書の持参が必要",
+      "税関申告はオンラインで事前に手続きが必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -537,7 +632,7 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintkittsnevis/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "dominica",
@@ -550,11 +645,14 @@ export const northAmericaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "3ヶ月以内の滞在はビザ不要",
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "出国用の航空券の所持が必要",
-      "十分な滞在資金の証明が必要",
+      "滞在先の確保が必要",
+      "十分な滞在費用が必要",
     ],
     notes: [
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
@@ -562,6 +660,34 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/dominica/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
+  },
+  {
+    id: "puertorico",
+    name: "プエルトリコ",
+    code: "PR",
+    region: "north_america",
+    visaRequirement: {
+      type: "evisa",
+      duration: 90,
+      evisaAvailable: true,
+      purpose: ["tourism", "business", "transit"],
+    },
+    conditions: [
+      "事前にビザが必要",
+      "90日以内の観光、短期業務、通過目的の滞在はビザ免除プログラム(Visa Waiver Program)あり",
+      "パスポートの残存有効期間が帰国日まで有効なもの（入国時90日以上が望ましい）",
+      "ESTA（電子渡航認証）の取得が必要",
+    ],
+    notes: [
+      "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証)の事前取得以外にも多数あり",
+      "アメリカ合衆国の自治連邦区のため、アメリカのビザ要件に準ずる",
+      "90日を超える滞在にはビザの取得が必要",
+      "就労・留学目的の場合は別途ビザが必要",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
 ];

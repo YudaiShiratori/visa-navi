@@ -77,7 +77,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
         </div>
       </div>
 
-      {/* ビザステータス - 最も重要な情報を強調表示 */}
+      {/* ビザステータス */}
       <div className="border-b border-gray-100 px-6 py-6 sm:px-8 sm:py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="flex items-center">
