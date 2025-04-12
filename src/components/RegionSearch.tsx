@@ -182,6 +182,14 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
               <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
               <div className="flex flex-1 flex-col p-4">
                 <h3 className="mb-3 text-lg font-medium text-gray-900">
+                  {country.code && (
+                    <span className="mr-2 inline-block align-middle">
+                      <span
+                        className={`fi fi-${country.code.toLowerCase()}`}
+                        style={{ width: "20px", height: "15px", display: "inline-block" }}
+                      ></span>
+                    </span>
+                  )}
                   {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
                     ? highlightMatch(country.name, searchQuery)
                     : country.name}

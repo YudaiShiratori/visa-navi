@@ -60,7 +60,17 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
         }}
       >
         <div className="flex flex-col items-center justify-between gap-2 sm:flex-row">
-          <h1 className="text-xl font-bold text-white sm:text-3xl">{country.name}</h1>
+          <h1 className="text-xl font-bold text-white sm:text-3xl">
+            {country.code && (
+              <span className="mr-2 inline-block align-middle">
+                <span
+                  className={`fi fi-${country.code.toLowerCase()}`}
+                  style={{ width: "30px", height: "22px", display: "inline-block" }}
+                ></span>
+              </span>
+            )}
+            {country.name}
+          </h1>
           <div className="rounded-full bg-white bg-opacity-20 px-3 py-1 text-sm text-white sm:px-4 sm:py-2">
             {country.region}
           </div>

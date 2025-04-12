@@ -16,6 +16,7 @@ export interface VisaRequirement {
 export interface Country {
   id: string;
   name: string;
+  code?: string; // 国コード (ISO 3166-1 alpha-2) - オプショナルに変更
   region: string;
   visaRequirement: VisaRequirement;
   conditions?: string[];
@@ -33,6 +34,7 @@ export const countries: Country[] = [
   {
     id: "thailand",
     name: "タイ",
+    code: "TH",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -65,6 +67,7 @@ export const countries: Country[] = [
   {
     id: "vietnam",
     name: "ベトナム",
+    code: "VN",
     region: "asia",
     visaRequirement: {
       type: "evisa",
@@ -96,6 +99,7 @@ export const countries: Country[] = [
   {
     id: "singapore",
     name: "シンガポール",
+    code: "SG",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -122,6 +126,7 @@ export const countries: Country[] = [
   {
     id: "malaysia",
     name: "マレーシア",
+    code: "MY",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -147,6 +152,7 @@ export const countries: Country[] = [
   {
     id: "korea",
     name: "韓国",
+    code: "KR",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -173,6 +179,7 @@ export const countries: Country[] = [
   {
     id: "china",
     name: "中国",
+    code: "CN",
     region: "asia",
     visaRequirement: {
       type: "visa_required",
@@ -206,6 +213,7 @@ export const countries: Country[] = [
   {
     id: "taiwan",
     name: "台湾",
+    code: "TW",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -231,6 +239,7 @@ export const countries: Country[] = [
   {
     id: "philippines",
     name: "フィリピン",
+    code: "PH",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -257,6 +266,7 @@ export const countries: Country[] = [
   {
     id: "indonesia",
     name: "インドネシア",
+    code: "ID",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -283,6 +293,7 @@ export const countries: Country[] = [
   {
     id: "india",
     name: "インド",
+    code: "IN",
     region: "asia",
     visaRequirement: {
       type: "evisa",
@@ -315,6 +326,7 @@ export const countries: Country[] = [
   {
     id: "cambodia",
     name: "カンボジア",
+    code: "KH",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -342,6 +354,7 @@ export const countries: Country[] = [
   {
     id: "laos",
     name: "ラオス",
+    code: "LA",
     region: "asia",
     visaRequirement: {
       type: "visa_required",
@@ -364,6 +377,7 @@ export const countries: Country[] = [
   {
     id: "myanmar",
     name: "ミャンマー",
+    code: "MM",
     region: "asia",
     visaRequirement: {
       type: "evisa",
@@ -397,6 +411,7 @@ export const countries: Country[] = [
   {
     id: "mongolia",
     name: "モンゴル",
+    code: "MN",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -422,6 +437,7 @@ export const countries: Country[] = [
   {
     id: "bangladesh",
     name: "バングラデシュ",
+    code: "BD",
     region: "asia",
     visaRequirement: {
       type: "visa_required",
@@ -452,8 +468,9 @@ export const countries: Country[] = [
     lastUpdated: "2024-05-21",
   },
   {
-    id: "srilanka",
+    id: "sri_lanka",
     name: "スリランカ",
+    code: "LK",
     region: "asia",
     visaRequirement: {
       type: "evisa",
@@ -482,6 +499,7 @@ export const countries: Country[] = [
   {
     id: "hongkong",
     name: "香港",
+    code: "HK",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -507,6 +525,7 @@ export const countries: Country[] = [
   {
     id: "brunei",
     name: "ブルネイ",
+    code: "BN",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -533,6 +552,7 @@ export const countries: Country[] = [
   {
     id: "nepal",
     name: "ネパール",
+    code: "NP",
     region: "asia",
     visaRequirement: {
       type: "visa_required",
@@ -561,6 +581,7 @@ export const countries: Country[] = [
   {
     id: "pakistan",
     name: "パキスタン",
+    code: "PK",
     region: "asia",
     visaRequirement: {
       type: "evisa",
@@ -594,6 +615,7 @@ export const countries: Country[] = [
   {
     id: "maldives",
     name: "モルディブ",
+    code: "MV",
     region: "asia",
     visaRequirement: {
       type: "visa_free",
@@ -619,6 +641,7 @@ export const countries: Country[] = [
   {
     id: "france",
     name: "フランス",
+    code: "FR",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -645,6 +668,7 @@ export const countries: Country[] = [
   {
     id: "germany",
     name: "ドイツ",
+    code: "DE",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -671,6 +695,7 @@ export const countries: Country[] = [
   {
     id: "italy",
     name: "イタリア",
+    code: "IT",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -697,6 +722,7 @@ export const countries: Country[] = [
   {
     id: "spain",
     name: "スペイン",
+    code: "ES",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -723,6 +749,7 @@ export const countries: Country[] = [
   {
     id: "uk",
     name: "イギリス",
+    code: "GB",
     region: "europe",
     visaRequirement: {
       type: "evisa",
@@ -751,6 +778,7 @@ export const countries: Country[] = [
   {
     id: "switzerland",
     name: "スイス",
+    code: "CH",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -777,6 +805,7 @@ export const countries: Country[] = [
   {
     id: "netherlands",
     name: "オランダ",
+    code: "NL",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -803,6 +832,7 @@ export const countries: Country[] = [
   {
     id: "belgium",
     name: "ベルギー",
+    code: "BE",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -829,6 +859,7 @@ export const countries: Country[] = [
   {
     id: "austria",
     name: "オーストリア",
+    code: "AT",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -855,6 +886,7 @@ export const countries: Country[] = [
   {
     id: "sweden",
     name: "スウェーデン",
+    code: "SE",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -881,6 +913,7 @@ export const countries: Country[] = [
   {
     id: "norway",
     name: "ノルウェー",
+    code: "NO",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -907,6 +940,7 @@ export const countries: Country[] = [
   {
     id: "denmark",
     name: "デンマーク",
+    code: "DK",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -933,6 +967,7 @@ export const countries: Country[] = [
   {
     id: "finland",
     name: "フィンランド",
+    code: "FI",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -959,6 +994,7 @@ export const countries: Country[] = [
   {
     id: "poland",
     name: "ポーランド",
+    code: "PL",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -985,6 +1021,7 @@ export const countries: Country[] = [
   {
     id: "czech",
     name: "チェコ",
+    code: "CZ",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1011,6 +1048,7 @@ export const countries: Country[] = [
   {
     id: "portugal",
     name: "ポルトガル",
+    code: "PT",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1037,6 +1075,7 @@ export const countries: Country[] = [
   {
     id: "ireland",
     name: "アイルランド",
+    code: "IE",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1063,6 +1102,7 @@ export const countries: Country[] = [
   {
     id: "greece",
     name: "ギリシャ",
+    code: "GR",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1089,6 +1129,7 @@ export const countries: Country[] = [
   {
     id: "hungary",
     name: "ハンガリー",
+    code: "HU",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1115,6 +1156,7 @@ export const countries: Country[] = [
   {
     id: "romania",
     name: "ルーマニア",
+    code: "RO",
     region: "europe",
     visaRequirement: {
       type: "visa_free",
@@ -1141,6 +1183,7 @@ export const countries: Country[] = [
   {
     id: "bulgaria",
     name: "ブルガリア",
+    code: "BG",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1148,6 +1191,7 @@ export const countries: Country[] = [
   {
     id: "croatia",
     name: "クロアチア",
+    code: "HR",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1155,6 +1199,7 @@ export const countries: Country[] = [
   {
     id: "slovakia",
     name: "スロバキア",
+    code: "SK",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1162,6 +1207,7 @@ export const countries: Country[] = [
   {
     id: "slovenia",
     name: "スロベニア",
+    code: "SI",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1169,6 +1215,7 @@ export const countries: Country[] = [
   {
     id: "estonia",
     name: "エストニア",
+    code: "EE",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1176,6 +1223,7 @@ export const countries: Country[] = [
   {
     id: "latvia",
     name: "ラトビア",
+    code: "LV",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1183,6 +1231,7 @@ export const countries: Country[] = [
   {
     id: "lithuania",
     name: "リトアニア",
+    code: "LT",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1190,6 +1239,7 @@ export const countries: Country[] = [
   {
     id: "malta",
     name: "マルタ",
+    code: "MT",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1197,6 +1247,7 @@ export const countries: Country[] = [
   {
     id: "cyprus",
     name: "キプロス",
+    code: "CY",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1204,6 +1255,7 @@ export const countries: Country[] = [
   {
     id: "iceland",
     name: "アイスランド",
+    code: "IS",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     lastUpdated: "2024-03-20",
@@ -1211,6 +1263,7 @@ export const countries: Country[] = [
   {
     id: "usa",
     name: "アメリカ合衆国",
+    code: "US",
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
@@ -1237,6 +1290,7 @@ export const countries: Country[] = [
   {
     id: "canada",
     name: "カナダ",
+    code: "CA",
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
@@ -1263,6 +1317,7 @@ export const countries: Country[] = [
   {
     id: "mexico",
     name: "メキシコ",
+    code: "MX",
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
@@ -1289,6 +1344,7 @@ export const countries: Country[] = [
   {
     id: "brazil",
     name: "ブラジル",
+    code: "BR",
     region: "south_america",
     visaRequirement: {
       type: "visa_free",
@@ -1315,6 +1371,7 @@ export const countries: Country[] = [
   {
     id: "argentina",
     name: "アルゼンチン",
+    code: "AR",
     region: "south_america",
     visaRequirement: {
       type: "visa_free",
@@ -1322,7 +1379,7 @@ export const countries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
+      "パスポートの残存有効期間が6ヶ月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
     ],
@@ -1341,6 +1398,7 @@ export const countries: Country[] = [
   {
     id: "chile",
     name: "チリ",
+    code: "CL",
     region: "south_america",
     visaRequirement: {
       type: "visa_free",

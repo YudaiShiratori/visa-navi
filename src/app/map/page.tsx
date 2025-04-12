@@ -109,7 +109,17 @@ export default function MapPage() {
                     >
                       <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
                       <div className="flex flex-1 flex-col p-4">
-                        <h3 className="mb-2 text-lg font-medium text-gray-900">{country.name}</h3>
+                        <h3 className="mb-2 text-lg font-medium text-gray-900">
+                          {country.code && (
+                            <span className="mr-2 inline-block align-middle">
+                              <span
+                                className={`fi fi-${country.code.toLowerCase()}`}
+                                style={{ width: "20px", height: "15px", display: "inline-block" }}
+                              ></span>
+                            </span>
+                          )}
+                          {country.name}
+                        </h3>
                         <div className="mt-auto flex flex-col gap-2">
                           <div
                             className="rounded-full px-2 py-1 text-xs font-medium"

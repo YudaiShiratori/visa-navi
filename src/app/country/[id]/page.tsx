@@ -71,18 +71,15 @@ export default function CountryPage({ params }: { params: CountryParams }) {
             <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
               <div>
                 <h2 className="text-2xl font-bold">{country.name}</h2>
-                <p className="mt-1 text-blue-100">地域: {country.region}</p>
               </div>
-              <div className="rounded-lg bg-white bg-opacity-20 px-4 py-2 text-center">
-                <span className="text-sm font-medium">ビザ必要性</span>
-                <p className="text-lg font-bold">
-                  {country.visaRequirement.type === "visa_free"
-                    ? "ビザ免除"
-                    : country.visaRequirement.type === "evisa"
-                      ? "電子ビザ"
-                      : "ビザ必要"}
-                </p>
-              </div>
+              {country.code && (
+                <div className="ml-auto flex items-center justify-end">
+                  <span
+                    className={`fi fi-${country.code.toLowerCase()}`}
+                    style={{ width: "60px", height: "45px", display: "block" }}
+                  ></span>
+                </div>
+              )}
             </div>
           </div>
 

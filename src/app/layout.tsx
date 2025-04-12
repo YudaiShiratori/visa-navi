@@ -1,5 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { Inter } from "next/font/google";
+import "flag-icons/css/flag-icons.min.css";
 
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";

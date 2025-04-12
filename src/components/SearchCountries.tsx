@@ -379,6 +379,14 @@ export function SearchCountries() {
                     }}
                   >
                     <div className="flex items-center">
+                      {country.code && (
+                        <span className="mr-2 flex-shrink-0">
+                          <span
+                            className={`fi fi-${country.code.toLowerCase()}`}
+                            style={{ width: "20px", height: "15px", display: "inline-block" }}
+                          />
+                        </span>
+                      )}
                       <div className="flex-1">
                         <div className="font-medium text-gray-900">
                           {highlightMatch(country.name, searchQuery)}
@@ -414,6 +422,14 @@ export function SearchCountries() {
                     }}
                   >
                     <div className="flex items-center">
+                      {country.code && (
+                        <span className="mr-2 flex-shrink-0">
+                          <span
+                            className={`fi fi-${country.code.toLowerCase()}`}
+                            style={{ width: "20px", height: "15px", display: "inline-block" }}
+                          />
+                        </span>
+                      )}
                       <div className="flex-1">
                         <div className="font-medium text-gray-900">{country.name}</div>
                       </div>
