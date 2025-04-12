@@ -180,8 +180,8 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
               className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
             >
               <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
-              <div className="flex flex-1 flex-col p-4">
-                <h3 className="mb-3 text-lg font-medium text-gray-900">
+              <div className="relative flex flex-1 flex-col p-6">
+                <h3 className="text-lg font-medium text-gray-900">
                   {country.code && (
                     <span className="mr-2 inline-block align-middle">
                       <span
@@ -195,37 +195,33 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                     : country.name}
                 </h3>
 
-                <div className="mt-auto flex flex-col gap-2">
+                <div className="mt-1">
                   <div
-                    className="rounded-full px-3 py-1 text-xs font-medium"
+                    className="inline-block rounded-full px-3 py-1 text-xs font-medium"
                     style={{
                       backgroundColor: statusColor.light,
                       color: statusColor.main,
                     }}
                   >
                     {country.visaRequirement.type === "visa_free"
-                      ? "ビザなしで入国可能"
+                      ? "ビザなし"
                       : country.visaRequirement.type === "evisa"
-                        ? "ビザの事前取得が必要（電子ビザ可）"
-                        : "ビザの事前取得が必要"}
+                        ? "要電子ビザ"
+                        : "要ビザ"}
                   </div>
-
-                  {country.visaRequirement.duration && (
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">滞在可能期間:</span>
-                      <div
-                        className="flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold"
-                        style={{
-                          backgroundColor: statusColor.light,
-                          color: statusColor.main,
-                        }}
-                      >
-                        {country.visaRequirement.duration}
-                      </div>
-                      <span className="text-xs text-gray-500">日間</span>
-                    </div>
-                  )}
                 </div>
+
+                {country.visaRequirement.duration && (
+                  <div className="absolute right-4 top-1/2 flex -translate-y-1/2 transform flex-col items-end gap-1">
+                    <span className="text-xs text-gray-500">滞在可能期間</span>
+                    <div>
+                      <span className="text-2xl font-bold" style={{ color: statusColor.main }}>
+                        {country.visaRequirement.duration}
+                      </span>
+                      <span className="ml-1 text-base text-gray-500">日間</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </Link>
           );
