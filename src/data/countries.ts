@@ -3748,6 +3748,95 @@ export const countries: Country[] = [
     lastUpdated: "2024-07-27",
   },
   // Oceania Countries End
+  // Central Asia Start
+  {
+    id: "kazakhstan",
+    name: "カザフスタン",
+    code: "KZ",
+    region: "asia",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["30日を超える滞在、就労目的の場合はビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/kazakhstan/index.html",
+      embassy: "https://www.gov.kz/memleket/entities/mfa-tokyo?lang=ja",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "kyrgyzstan",
+    name: "キルギス",
+    code: "KG",
+    region: "asia",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 60,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["60日を超える滞在の場合は現地で滞在登録が必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/kyrgyz/index.html",
+      embassy: "http://kgembassy.jp/",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "tajikistan",
+    name: "タジキスタン",
+    code: "TJ",
+    region: "asia",
+    visaRequirement: {
+      type: "evisa",
+      duration: 60,
+      evisaAvailable: true,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "e-Visaの事前取得"],
+    notes: ["e-Visaはオンラインで申請可能"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/tajikistan/index.html",
+      embassy: "https://mfa.tj/ja/tokyo",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "turkmenistan",
+    name: "トルクメニスタン",
+    code: "TM",
+    region: "asia",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
+    notes: ["ビザの事前取得が必要。招聘状が必要となる場合が多い。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/turkmenistan/index.html",
+      embassy: "https://japan.tmembassy.gov.tm/ja",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "uzbekistan",
+    name: "ウズベキスタン",
+    code: "UZ",
+    region: "asia",
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism"],
+    },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["30日を超える滞在、観光以外の目的の場合はビザが必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/uzbekistan/index.html",
+      embassy: "http://www.uzbekistan.jp/",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  // Central Asia End
 ];
 
 export const getCountriesByRegion = (region: string) => {
