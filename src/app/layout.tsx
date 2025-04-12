@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "ビザナビ | 日本人旅行者向けビザ情報",
     description:
       "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。",
-    url: "https://visa-navi.example.com",
+    url: "https://visa-navi.vercel.app",
     images: [
       {
         url: "/images/visa-navi-logo.png",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     images: ["/images/visa-navi-logo.png"],
   },
   alternates: {
-    canonical: "https://visa-navi.example.com",
+    canonical: "https://visa-navi.vercel.app",
   },
-  metadataBase: new URL("https://visa-navi.example.com"),
+  metadataBase: new URL("https://visa-navi.vercel.app"),
 };
 
 export default function RootLayout({
