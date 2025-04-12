@@ -9,7 +9,6 @@ export interface VisaRequirement {
   notes?: string[];
   officialLinks?: {
     ministry?: string;
-    embassy?: string;
   };
 }
 
@@ -24,7 +23,6 @@ export interface Country {
   notes?: string[];
   officialLinks?: {
     mofa: string;
-    embassy?: string;
     k_eta?: string;
   };
   lastUpdated: string;
@@ -59,8 +57,7 @@ export const countries: Country[] = [
       "現地での滞在延長は移民局にて手続き可能（最大30日）",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/thailand.html",
-      embassy: "https://www.thaiembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/thailand/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -91,8 +88,7 @@ export const countries: Country[] = [
       "15日以内の短期滞在の場合のみ入国審査時にビザ申請（アライバルビザ）も可能",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/vietnam.html",
-      embassy: "https://vnembassy-jp.org/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/vietnam/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -118,8 +114,7 @@ export const countries: Country[] = [
       "SG Arrivalカードの事前オンライン申請が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/singapore.html",
-      embassy: "https://www.mfa.gov.sg/tokyo",
+      mofa: "https://www.mofa.go.jp/mofaj/area/singapore/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -144,8 +139,7 @@ export const countries: Country[] = [
       "入国時にマレーシア移民局が発行する入国スタンプの期間を必ず確認すること",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/malaysia.html",
-      embassy: "https://www.kln.gov.my/web/jpn_tokyo/home",
+      mofa: "https://www.mofa.go.jp/mofaj/area/malaysia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -170,8 +164,7 @@ export const countries: Country[] = [
       "東京・横浜・名古屋・大阪・福岡の領事館でビザ申請も可能",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/korea.html",
-      embassy: "https://overseas.mofa.go.kr/jp-ja/index.do",
+      mofa: "https://www.mofa.go.jp/mofaj/area/korea/index.html",
       k_eta: "https://www.k-eta.go.kr/portal/apply/index.do",
     },
     lastUpdated: "2024-05-21",
@@ -205,8 +198,7 @@ export const countries: Country[] = [
       "外国籍者向けビザも発行",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/china.html",
-      embassy: "http://www.china-embassy.or.jp/jpn/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/china/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -232,7 +224,6 @@ export const countries: Country[] = [
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/taiwan/index.html",
-      embassy: "https://www.roc-taiwan.org/jp_ja/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -253,13 +244,12 @@ export const countries: Country[] = [
     ],
     documents: ["有効なパスポート", "帰国便の予約証明", "滞在先情報"],
     notes: [
-      "東京の大使館でビザ申請も可能",
-      "到着後の滞在延長は現地の移民局で申請可能（最大36ヶ月まで可能）",
-      "e-Travelカードの事前登録が必要",
+      "30日を超える滞在にはビザの申請が必要",
+      "14日以内の短期商用目的の場合はビザなし入国可能",
+      "在外フィリピン大使館/領事館に事前に到着の通知を行うことが推奨される",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/philippines.html",
-      embassy: "https://tokyo.philembassy.net/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/philippines/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -285,8 +275,7 @@ export const countries: Country[] = [
       "商用目的の場合は事前にビザの取得が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/indonesia.html",
-      embassy: "https://kemlu.go.id/tokyo/lc",
+      mofa: "https://www.mofa.go.jp/mofaj/area/indonesia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -318,8 +307,7 @@ export const countries: Country[] = [
       "e-Visaは30日間（観光）、1年間（ビジネス）など複数のタイプあり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/india.html",
-      embassy: "https://www.indembassy-tokyo.gov.in/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/india/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -346,8 +334,7 @@ export const countries: Country[] = [
       "30日を超える滞在には別途ビザの申請が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/cambodia/data.html",
-      embassy: "https://www.cambodianembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/cambodia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -369,8 +356,7 @@ export const countries: Country[] = [
       "延長は現地の移民局で可能（追加30日間）",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/laos/data.html",
-      embassy: "https://laoembassytokyo.com/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/laos/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -403,8 +389,7 @@ export const countries: Country[] = [
       "ヤンゴン・マンダレー・ネピドー国際空港のみ入国可能",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/myanmar/data.html",
-      embassy: "https://www.myanmar-embassy-tokyo.net/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/myanmar/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -429,8 +414,7 @@ export const countries: Country[] = [
       "外国人登録（7日以上滞在の場合）が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/mongolia/data.html",
-      embassy: "http://www.tokyo.embassy.mn/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/mongolia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -462,8 +446,7 @@ export const countries: Country[] = [
       "目的に応じて複数のビザタイプがある",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/bangladesh/data.html",
-      embassy: "https://www.bdembassyjapan.org/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/bangladesh/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -491,8 +474,7 @@ export const countries: Country[] = [
       "延長は現地の移民局で可能（最大6か月まで）",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/srilanka/data.html",
-      embassy: "https://www.lankandut.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/srilanka/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -518,7 +500,7 @@ export const countries: Country[] = [
       "入境カードの記入が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/hongkong/data.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/hongkong/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -544,8 +526,7 @@ export const countries: Country[] = [
       "滞在延長は現地の移民局で申請可能",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/brunei/data.html",
-      embassy: "https://www.mfa.gov.bn/Pages/Tokyo.aspx",
+      mofa: "https://www.mofa.go.jp/mofaj/area/brunei/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -573,8 +554,7 @@ export const countries: Country[] = [
       "トレッキング許可証が別途必要なエリアあり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/nepal/data.html",
-      embassy: "https://jp.nepalembassy.gov.np/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/nepal/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -607,8 +587,7 @@ export const countries: Country[] = [
       "東京の大使館でもビザ申請可能",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/pakistan/data.html",
-      embassy: "https://mofa.gov.pk/tokyo-japan/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/pakistan/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -634,7 +613,7 @@ export const countries: Country[] = [
       "Maldives Immigration事前オンラインチェックイン（IMUGA）推奨",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/maldives/data.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/maldives/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -660,8 +639,7 @@ export const countries: Country[] = [
       "学生・就労目的の場合は目的に応じたビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/france.html",
-      embassy: "https://jp.ambafrance.org/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -687,8 +665,7 @@ export const countries: Country[] = [
       "学生・就労目的の場合は目的に応じたビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/germany.html",
-      embassy: "https://japan.diplo.de/ja-ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/germany/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -714,8 +691,7 @@ export const countries: Country[] = [
       "入国から8日以内に滞在許可証の申請が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/italy.html",
-      embassy: "https://ambtokyo.esteri.it/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -741,8 +717,7 @@ export const countries: Country[] = [
       "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/spain.html",
-      embassy: "https://www.exteriores.gob.es/Embajadas/tokio/ja/Paginas/index.aspx",
+      mofa: "https://www.mofa.go.jp/mofaj/area/spain/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -770,8 +745,7 @@ export const countries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/uk.html",
-      embassy: "https://www.gov.uk/world/japan/news.ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/uk/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -797,8 +771,7 @@ export const countries: Country[] = [
       "EU加盟国ではないがシェンゲン協定には加盟している",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/switzerland.html",
-      embassy: "https://www.eda.admin.ch/tokyo",
+      mofa: "https://www.mofa.go.jp/mofaj/area/switzerland/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -824,8 +797,7 @@ export const countries: Country[] = [
       "ホテルやアパートでの滞在登録が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/netherlands.html",
-      embassy: "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/netherlands/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -851,8 +823,7 @@ export const countries: Country[] = [
       "8日以上滞在する場合は滞在地の市役所への登録が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/belgium.html",
-      embassy: "https://japan.diplomatie.belgium.be/ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/belgium/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -878,8 +849,7 @@ export const countries: Country[] = [
       "3日以上滞在する場合は滞在登録（Meldezettel）が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/austria.html",
-      embassy: "https://www.bmeia.gv.at/ja/oeb-tokio/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/austria/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -905,8 +875,7 @@ export const countries: Country[] = [
       "1年以上の滞在を計画している場合はID番号の取得が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/sweden.html",
-      embassy: "https://www.swedenabroad.se/ja/embassies/日本-東京/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/sweden/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -932,8 +901,7 @@ export const countries: Country[] = [
       "EU加盟国ではないがシェンゲン協定には加盟している",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/norway.html",
-      embassy: "https://www.norway.no/ja/japan/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/norway/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -959,8 +927,7 @@ export const countries: Country[] = [
       "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/denmark.html",
-      embassy: "https://japan.um.dk/ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/denmark/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -986,8 +953,7 @@ export const countries: Country[] = [
       "3ヶ月以上滞在する場合は住民登録が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/finland.html",
-      embassy: "https://finlandabroad.fi/web/jpn/frontpage",
+      mofa: "https://www.mofa.go.jp/mofaj/area/finland/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1013,8 +979,7 @@ export const countries: Country[] = [
       "滞在先の住所は入国時に申告必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/poland.html",
-      embassy: "https://www.gov.pl/web/japonia-ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/poland/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1040,8 +1005,7 @@ export const countries: Country[] = [
       "入国から3営業日以内に滞在地を報告する必要がある場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/czech.html",
-      embassy: "https://www.mzv.cz/tokyo/ja/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/czech/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1067,8 +1031,7 @@ export const countries: Country[] = [
       "3日以上滞在する場合は入国管理局での登録が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/portugal.html",
-      embassy: "https://www.tokyo.embaixadaportugal.mne.gov.pt/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/portugal/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1094,8 +1057,7 @@ export const countries: Country[] = [
       "就労・留学目的の場合は事前にビザの取得が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/ireland.html",
-      embassy: "https://www.dfa.ie/irish-embassy/japan/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/ireland/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1121,8 +1083,7 @@ export const countries: Country[] = [
       "ギリシャ本土と島嶼部間の移動にはフェリーの予約が推奨",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/greece.html",
-      embassy: "https://www.mfa.gr/japan/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/greece/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1148,8 +1109,7 @@ export const countries: Country[] = [
       "宿泊施設での宿泊登録が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/hungary.html",
-      embassy: "https://tokio.mfa.gov.hu/jpn",
+      mofa: "https://www.mofa.go.jp/mofaj/area/hungary/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1175,8 +1135,7 @@ export const countries: Country[] = [
       "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/romania.html",
-      embassy: "https://www.romaniaembassy.jp/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/romania/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1282,8 +1241,7 @@ export const countries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/usa.html",
-      embassy: "https://jp.usembassy.gov/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1309,8 +1267,7 @@ export const countries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/canada.html",
-      embassy: "https://www.canadainternational.gc.ca/japan-japon/index.aspx?lang=jpn",
+      mofa: "https://www.mofa.go.jp/mofaj/area/canada/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1336,8 +1293,7 @@ export const countries: Country[] = [
       "入国時にFMM（入国カード）の記入が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/mexico.html",
-      embassy: "https://embamex.sre.gob.mx/japon/index.php/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/mexico/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1363,8 +1319,7 @@ export const countries: Country[] = [
       "入国時にCPF（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/brazil.html",
-      embassy: "https://toquio.itamaraty.gov.br/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/brazil/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1390,8 +1345,7 @@ export const countries: Country[] = [
       "入国時にDNI（身分証明書）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/argentina.html",
-      embassy: "https://ejapo.mrecic.gov.ar/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/argentina/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1417,8 +1371,7 @@ export const countries: Country[] = [
       "入国時にRUT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/chile.html",
-      embassy: "https://chile.gob.cl/japon/ja/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/chile/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1444,8 +1397,7 @@ export const countries: Country[] = [
       "入国時にDNI（身分証明書）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/peru.html",
-      embassy: "https://www.gob.pe/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/peru/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1471,8 +1423,7 @@ export const countries: Country[] = [
       "入国時にRUT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/colombia.html",
-      embassy: "https://tokio.embajada.gov.co/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/colombia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1504,8 +1455,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/venezuela.html",
-      embassy: "https://www.embajada-japon.gob.ve/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/venezuela/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1531,8 +1481,7 @@ export const countries: Country[] = [
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/ecuador.html",
-      embassy: "https://www.embassyecuador.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/ecuador/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1558,8 +1507,7 @@ export const countries: Country[] = [
       "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/bolivia.html",
-      embassy: "https://www.embolivia.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/bolivia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1585,8 +1533,7 @@ export const countries: Country[] = [
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/paraguay.html",
-      embassy: "https://www.mre.gov.py/embajada-japon/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/paraguay/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1612,8 +1559,7 @@ export const countries: Country[] = [
       "入国時にRUT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/uruguay.html",
-      embassy: "https://www.gub.uy/ministerio-relaciones-exteriores/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/uruguay/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1645,8 +1591,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/guyana.html",
-      embassy: "https://www.guyanaembassyjapan.com/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/guyana/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1678,8 +1623,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/suriname.html",
-      embassy: "https://www.surinameembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/suriname/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1705,8 +1649,7 @@ export const countries: Country[] = [
       "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/guatemala.html",
-      embassy: "https://www.minex.gob.gt/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/guatemala/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1732,8 +1675,7 @@ export const countries: Country[] = [
       "入国時にRTN（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/honduras.html",
-      embassy: "https://www.sre.gob.hn/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/honduras/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1759,8 +1701,7 @@ export const countries: Country[] = [
       "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/elsalvador.html",
-      embassy: "https://www.rree.gob.sv/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/elsalvador/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1786,8 +1727,7 @@ export const countries: Country[] = [
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/nicaragua.html",
-      embassy: "https://www.cancilleria.gob.ni/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/nicaragua/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1813,8 +1753,7 @@ export const countries: Country[] = [
       "入国時にDIMEX（外国人ID）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/costarica.html",
-      embassy: "https://www.rree.go.cr/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/costarica/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1840,8 +1779,7 @@ export const countries: Country[] = [
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/panama.html",
-      embassy: "https://www.mire.gob.pa/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/panama/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1873,8 +1811,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/cuba.html",
-      embassy: "https://www.embacuba.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/cuba/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1906,8 +1843,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/jamaica.html",
-      embassy: "https://www.jamaicaembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/jamaica/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1939,8 +1875,7 @@ export const countries: Country[] = [
       "入国時に指紋採取が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/haiti.html",
-      embassy: "https://www.haitiembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/haiti/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1966,8 +1901,7 @@ export const countries: Country[] = [
       "入国時にRNC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/dominicanrepublic.html",
-      embassy: "https://www.mirex.gob.do/embajada-japon",
+      mofa: "https://www.mofa.go.jp/mofaj/area/dominicanrepublic/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -1993,8 +1927,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/bahamas.html",
-      embassy: "https://www.bahamasembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/bahamas/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2020,8 +1953,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/barbados.html",
-      embassy: "https://www.foreign.gov.bb/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/barbados/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2047,8 +1979,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/trinidadtobago.html",
-      embassy: "https://www.foreign.gov.tt/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/trinidadtobago/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2074,8 +2005,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/saintlucia.html",
-      embassy: "https://www.stlucia.gov.lc/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/saintlucia/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2101,8 +2031,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/saintvincentgrenadines.html",
-      embassy: "https://www.gov.vc/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/saintvincentgrenadines/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2128,8 +2057,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/antiguabarbuda.html",
-      embassy: "https://www.antigua-barbuda.com/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/antiguabarbuda/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2155,8 +2083,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/grenada.html",
-      embassy: "https://www.gov.gd/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/grenada/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2182,8 +2109,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/saintkittsnevis.html",
-      embassy: "https://www.gov.kn/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/saintkittsnevis/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2209,8 +2135,7 @@ export const countries: Country[] = [
       "入国時に滞在目的の説明が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/dominica.html",
-      embassy: "https://www.dominica.gov.dm/embassies/japan",
+      mofa: "https://www.mofa.go.jp/mofaj/area/dominica/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2255,8 +2180,7 @@ export const countries: Country[] = [
       "水道水は都市部では飲用可能だが、ミネラルウォーターの購入を推奨",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/south_africa.html",
-      embassy: "https://www.saembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/south_africa/index.html",
     },
     lastUpdated: "2024-05-21",
   },
@@ -2361,7 +2285,7 @@ export const countries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30, evisaAvailable: true }, // Visa on arrival or e-Visa
     notes: ["到着ビザ（主要空港）またはe-Visaの取得が必要。パスポート残存6ヶ月以上。"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/egypt.html" },
+    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/egypt/index.html" },
     lastUpdated: "2024-07-27",
   },
   {
@@ -2405,7 +2329,7 @@ export const countries: Country[] = [
     notes: [
       "電子渡航認証（eTA）の取得が必要。パスポート残存6ヶ月以上。黄熱病予防接種証明要（推奨）。",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/ke.html" },
+    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ke/index.html" },
     lastUpdated: "2024-07-27",
   },
   {
@@ -2479,7 +2403,7 @@ export const countries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存滞在期間中有効"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/morocco.html" },
+    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/morocco/index.html" },
     lastUpdated: "2024-07-27",
   },
   {
@@ -3112,8 +3036,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["30日を超える滞在にはビザが必要"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/uae.html",
-      embassy: "https://www.uaeembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/uae/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3143,8 +3066,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["90日を超える滞在にはビザが必要"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/israel.html",
-      embassy: "https://embassies.gov.il/tokyo/Pages/default.aspx",
+      mofa: "https://www.mofa.go.jp/mofaj/area/israel/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3170,8 +3092,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["入国にはビザが必要"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/iran.html",
-      embassy: "https://japan.mfa.gov.ir/ja",
+      mofa: "https://www.mofa.go.jp/mofaj/area/iran/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3191,8 +3112,7 @@ export const countries: Country[] = [
       "観光目的で14日以内の滞在の場合、一定の条件を満たせばビザ不要。それ以外はe-Visaの取得が必要。",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/oman.html",
-      embassy: "https://www.omanembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/oman/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3209,8 +3129,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
     notes: ["到着時に空港で無料のビザが発行される"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/qatar.html",
-      embassy: "https://tokyo.embassy.qa/en",
+      mofa: "https://www.mofa.go.jp/mofaj/area/qatar/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3228,8 +3147,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
     notes: ["到着時に空港でビザを取得可能（有料）。事前にe-Visaの取得も可能。"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/kuwait.html",
-      embassy: "http://kuwait-embassy.or.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/kuwait/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3247,8 +3165,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["観光目的の場合はe-Visa、商用目的の場合は別途ビザの取得が必要。"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/saudiarabia.html",
-      embassy: "https://embassies.mofa.gov.sa/sites/japan/EN/Pages/default.aspx",
+      mofa: "https://www.mofa.go.jp/mofaj/area/saudiarabia/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3265,8 +3182,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["90日を超える滞在にはビザが必要"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/turkey.html",
-      embassy: "http://tokyo.be.mfa.gov.tr/Mission",
+      mofa: "https://www.mofa.go.jp/mofaj/area/turkey/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3284,8 +3200,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["e-Visaまたは到着時に空港でビザを取得可能（有料）。滞在期間はビザ種別による。"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/bahrain.html",
-      embassy: "https://www.mofa.gov.bh/tokyo/Home.aspx",
+      mofa: "https://www.mofa.go.jp/mofaj/area/bahrain/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3302,8 +3217,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
     notes: ["到着時に空港でビザを取得可能（有料）。ヨルダンパスなどの利用も検討。"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/jordan.html",
-      embassy: "http://www.jordanembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/jordan/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3320,8 +3234,7 @@ export const countries: Country[] = [
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
     notes: ["観光目的の場合、到着時に空港で無料のビザが発行される。商用は事前取得推奨。"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/lebanon.html",
-      embassy: "http://www.lebanonembassy.jp/",
+      mofa: "https://www.mofa.go.jp/mofaj/area/lebanon/index.html",
     },
     lastUpdated: "2024-07-26",
   },
@@ -3344,7 +3257,7 @@ export const countries: Country[] = [
       "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/australia.html", // Existing link, might need update
+      mofa: "https://www.mofa.go.jp/mofaj/area/australia/index.html",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3481,7 +3394,6 @@ export const countries: Country[] = [
     notes: ["目的に関わらず事前にビザ取得が必要", "取得方法はナウル入国管理局に確認が必要"],
     officialLinks: {
       mofa: "", // Needs official link
-      embassy: "https://www.naurugov.nr/about-nauru/visiting-nauru/visa-requirements.aspx", // From user text
     },
     lastUpdated: "2024-07-27",
   },
@@ -3536,7 +3448,7 @@ export const countries: Country[] = [
       "第三国へのビザ（必要な場合）",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/newzealand.html", // Existing link
+      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3570,7 +3482,7 @@ export const countries: Country[] = [
       "乗り継ぎで黄熱危険国の空港を経由した渡航者も証明書が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html", // Existing link
+      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3608,7 +3520,7 @@ export const countries: Country[] = [
       "乗り継ぎで黄熱危険国の空港に12時間以上滞在した場合も証明書が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html", // Existing link
+      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3687,7 +3599,6 @@ export const countries: Country[] = [
     notes: ["30日を超える滞在、就労目的の場合はビザが必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kazakhstan/index.html",
-      embassy: "https://www.gov.kz/memleket/entities/mfa-tokyo?lang=ja",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3705,7 +3616,6 @@ export const countries: Country[] = [
     notes: ["60日を超える滞在の場合は現地で滞在登録が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kyrgyz/index.html",
-      embassy: "http://kgembassy.jp/",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3724,7 +3634,6 @@ export const countries: Country[] = [
     notes: ["e-Visaはオンラインで申請可能"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/tajikistan/index.html",
-      embassy: "https://mfa.tj/ja/tokyo",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3738,7 +3647,6 @@ export const countries: Country[] = [
     notes: ["ビザの事前取得が必要。招聘状が必要となる場合が多い。"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/turkmenistan/index.html",
-      embassy: "https://japan.tmembassy.gov.tm/ja",
     },
     lastUpdated: "2024-07-27",
   },
@@ -3756,7 +3664,6 @@ export const countries: Country[] = [
     notes: ["30日を超える滞在、観光以外の目的の場合はビザが必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uzbekistan/index.html",
-      embassy: "http://www.uzbekistan.jp/",
     },
     lastUpdated: "2024-07-27",
   },
