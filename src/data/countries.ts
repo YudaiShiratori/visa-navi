@@ -3325,82 +3325,6 @@ export const countries: Country[] = [
     },
     lastUpdated: "2024-07-26",
   },
-  {
-    id: "australia",
-    name: "オーストラリア",
-    code: "AU",
-    region: "oceania",
-    visaRequirement: {
-      type: "evisa", // ETAS は電子ビザの一種と分類
-      duration: 90,
-      evisaAvailable: true,
-      purpose: ["tourism", "business"],
-    },
-    conditions: ["パスポートの残存有効期間が滞在期間中有効であること", "ETAS取得"],
-    notes: ["電子渡航認証システム（ETAS）の事前登録が必要。", "ワーキングホリデーなど別途ビザあり"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/australia.html",
-      embassy: "https://japan.embassy.gov.au/tkyojapanese/home.html",
-    },
-    lastUpdated: "2024-07-26",
-  },
-  {
-    id: "papua_new_guinea",
-    name: "パプアニューギニア",
-    code: "PG",
-    region: "oceania",
-    visaRequirement: {
-      type: "evisa", // e-Visaまたは到着ビザ
-      duration: 60, // 観光e-Visaの場合
-      evisaAvailable: true,
-      purpose: ["tourism", "business"],
-    },
-    conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
-    notes: ["観光・商用目的の場合、事前にe-Visaまたは到着時にビザ（一部空港）を取得可能。"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html",
-      embassy: "http://www.png.or.jp/",
-    },
-    lastUpdated: "2024-07-26",
-  },
-  {
-    id: "fiji",
-    name: "フィジー",
-    code: "FJ",
-    region: "oceania",
-    visaRequirement: {
-      type: "visa_free",
-      duration: 120, // 4ヶ月
-      purpose: ["tourism", "business"],
-    },
-    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "出国用航空券"],
-    notes: ["観光・商用目的の場合、4ヶ月以内の滞在はビザ不要。"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html",
-      embassy: "http://www.fijiembassy.jp/",
-    },
-    lastUpdated: "2024-07-26",
-  },
-  {
-    id: "new_zealand",
-    name: "ニュージーランド",
-    code: "NZ",
-    region: "oceania",
-    visaRequirement: {
-      type: "evisa", // NZeTA は電子ビザの一種と分類
-      duration: 90,
-      evisaAvailable: true,
-      purpose: ["tourism", "business", "transit"],
-    },
-    conditions: ["パスポートの残存有効期間が滞在期間＋3ヶ月以上必要", "NZeTA取得"],
-    notes: ["電子渡航認証（NZeTA）の事前登録が必要。", "ワーキングホリデーなど別途ビザあり"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/toko/visa/tanki/newzealand.html",
-      embassy:
-        "https://www.mfat.govt.nz/ja/countries-and-regions/north-asia/japan/new-zealand-embassy/",
-    },
-    lastUpdated: "2024-07-26",
-  },
   // Oceania Countries Start (Based on user provided list)
   {
     id: "australia",
@@ -3963,6 +3887,195 @@ export const countries: Country[] = [
     },
     lastUpdated: "2024-07-27",
   }, // End of new entries
+  // Start of newly added UN members
+  {
+    id: "afghanistan",
+    name: "アフガニスタン",
+    code: "AF",
+    region: "asia",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が6ヶ月以上必要"],
+    notes: ["ビザが必要。現在、外務省より退避勧告（危険レベル4）が発令中。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/afghanistan/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "albania",
+    name: "アルバニア",
+    code: "AL",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/albania/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "andorra",
+    name: "アンドラ",
+    code: "AD",
+    region: "europe",
+    visaRequirement: { type: "visa_free" }, // Schengen area access
+    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
+    notes: [
+      "シェンゲン協定加盟国ではないが、フランスまたはスペイン経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/andorra/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "belize",
+    name: "ベリーズ",
+    code: "BZ",
+    region: "north_america",
+    visaRequirement: { type: "visa_free", duration: 180 },
+    conditions: ["パスポート残存有効期間が滞在日数以上必要", "出国用航空券"],
+    notes: ["180日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/belize/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "bhutan",
+    name: "ブータン",
+    code: "BT",
+    region: "asia",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
+    notes: ["入国にはビザと事前手配（公定料金に基づくツアーなど）が必要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/bhutan/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "bosnia_herzegovina",
+    name: "ボスニア・ヘルツェゴビナ",
+    code: "BA",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/bosnia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "moldova",
+    name: "モルドバ",
+    code: "MD",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/moldova/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "monaco",
+    name: "モナコ",
+    code: "MC",
+    region: "europe",
+    visaRequirement: { type: "visa_free" }, // Schengen area access
+    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
+    notes: [
+      "シェンゲン協定加盟国ではないが、フランス経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/monaco/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "montenegro",
+    name: "モンテネグロ",
+    code: "ME",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "north_korea",
+    name: "北朝鮮",
+    code: "KP",
+    region: "asia",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が必要"],
+    notes: ["ビザが必要。日本国籍者に対する入国は現在厳しく制限されている。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/n_korea/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "north_macedonia",
+    name: "北マケドニア",
+    code: "MK",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/macedonia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "san_marino",
+    name: "サンマリノ",
+    code: "SM",
+    region: "europe",
+    visaRequirement: { type: "visa_free" }, // Schengen area access
+    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
+    notes: [
+      "シェンゲン協定加盟国ではないが、イタリア経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/sanmarino/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "syria",
+    name: "シリア",
+    code: "SY",
+    region: "middle_east",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が6ヶ月以上必要"],
+    notes: ["ビザが必要。現在、外務省より退避勧告（危険レベル4）が発令中。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/syria/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "timor_leste",
+    name: "東ティモール",
+    code: "TL",
+    region: "asia",
+    visaRequirement: { type: "visa_required", duration: 30 }, // Visa on arrival
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
+    notes: ["主要な空港・港で到着ビザ（30日間）の取得が可能（有料）。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/timor-leste/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
 ];
 
 export const getCountriesByRegion = (region: string) => {
