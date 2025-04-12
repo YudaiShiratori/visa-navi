@@ -40,7 +40,7 @@ const regions: Region[] = [
       [0, 35],
       [55, 150],
     ],
-    description: "タイ、ベトナム、インドネシア、中東諸国など多様な文化と歴史の地域",
+    description: "タイ、ベトナム、インドネシアなど多様な文化と歴史の地域",
     icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
   },
   {
@@ -147,26 +147,6 @@ export function MapSelector() {
               <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
 
               <div className="relative z-10 flex flex-grow flex-col">
-                <div
-                  className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl md:mb-4 md:h-16 md:w-16"
-                  style={{ backgroundColor: `${regionColors[region.id].main}20` }}
-                >
-                  <svg
-                    className="h-6 w-6 md:h-8 md:w-8"
-                    style={{ color: regionColors[region.id].main }}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d={region.icon}
-                    />
-                  </svg>
-                </div>
-
                 <h3
                   className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
                   style={{ color: regionColors[region.id].main }}
