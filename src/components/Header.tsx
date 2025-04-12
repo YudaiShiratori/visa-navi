@@ -95,14 +95,6 @@ export function Header() {
           {/* デスクトップナビゲーション */}
           <nav className="hidden items-center space-x-8 md:flex">
             <Link
-              href="/"
-              className={`text-sm font-medium transition-colors ${
-                pathname === "/" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
-              }`}
-            >
-              ビザ情報を調べる
-            </Link>
-            <Link
               href="/about"
               className={`text-sm font-medium transition-colors ${
                 pathname === "/about" ? "text-blue-600" : "text-gray-700 hover:text-blue-600"
@@ -114,7 +106,7 @@ export function Header() {
               href="/"
               className="rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-5 py-2.5 text-sm font-medium text-white transition-all hover:shadow-lg"
             >
-              今すぐ検索
+              ビザ情報を調べる
             </Link>
           </nav>
 
