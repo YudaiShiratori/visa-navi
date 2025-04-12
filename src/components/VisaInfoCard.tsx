@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import type { Country } from "../data/countries";
+import type { Country } from "../data/types";
 
 interface VisaInfoCardProps {
   country: Country;

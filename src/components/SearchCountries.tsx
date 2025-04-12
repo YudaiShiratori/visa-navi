@@ -3,10 +3,14 @@
 import { useRouter } from "next/navigation";
 import { useState, useMemo, useEffect, useRef } from "react";
 
-import { countries } from "../data/countries";
+import { getAllCountries } from "@/data/regions";
+
 import { sendGAEvent } from "../utils/analytics";
 
 import type { KeyboardEvent } from "react";
+
+// 国データを取得
+const countries = getAllCountries();
 
 // ひらがな・カタカナ変換用のマッピング
 const kanaMap: { [key: string]: string } = {

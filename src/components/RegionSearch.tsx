@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 import { visaStatusColors } from "../constants/colors";
 
-import type { Country } from "../data/countries";
+import type { Country } from "../data/types";
 
 // ひらがな・カタカナ変換用のマッピング
 const kanaMap: { [key: string]: string } = {

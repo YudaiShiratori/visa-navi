@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import RegionSearch from "../../../components/RegionSearch";
-import { getCountriesByRegion } from "../../../data/countries";
+import { getCountriesByRegion } from "../../../data/regions";
 
 import type { Metadata } from "next";
 

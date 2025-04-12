@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 
 import { visaStatusColors } from "@/constants/colors";
 
-import { getCountryById, getAdjacentCountries } from "../../../data/countries";
+import { getCountryById, getAdjacentCountries } from "../../../data/regions";
 import { getRegionDisplayName } from "../../../utils/regionHelper";
 
 import type { Metadata } from "next";

@@ -1,13 +1,15 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 
 import { type RegionId, regionColors } from "../constants/colors";
-import { countries } from "../data/countries";
+import { getAllCountries } from "../data/regions";
 import { sendGAEvent } from "../utils/analytics";
 
+import type { Country } from "../data/types";
+// 国データを取得
+const countries = getAllCountries();
 interface Region {
   id: RegionId;
   name: string;
@@ -16,22 +18,18 @@ interface Region {
   icon: string;
   countryCount?: number;
 }
-
 // 地域ごとの国の数を計算
 const getRegionWithCountryCounts = (): Region[] => {
   const countryCounts: Record<string, number> = {};
-
-  countries.forEach((country) => {
+  countries.forEach((country: Country) => {
     const region = country.region;
     countryCounts[region] = (countryCounts[region] || 0) + 1;
   });
-
   return regions.map((region) => ({
     ...region,
     countryCount: countryCounts[region.id] || 0,
   }));
 };
-
 const regions: Region[] = [
   {
     id: "asia",
@@ -104,11 +102,9 @@ const regions: Region[] = [
     icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
   },
 ];
-
 export function MapSelector() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
   const regionsWithCounts = getRegionWithCountryCounts();
-
   const handleRegionSelect = (regionId: string, regionName: string) => {
     // 地域選択イベントを送信
     sendGAEvent("select_region", {
@@ -116,7 +112,6 @@ export function MapSelector() {
       region_name: regionName,
     });
   };
-
   return (
     <div className="space-y-8 md:space-y-12">
       {/* 地域カード */}
@@ -145,7 +140,6 @@ export function MapSelector() {
               onClick={() => handleRegionSelect(region.id, region.name)}
             >
               <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
-
               <div className="relative z-10 flex flex-grow flex-col">
                 <h3
                   className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
@@ -156,7 +150,6 @@ export function MapSelector() {
                 <p className="mb-3 text-xs text-gray-600 md:mb-4 md:text-sm">
                   {region.description}
                 </p>
-
                 <div className="mt-auto flex items-center justify-between">
                   <div
                     className="flex items-center text-xs font-medium md:text-sm"

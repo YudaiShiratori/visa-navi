@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { SearchCountries } from "../../components/SearchCountries";
 import { visaStatusColors } from "../../constants/colors";
-import { getCountriesByRegion } from "../../data/countries";
+import { getCountriesByRegion } from "../../data/regions";
 
 import type { Metadata } from "next";
 
