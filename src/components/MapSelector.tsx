@@ -197,10 +197,6 @@ export function MapSelector() {
                       />
                     </svg>
                   </div>
-
-                  <span className="rounded-full bg-white bg-opacity-50 px-2 py-1 text-xs font-medium text-gray-700">
-                    {region.countryCount}カ国
-                  </span>
                 </div>
               </div>
             </Link>
