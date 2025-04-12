@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     url: "https://visa-navi.example.com",
     images: [
       {
-        url: "https://visa-navi.example.com/images/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/images/visa-navi-logo.png",
+        width: 1024,
+        height: 1024,
         alt: "ビザナビ",
       },
     ],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "ビザナビ | 日本人旅行者向けビザ情報",
     description:
       "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。",
-    images: ["https://visa-navi.example.com/images/og-image.jpg"],
+    images: ["/images/visa-navi-logo.png"],
   },
   alternates: {
     canonical: "https://visa-navi.example.com",
