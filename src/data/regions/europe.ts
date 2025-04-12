@@ -24,7 +24,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "germany",
@@ -49,7 +49,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/germany/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "italy",
@@ -74,7 +74,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "spain",
@@ -99,7 +99,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/spain/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "uk",
@@ -126,7 +126,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uk/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "switzerland",
@@ -151,7 +151,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/switzerland/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "netherlands",
@@ -176,7 +176,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/netherlands/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "belgium",
@@ -201,7 +201,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belgium/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "austria",
@@ -226,7 +226,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/austria/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "sweden",
@@ -251,7 +251,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sweden/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "norway",
@@ -276,7 +276,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/norway/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "denmark",
@@ -301,7 +301,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/denmark/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "finland",
@@ -326,7 +326,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/finland/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "poland",
@@ -351,7 +351,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/poland/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "czech",
@@ -376,7 +376,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/czech/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "portugal",
@@ -401,7 +401,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/portugal/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "ireland",
@@ -426,7 +426,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ireland/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "greece",
@@ -451,7 +451,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/greece/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "hungary",
@@ -476,7 +476,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hungary/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "romania",
@@ -501,7 +501,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/romania/index.html",
     },
-    lastUpdated: "2024-05-21",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "bulgaria",
@@ -509,7 +509,15 @@ export const europeCountries: Country[] = [
     code: "BG",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/bulgaria/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "croatia",
@@ -517,7 +525,15 @@ export const europeCountries: Country[] = [
     code: "HR",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/croatia/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "slovakia",
@@ -525,7 +541,15 @@ export const europeCountries: Country[] = [
     code: "SK",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/slovakia/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "slovenia",
@@ -533,7 +557,15 @@ export const europeCountries: Country[] = [
     code: "SI",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/slovenia/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "estonia",
@@ -541,7 +573,15 @@ export const europeCountries: Country[] = [
     code: "EE",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/estonia/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "latvia",
@@ -549,7 +589,15 @@ export const europeCountries: Country[] = [
     code: "LV",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/latvia/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "lithuania",
@@ -557,7 +605,15 @@ export const europeCountries: Country[] = [
     code: "LT",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/lithuania/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "malta",
@@ -565,7 +621,12 @@ export const europeCountries: Country[] = [
     code: "MT",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: ["パスポートの残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/malta/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "cyprus",
@@ -573,7 +634,12 @@ export const europeCountries: Country[] = [
     code: "CY",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: ["パスポートの残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の観光・商用目的はビザ不要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/cyprus/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
     id: "iceland",
@@ -581,10 +647,20 @@ export const europeCountries: Country[] = [
     code: "IS",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    lastUpdated: "2024-03-20",
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+    ],
+    notes: [
+      "シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。",
+      "EU加盟国ではないがシェンゲン協定には加盟している",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/iceland/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
   {
-    // Start of new entries
     id: "georgia",
     name: "ジョージア",
     code: "GE",
@@ -595,7 +671,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/georgia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "armenia",
@@ -608,7 +684,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/armenia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "azerbaijan",
@@ -621,7 +697,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "ukraine",
@@ -637,7 +713,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ukraine/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "serbia",
@@ -650,7 +726,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/serbia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "belarus",
@@ -665,7 +741,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belarus/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "liechtenstein",
@@ -678,7 +754,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/liechtenstein/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "luxembourg",
@@ -691,7 +767,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/luxembourg/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "russia",
@@ -707,7 +783,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/russia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "albania",
@@ -720,7 +796,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/albania/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "andorra",
@@ -735,7 +811,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/andorra/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "bosnia_herzegovina",
@@ -748,7 +824,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bosnia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "moldova",
@@ -761,7 +837,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/moldova/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "monaco",
@@ -776,7 +852,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/monaco/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "montenegro",
@@ -789,7 +865,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "north_korea",
@@ -802,7 +878,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/n_korea/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "north_macedonia",
@@ -815,7 +891,7 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macedonia/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "san_marino",
@@ -830,6 +906,6 @@ export const europeCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sanmarino/index.html",
     },
-    lastUpdated: "2024-07-27",
+    lastUpdated: "2024-07-29",
   },
 ];
