@@ -53,13 +53,51 @@ export default async function RegionPage({ params }: Props) {
   // 国が見つからない場合
   if (allCountries.length === 0) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-[#007AFF]"
-          >
-            <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="py-8 md:py-12">
+        <div className="container mx-auto max-w-6xl px-4">
+          <div className="mb-8 flex items-center">
+            <Link href="/" className="mr-2 flex items-center text-blue-600 hover:text-blue-800">
+              <svg
+                className="mr-1 h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              地域選択に戻る
+            </Link>
+          </div>
+
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
+              {regionName}の国情報
+            </h1>
+            <p className="mb-8 text-gray-600">この地域の国情報は現在ありません。</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="py-8 md:py-12">
+      <div className="container mx-auto max-w-6xl px-4">
+        <div className="mb-8 flex items-center">
+          <Link href="/" className="mr-2 flex items-center text-blue-600 hover:text-blue-800">
+            <svg
+              className="mr-1 h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -71,43 +109,15 @@ export default async function RegionPage({ params }: Props) {
           </Link>
         </div>
 
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
-            {regionName}の国情報
+        <div className="mb-6 text-center">
+          <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
+            {regionName}のビザ情報
           </h1>
-          <p className="mb-8 text-gray-600">この地域の国情報は現在ありません。</p>
+          <p className="text-gray-600">日本国籍保持者向けの最新ビザ要件情報</p>
         </div>
-      </div>
-    );
-  }
 
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-6">
-        <Link
-          href="/"
-          className="inline-flex items-center rounded-lg bg-blue-50 px-4 py-2 text-sm font-medium text-[#007AFF]"
-        >
-          <svg className="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-          地域選択に戻る
-        </Link>
+        <RegionSearch countries={allCountries} />
       </div>
-
-      <div className="mb-6 text-center">
-        <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
-          {regionName}のビザ情報
-        </h1>
-        <p className="text-gray-600">日本国籍保持者向けの最新ビザ要件情報</p>
-      </div>
-
-      <RegionSearch countries={allCountries} />
     </div>
   );
 }
