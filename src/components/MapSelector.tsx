@@ -1,11 +1,9 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 
-import { ClientOnly } from "./ClientOnly";
-import { RegionMap } from "./RegionMap";
 import { type RegionId, regionColors } from "../constants/colors";
 import { countries } from "../data/countries";
 import { sendGAEvent } from "../utils/analytics";
@@ -109,31 +107,7 @@ const regions: Region[] = [
 
 export function MapSelector() {
   const [activeRegion, setActiveRegion] = useState<string | null>(null);
-  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [tooltipContent, setTooltipContent] = useState("");
-  const mapRef = useRef<HTMLDivElement>(null);
   const regionsWithCounts = getRegionWithCountryCounts();
-
-  // 画面サイズの変更を検知
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // 初期チェック
-    checkIfMobile();
-
-    // リサイズイベントのリスナー
-    window.addEventListener("resize", checkIfMobile);
-
-    // クリーンアップ
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
 
   const handleRegionSelect = (regionId: string, regionName: string) => {
     // 地域選択イベントを送信
@@ -143,86 +117,9 @@ export function MapSelector() {
     });
   };
 
-  const handleMapMouseMove = (e: React.MouseEvent) => {
-    if (!mapRef.current || !hoveredRegion) return;
-
-    const rect = mapRef.current.getBoundingClientRect();
-    setTooltipPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top - 40,
-    });
-  };
-
-  const handleRegionHover = (regionId: string | null) => {
-    setHoveredRegion(regionId);
-
-    if (regionId) {
-      const region = regionsWithCounts.find((r) => r.id === regionId);
-      if (region) {
-        setTooltipContent(`${region.name} (${region.countryCount}カ国)`);
-        setShowTooltip(true);
-      }
-    } else {
-      setShowTooltip(false);
-    }
-  };
-
   return (
     <div className="space-y-8 md:space-y-12">
-      <div
-        ref={mapRef}
-        className="relative z-10 mx-auto aspect-[2/1] w-full max-w-4xl overflow-hidden rounded-xl border border-blue-100 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-lg transition-all duration-300 hover:shadow-xl md:rounded-3xl md:shadow-xl"
-        onMouseMove={handleMapMouseMove}
-      >
-        {/* ツールチップ */}
-        <AnimatePresence>
-          {showTooltip && !isMobile && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="pointer-events-none absolute z-30 rounded-lg bg-black bg-opacity-75 px-3 py-1 text-sm text-white shadow-lg"
-              style={{
-                left: `${tooltipPosition.x}px`,
-                top: `${tooltipPosition.y}px`,
-                transform: "translate(-50%, -100%)",
-              }}
-            >
-              {tooltipContent}
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <div
-          className={`pointer-events-none absolute inset-0 z-20 flex items-center justify-center bg-white/50 backdrop-blur-sm transition-opacity duration-300 ${
-            hoveredRegion ? "opacity-0" : "opacity-100"
-          }`}
-        >
-          <div className="mx-4 w-full max-w-md rounded-xl bg-white/80 p-4 text-center shadow-lg md:p-8">
-            <h3 className="mb-2 text-lg font-bold text-gray-800 md:text-xl">
-              {activeRegion
-                ? regions.find((r) => r.id === activeRegion)?.name + "を選択"
-                : "地域を選択してください"}
-            </h3>
-            <p className="text-xs text-gray-600 md:text-sm">
-              {activeRegion
-                ? regions.find((r) => r.id === activeRegion)?.description
-                : isMobile
-                  ? "下のカードから地域を選択してください"
-                  : "地図上の地域にカーソルを合わせるか、下のカードから選択してください"}
-            </p>
-          </div>
-        </div>
-        <ClientOnly>
-          <RegionMap
-            regions={regions}
-            activeRegion={activeRegion}
-            setActiveRegion={setActiveRegion}
-            onRegionHover={handleRegionHover}
-          />
-        </ClientOnly>
-      </div>
-
+      {/* 地域カード */}
       <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-6 md:px-0 lg:grid-cols-3">
         {regionsWithCounts.map((region) => (
           <motion.div
