@@ -3837,6 +3837,132 @@ export const countries: Country[] = [
     lastUpdated: "2024-07-27",
   },
   // Central Asia End
+  {
+    // Start of new entries
+    id: "georgia",
+    name: "ジョージア",
+    code: "GE",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 365 },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
+    notes: ["1年以内の滞在はビザ不要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/georgia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "armenia",
+    name: "アルメニア",
+    code: "AM",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 180 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["180日以内の滞在はビザ不要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/armenia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "azerbaijan",
+    name: "アゼルバイジャン",
+    code: "AZ",
+    region: "asia",
+    visaRequirement: { type: "evisa", duration: 30, evisaAvailable: true },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "e-Visaの事前取得"],
+    notes: ["e-Visa (ASAN Visa) の取得が必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "ukraine",
+    name: "ウクライナ",
+    code: "UA",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: [
+      "90日以内の観光・商用目的はビザ不要 (ただし、現在の情勢により入国制限の可能性あり)",
+      "外務省より退避勧告（危険レベル4）が発令中",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/ukraine/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "serbia",
+    name: "セルビア",
+    code: "RS",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    notes: ["90日以内の滞在はビザ不要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/serbia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "belarus",
+    name: "ベラルーシ",
+    code: "BY",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 30 },
+    conditions: ["パスポート残存有効期間が入国時90日以上必要"],
+    notes: [
+      "ミンスク国際空港から入国・出国する場合など、特定の条件下で30日以内の滞在はビザ不要（要件確認）",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/belarus/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "liechtenstein",
+    name: "リヒテンシュタイン",
+    code: "LI",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
+    notes: ["シェンゲン協定加盟国。スイス経由での入国が一般的。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/liechtenstein/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "luxembourg",
+    name: "ルクセンブルク",
+    code: "LU",
+    region: "europe",
+    visaRequirement: { type: "visa_free", duration: 90 },
+    conditions: ["パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
+    notes: ["シェンゲン協定加盟国。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/luxembourg/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  },
+  {
+    id: "russia",
+    name: "ロシア",
+    code: "RU",
+    region: "europe",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要"],
+    notes: [
+      "入国にはビザが必要。電子ビザ制度があるが、運用状況は要確認。",
+      "現在の情勢により渡航制限・注意が必要。",
+    ],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/russia/index.html",
+    },
+    lastUpdated: "2024-07-27",
+  }, // End of new entries
 ];
 
 export const getCountriesByRegion = (region: string) => {
