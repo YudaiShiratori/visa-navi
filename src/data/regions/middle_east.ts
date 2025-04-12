@@ -176,7 +176,10 @@ export const middleEastCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: ["パスポートの残存有効期間が6ヶ月以上必要"],
-    notes: ["e-Visaまたは到着時に空港でビザを取得可能（有料）。滞在期間はビザ種別による。"],
+    notes: [
+      "e-Visaまたは到着時に空港でビザを取得可能（有料）。滞在期間はビザ種別による。",
+      "在日大使館でビザ発給は行っていない",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bahrain/index.html",
     },

@@ -689,6 +689,7 @@ export const asiaCountries: Country[] = [
       "入国時に到着ビザの取得が必要（有料）",
     ],
     notes: [
+      "在日大使館でビザ発給を行っていない",
       "主要な空港・港で到着ビザ（30日間）の取得が可能（US$30程度）",
       "滞在延長は現地移民局にて申請可能",
       "出国用航空券の所持が必要な場合がある",
@@ -697,5 +698,31 @@ export const asiaCountries: Country[] = [
       mofa: "https://www.mofa.go.jp/mofaj/area/timor-leste/index.html",
     },
     lastUpdated: "2024-07-28",
+  },
+  {
+    id: "azerbaijan",
+    name: "アゼルバイジャン",
+    code: "AZ",
+    region: "asia",
+    visaRequirement: { type: "evisa", duration: 30, evisaAvailable: true },
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "e-Visaの事前取得"],
+    notes: ["e-Visa (ASAN Visa) の取得が必要"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
+    },
+    lastUpdated: "2024-07-29",
+  },
+  {
+    id: "north_korea",
+    name: "北朝鮮",
+    code: "KP",
+    region: "asia",
+    visaRequirement: { type: "visa_required" },
+    conditions: ["パスポート残存有効期間が必要"],
+    notes: ["ビザが必要。日本国籍者に対する入国は現在厳しく制限されている。"],
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/n_korea/index.html",
+    },
+    lastUpdated: "2024-07-29",
   },
 ];

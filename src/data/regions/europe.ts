@@ -687,19 +687,6 @@ export const europeCountries: Country[] = [
     lastUpdated: "2024-07-29",
   },
   {
-    id: "azerbaijan",
-    name: "アゼルバイジャン",
-    code: "AZ",
-    region: "asia",
-    visaRequirement: { type: "evisa", duration: 30, evisaAvailable: true },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "e-Visaの事前取得"],
-    notes: ["e-Visa (ASAN Visa) の取得が必要"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
-    },
-    lastUpdated: "2024-07-29",
-  },
-  {
     id: "ukraine",
     name: "ウクライナ",
     code: "UA",
@@ -864,19 +851,6 @@ export const europeCountries: Country[] = [
     notes: ["90日以内の観光・商用目的はビザ不要。"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
-    },
-    lastUpdated: "2024-07-29",
-  },
-  {
-    id: "north_korea",
-    name: "北朝鮮",
-    code: "KP",
-    region: "asia",
-    visaRequirement: { type: "visa_required" },
-    conditions: ["パスポート残存有効期間が必要"],
-    notes: ["ビザが必要。日本国籍者に対する入国は現在厳しく制限されている。"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/n_korea/index.html",
     },
     lastUpdated: "2024-07-29",
   },

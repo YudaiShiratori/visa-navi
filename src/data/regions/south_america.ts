@@ -7,13 +7,13 @@ export const southAmericaCountries: Country[] = [
     code: "BR",
     region: "south_america",
     visaRequirement: {
-      type: "evisa",
+      type: "visa_free",
       duration: 90,
-      evisaAvailable: true,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
       "2023年9月30日から3年間の期限付きでビザ免除措置あり",
+      "90日以内の観光、親族・知人訪問、業務、学術会議・講演会・講習会等への参加、通過、芸術・スポーツ等の各種イベントへの参加目的はビザ不要",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "未使用査証欄見開き2頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -22,7 +22,6 @@ export const southAmericaCountries: Country[] = [
     ],
     notes: [
       "黄熱予防接種証明書の持参が強く推奨される（特にアマゾン地域へ渡航する場合）",
-      "e-VISAが必要（東京・名古屋の大使館・領事館でも申請可能）",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にCPF（納税者登録番号）の取得が必要な場合あり",
