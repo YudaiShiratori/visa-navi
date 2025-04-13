@@ -12,15 +12,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザ（VLS）の取得が必要",
-      "学生・就労目的の場合は目的に応じたビザが必要",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザ（VLS）の取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
     },
@@ -37,15 +35,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には滞在許可（Aufenthaltserlaubnis）が必要",
-      "学生・就労目的の場合は目的に応じたビザが必要",
     ],
+    notes: ["90日を超える滞在には滞在許可（Aufenthaltserlaubnis）が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/germany/index.html",
     },
@@ -59,18 +55,18 @@ export const europeCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
-      "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国予定日から3ヵ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "あらゆる180日間の期間内で90日以内の観光・業務目的の滞在はビザ不要",
     ],
-    notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "入国から8日以内に滞在許可証の申請が必要な場合あり",
-    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
     },
@@ -87,12 +83,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
     ],
     notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
     ],
@@ -110,19 +107,18 @@ export const europeCountries: Country[] = [
       type: "evisa",
       duration: 180,
       evisaAvailable: true,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism", "business", "transit", "education"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間＋6ヶ月以上必要",
-      "ETA（電子渡航認証）の取得が必要",
-      "十分な滞在資金の証明が必要",
+      "パスポートの残存有効期間が帰国日まで有効なもの",
+      "出国用航空券（乗車券、乗船券も可）の所持が必要",
+      "滞在費用証明の持参が必要",
+      "入国時に提示可能な滞在資格の裏付け資料（入学許可書、招聘状など）の準備が望ましい",
+      "6か月未満の観光、親族・知人訪問、業務、短期留学目的の滞在はビザ不要",
+      "2025年1月8日渡航分よりeTA（電子渡航認証）の取得が必要",
+      "英国への入国を伴わない乗り継ぎはETA取得が不要（2025年1月17日～）",
     ],
-    notes: [
-      "2024年4月よりETA（Electronic Travel Authorization）の取得が必要",
-      "ETAは£10で2年間有効",
-      "1回の訪問につき最長6ヶ月滞在可能",
-      "就労・留学目的の場合は別途ビザが必要",
-    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uk/index.html",
     },
@@ -139,15 +135,14 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
       "EU加盟国ではないがシェンゲン協定には加盟している",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/switzerland/index.html",
     },
@@ -161,18 +156,18 @@ export const europeCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
-      "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国予定日から3ヵ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
-    notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザ（MVV）の取得が必要",
-      "ホテルやアパートでの滞在登録が必要な場合あり",
-    ],
+    notes: ["カリブ海領土は別条件"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/netherlands/index.html",
     },
@@ -189,12 +184,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
     ],
     notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "8日以上滞在する場合は滞在地の市役所への登録が必要",
     ],
@@ -210,18 +206,21 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      duration: 180,
+      purpose: ["tourism", "business", "visit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
-      "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国時3ヵ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄2頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "日本との二国間の査証免除取極が優先され、360日間中、入国日から180日までの観光、訪問、業務目的はビザ不要",
     ],
     notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "3日以上滞在する場合は滞在登録（Meldezettel）が必要",
+      "180日間の滞在は、入国後最初の90日間の後、引き続き90日間滞在する場合のみ可能",
+      "出国後の再入国には制限があるため、事前に確認が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/austria/index.html",
@@ -239,15 +238,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "1年以上の滞在を計画している場合はID番号の取得が必要",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sweden/index.html",
     },
@@ -264,15 +261,14 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
       "EU加盟国ではないがシェンゲン協定には加盟している",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/norway/index.html",
     },
@@ -289,14 +285,15 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
     ],
     notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
+      "グリーンランドとフェロー諸島はシェンゲン圏外",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/denmark/index.html",
@@ -314,15 +311,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "3ヶ月以上滞在する場合は住民登録が必要",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/finland/index.html",
     },
@@ -339,15 +334,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "滞在先の住所は入国時に申告必要",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/poland/index.html",
     },
@@ -364,15 +357,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "入国から3営業日以内に滞在地を報告する必要がある場合あり",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/czech/index.html",
     },
@@ -389,15 +380,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "3日以上滞在する場合は入国管理局での登録が必要な場合あり",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/portugal/index.html",
     },
@@ -410,19 +399,16 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      duration: 180,
+      purpose: ["tourism", "business", "education", "visit"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間以上必要",
-      "十分な滞在資金の証明が必要",
-      "帰国/次の目的地への航空券が必要",
+      "パスポートの残存有効期間が出国時6ヶ月以上必要",
+      "出国用航空券の所持が必要",
+      "6か月以内の滞在は目的にかかわらずビザ不要",
+      "短期商用の場合は、入国時に訪問先からの招聘状等などの提示が求められることがあり提示ができない場合入国拒否になる事もある",
     ],
-    notes: [
-      "最長90日間滞在可能",
-      "シェンゲン協定には加盟していないため、シェンゲン圏とは別に90日間の滞在が可能",
-      "就労・留学目的の場合は事前にビザの取得が必要",
-    ],
+    notes: ["3か月を超える滞在は、現地警察署等で外国人登録と滞在許可の取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ireland/index.html",
     },
@@ -436,18 +422,18 @@ export const europeCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
-      "十分な滞在資金の証明が必要",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国予定日から3ヵ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄見開2頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
-    notes: [
-      "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "ギリシャ本土と島嶼部間の移動にはフェリーの予約が推奨",
-    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/greece/index.html",
     },
@@ -464,15 +450,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "宿泊施設での宿泊登録が必要",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hungary/index.html",
     },
@@ -489,15 +473,13 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が滞在予定期間＋3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
       "十分な滞在資金の証明が必要",
-    ],
-    notes: [
       "シェンゲン協定加盟国内での滞在は合計で180日間に90日まで",
-      "90日を超える滞在には長期滞在ビザの取得が必要",
-      "グリーンランドとフェロー諸島はシェンゲン圏外で別途入国条件あり",
     ],
+    notes: ["90日を超える滞在には長期滞在ビザの取得が必要"],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/romania/index.html",
     },
@@ -510,10 +492,12 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "90日以内の観光・商用目的はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bulgaria/index.html",
     },
@@ -524,12 +508,21 @@ export const europeCountries: Country[] = [
     name: "クロアチア",
     code: "HR",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business", "official"],
+    },
     conditions: [
-      "パスポートの残存有効期間が入国時3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国時3ヵ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "滞在費用証明（１日あたりEUR70相当額、ホテルの予約がある場合は1日あたりEUR30相当額）の持参が必要",
+      "海外旅行保険の加入が望ましい",
+      "180日以内の期間に合計90日以内の観光、業務、外交・公用目的の滞在はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/croatia/index.html",
     },
@@ -542,10 +535,12 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "90日以内の観光・商用目的はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovakia/index.html",
     },
@@ -558,10 +553,12 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "90日以内の観光・商用目的はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovenia/index.html",
     },
@@ -572,12 +569,20 @@ export const europeCountries: Country[] = [
     name: "エストニア",
     code: "EE",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
-      "パスポートの残存有効期間が入国時3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間がシェンゲン協定加盟国出国時3ヶ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄連続3頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行傷害保険の加入が必要（滞在期間を全てカバーしてEUR30,000以上の死亡補償、クレジットカード付帯の場合は本人名義の英文保険証券が必要）",
+      "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/estonia/index.html",
     },
@@ -590,10 +595,12 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "90日以内の観光・商用目的はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/latvia/index.html",
     },
@@ -606,10 +613,12 @@ export const europeCountries: Country[] = [
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: [
+      "シェンゲン協定加盟国",
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "90日以内の観光・商用目的はビザ不要",
     ],
-    notes: ["シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/lithuania/index.html",
     },
@@ -621,8 +630,11 @@ export const europeCountries: Country[] = [
     code: "MT",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポートの残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要"],
+    conditions: [
+      "パスポートの残存有効期間が入国時3ヶ月以上必要",
+      "90日以内の観光・商用目的はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/malta/index.html",
     },
@@ -633,9 +645,20 @@ export const europeCountries: Country[] = [
     name: "キプロス",
     code: "CY",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポートの残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business", "official"],
+    },
+    conditions: [
+      "パスポートの残存有効期間が出国予定日から3ヵ月以上必要",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "あらゆる180日間の期間内で90日以内の一般、外交・公用目的の滞在はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cyprus/index.html",
     },
@@ -646,15 +669,21 @@ export const europeCountries: Country[] = [
     name: "アイスランド",
     code: "IS",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
-      "パスポートの残存有効期間が入国時3ヶ月以上必要",
-      "シェンゲン協定加盟国での滞在期間（通算90日/180日）",
+      "シェンゲン協定加盟国",
+      "パスポートの残存有効期間が出国予定日から3ヶ月以上必要（過去10年以内に発行されたもの）",
+      "未使用査証欄2頁以上必要",
+      "出国用航空券の所持が必要",
+      "海外旅行保険の加入が望ましい",
+      "滞在費用証明の持参が望ましい",
+      "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
-    notes: [
-      "シェンゲン協定加盟国。90日以内の観光・商用目的はビザ不要。",
-      "EU加盟国ではないがシェンゲン協定には加盟している",
-    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/iceland/index.html",
     },
@@ -678,9 +707,19 @@ export const europeCountries: Country[] = [
     name: "アルメニア",
     code: "AM",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 180 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["180日以内の滞在はビザ不要"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 180,
+      purpose: ["tourism", "business", "visit", "official"],
+    },
+    conditions: [
+      "パスポートの残存有効期間が帰国日まで有効なもの",
+      "未使用査証欄1頁以上必要",
+      "1年間で180日間以内の滞在はビザ不要（一般、公用、外交等全ての旅券タイプに適用）",
+    ],
+    notes: [
+      "現在、日本国政府アゼルバイジャンとの国境周辺地域（ナヒチバン自治共和国との国境地域を含む。）に退避勧告を発出しています。アルメニア上記地域への渡航は、どのような目的であれ止めてください。",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/armenia/index.html",
     },
@@ -691,11 +730,19 @@ export const europeCountries: Country[] = [
     name: "ウクライナ",
     code: "UA",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business", "visit"],
+    },
+    conditions: [
+      "パスポートの残存有効期間が帰国時まで有効なもの",
+      "未使用査証欄2頁以上必要",
+      "海外旅行保険の加入が必要",
+      "180日間で90日以内の滞在はビザ不要",
+    ],
     notes: [
-      "90日以内の観光・商用目的はビザ不要 (ただし、現在の情勢により入国制限の可能性あり)",
-      "外務省より退避勧告（危険レベル4）が発令中",
+      "現在、日本国政府はウクライナ全土に退避勧告を発出しています。ウクライナへの渡航は、どのような目的であれ止めてください。",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ukraine/index.html",
@@ -708,8 +755,8 @@ export const europeCountries: Country[] = [
     code: "RS",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の滞在はビザ不要"],
+    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "90日以内の滞在はビザ不要"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/serbia/index.html",
     },
@@ -721,10 +768,11 @@ export const europeCountries: Country[] = [
     code: "BY",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 30 },
-    conditions: ["パスポート残存有効期間が入国時90日以上必要"],
-    notes: [
+    conditions: [
+      "パスポート残存有効期間が入国時90日以上必要",
       "ミンスク国際空港から入国・出国する場合など、特定の条件下で30日以内の滞在はビザ不要（要件確認）",
     ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belarus/index.html",
     },
@@ -736,8 +784,12 @@ export const europeCountries: Country[] = [
     code: "LI",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
-    notes: ["シェンゲン協定加盟国。スイス経由での入国が一般的。"],
+    conditions: [
+      "シェンゲン協定加盟国",
+      "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要",
+      "スイス経由での入国が一般的",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/liechtenstein/index.html",
     },
@@ -749,8 +801,8 @@ export const europeCountries: Country[] = [
     code: "LU",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
-    notes: ["シェンゲン協定加盟国。"],
+    conditions: ["シェンゲン協定加盟国", "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/luxembourg/index.html",
     },
@@ -777,9 +829,19 @@ export const europeCountries: Country[] = [
     name: "アルバニア",
     code: "AL",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
+    conditions: [
+      "パスポートの残存有効期間が入国時6ヶ月以上必要",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "90日以内の滞在はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/albania/index.html",
     },
@@ -790,10 +852,15 @@ export const europeCountries: Country[] = [
     name: "アンドラ",
     code: "AD",
     region: "europe",
-    visaRequirement: { type: "visa_free" }, // Schengen area access
-    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
+    conditions: ["フランスまたはスペインの入国条件を満たしていること", "90日以内の滞在はビザ不要"],
     notes: [
-      "シェンゲン協定加盟国ではないが、フランスまたはスペイン経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+      "国内空港が無いため、フランスまたはスペインから陸路で入国するが、入国の際、出入国審査は行われない",
+      "滞在中にパスポート、航空券の提示を求められる場合がある",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/andorra/index.html",
@@ -806,8 +873,11 @@ export const europeCountries: Country[] = [
     code: "BA",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "90日以内の観光・商用目的はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bosnia/index.html",
     },
@@ -819,8 +889,11 @@ export const europeCountries: Country[] = [
     code: "MD",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "90日以内の観光・商用目的はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/moldova/index.html",
     },
@@ -832,10 +905,12 @@ export const europeCountries: Country[] = [
     code: "MC",
     region: "europe",
     visaRequirement: { type: "visa_free" }, // Schengen area access
-    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
-    notes: [
-      "シェンゲン協定加盟国ではないが、フランス経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+    conditions: [
+      "パスポート（シェンゲン協定に対応したもの）が必要",
+      "シェンゲン協定加盟国ではないが、フランス経由での入国となるため、シェンゲンビザ規定に準ずる",
+      "日本国籍者はビザ不要",
     ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/monaco/index.html",
     },
@@ -847,8 +922,11 @@ export const europeCountries: Country[] = [
     code: "ME",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "90日以内の観光・商用目的はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
     },
@@ -859,9 +937,18 @@ export const europeCountries: Country[] = [
     name: "北マケドニア",
     code: "MK",
     region: "europe",
-    visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要"],
-    notes: ["90日以内の観光・商用目的はビザ不要。"],
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "non-profit"],
+    },
+    conditions: [
+      "パスポートの残存有効期間が出国時3ヵ月以上必要",
+      "未使用査証欄1頁以上必要",
+      "出国用航空券の所持が必要",
+      "あらゆる180日間の期間内で90日以内の観光などの非営利活動目的による滞在はビザ不要",
+    ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macedonia/index.html",
     },
@@ -873,10 +960,12 @@ export const europeCountries: Country[] = [
     code: "SM",
     region: "europe",
     visaRequirement: { type: "visa_free" }, // Schengen area access
-    conditions: ["パスポート（シェンゲン協定に対応したもの）が必要"],
-    notes: [
-      "シェンゲン協定加盟国ではないが、イタリア経由での入国となるため、シェンゲンビザ規定に準ずる。日本国籍者はビザ不要。",
+    conditions: [
+      "パスポート（シェンゲン協定に対応したもの）が必要",
+      "シェンゲン協定加盟国ではないが、イタリア経由での入国となるため、シェンゲンビザ規定に準ずる",
+      "日本国籍者はビザ不要",
     ],
+    notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sanmarino/index.html",
     },
