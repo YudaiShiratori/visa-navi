@@ -523,7 +523,6 @@ export const asiaCountries: Country[] = [
     },
     lastUpdated: "2024-05-21",
   },
-  // Central Asia Start
   {
     id: "kazakhstan",
     name: "カザフスタン",
@@ -632,26 +631,6 @@ export const asiaCountries: Country[] = [
     lastUpdated: "2024-07-28",
   },
   {
-    id: "afghanistan",
-    name: "アフガニスタン",
-    code: "AF",
-    region: "asia",
-    visaRequirement: {
-      type: "visa_required",
-      duration: 30, // 一般的なビザの期間
-    },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "事前にビザの取得が必要"],
-    notes: [
-      "現在、外務省より退避勧告（危険レベル4）が発令中",
-      "安全状況により入国が制限される場合がある",
-      "渡航には厳重な注意が必要",
-    ],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/afghanistan/index.html",
-    },
-    lastUpdated: "2024-07-28",
-  },
-  {
     id: "bhutan",
     name: "ブータン",
     code: "BT",
@@ -698,19 +677,6 @@ export const asiaCountries: Country[] = [
       mofa: "https://www.mofa.go.jp/mofaj/area/timor-leste/index.html",
     },
     lastUpdated: "2024-07-28",
-  },
-  {
-    id: "azerbaijan",
-    name: "アゼルバイジャン",
-    code: "AZ",
-    region: "asia",
-    visaRequirement: { type: "evisa", duration: 30, evisaAvailable: true },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "e-Visaの事前取得"],
-    notes: ["e-Visa (ASAN Visa) の取得が必要"],
-    officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
-    },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "north_korea",

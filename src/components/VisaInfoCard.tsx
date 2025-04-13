@@ -126,7 +126,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
 
       {/* 詳細情報 - アコーディオンスタイル */}
       <div className="px-6 py-4 sm:px-8 sm:py-6">
-        {/* 条件 */}
+        {/* 入国条件 - 常に最初に表示し、デフォルトで開く */}
         {country.conditions && country.conditions.length > 0 && (
           <div className="mb-4 overflow-hidden rounded-lg border border-gray-200 transition-all duration-300">
             <button
@@ -181,7 +181,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
           </div>
         )}
 
-        {/* 注意事項 */}
+        {/* 補足・注意事項 - 2番目に表示し、デフォルトで閉じる */}
         {country.notes && country.notes.length > 0 && (
           <div className="mb-4 overflow-hidden rounded-lg border border-yellow-200 bg-yellow-50 transition-all duration-300">
             <button
@@ -198,7 +198,7 @@ export function VisaInfoCard({ country }: VisaInfoCardProps) {
                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                   />
                 </svg>
-                注意事項
+                補足・注意事項
               </h2>
               <svg
                 className={`h-5 w-5 transform text-yellow-600 transition-transform ${

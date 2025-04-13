@@ -251,7 +251,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
 
               {country.notes && Array.isArray(country.notes) && country.notes.length > 0 && (
                 <div className="rounded-lg bg-yellow-50 p-4">
-                  <h3 className="mb-2 text-lg font-semibold text-yellow-800">注意事項</h3>
+                  <h3 className="mb-2 text-lg font-semibold text-yellow-800">補足・注意事項</h3>
                   {Array.isArray(country.notes) ? (
                     <ul className="space-y-2">
                       {country.notes.map((note, index) => (
