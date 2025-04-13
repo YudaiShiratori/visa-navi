@@ -12,10 +12,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* ヘッダーは共通コンポーネントで表示されるため削除 */}
-
       {/* メインコンテンツ */}
-      <main className="container mx-auto mt-8 px-4 py-16">
+      <main className="container mx-auto mb-16 px-4 py-16 sm:px-8 md:py-16">
         <div className="mb-20 grid grid-cols-1 items-center gap-12 md:grid-cols-2">
           <div>
             <h1 className="mb-6 text-4xl font-bold leading-tight text-gray-900">

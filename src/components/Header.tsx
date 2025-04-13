@@ -79,7 +79,7 @@ export function Header() {
           <div className="flex md:hidden">
             <button
               type="button"
-              className="inline-flex items-center justify-center rounded-lg p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="inline-flex items-center justify-center rounded-lg p-2 text-blue-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               aria-expanded="false"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
@@ -106,25 +106,10 @@ export function Header() {
       {/* モバイルメニュー */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="space-y-1 px-4 pb-5 pt-2">
-            <Link
-              href="/"
-              className={`block rounded-lg px-4 py-3 text-base font-medium ${
-                pathname === "/"
-                  ? "bg-blue-50 text-blue-600"
-                  : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
-              }`}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              ビザ情報を調べる
-            </Link>
+          <div className="space-y-1 px-4 pb-5 pt-1">
             <Link
               href="/about"
-              className={`block rounded-lg px-4 py-3 text-base font-medium ${
-                pathname === "/about"
-                  ? "bg-blue-50 text-blue-600"
-                  : "text-gray-700 hover:bg-gray-50 hover:text-blue-600"
-              }`}
+              className={`block rounded-lg px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600`}
               onClick={() => setIsMenuOpen(false)}
             >
               このサイトについて
@@ -135,7 +120,7 @@ export function Header() {
                 className="block w-full rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 px-4 py-3 text-center font-medium text-white shadow-md"
                 onClick={() => setIsMenuOpen(false)}
               >
-                今すぐ検索
+                ビザ情報を調べる
               </Link>
             </div>
           </div>
