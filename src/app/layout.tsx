@@ -12,13 +12,13 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ビザナビ | 日本人旅行者向けビザ情報",
+  title: "ビザナビ | 日本人旅行者向けビザ情報チェッカー",
   description:
     "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。",
   keywords: "ビザ,ビザ免除,日本人,海外旅行,入国条件,滞在可能日数,パスポート",
   robots: "index, follow",
   openGraph: {
-    title: "ビザナビ | 日本人旅行者向けビザ情報",
+    title: "ビザナビ | 日本人旅行者向けビザ情報チェッカー",
     description:
       "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。",
     url: "https://visa-navi.vercel.app",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ビザナビ | 日本人旅行者向けビザ情報",
+    title: "ビザナビ | 日本人旅行者向けビザ情報チェッカー",
     description:
       "日本人旅行者向けの国別ビザ免除・ビザ必要情報を簡単に検索できるサービスです。世界各国のビザ要件、滞在可能日数、入国条件などを確認できます。",
     images: ["/images/visa-navi-logo.png"],
