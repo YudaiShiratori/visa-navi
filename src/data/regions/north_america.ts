@@ -24,6 +24,7 @@ export const northAmericaCountries: Country[] = [
       "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証)の事前取得以外にも多数あり",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "ESTA手数料は2022年5月26日以降21USD",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
@@ -267,7 +268,7 @@ export const northAmericaCountries: Country[] = [
     region: "north_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 180,
+      duration: 90,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
@@ -278,9 +279,9 @@ export const northAmericaCountries: Country[] = [
       "滞在費（USD500以上の現金、クレジットカード等）が必要",
     ],
     notes: [
+      "パナマの無査証滞在は90日まで。180日超は要ビザ。90日内であっても延長を希望する場合はパナマ移民局へ申請。",
       "現在、日本国政府はダリエン県、エンベラ自治区の各中部・南部地域、並びにクナ・ヤラ自治区の南部地域に渡航中止勧告を発出しています",
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
-      "180日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],

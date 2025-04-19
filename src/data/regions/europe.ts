@@ -66,7 +66,9 @@ export const europeCountries: Country[] = [
       "滞在費用証明の持参が望ましい",
       "あらゆる180日間の期間内で90日以内の観光・業務目的の滞在はビザ不要",
     ],
-    notes: [],
+    notes: [
+      "将来の注意点：2026年Q4にETIAS（有料オンライン認証）が導入予定。開始時期が確定次第、公式発表を確認のこと",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
     },
@@ -92,6 +94,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
+      "将来の注意点：2026年Q4にETIAS（有料オンライン認証）が導入予定。開始時期が確定次第、公式発表を確認のこと",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/spain/index.html",

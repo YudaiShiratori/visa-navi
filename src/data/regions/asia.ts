@@ -450,27 +450,26 @@ export const asiaCountries: Country[] = [
     code: "LK",
     region: "asia",
     visaRequirement: {
-      type: "visa_required",
+      type: "visa_free",
       duration: 30,
-      evisaAvailable: true,
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "事前にビザ又はeTAの取得が必要",
       "パスポートの残存有効期間が6ヶ月以上必要",
       "出国用の航空券の所持が必要",
       "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
     ],
     notes: [
-      "観光・ビジネス目的の短期滞在にはオンラインでeTAを取得可能",
+      "2023年10月1日より日本を含む7か国向けに無料30日ビザ免除パイロット施策が開始され、2025年4月現在も延長中。終了日は未定のため、渡航前に在東京スリランカ大使館または入国管理局サイトで要確認。",
+      "観光・ビジネス目的の短期滞在にはオンラインでeTAを取得可能（現在は免除中）",
       "東京の大使館でもビザ申請可能",
       "入国時にSri Lanka Immigration Mobile App（QR）が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/srilanka/index.html",
     },
-    lastUpdated: "2024-05-26",
+    lastUpdated: "2024-07-29",
   },
   {
     id: "pakistan",
