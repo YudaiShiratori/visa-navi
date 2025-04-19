@@ -24,7 +24,6 @@ export const africaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/south_africa/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "algeria",
@@ -35,7 +34,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要", "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要"],
     notes: ["一部地域に退避勧告、渡航中止勧告が発出されているため注意が必要"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/algeria/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "angola",
@@ -54,7 +52,6 @@ export const africaCountries: Country[] = [
       "外交/公用、10歳以下のビザ申請以外は本人申請（受領は代理可）",
     ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/angola/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "botswana",
@@ -64,7 +61,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/botswana/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "burundi",
@@ -78,7 +74,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/burundi/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "cameroon",
@@ -89,7 +84,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/cameroon/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "chad",
@@ -100,7 +94,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）", "黄熱病予防接種証明書が必要"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/chad/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "comoros",
@@ -115,7 +108,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/comoros/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "cote_d_ivoire",
@@ -130,7 +122,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/cote/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "djibouti",
@@ -145,7 +136,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/djibouti/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "egypt",
@@ -162,7 +152,6 @@ export const africaCountries: Country[] = [
       "シナイ半島北部（北シナイ県）及びリビアとの国境地帯に渡航中止勧告が発出されているため注意が必要",
     ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/egypt/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "eritrea",
@@ -175,7 +164,6 @@ export const africaCountries: Country[] = [
       "スーダンとの国境地帯、エチオピアとの国境地帯、ジブチとの国境地帯に渡航中止勧告が発出されているため注意が必要",
     ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/eritrea/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "ethiopia",
@@ -194,7 +182,6 @@ export const africaCountries: Country[] = [
       "一部地域に退避勧告、渡航中止勧告が発出されているため注意が必要",
     ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ethiopia/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "ghana",
@@ -205,7 +192,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要", "全ての渡航者は黄熱予防接種証明書が必要"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ghana/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "kenya",
@@ -220,7 +206,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ke/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "lesotho",
@@ -230,7 +215,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 14, purpose: ["tourism"] },
     conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/lesotho/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "madagascar",
@@ -245,7 +229,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/madagascar/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "malawi",
@@ -260,7 +243,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/malawi/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "mali",
@@ -271,7 +253,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mali/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "mauritania",
@@ -286,7 +267,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mauritania/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "mauritius",
@@ -296,7 +276,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存滞在期間中有効", "出国用航空券", "滞在先証明"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mauritius/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "morocco",
@@ -306,7 +285,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存滞在期間中有効"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/morocco/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "mozambique",
@@ -322,7 +300,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mozambique/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "namibia",
@@ -332,7 +309,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/namibia/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "niger",
@@ -343,7 +319,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）", "黄熱病予防接種証明書が必要"],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/niger/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "nigeria",
@@ -354,7 +329,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/nigeria/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "rwanda",
@@ -369,7 +343,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/rwanda/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "senegal",
@@ -380,7 +353,6 @@ export const africaCountries: Country[] = [
     conditions: ["パスポート残存6ヶ月以上必要", "黄熱病予防接種証明書が必要（推奨）"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/senegal/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "seychelles",
@@ -397,7 +369,6 @@ export const africaCountries: Country[] = [
     ],
     notes: ["到着時に入国許可（Visitor's Permit）が付与される"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/seychelles/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "somalia",
@@ -408,7 +379,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）"],
     notes: ["渡航中止勧告が発出されている", "ソマリランドは別途要件あり"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/somali/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "south_sudan",
@@ -419,7 +389,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/s_sudan/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "sudan",
@@ -430,7 +399,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/sudan/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "tanzania",
@@ -445,7 +413,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/tanzania/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "tunisia",
@@ -455,7 +422,6 @@ export const africaCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存3ヶ月以上"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/tunisia/index.html" },
-    lastUpdated: "2024-07-27",
   },
   {
     id: "uganda",
@@ -468,7 +434,6 @@ export const africaCountries: Country[] = [
       "コンゴ民主共和国との国境地帯（ホイマ県以南）に渡航中止勧告が発出されているため注意が必要",
     ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/uganda/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "zambia",
@@ -483,7 +448,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/zambia/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "zimbabwe",
@@ -498,7 +462,6 @@ export const africaCountries: Country[] = [
     ],
     notes: ["KAZAビザも利用可能"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/zimbabwe/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "gambia",
@@ -515,7 +478,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/gambia/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "guinea",
@@ -530,7 +492,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/guinea/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "guinea_bissau",
@@ -545,7 +506,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/guinea_bissau/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "sierra_leone",
@@ -560,7 +520,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/sierra_leone/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "liberia",
@@ -576,7 +535,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/liberia/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "togo",
@@ -592,7 +550,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/togo/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "benin",
@@ -613,7 +570,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/benin/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "burkina_faso",
@@ -628,7 +584,6 @@ export const africaCountries: Country[] = [
     ],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/burkina_faso/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "central_african_republic",
@@ -643,7 +598,6 @@ export const africaCountries: Country[] = [
     ],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/c_africa/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "gabon",
@@ -659,7 +613,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/gabon/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "congo_republic",
@@ -675,7 +628,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/congo_r/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "congo_dr",
@@ -690,7 +642,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/congo_d/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "equatorial_guinea",
@@ -705,7 +656,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/e_guinea/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "sao_tome",
@@ -721,7 +671,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/saotome/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "cape_verde",
@@ -742,7 +691,6 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/capeverde/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "libya",
@@ -753,7 +701,6 @@ export const africaCountries: Country[] = [
     conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "パスポート残存6ヶ月以上必要"],
     notes: ["渡航中止勧告が発出されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/libya/index.html" },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "eswatini",
@@ -768,6 +715,5 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/eswatini/index.html" },
-    lastUpdated: "2024-07-28",
   },
 ];

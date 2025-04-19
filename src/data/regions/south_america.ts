@@ -29,7 +29,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/brazil/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "argentina",
@@ -58,7 +57,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/argentina/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "chile",
@@ -87,7 +85,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/chile/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "peru",
@@ -118,7 +115,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/peru/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "colombia",
@@ -148,7 +144,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/colombia/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "venezuela",
@@ -178,7 +173,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/venezuela/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "ecuador",
@@ -209,7 +203,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ecuador/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "bolivia",
@@ -240,7 +233,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bolivia/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "paraguay",
@@ -269,7 +261,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/paraguay/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "uruguay",
@@ -298,7 +289,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uruguay/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "guyana",
@@ -327,7 +317,6 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/guyana/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "suriname",
@@ -358,6 +347,5 @@ export const southAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/suriname/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
 ];

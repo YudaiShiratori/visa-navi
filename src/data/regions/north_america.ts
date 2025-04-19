@@ -29,7 +29,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "canada",
@@ -57,7 +56,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/canada/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "mexico",
@@ -87,7 +85,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/mexico/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "guatemala",
@@ -118,7 +115,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/guatemala/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "honduras",
@@ -149,7 +145,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/honduras/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "elsalvador",
@@ -180,7 +175,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/elsalvador/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "nicaragua",
@@ -209,7 +203,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/nicaragua/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "belize",
@@ -232,7 +225,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belize/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "costarica",
@@ -259,7 +251,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/costarica/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "panama",
@@ -288,7 +279,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/panama/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "cuba",
@@ -320,7 +310,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cuba/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "jamaica",
@@ -349,7 +338,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/jamaica/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "haiti",
@@ -377,7 +365,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/haiti/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "dominicanrepublic",
@@ -406,7 +393,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/dominicanrepublic/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "bahamas",
@@ -434,7 +420,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bahamas/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "barbados",
@@ -462,7 +447,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/barbados/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "trinidadtobago",
@@ -490,7 +474,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/trinidadtobago/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "saintlucia",
@@ -518,7 +501,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintlucia/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "saintvincentgrenadines",
@@ -546,7 +528,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintvincentgrenadines/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "antiguabarbuda",
@@ -575,7 +556,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/antiguabarbuda/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "grenada",
@@ -604,7 +584,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/grenada/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "saintkittsnevis",
@@ -633,7 +612,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintkittsnevis/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "dominica",
@@ -661,7 +639,6 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/dominica/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "puertorico",
@@ -689,6 +666,5 @@ export const northAmericaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
 ];

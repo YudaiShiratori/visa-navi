@@ -26,7 +26,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/thailand/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "vietnam",
@@ -53,7 +52,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/vietnam/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "singapore",
@@ -82,7 +80,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/singapore/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "malaysia",
@@ -110,7 +107,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/malaysia/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "korea",
@@ -137,7 +133,6 @@ export const asiaCountries: Country[] = [
       mofa: "https://www.mofa.go.jp/mofaj/area/korea/index.html",
       k_eta: "https://www.k-eta.go.kr/portal/apply/index.do",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "china",
@@ -166,7 +161,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/china/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "taiwan",
@@ -190,7 +184,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/taiwan/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "philippines",
@@ -215,7 +208,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/philippines/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "indonesia",
@@ -244,7 +236,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/indonesia/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "india",
@@ -272,7 +263,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/india/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "cambodia",
@@ -300,7 +290,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cambodia/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "laos",
@@ -324,7 +313,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/laos/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "myanmar",
@@ -351,7 +339,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/myanmar/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "mongolia",
@@ -373,7 +360,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/mongolia/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "hong_kong",
@@ -395,7 +381,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hongkong/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "macao",
@@ -417,7 +402,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macao/index.html",
     },
-    lastUpdated: "2024-05-26",
   },
   {
     id: "bangladesh",
@@ -442,7 +426,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bangladesh/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "sri_lanka",
@@ -469,7 +452,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/srilanka/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "pakistan",
@@ -495,7 +477,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/pakistan/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "maldives",
@@ -520,7 +501,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/maldives/index.html",
     },
-    lastUpdated: "2024-05-21",
   },
   {
     id: "kazakhstan",
@@ -543,7 +523,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kazakhstan/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "kyrgyzstan",
@@ -563,7 +542,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kyrgyz/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "tajikistan",
@@ -584,7 +562,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/tajikistan/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "turkmenistan",
@@ -604,7 +581,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/turkmenistan/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "uzbekistan",
@@ -627,7 +603,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uzbekistan/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "bhutan",
@@ -651,7 +626,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bhutan/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "timor_leste",
@@ -675,7 +649,6 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/timor-leste/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "north_korea",
@@ -688,6 +661,5 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/n_korea/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
 ];

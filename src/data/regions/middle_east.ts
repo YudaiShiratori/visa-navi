@@ -14,7 +14,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/afghanistan/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "uae",
@@ -39,7 +38,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uae/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "yemen",
@@ -54,7 +52,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/yemen/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "israel",
@@ -81,7 +78,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/israel/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "iraq",
@@ -100,7 +96,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/iraq/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "iran",
@@ -130,7 +125,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/iran/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "oman",
@@ -154,7 +148,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/oman/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "qatar",
@@ -180,7 +173,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/qatar/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "kuwait",
@@ -202,7 +194,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kuwait/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "saudi_arabia",
@@ -226,7 +217,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saudiarabia/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "syria",
@@ -244,7 +234,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/syria/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "turkey",
@@ -271,7 +260,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/turkey/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "bahrain",
@@ -294,7 +282,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bahrain/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "jordan",
@@ -316,7 +303,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/jordan/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "lebanon",
@@ -340,7 +326,6 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/lebanon/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
   {
     id: "azerbaijan",
@@ -357,6 +342,5 @@ export const middleEastCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/azerbaijan/index.html",
     },
-    lastUpdated: "2024-07-29",
   },
 ];

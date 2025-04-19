@@ -23,7 +23,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/australia/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "northern_mariana_islands",
@@ -46,7 +45,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "kiribati",
@@ -66,7 +64,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "guam",
@@ -89,7 +86,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "cook_islands",
@@ -109,7 +105,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "samoa",
@@ -129,7 +124,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/samoa/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "solomon_islands",
@@ -151,7 +145,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/solomon/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "tuvalu",
@@ -171,7 +164,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/tuvalu/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "tonga",
@@ -191,7 +183,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/tonga/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "nauru",
@@ -207,7 +198,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/nauru/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "niue",
@@ -228,7 +218,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "new_caledonia",
@@ -251,7 +240,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "new_zealand",
@@ -273,7 +261,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "vanuatu",
@@ -294,7 +281,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/vanuatu/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "papua_new_guinea",
@@ -315,7 +301,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "palau",
@@ -335,7 +320,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/palau/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "fiji",
@@ -358,7 +342,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "french_polynesia",
@@ -381,7 +364,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "marshall_islands",
@@ -402,7 +384,6 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/marshall/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
   {
     id: "micronesia",
@@ -426,6 +407,5 @@ export const oceaniaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/micronesia/index.html",
     },
-    lastUpdated: "2024-07-28",
   },
 ];

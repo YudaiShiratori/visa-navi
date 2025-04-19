@@ -23,7 +23,6 @@ export interface Country {
     mofa: string;
     k_eta?: string;
   };
-  lastUpdated: string;
 }
 
 export const visaTypeDescriptions = {
