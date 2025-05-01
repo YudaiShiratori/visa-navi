@@ -16,17 +16,9 @@ bun run test
 
 ## テストファイルの配置
 - テストファイルは `__tests__` ディレクトリ以下に、ソースコードと同じディレクトリ構造で配置する
-  例：`components/ui/button.tsx`のテストは
 - テストファイルの命名規則は `{テスト対象ファイル名}.test.{ts|tsx}` とする
-  例: `components/ui/button.tsx`のテストは`__tests__/components/ui/button.test.tsx`に配置する
 
-## テストカバレッジ対象
-以下のディレクトリのソースコードに対してテストを作成する：
-- `app/**` - Next.js App Router
-- `components/**` - 再利用可能なコンポーネント
-- `lib/**` - ユーティリティ関数とヘルパー
-- `hooks/**` - カスタムフック
-- `utils/**` - 汎用ユーティリティ関数
+例: `src/components/ui/button.tsx`のテストは`__tests__/components/ui/button.test.tsx`に配置する
 
 ## ベストプラクティス
 1. **テストの独立性**
