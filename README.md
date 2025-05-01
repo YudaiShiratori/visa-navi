@@ -15,6 +15,7 @@
 - [tRPC](https://trpc.io)
 - [Biome](https://biomejs.dev/ja/)
 - [zod](https://zod.dev)
+- [lefthook](https://github.com/evilmartians/lefthook)
 
 ## Usage
 
@@ -36,6 +37,12 @@ git clone {リポジトリのURL}
 
 ```bash
 bun install
+```
+
+### lefthookの設定
+
+```bash
+bunx lefthook install
 ```
 
 
