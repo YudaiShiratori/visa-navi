@@ -1,0 +1,11 @@
+---
+description: UI/UXデザインのガイドライン
+globs: *.tsx
+alwaysApply: false
+---
+UI/UX Design Guidelines:
+
+Beautiful and Unconventional Designs: Create UI designs that are not only beautiful but also break conventional molds, offering fresh and innovative aesthetics.
+Information Architecture and Emotional Design: Incorporate principles of information architecture and emotional design to enhance user experience.
+Production-Ready Designs: Ensure that all designs are of the highest quality and suitable for deployment in production environments.
+Innovative Solutions: Aim to deliver outstanding designs that are both unique and effective.
