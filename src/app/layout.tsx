@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
 
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Noto_Sans_JP } from "next/font/google";
 
 import { TRPCReactProvider } from "~/trpc/react";
 
@@ -16,11 +16,18 @@ const geist = Geist({
 	variable: "--font-geist-sans",
 });
 
+const notoSansJP = Noto_Sans_JP({
+	subsets: ["latin"],
+	variable: "--font-noto-sans-jp",
+	display: "swap",
+	weight: ["400", "500", "700"],
+});
+
 export default function RootLayout({
 	children,
 }: Readonly<{ children: React.ReactNode }>) {
 	return (
-		<html lang="en" className={`${geist.variable}`}>
+		<html lang="ja" className={`${geist.variable} ${notoSansJP.variable}`}>
 			<body>
 				<TRPCReactProvider>{children}</TRPCReactProvider>
 			</body>
