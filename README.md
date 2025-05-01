@@ -16,6 +16,29 @@
 - [Biome](https://biomejs.dev/ja/)
 - [zod](https://zod.dev)
 
+## Usage
+
+### bunをインストール
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+詳しくは[公式サイト](https://bun.sh/docs/installation)を参照してください。
+
+### リポジトリのクローン
+
+```bash
+git clone {リポジトリのURL}
+```
+
+### パッケージのインストール
+
+```bash
+bun install
+```
+
+
 ## Maintainer
 
 このリポジトリの管理は以下のメンバーを中心に行っています。何かあればお気軽にSlack等でお声がけください。
