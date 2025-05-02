@@ -19,12 +19,14 @@
   - 型安全なFEとBEの通信を可能にする
 - [Biome](https://biomejs.dev/ja/)
   - Linter兼Formatter
-- [zod](https://zod.dev)
+- [Zod](https://zod.dev)
   - 型安全なデータのValidationを可能にする
-- [lefthook](https://github.com/evilmartians/lefthook)
+- [Lefthook](https://github.com/evilmartians/lefthook)
   - コミット時にBiomeによるFormattingを行う
 - [Vitest](https://vitest.dev)
   - テストフレームワーク
+- [Playwright](https://playwright.dev)
+  - E2Eテストフレームワーク
 - [Shadcn/UI](https://ui.shadcn.com)
   - コンポーネント作成のためのフレームワーク。プレーンなスタイルをもった機能を持つコンポーネントをインストールでき、スタイリングを上書きすることでデザインシステムが構築できる。（参考： https://zenn.dev/morinokami/articles/anatomy-of-shadcn-ui ）
 
