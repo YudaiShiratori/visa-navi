@@ -9,6 +9,7 @@ This document outlines the directory structure of the project to help AI agents 
 ├── __tests__/           # Test files mirroring src structure
 │   ├── setup.ts         # Test setup configuration
 │   └── components/      # Component tests
+├── e2e/                 # E2E tests
 ├── public/              # Static files served at root path
 │   └── favicon.ico      # Site favicon
 ├── src/                 # Source code
@@ -60,6 +61,7 @@ This document outlines the directory structure of the project to help AI agents 
 - **src/lib/**: Utility functions, hooks, and shared logic
 - **src/server/**: Server-side functionality and API implementations
 - **__tests__/**: Test files organized to mirror the src directory structure
+- **e2e/**: End-to-End tests using Playwright
 
 ## API Structure
 

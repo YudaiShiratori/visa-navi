@@ -51,12 +51,37 @@ git clone {リポジトリのURL}
 bun install
 ```
 
+### Playwrightのブラウザインストール
+
+```bash
+bunx playwright install
+```
+
 ### lefthookの設定
 
 ```bash
 bunx lefthook install
 ```
 
+### 開発サーバーの起動
+
+```bash
+bun run dev
+```
+
+### ユニットテストの実行
+
+```bash
+bun run test
+```
+
+### E2Eテストの実行
+
+※localhost:3000が他のプロセスで利用されていないか確認してから実行してください。
+
+```bash
+bun run test:e2e
+```
 
 ## Maintainer
 
