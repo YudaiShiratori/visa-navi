@@ -44,7 +44,13 @@ curl -fsSL https://bun.sh/install | bash
 ### リポジトリのクローン
 
 ```bash
-git clone {リポジトリのURL}
+git clone {このリポジトリのURL}
+```
+
+### リモートリポジトリの設定
+
+```bash
+git remote set-url origin {利用するリモートリポジトリのURL}
 ```
 
 ### パッケージのインストール
