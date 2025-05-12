@@ -7,7 +7,7 @@
 
 ## Features
 
-### プリインストールされたTeck Stack
+### プリインストールされたTech Stack
 
 - [Next.js](https://nextjs.org)
   - Webアプリケーション開発のフレームワーク
