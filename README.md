@@ -93,6 +93,15 @@ bun run test:e2e
 
 ## Vercelへのデプロイ設定
 
+Vercelへのデプロイは本来Vercel側でVercelアプリをGithubにインストールすることによって簡単に実現できますが、チーム開発を行う場合は全員がチームで課金されていない場合、課金されていないメンバーのPush時のデプロイは失敗してしまいます。
+そのため、一人がVercelで発行するTokenを使ってGitHub Actionsによってデプロイを行えるようにしています。
+
+### デプロイの有効化
+
+デプロイを有効にするには、`.github/workflows/ci_cd.yml`ファイル内の`deploy_preview`と`deploy_production`ジョブのコメントアウトを解除します。
+
+
+
 ### 必要なVercel情報の取得
 
 1. Vercelダッシュボードにログインします
@@ -124,10 +133,6 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
    - `VERCEL_TOKEN`
 
 これにより、CI/CDパイプラインとDependabotの両方がVercelへのデプロイに必要なアクセス権を持ちます。
-
-### CI/CDワークフローの有効化
-
-デプロイを有効にするには、`.github/workflows/ci_cd.yml`ファイル内の`deploy_preview`と`deploy_production`ジョブのコメントアウトを解除します。
 
 ## Maintainer
 
