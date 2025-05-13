@@ -91,6 +91,44 @@ bun run test
 bun run test:e2e
 ```
 
+## Vercelへのデプロイ設定
+
+### 必要なVercel情報の取得
+
+1. Vercelダッシュボードにログインします
+2. デプロイしたいプロジェクトを選択（または新規作成）します
+3. プロジェクト設定 > 「General」タブ > 「Project ID」をコピーします（`VERCEL_PROJECT_ID`として使用）
+4. アカウント設定 > 「General」タブ > 「Your ID」をコピーします（`VERCEL_ORG_ID`として使用）
+5. トークンを取得します:
+   - アカウント設定 > 「Tokens」タブ > 「Create」をクリックします
+   - トークンに名前を付け（例：「GitHub CI/CD」）、必要な権限を付与します
+   - 作成されたトークンをコピーします（`VERCEL_TOKEN`として使用）
+
+### GitHub Repository Secretsの設定
+
+1. GitHubリポジトリページに移動します
+2. 「Settings」 > 「Secrets and variables」 > 「Actions」を選択します
+3. 「New repository secret」をクリックして以下の項目を追加します:
+   - `VERCEL_PROJECT_ID`: コピーしたProject ID
+   - `VERCEL_ORG_ID`: コピーしたOrganization ID
+   - `VERCEL_TOKEN`: 作成したVercelトークン
+
+### Dependabotに対する権限設定
+
+Dependabotにもこれらの秘密情報へのアクセスを許可するには:
+
+1. GitHubリポジトリページで「Settings」 > 「Secrets and variables」 > 「Dependabot」を選択します
+2. 「New repository secret」をクリックして同様に3つの秘密情報を追加します:
+   - `VERCEL_PROJECT_ID`
+   - `VERCEL_ORG_ID`
+   - `VERCEL_TOKEN`
+
+これにより、CI/CDパイプラインとDependabotの両方がVercelへのデプロイに必要なアクセス権を持ちます。
+
+### CI/CDワークフローの有効化
+
+デプロイを有効にするには、`.github/workflows/ci_cd.yml`ファイル内の`deploy_preview`と`deploy_production`ジョブのコメントアウトを解除します。
+
 ## Maintainer
 
 このリポジトリの管理は以下のメンバーを中心に行っています。何かあればお気軽にSlack等でお声がけください。
