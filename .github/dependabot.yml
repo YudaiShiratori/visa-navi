@@ -1,0 +1,19 @@
+version: 2
+enable-beta-ecosystems: true  # bunサポートのために必要
+updates:
+  # bunパッケージの更新設定
+  - package-ecosystem: "npm"  # bunはnpmと互換性があるのでnpmを指定
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    # bun.lockbファイルを更新する設定
+    allow:
+      - dependency-type: "all"
+
+  # GitHubアクションの更新設定
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10 
