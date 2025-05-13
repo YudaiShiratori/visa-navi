@@ -93,7 +93,7 @@ bun run test:e2e
 
 ## Vercelへのデプロイ設定
 
-Vercelへのデプロイは本来Vercel側でVercelアプリをGithubにインストールすることによって簡単に実現できますが、チーム開発を行う場合は全員がチームで課金されていない場合、課金されていないメンバーのPush時のデプロイは失敗してしまいます。
+Vercelへのデプロイは本来Vercel側でVercelアプリをGithubにインストールすることによって簡単に実現できますが、チーム開発を行う場合は、仮に全員がチームで課金されていない場合、課金されていないメンバーのPush時のデプロイは失敗してしまいます。
 そのため、一人がVercelで発行するTokenを使ってGitHub Actionsによってデプロイを行えるようにしています。
 
 ### デプロイの有効化
@@ -106,11 +106,11 @@ Vercelへのデプロイは本来Vercel側でVercelアプリをGithubにイン�
 
 1. Vercelダッシュボードにログインします
 2. デプロイしたいプロジェクトを選択（または新規作成）します
-3. プロジェクト設定 > 「General」タブ > 「Project ID」をコピーします（`VERCEL_PROJECT_ID`として使用）
-4. アカウント設定 > 「General」タブ > 「Your ID」をコピーします（`VERCEL_ORG_ID`として使用）
+3. プロジェクトのページ > 「Settings」 > 「General」 > 「Project ID」をコピーします（`VERCEL_PROJECT_ID`として使用）
+4. チームのページ > 「Settings」 > 「General」 > 「Team ID」をコピーします（`VERCEL_ORG_ID`として使用）
 5. トークンを取得します:
-   - アカウント設定 > 「Tokens」タブ > 「Create」をクリックします
-   - トークンに名前を付け（例：「GitHub CI/CD」）、必要な権限を付与します
+   - 個人の「Account Settings」 > 「Tokens」タブ > 「Create」をクリックします
+   - トークンに名前を付け（例：「hoge PJ GitHub CI/CD」）、必要な権限を付与します
    - 作成されたトークンをコピーします（`VERCEL_TOKEN`として使用）
 
 ### GitHub Repository Secretsの設定
