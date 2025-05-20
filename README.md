@@ -1,5 +1,7 @@
 # Sun* Next.js Dev Template
 
+日本語 | [English](./README.en.md) | [Tiếng Việt](./README.vi.md)
+
 ## What is this?
 
 このリポジトリは、Next.js(TypeScript)で型安全なフルスタック開発を行うためのテンプレートです。
