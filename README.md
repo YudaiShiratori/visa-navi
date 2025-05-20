@@ -4,6 +4,7 @@
 
 このリポジトリは、Next.js(TypeScript)で型安全なフルスタック開発を行うためのテンプレートです。
 [T3 Stack](https://create.t3.gg/)をベースに、CursorのRulesファイルなどを追加しています。
+HEART Devの案件などでも実際に活用されています。
 開発品質の向上、開発速度の向上を目的としてStrategic Techチームにて管理・運用しています。
 
 ## Features
