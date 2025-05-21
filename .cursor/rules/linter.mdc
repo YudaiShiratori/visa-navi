@@ -3,6 +3,8 @@ description: Typescriptのlinter，formatterについて
 globs: *.ts, *.tsx
 alwaysApply: false
 ---
+# Linter and Formatter
+
 本プロジェクトではLinter，FormatterにBiomeを使っています。
 Biomeで推奨されるルールに違反しないよう実装してください。
 また，ターミナルからBiomeによるformattingを使う際は`bun run check:write`を実行してください。
