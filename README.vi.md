@@ -7,7 +7,6 @@
 Repository này là một template cho phát triển full-stack đảm bảo kiểu dữ liệu (type-safe) sử dụng Next.js (TypeScript).
 Dựa trên [T3 Stack](https://create.t3.gg/), bổ sung thêm các tính năng như Cursor Rules files.
 Đang được sử dụng tích cực trong các dự án HEART Dev.
-Strategic Tech team quản lý và vận hành template này nhằm nâng cao chất lượng và tốc độ phát triển.
 
 ## Tính năng
 
