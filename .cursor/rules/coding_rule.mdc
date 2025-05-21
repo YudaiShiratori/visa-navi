@@ -3,6 +3,8 @@ description: コードを書く上で考慮すべきこと
 globs: 
 alwaysApply: true
 ---
+# Coding Rule
+
 コード生成や修正を行う際、以下の原則・手法を必ず考慮してください。
 
 「理解しやすさ」を最優先に
