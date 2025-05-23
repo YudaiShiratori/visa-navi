@@ -199,33 +199,372 @@ This will be accessible at the URL `/dashboard`.
 
 ### Adding API Endpoints (tRPC)
 
-1. Create a new router file in `src/server/api/routers/`
-2. Define procedures (queries/mutations)
-3. Register the router in `src/server/api/root.ts`
+By using tRPC, you can build type-safe backend APIs. Here's a detailed explanation of the development process.
 
-Example:
+#### Basic Concepts
+
+##### Router
+- Defines groups of API endpoints
+- Manages related procedures together
+- Improves maintainability through modularization
+
+##### Procedure
+- Defines individual API operations (query or mutation)
+- **Query**: Data retrieval operations (equivalent to GET)
+- **Mutation**: Data modification operations (equivalent to POST/PUT/DELETE)
+
+##### Context
+- Common data available to each procedure
+- Contains authentication information, database connections, etc.
+
+##### Middleware
+- Intercepts processing before and after procedure execution
+- Used for authentication, logging, validation, etc.
+
+#### Directory Structure and Roles
+
+```
+src/
+├── server/
+│   └── api/
+│       ├── root.ts          # Integration of all routers
+│       ├── trpc.ts          # Basic tRPC configuration
+│       └── routers/         # Individual router definitions
+│           ├── user.ts      # User-related API
+│           ├── post.ts      # Post-related API
+│           └── auth.ts      # Authentication-related API
+└── trpc/
+    ├── react.tsx           # tRPC client configuration for React
+    └── server.ts           # tRPC configuration for server
+```
+
+#### Creating New Routers
+
+1. **Creating Router Files**
+
 ```typescript
 // src/server/api/routers/user.ts
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 export const userRouter = createTRPCRouter({
+  // Public query (no authentication required)
   getById: publicProcedure
     .input(z.object({ id: z.string() }))
-    .query(({ input }) => {
-      // User retrieval logic
-      return { id: input.id, name: "Example" };
+    .query(async ({ input, ctx }) => {
+      // Retrieve user from database
+      const user = await ctx.db.user.findUnique({
+        where: { id: input.id },
+      });
+      
+      if (!user) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'User not found',
+        });
+      }
+      
+      return user;
+    }),
+
+  // Get all users (with pagination)
+  getAll: publicProcedure
+    .input(z.object({
+      page: z.number().min(1).default(1),
+      limit: z.number().min(1).max(100).default(10),
+    }))
+    .query(async ({ input, ctx }) => {
+      const { page, limit } = input;
+      const skip = (page - 1) * limit;
+      
+      const [users, total] = await Promise.all([
+        ctx.db.user.findMany({
+          skip,
+          take: limit,
+          orderBy: { createdAt: 'desc' },
+        }),
+        ctx.db.user.count(),
+      ]);
+      
+      return {
+        users,
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      };
+    }),
+
+  // Protected mutation (authentication required)
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      name: z.string().optional(),
+      email: z.string().email().optional(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      // Only authenticated users can update their own information
+      if (ctx.session.user.id !== input.id) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Cannot update other user\'s data',
+        });
+      }
+      
+      const updatedUser = await ctx.db.user.update({
+        where: { id: input.id },
+        data: {
+          name: input.name,
+          email: input.email,
+        },
+      });
+      
+      return updatedUser;
+    }),
+
+  // User deletion
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      // Admin role check (example)
+      if (ctx.session.user.role !== 'ADMIN') {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Admin role required',
+        });
+      }
+      
+      await ctx.db.user.delete({
+        where: { id: input.id },
+      });
+      
+      return { success: true };
     }),
 });
+```
 
-// Add to src/server/api/root.ts
-import { userRouter } from "./routers/user";
+2. **Register Router in root.ts**
+
+```typescript
+// src/server/api/root.ts
+import { createTRPCRouter } from "./trpc";
+import { postRouter } from "./routers/post";
+import { userRouter } from "./routers/user";  // Added
 
 export const appRouter = createTRPCRouter({
   post: postRouter,
-  user: userRouter, // Added
+  user: userRouter,  // Added
 });
+
+export type AppRouter = typeof appRouter;
 ```
+
+#### Authentication and Middleware
+
+**Implementation example of protectedProcedure:**
+
+```typescript
+// src/server/api/trpc.ts
+import { TRPCError, initTRPC } from "@trpc/server";
+import { getServerAuthSession } from "../auth";
+
+const t = initTRPC.context<Context>().create();
+
+// Authentication check middleware
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.session || !ctx.session.user) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  return next({
+    ctx: {
+      // Guarantee session exists
+      session: { ...ctx.session, user: ctx.session.user },
+    },
+  });
+});
+
+// Logging middleware
+const loggerMiddleware = t.middleware(async ({ path, type, next }) => {
+  const start = Date.now();
+  const result = await next();
+  const duration = Date.now() - start;
+  console.log(`${type.toUpperCase()} ${path} - ${duration}ms`);
+  return result;
+});
+
+export const publicProcedure = t.procedure.use(loggerMiddleware);
+export const protectedProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(enforceUserIsAuthed);
+```
+
+#### Client-Side Usage
+
+**Using Queries:**
+
+```typescript
+// pages/users/[id].tsx
+import { api } from "~/trpc/react";
+
+export default function UserPage({ userId }: { userId: string }) {
+  // Retrieve user information
+  const { data: user, isLoading, error } = api.user.getById.useQuery({
+    id: userId,
+  });
+
+  // Retrieve user list (pagination)
+  const { data: usersData } = api.user.getAll.useQuery({
+    page: 1,
+    limit: 10,
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      <h1>{user?.name}</h1>
+      <p>{user?.email}</p>
+    </div>
+  );
+}
+```
+
+**Using Mutations:**
+
+```typescript
+// components/UserUpdateForm.tsx
+import { api } from "~/trpc/react";
+
+export default function UserUpdateForm({ userId }: { userId: string }) {
+  const utils = api.useUtils();
+  
+  const updateUser = api.user.update.useMutation({
+    onSuccess: () => {
+      // Invalidate cache and fetch latest data
+      utils.user.getById.invalidate({ id: userId });
+      alert('User updated successfully!');
+    },
+    onError: (error) => {
+      alert(`Error: ${error.message}`);
+    },
+  });
+
+  const handleSubmit = (data: { name: string; email: string }) => {
+    updateUser.mutate({
+      id: userId,
+      ...data,
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* Form implementation */}
+      <button 
+        type="submit" 
+        disabled={updateUser.isPending}
+      >
+        {updateUser.isPending ? 'Updating...' : 'Update User'}
+      </button>
+    </form>
+  );
+}
+```
+
+#### Error Handling
+
+**Server-side error definition:**
+
+```typescript
+import { TRPCError } from "@trpc/server";
+
+// How to throw custom errors
+throw new TRPCError({
+  code: 'BAD_REQUEST',
+  message: 'Invalid input data',
+  cause: validationError, // Original error object
+});
+
+// Available error codes:
+// - BAD_REQUEST (400)
+// - UNAUTHORIZED (401)
+// - FORBIDDEN (403)
+// - NOT_FOUND (404)
+// - METHOD_NOT_SUPPORTED (405)
+// - TIMEOUT (408)
+// - CONFLICT (409)
+// - PRECONDITION_FAILED (412)
+// - PAYLOAD_TOO_LARGE (413)
+// - UNPROCESSABLE_CONTENT (422)
+// - TOO_MANY_REQUESTS (429)
+// - CLIENT_CLOSED_REQUEST (499)
+// - INTERNAL_SERVER_ERROR (500)
+```
+
+**Client-side error handling:**
+
+```typescript
+const { data, error } = api.user.getById.useQuery({ id: "123" });
+
+if (error) {
+  // Process according to error code
+  switch (error.data?.code) {
+    case 'NOT_FOUND':
+      return <div>User not found</div>;
+    case 'UNAUTHORIZED':
+      return <div>Please log in</div>;
+    default:
+      return <div>An error occurred: {error.message}</div>;
+  }
+}
+```
+
+#### Validation
+
+**Input validation using Zod schemas:**
+
+```typescript
+// Common schema definition
+const CreateUserSchema = z.object({
+  name: z.string().min(1, "Name is required").max(100),
+  email: z.string().email("Invalid email format"),
+  age: z.number().min(0).max(150).optional(),
+  role: z.enum(['USER', 'ADMIN']).default('USER'),
+});
+
+// Usage in procedures
+createUser: protectedProcedure
+  .input(CreateUserSchema)
+  .mutation(async ({ input, ctx }) => {
+    // input is automatically type-safe
+    const user = await ctx.db.user.create({
+      data: input,
+    });
+    return user;
+  }),
+```
+
+#### Best Practices
+
+1. **Router Division**: Manage routers separately by functionality
+2. **Input Validation**: Strict type definition with Zod schemas
+3. **Error Handling**: Appropriate HTTP status codes and messages
+4. **Authentication & Authorization**: Centralized management with middleware
+5. **Cache Control**: Client-side data caching strategy
+6. **Performance**: Implementation of pagination and filtering
+7. **Testing**: Unit testing of tRPC procedures
+
+#### Troubleshooting
+
+**When type errors occur:**
+- Check if types are exported in `src/server/api/root.ts`
+- Verify client configuration in `src/trpc/react.tsx`
+
+**When authentication errors occur:**
+- Check if session configuration is properly set
+- Verify the middleware implementation of `protectedProcedure`
+
+Using tRPC in this way allows you to build type-safe and scalable backend APIs.
 
 ### Testing
 

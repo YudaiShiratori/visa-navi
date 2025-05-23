@@ -199,53 +199,372 @@ Trang này sẽ truy cập được tại URL `/dashboard`.
 
 ### Thêm Endpoint API (tRPC)
 
-1. Tạo tệp router mới trong `src/server/api/routers/`
-2. Định nghĩa thủ tục (queries/mutations)
-3. Đăng ký router trong `src/server/api/root.ts`
+Bằng cách sử dụng tRPC, bạn có thể xây dựng API backend đảm bảo kiểu dữ liệu. Đây là giải thích chi tiết về quy trình phát triển.
 
-Ví dụ:
+#### Khái niệm cơ bản
+
+##### Router
+- Định nghĩa nhóm endpoint API
+- Quản lý các thủ tục liên quan cùng nhau
+- Cải thiện khả năng bảo trì thông qua modularization
+
+##### Procedure (Thủ tục)
+- Định nghĩa các thao tác API riêng lẻ (query hoặc mutation)
+- **Query**: Thao tác truy xuất dữ liệu (tương đương GET)
+- **Mutation**: Thao tác thay đổi dữ liệu (tương đương POST/PUT/DELETE)
+
+##### Context (Ngữ cảnh)
+- Dữ liệu chung có sẵn cho mỗi thủ tục
+- Chứa thông tin xác thực, kết nối cơ sở dữ liệu, v.v.
+
+##### Middleware
+- Chặn xử lý trước và sau khi thực thi thủ tục
+- Được sử dụng cho xác thực, logging, validation, v.v.
+
+#### Cấu trúc thư mục và vai trò
+
+```
+src/
+├── server/
+│   └── api/
+│       ├── root.ts          # Tích hợp tất cả router
+│       ├── trpc.ts          # Cấu hình tRPC cơ bản
+│       └── routers/         # Định nghĩa router riêng lẻ
+│           ├── user.ts      # API liên quan đến người dùng
+│           ├── post.ts      # API liên quan đến bài viết
+│           └── auth.ts      # API liên quan đến xác thực
+└── trpc/
+    ├── react.tsx           # Cấu hình tRPC client cho React
+    └── server.ts           # Cấu hình tRPC cho server
+```
+
+#### Tạo Router mới
+
+1. **Tạo tệp Router**
+
 ```typescript
 // src/server/api/routers/user.ts
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 export const userRouter = createTRPCRouter({
+  // Query công khai (không cần xác thực)
   getById: publicProcedure
     .input(z.object({ id: z.string() }))
-    .query(({ input }) => {
-      // Logic truy xuất người dùng
-      return { id: input.id, name: "Ví dụ" };
+    .query(async ({ input, ctx }) => {
+      // Truy xuất người dùng từ cơ sở dữ liệu
+      const user = await ctx.db.user.findUnique({
+        where: { id: input.id },
+      });
+      
+      if (!user) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'User not found',
+        });
+      }
+      
+      return user;
+    }),
+
+  // Lấy tất cả người dùng (có phân trang)
+  getAll: publicProcedure
+    .input(z.object({
+      page: z.number().min(1).default(1),
+      limit: z.number().min(1).max(100).default(10),
+    }))
+    .query(async ({ input, ctx }) => {
+      const { page, limit } = input;
+      const skip = (page - 1) * limit;
+      
+      const [users, total] = await Promise.all([
+        ctx.db.user.findMany({
+          skip,
+          take: limit,
+          orderBy: { createdAt: 'desc' },
+        }),
+        ctx.db.user.count(),
+      ]);
+      
+      return {
+        users,
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      };
+    }),
+
+  // Mutation được bảo vệ (cần xác thực)
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      name: z.string().optional(),
+      email: z.string().email().optional(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      // Chỉ người dùng đã xác thực mới có thể cập nhật thông tin của mình
+      if (ctx.session.user.id !== input.id) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Cannot update other user\'s data',
+        });
+      }
+      
+      const updatedUser = await ctx.db.user.update({
+        where: { id: input.id },
+        data: {
+          name: input.name,
+          email: input.email,
+        },
+      });
+      
+      return updatedUser;
+    }),
+
+  // Xóa người dùng
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      // Kiểm tra quyền admin (ví dụ)
+      if (ctx.session.user.role !== 'ADMIN') {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Admin role required',
+        });
+      }
+      
+      await ctx.db.user.delete({
+        where: { id: input.id },
+      });
+      
+      return { success: true };
     }),
 });
+```
 
-// Thêm vào src/server/api/root.ts
-import { userRouter } from "./routers/user";
+2. **Đăng ký Router trong root.ts**
+
+```typescript
+// src/server/api/root.ts
+import { createTRPCRouter } from "./trpc";
+import { postRouter } from "./routers/post";
+import { userRouter } from "./routers/user";  // Đã thêm
 
 export const appRouter = createTRPCRouter({
   post: postRouter,
-  user: userRouter, // Đã thêm
+  user: userRouter,  // Đã thêm
 });
+
+export type AppRouter = typeof appRouter;
 ```
 
-### Kiểm thử
+#### Xác thực và Middleware
 
-#### Kiểm thử đơn vị (Vitest)
+**Ví dụ triển khai protectedProcedure:**
 
-Tạo tệp kiểm thử trong thư mục `__tests__` với cùng cấu trúc thư mục như đối tượng kiểm thử. Quy ước đặt tên là `*.test.ts` hoặc `*.test.tsx`.
+```typescript
+// src/server/api/trpc.ts
+import { TRPCError, initTRPC } from "@trpc/server";
+import { getServerAuthSession } from "../auth";
 
-```bash
-bun run test        # Chạy tất cả kiểm thử
-bun run test:watch  # Chạy kiểm thử ở chế độ theo dõi
+const t = initTRPC.context<Context>().create();
+
+// Middleware kiểm tra xác thực
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.session || !ctx.session.user) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  return next({
+    ctx: {
+      // Đảm bảo session tồn tại
+      session: { ...ctx.session, user: ctx.session.user },
+    },
+  });
+});
+
+// Middleware logging
+const loggerMiddleware = t.middleware(async ({ path, type, next }) => {
+  const start = Date.now();
+  const result = await next();
+  const duration = Date.now() - start;
+  console.log(`${type.toUpperCase()} ${path} - ${duration}ms`);
+  return result;
+});
+
+export const publicProcedure = t.procedure.use(loggerMiddleware);
+export const protectedProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(enforceUserIsAuthed);
 ```
 
-#### Kiểm thử E2E (Playwright)
+#### Sử dụng phía Client
 
-Tạo tệp kiểm thử trong thư mục `e2e`. Quy ước đặt tên là `*.spec.ts`.
+**Sử dụng Query:**
 
-```bash
-bun run test:e2e        # Chạy tất cả kiểm thử E2E
-bun run test:e2e:ui     # Chạy kiểm thử ở chế độ UI
+```typescript
+// pages/users/[id].tsx
+import { api } from "~/trpc/react";
+
+export default function UserPage({ userId }: { userId: string }) {
+  // Truy xuất thông tin người dùng
+  const { data: user, isLoading, error } = api.user.getById.useQuery({
+    id: userId,
+  });
+
+  // Truy xuất danh sách người dùng (phân trang)
+  const { data: usersData } = api.user.getAll.useQuery({
+    page: 1,
+    limit: 10,
+  });
+
+  if (isLoading) return <div>Đang tải...</div>;
+  if (error) return <div>Lỗi: {error.message}</div>;
+
+  return (
+    <div>
+      <h1>{user?.name}</h1>
+      <p>{user?.email}</p>
+    </div>
+  );
+}
 ```
+
+**Sử dụng Mutation:**
+
+```typescript
+// components/UserUpdateForm.tsx
+import { api } from "~/trpc/react";
+
+export default function UserUpdateForm({ userId }: { userId: string }) {
+  const utils = api.useUtils();
+  
+  const updateUser = api.user.update.useMutation({
+    onSuccess: () => {
+      // Vô hiệu hóa cache và lấy dữ liệu mới nhất
+      utils.user.getById.invalidate({ id: userId });
+      alert('Cập nhật người dùng thành công!');
+    },
+    onError: (error) => {
+      alert(`Lỗi: ${error.message}`);
+    },
+  });
+
+  const handleSubmit = (data: { name: string; email: string }) => {
+    updateUser.mutate({
+      id: userId,
+      ...data,
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* Triển khai form */}
+      <button 
+        type="submit" 
+        disabled={updateUser.isPending}
+      >
+        {updateUser.isPending ? 'Đang cập nhật...' : 'Cập nhật người dùng'}
+      </button>
+    </form>
+  );
+}
+```
+
+#### Xử lý lỗi
+
+**Định nghĩa lỗi phía server:**
+
+```typescript
+import { TRPCError } from "@trpc/server";
+
+// Cách ném lỗi tùy chỉnh
+throw new TRPCError({
+  code: 'BAD_REQUEST',
+  message: 'Dữ liệu đầu vào không hợp lệ',
+  cause: validationError, // Đối tượng lỗi gốc
+});
+
+// Mã lỗi có sẵn:
+// - BAD_REQUEST (400)
+// - UNAUTHORIZED (401)
+// - FORBIDDEN (403)
+// - NOT_FOUND (404)
+// - METHOD_NOT_SUPPORTED (405)
+// - TIMEOUT (408)
+// - CONFLICT (409)
+// - PRECONDITION_FAILED (412)
+// - PAYLOAD_TOO_LARGE (413)
+// - UNPROCESSABLE_CONTENT (422)
+// - TOO_MANY_REQUESTS (429)
+// - CLIENT_CLOSED_REQUEST (499)
+// - INTERNAL_SERVER_ERROR (500)
+```
+
+**Xử lý lỗi phía client:**
+
+```typescript
+const { data, error } = api.user.getById.useQuery({ id: "123" });
+
+if (error) {
+  // Xử lý theo mã lỗi
+  switch (error.data?.code) {
+    case 'NOT_FOUND':
+      return <div>Không tìm thấy người dùng</div>;
+    case 'UNAUTHORIZED':
+      return <div>Vui lòng đăng nhập</div>;
+    default:
+      return <div>Đã xảy ra lỗi: {error.message}</div>;
+  }
+}
+```
+
+#### Validation
+
+**Xác thực đầu vào sử dụng schema Zod:**
+
+```typescript
+// Định nghĩa schema chung
+const CreateUserSchema = z.object({
+  name: z.string().min(1, "Tên là bắt buộc").max(100),
+  email: z.string().email("Định dạng email không hợp lệ"),
+  age: z.number().min(0).max(150).optional(),
+  role: z.enum(['USER', 'ADMIN']).default('USER'),
+});
+
+// Sử dụng trong thủ tục
+createUser: protectedProcedure
+  .input(CreateUserSchema)
+  .mutation(async ({ input, ctx }) => {
+    // input tự động đảm bảo kiểu dữ liệu
+    const user = await ctx.db.user.create({
+      data: input,
+    });
+    return user;
+  }),
+```
+
+#### Thực hành tốt nhất
+
+1. **Phân chia Router**: Quản lý router riêng biệt theo chức năng
+2. **Xác thực đầu vào**: Định nghĩa kiểu nghiêm ngặt với schema Zod
+3. **Xử lý lỗi**: Mã trạng thái HTTP và thông báo phù hợp
+4. **Xác thực & Phân quyền**: Quản lý tập trung với middleware
+5. **Kiểm soát Cache**: Chiến lược cache dữ liệu phía client
+6. **Hiệu năng**: Triển khai phân trang và lọc
+7. **Kiểm thử**: Kiểm thử đơn vị cho các thủ tục tRPC
+
+#### Khắc phục sự cố
+
+**Khi xảy ra lỗi kiểu:**
+- Kiểm tra xem các kiểu có được export trong `src/server/api/root.ts` không
+- Xác minh cấu hình client trong `src/trpc/react.tsx`
+
+**Khi xảy ra lỗi xác thực:**
+- Kiểm tra xem cấu hình session có được thiết lập đúng không
+- Xác minh việc triển khai middleware của `protectedProcedure`
+
+Sử dụng tRPC theo cách này cho phép bạn xây dựng API backend đảm bảo kiểu dữ liệu và có thể mở rộng.
 
 ## Tính năng khác
 

@@ -199,33 +199,372 @@ src/app/dashboard/page.tsx
 
 ### APIエンドポイントの追加（tRPC）
 
-1. `src/server/api/routers/` に新しいルーターファイルを作成
-2. プロシージャ（クエリ・ミューテーション）を定義
-3. `src/server/api/root.ts` にルーターを登録
+tRPCを使用することで、型安全なバックエンドAPIを構築できます。以下に詳細な開発方法を説明します。
 
-例：
+#### 基本概念
+
+##### Router（ルーター）
+- API エンドポイントのグループを定義
+- 関連するプロシージャをまとめて管理
+- モジュール化により保守性を向上
+
+##### Procedure（プロシージャ）
+- 個別のAPI操作を定義（クエリまたはミューテーション）
+- **Query**: データの取得操作（GET相当）
+- **Mutation**: データの変更操作（POST/PUT/DELETE相当）
+
+##### Context（コンテキスト）
+- 各プロシージャで利用可能な共通データ
+- 認証情報、データベース接続などを含む
+
+##### Middleware（ミドルウェア）
+- プロシージャの実行前後に処理を挟む
+- 認証、ログ出力、バリデーションなどに使用
+
+#### ディレクトリ構造と役割
+
+```
+src/
+├── server/
+│   └── api/
+│       ├── root.ts          # 全ルーターの統合
+│       ├── trpc.ts          # tRPCの基本設定
+│       └── routers/         # 個別のルーター定義
+│           ├── user.ts      # ユーザー関連API
+│           ├── post.ts      # 投稿関連API
+│           └── auth.ts      # 認証関連API
+└── trpc/
+    ├── react.tsx           # React用tRPCクライアント設定
+    └── server.ts           # サーバー用tRPC設定
+```
+
+#### 新しいルーターの作成
+
+1. **ルーターファイルの作成**
+
 ```typescript
 // src/server/api/routers/user.ts
 import { z } from "zod";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure, protectedProcedure } from "../trpc";
 
 export const userRouter = createTRPCRouter({
+  // パブリックなクエリ（認証不要）
   getById: publicProcedure
     .input(z.object({ id: z.string() }))
-    .query(({ input }) => {
-      // ユーザー取得ロジック
-      return { id: input.id, name: "例" };
+    .query(async ({ input, ctx }) => {
+      // データベースからユーザーを取得
+      const user = await ctx.db.user.findUnique({
+        where: { id: input.id },
+      });
+      
+      if (!user) {
+        throw new TRPCError({
+          code: 'NOT_FOUND',
+          message: 'User not found',
+        });
+      }
+      
+      return user;
+    }),
+
+  // 全ユーザー一覧取得（ページネーション付き）
+  getAll: publicProcedure
+    .input(z.object({
+      page: z.number().min(1).default(1),
+      limit: z.number().min(1).max(100).default(10),
+    }))
+    .query(async ({ input, ctx }) => {
+      const { page, limit } = input;
+      const skip = (page - 1) * limit;
+      
+      const [users, total] = await Promise.all([
+        ctx.db.user.findMany({
+          skip,
+          take: limit,
+          orderBy: { createdAt: 'desc' },
+        }),
+        ctx.db.user.count(),
+      ]);
+      
+      return {
+        users,
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+      };
+    }),
+
+  // 保護されたミューテーション（認証必要）
+  update: protectedProcedure
+    .input(z.object({
+      id: z.string(),
+      name: z.string().optional(),
+      email: z.string().email().optional(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      // 認証されたユーザーのみが自分の情報を更新可能
+      if (ctx.session.user.id !== input.id) {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Cannot update other user\'s data',
+        });
+      }
+      
+      const updatedUser = await ctx.db.user.update({
+        where: { id: input.id },
+        data: {
+          name: input.name,
+          email: input.email,
+        },
+      });
+      
+      return updatedUser;
+    }),
+
+  // ユーザー削除
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ input, ctx }) => {
+      // 管理者権限チェック（例）
+      if (ctx.session.user.role !== 'ADMIN') {
+        throw new TRPCError({
+          code: 'FORBIDDEN',
+          message: 'Admin role required',
+        });
+      }
+      
+      await ctx.db.user.delete({
+        where: { id: input.id },
+      });
+      
+      return { success: true };
     }),
 });
+```
 
-// src/server/api/root.ts に追加
-import { userRouter } from "./routers/user";
+2. **root.tsにルーターを登録**
+
+```typescript
+// src/server/api/root.ts
+import { createTRPCRouter } from "./trpc";
+import { postRouter } from "./routers/post";
+import { userRouter } from "./routers/user";  // 追加
 
 export const appRouter = createTRPCRouter({
   post: postRouter,
-  user: userRouter, // 追加
+  user: userRouter,  // 追加
 });
+
+export type AppRouter = typeof appRouter;
 ```
+
+#### 認証とミドルウェア
+
+**protectedProcedure の実装例:**
+
+```typescript
+// src/server/api/trpc.ts
+import { TRPCError, initTRPC } from "@trpc/server";
+import { getServerAuthSession } from "../auth";
+
+const t = initTRPC.context<Context>().create();
+
+// 認証チェックミドルウェア
+const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+  if (!ctx.session || !ctx.session.user) {
+    throw new TRPCError({ code: "UNAUTHORIZED" });
+  }
+  return next({
+    ctx: {
+      // session が存在することを保証
+      session: { ...ctx.session, user: ctx.session.user },
+    },
+  });
+});
+
+// ロギングミドルウェア
+const loggerMiddleware = t.middleware(async ({ path, type, next }) => {
+  const start = Date.now();
+  const result = await next();
+  const duration = Date.now() - start;
+  console.log(`${type.toUpperCase()} ${path} - ${duration}ms`);
+  return result;
+});
+
+export const publicProcedure = t.procedure.use(loggerMiddleware);
+export const protectedProcedure = t.procedure
+  .use(loggerMiddleware)
+  .use(enforceUserIsAuthed);
+```
+
+#### クライアント側での使用方法
+
+**クエリの使用:**
+
+```typescript
+// pages/users/[id].tsx
+import { api } from "~/trpc/react";
+
+export default function UserPage({ userId }: { userId: string }) {
+  // ユーザー情報を取得
+  const { data: user, isLoading, error } = api.user.getById.useQuery({
+    id: userId,
+  });
+
+  // ユーザー一覧を取得（ページネーション）
+  const { data: usersData } = api.user.getAll.useQuery({
+    page: 1,
+    limit: 10,
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      <h1>{user?.name}</h1>
+      <p>{user?.email}</p>
+    </div>
+  );
+}
+```
+
+**ミューテーションの使用:**
+
+```typescript
+// components/UserUpdateForm.tsx
+import { api } from "~/trpc/react";
+
+export default function UserUpdateForm({ userId }: { userId: string }) {
+  const utils = api.useUtils();
+  
+  const updateUser = api.user.update.useMutation({
+    onSuccess: () => {
+      // キャッシュを無効化して最新データを取得
+      utils.user.getById.invalidate({ id: userId });
+      alert('User updated successfully!');
+    },
+    onError: (error) => {
+      alert(`Error: ${error.message}`);
+    },
+  });
+
+  const handleSubmit = (data: { name: string; email: string }) => {
+    updateUser.mutate({
+      id: userId,
+      ...data,
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {/* フォームの実装 */}
+      <button 
+        type="submit" 
+        disabled={updateUser.isPending}
+      >
+        {updateUser.isPending ? 'Updating...' : 'Update User'}
+      </button>
+    </form>
+  );
+}
+```
+
+#### エラーハンドリング
+
+**サーバー側でのエラー定義:**
+
+```typescript
+import { TRPCError } from "@trpc/server";
+
+// カスタムエラーの投げ方
+throw new TRPCError({
+  code: 'BAD_REQUEST',
+  message: 'Invalid input data',
+  cause: validationError, // 元のエラーオブジェクト
+});
+
+// 利用可能なエラーコード:
+// - BAD_REQUEST (400)
+// - UNAUTHORIZED (401)
+// - FORBIDDEN (403)
+// - NOT_FOUND (404)
+// - METHOD_NOT_SUPPORTED (405)
+// - TIMEOUT (408)
+// - CONFLICT (409)
+// - PRECONDITION_FAILED (412)
+// - PAYLOAD_TOO_LARGE (413)
+// - UNPROCESSABLE_CONTENT (422)
+// - TOO_MANY_REQUESTS (429)
+// - CLIENT_CLOSED_REQUEST (499)
+// - INTERNAL_SERVER_ERROR (500)
+```
+
+**クライアント側でのエラーハンドリング:**
+
+```typescript
+const { data, error } = api.user.getById.useQuery({ id: "123" });
+
+if (error) {
+  // エラーコードに応じた処理
+  switch (error.data?.code) {
+    case 'NOT_FOUND':
+      return <div>User not found</div>;
+    case 'UNAUTHORIZED':
+      return <div>Please log in</div>;
+    default:
+      return <div>An error occurred: {error.message}</div>;
+  }
+}
+```
+
+#### バリデーション
+
+**Zodスキーマを使用した入力検証:**
+
+```typescript
+// 共通スキーマの定義
+const CreateUserSchema = z.object({
+  name: z.string().min(1, "Name is required").max(100),
+  email: z.string().email("Invalid email format"),
+  age: z.number().min(0).max(150).optional(),
+  role: z.enum(['USER', 'ADMIN']).default('USER'),
+});
+
+// プロシージャでの使用
+createUser: protectedProcedure
+  .input(CreateUserSchema)
+  .mutation(async ({ input, ctx }) => {
+    // input は自動的に型安全になる
+    const user = await ctx.db.user.create({
+      data: input,
+    });
+    return user;
+  }),
+```
+
+#### ベストプラクティス
+
+1. **ルーターの分割**: 機能ごとにルーターを分けて管理
+2. **入力検証**: Zodスキーマによる厳密な型定義
+3. **エラーハンドリング**: 適切なHTTPステータスコードとメッセージ
+4. **認証・認可**: ミドルウェアによる一元管理
+5. **キャッシュ制御**: クライアント側でのデータキャッシュ戦略
+6. **パフォーマンス**: ページネーション、フィルタリングの実装
+7. **テスト**: tRPCプロシージャの単体テスト
+
+#### トラブルシューティング
+
+**型エラーが発生する場合:**
+- `src/server/api/root.ts` で型をエクスポートしているか確認
+- `src/trpc/react.tsx` でクライアント設定が正しいか確認
+
+**認証エラーが発生する場合:**
+- セッション設定が正しく行われているか確認
+- `protectedProcedure` のミドルウェア実装を確認
+
+この方法でtRPCを使用することで、型安全でスケーラブルなバックエンドAPIを構築できます。
 
 ### テスト
 
