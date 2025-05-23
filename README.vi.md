@@ -12,26 +12,47 @@ Dựa trên [T3 Stack](https://create.t3.gg/), bổ sung thêm các tính năng 
 
 ### Tech Stack được cài đặt sẵn
 
-- [Next.js](https://nextjs.org)
-  - Framework phát triển ứng dụng web
-- [TypeScript](https://www.typescriptlang.org)
-  - Ngôn ngữ cho phép phát triển ứng dụng web đảm bảo kiểu dữ liệu
-- [Tailwind CSS](https://tailwindcss.com)
-  - Framework styling
-- [tRPC](https://trpc.io)
-  - Cho phép giao tiếp đảm bảo kiểu dữ liệu giữa frontend và backend
-- [Biome](https://biomejs.dev/ja/)
-  - Linter kiêm Formatter
-- [Zod](https://zod.dev)
-  - Cho phép xác thực dữ liệu đảm bảo kiểu dữ liệu
-- [Lefthook](https://github.com/evilmartians/lefthook)
-  - Thực hiện định dạng Biome trong quá trình commit
-- [Vitest](https://vitest.dev)
-  - Framework kiểm thử
-- [Playwright](https://playwright.dev)
-  - Framework kiểm thử E2E
-- [Shadcn/UI](https://ui.shadcn.com)
-  - Framework tạo component. Cho phép cài đặt các component có style và chức năng cơ bản, có thể tùy chỉnh để xây dựng hệ thống thiết kế. (Tham khảo: https://zenn.dev/morinokami/articles/anatomy-of-shadcn-ui)
+- **[Next.js](https://nextjs.org)** - Framework React Full-stack
+  - Môi trường phát triển web hiện đại tích hợp App Router, SSR/SSG và API Routes
+  - File-based routing và tối ưu hóa hình ảnh tự động
+  
+- **[TypeScript](https://www.typescriptlang.org)** - JavaScript đảm bảo kiểu dữ liệu
+  - Kiểm tra kiểu tĩnh để phát hiện lỗi lúc phát triển và hỗ trợ IDE
+  - Cải thiện khả năng bảo trì và hiệu quả phát triển nhóm cho dự án lớn
+  
+- **[Tailwind CSS](https://tailwindcss.com)** - Framework CSS Utility-first
+  - Styling UI nhanh chóng với các class được định nghĩa sẵn
+  - Responsive design và tính nhất quán của hệ thống thiết kế
+  
+- **[tRPC](https://trpc.io)** - Giao tiếp API đảm bảo kiểu dữ liệu End-to-End
+  - Đảm bảo kiểu dữ liệu hoàn toàn từ server đến client
+  - React hooks dựa trên React Query và xác thực schema Zod
+  
+- **[Biome](https://biomejs.dev/ja/)** - Linter & Formatter nhanh
+  - Thay thế ESLint + Prettier nhanh hơn 10-100 lần (dựa trên Rust)
+  - Tích hợp code formatting và linting với tính năng sắp xếp class Tailwind CSS
+  
+- **[Zod](https://zod.dev)** - Xác thực Schema TypeScript-first
+  - Tự động tạo kiểu TypeScript từ schema
+  - Đảm bảo kiểu dữ liệu runtime và validation cho dữ liệu API input/output
+  
+- **[Lefthook](https://github.com/evilmartians/lefthook)** - Quản lý Git Hook nhẹ
+  - Tự động format code và kiểm tra chất lượng khi commit
+  - Thực thi nhanh (dựa trên Go) và xử lý tác vụ song song
+  
+- **[Vitest](https://vitest.dev)** - Framework Unit Testing nhanh
+  - Thực thi test tức thì và hỗ trợ HMR dựa trên Vite
+  - API tương thích Jest và hỗ trợ TypeScript native
+  
+- **[Playwright](https://playwright.dev)** - Framework E2E Testing hiện đại
+  - Test trình duyệt thực song song trên Chromium, Firefox và Safari
+  - Công cụ debug mạnh mẽ và tích hợp CI/CD
+  
+- **[Shadcn/UI](https://ui.shadcn.com)** - Component UI có thể tùy chỉnh
+  - Hoàn toàn có thể tùy chỉnh với phương pháp copy & paste
+  - Nền tảng Radix UI với hỗ trợ accessibility và tích hợp Tailwind CSS
+
+**Đặc điểm kiến trúc**: Đảm bảo kiểu dữ liệu full-stack với TypeScript + Next.js + tRPC, chuỗi công cụ phát triển nhanh, môi trường testing toàn diện
 
 ### Cấu trúc thư mục
 

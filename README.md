@@ -12,26 +12,47 @@ HEART Devの案件などでも実際に活用されています。
 
 ### プリインストールされたTech Stack
 
-- [Next.js](https://nextjs.org)
-  - Webアプリケーション開発のフレームワーク
-- [TypeScript](https://www.typescriptlang.org)
-  - 型安全なWebアプリケーション開発を可能にする言語
-- [Tailwind CSS](https://tailwindcss.com)
-  - スタイリングのためのフレームワーク
-- [tRPC](https://trpc.io)
-  - 型安全なFEとBEの通信を可能にする
-- [Biome](https://biomejs.dev/ja/)
-  - Linter兼Formatter
-- [Zod](https://zod.dev)
-  - 型安全なデータのValidationを可能にする
-- [Lefthook](https://github.com/evilmartians/lefthook)
-  - コミット時にBiomeによるFormattingを行う
-- [Vitest](https://vitest.dev)
-  - テストフレームワーク
-- [Playwright](https://playwright.dev)
-  - E2Eテストフレームワーク
-- [Shadcn/UI](https://ui.shadcn.com)
-  - コンポーネント作成のためのフレームワーク。プレーンなスタイルをもった機能を持つコンポーネントをインストールでき、スタイリングを上書きすることでデザインシステムが構築できる。（参考： https://zenn.dev/morinokami/articles/anatomy-of-shadcn-ui ）
+- **[Next.js](https://nextjs.org)** - フルスタックReactフレームワーク
+  - App Router、SSR/SSG、API Routesを統合したモダンなWeb開発環境
+  - ファイルベースルーティングと自動画像最適化
+  
+- **[TypeScript](https://www.typescriptlang.org)** - 型安全なJavaScript
+  - 静的型チェックによる開発時のエラー検出と IDE支援
+  - 大規模開発での保守性とチーム開発効率の向上
+  
+- **[Tailwind CSS](https://tailwindcss.com)** - ユーティリティファーストCSSフレームワーク
+  - 事前定義されたクラスによる高速なUIスタイリング
+  - レスポンシブデザインとデザインシステムの一貫性
+  
+- **[tRPC](https://trpc.io)** - End-to-End型安全なAPI通信
+  - サーバーからクライアントまで完全な型安全性を実現
+  - React QueryベースのReactフックとZodスキーマ検証
+  
+- **[Biome](https://biomejs.dev/ja/)** - 高速Linter & Formatter
+  - ESLint + Prettierの代替として10-100倍高速（Rust製）
+  - コードフォーマットとリンティングを統合、Tailwind CSSクラス名ソート機能付き
+  
+- **[Zod](https://zod.dev)** - TypeScript-firstスキーマ検証
+  - スキーマから自動的にTypeScript型を生成
+  - APIの入出力データの実行時型安全性とバリデーション
+  
+- **[Lefthook](https://github.com/evilmartians/lefthook)** - 軽量Gitフック管理
+  - コミット時の自動コードフォーマットと品質チェック
+  - 高速実行（Go製）と並列タスク処理
+  
+- **[Vitest](https://vitest.dev)** - 高速ユニットテストフレームワーク
+  - Viteベースの瞬時テスト実行とHMRサポート
+  - Jest互換APIとネイティブTypeScriptサポート
+  
+- **[Playwright](https://playwright.dev)** - モダンE2Eテストフレームワーク
+  - Chromium、Firefox、Safariでの並列実ブラウザテスト
+  - 強力なデバッグツールとCI/CD統合
+  
+- **[Shadcn/UI](https://ui.shadcn.com)** - カスタマイズ可能UIコンポーネント
+  - Copy & Paste方式で完全にカスタマイズ可能
+  - Radix UI基盤でアクセシビリティ対応とTailwind CSS統合
+
+**アーキテクチャの特徴**: TypeScript + Next.js + tRPCによるフルスタック型安全性、高速開発ツールチェーン、包括的テスト環境
 
 ### ディレクトリ構造
 

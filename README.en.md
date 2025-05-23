@@ -12,26 +12,47 @@ It is actively used in HEART Dev projects.
 
 ### Pre-installed Tech Stack
 
-- [Next.js](https://nextjs.org)
-  - Web application development framework
-- [TypeScript](https://www.typescriptlang.org)
-  - Language that enables type-safe web application development
-- [Tailwind CSS](https://tailwindcss.com)
-  - Styling framework
-- [tRPC](https://trpc.io)
-  - Enables type-safe communication between frontend and backend
-- [Biome](https://biomejs.dev/ja/)
-  - Linter and Formatter
-- [Zod](https://zod.dev)
-  - Enables type-safe data validation
-- [Lefthook](https://github.com/evilmartians/lefthook)
-  - Performs Biome formatting during commits
-- [Vitest](https://vitest.dev)
-  - Testing framework
-- [Playwright](https://playwright.dev)
-  - E2E testing framework
-- [Shadcn/UI](https://ui.shadcn.com)
-  - Framework for component creation. Allows installation of components with plain styles and functionality, which can be customized to build a design system. (Reference: https://zenn.dev/morinokami/articles/anatomy-of-shadcn-ui)
+- **[Next.js](https://nextjs.org)** - Full-stack React Framework
+  - Modern web development environment integrating App Router, SSR/SSG, and API Routes
+  - File-based routing and automatic image optimization
+  
+- **[TypeScript](https://www.typescriptlang.org)** - Type-safe JavaScript
+  - Static type checking for development-time error detection and IDE support
+  - Improved maintainability and team development efficiency for large-scale development
+  
+- **[Tailwind CSS](https://tailwindcss.com)** - Utility-first CSS Framework
+  - Rapid UI styling with pre-defined classes
+  - Responsive design and design system consistency
+  
+- **[tRPC](https://trpc.io)** - End-to-End Type-safe API Communication
+  - Complete type safety from server to client
+  - React Query-based React hooks and Zod schema validation
+  
+- **[Biome](https://biomejs.dev/ja/)** - Fast Linter & Formatter
+  - 10-100x faster alternative to ESLint + Prettier (Rust-based)
+  - Integrated code formatting and linting with Tailwind CSS class sorting
+  
+- **[Zod](https://zod.dev)** - TypeScript-first Schema Validation
+  - Automatic TypeScript type generation from schemas
+  - Runtime type safety and validation for API input/output data
+  
+- **[Lefthook](https://github.com/evilmartians/lefthook)** - Lightweight Git Hook Management
+  - Automatic code formatting and quality checks on commit
+  - Fast execution (Go-based) and parallel task processing
+  
+- **[Vitest](https://vitest.dev)** - Fast Unit Testing Framework
+  - Instant test execution and HMR support based on Vite
+  - Jest-compatible API and native TypeScript support
+  
+- **[Playwright](https://playwright.dev)** - Modern E2E Testing Framework
+  - Parallel real browser testing on Chromium, Firefox, and Safari
+  - Powerful debugging tools and CI/CD integration
+  
+- **[Shadcn/UI](https://ui.shadcn.com)** - Customizable UI Components
+  - Fully customizable with copy & paste approach
+  - Radix UI foundation with accessibility support and Tailwind CSS integration
+
+**Architecture Features**: Full-stack type safety with TypeScript + Next.js + tRPC, fast development toolchain, comprehensive testing environment
 
 ### Directory Structure
 
