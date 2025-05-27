@@ -306,8 +306,14 @@ export const africaCountries: Country[] = [
     name: "ナミビア",
     code: "NA",
     region: "africa",
-    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
-    conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
+    visaRequirement: { type: "visa_required", duration: 30 },
+    conditions: [
+      "2025年4月1日から日本を含む33か国に対するビザ免除を撤廃",
+      "入国時にビザ取得（Visa on Arrival）または事前取得が必要",
+      "パスポート残存6ヶ月以上",
+      "出国用航空券",
+    ],
+    notes: ["2025年4月1日以降はビザ免除措置が廃止", "到着ビザまたは事前ビザ申請が必要"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/namibia/index.html" },
   },
   {

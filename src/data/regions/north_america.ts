@@ -52,6 +52,7 @@ export const northAmericaCountries: Country[] = [
       "eTAは5年間有効（またはパスポートの有効期限まで）で、複数回の入国が可能",
       "180日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "ワーキングホリデー制度が「生涯2回まで取得可能」に拡大（2025年4月〜、18〜30歳対象）",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/canada/index.html",
@@ -591,12 +592,14 @@ export const northAmericaCountries: Country[] = [
     code: "KN",
     region: "north_america",
     visaRequirement: {
-      type: "visa_free",
+      type: "evisa",
       duration: 90,
+      evisaAvailable: true,
       purpose: ["tourism", "business"],
     },
     conditions: [
       "90日以内の観光、業務目的の滞在はビザ不要",
+      "2025年5月26日からeTA（電子渡航認証）制度導入により、日本人含むすべてのビザ免除国市民にeTA申請義務化",
       "パスポートの残存有効期間が入国時6か月以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
@@ -608,6 +611,7 @@ export const northAmericaCountries: Country[] = [
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時に滞在目的の説明が必要",
+      "2025年5月26日以降はeTA申請が必須",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saintkittsnevis/index.html",
