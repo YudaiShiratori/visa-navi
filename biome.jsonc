@@ -3,7 +3,14 @@
   "extends": ["ultracite"],
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx", "**/*.jsonc"],
+    "includes": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.json",
+      "**/*.jsonc"
+    ],
     "experimentalScannerIgnores": ["tsconfig.json"]
   },
   "linter": {
