@@ -51,3 +51,9 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Claude Code
+.claude/settings.json
+.claude/conversations/
+CLAUDE.local.md
+.mcp.json

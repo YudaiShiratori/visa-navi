@@ -661,6 +661,181 @@ To allow Dependabot access to these secrets:
 
 This gives both the CI/CD pipeline and Dependabot the necessary access rights for Vercel deployment.
 
+## Claude Code Support
+
+This template supports [Claude Code](https://claude.ai/code). Claude Code is an AI coding assistant developed by Anthropic that can be used directly from the command line.
+
+### Claude Code Setup
+
+1. **Claude Code Installation**
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. **GitHub CLI Installation (Required)**
+   
+   GitHub CLI installation is required because custom commands use GitHub CLI:
+   
+   ```bash
+   # macOS (Homebrew)
+   brew install gh
+   
+   # Ubuntu/Debian
+   sudo apt install gh
+   
+   # Windows (Chocolatey)
+   choco install gh
+   
+   # Other platforms
+   # Download from https://cli.github.com/
+   ```
+   
+   GitHub CLI authentication setup:
+   
+   ```bash
+   gh auth login
+   ```
+
+3. **Authentication Setup**
+   ```bash
+   claude
+   ```
+   Authentication is required on first run. Authentication is possible via Anthropic Console, Claude App (Pro/Max plan), or Amazon Bedrock/Google Vertex AI.
+
+4. **Project Initialization**
+   ```bash
+   claude /init
+   ```
+   This command automatically generates the CLAUDE.md file for the project.
+
+### How to Add Directory Structure to Claude Code
+
+After completing the project setup, run the following prompt in Claude Code:
+
+```
+Analyze the project's directory structure and update the "Project Structure" section in the CLAUDE.md file with the current actual directory structure. Follow these requirements:
+
+1. Check actual files and directories and record the accurate structure
+2. Briefly explain the role and purpose of major files
+3. Group logically for developer understanding
+4. Include test files, configuration files, and documentation files
+5. Exclude auto-generated files (.next/, node_modules/, etc.)
+
+After updating, also update the docs/directory-structure.md file similarly.
+```
+
+### Available Custom Commands
+
+This template includes custom commands to improve development efficiency:
+
+#### Core Workflow Commands (5)
+
+##### `/create-issue [problem/request description]`
+**Purpose**: Create GitHub Issues  
+**Argument**: Specific description of the problem or feature request  
+**Usage Examples**:
+```bash
+/create-issue "Login button doesn't work on mobile Safari"
+/create-issue "Add user profile photo upload feature"
+/create-issue "Update installation docs for Windows users"
+```
+
+##### `/work-on-issue [Issue number]`
+**Purpose**: Execute 8-phase workflow for issue resolution  
+**Argument**: GitHub Issue number to work on  
+**Usage Examples**:
+```bash
+/work-on-issue 123
+/work-on-issue 456
+```
+
+##### `/refactor-code [target code/module description]`
+**Purpose**: Systematic code refactoring  
+**Argument**: Description of refactoring target (file path, module name, or functionality)  
+**Usage Examples**:
+```bash
+/refactor-code "auth module"
+/refactor-code "src/components/UserProfile.tsx"
+/refactor-code "database connection logic"
+```
+
+##### `/create-pr [PR content description]`
+**Purpose**: Create Pull Request from current changes  
+**Argument**: Description of changes that will become the PR title  
+**Usage Examples**:
+```bash
+/create-pr "Fix authentication bug in login form"
+/create-pr "Add dark mode support"
+/create-pr "Improve database query performance"
+```
+
+##### `/review-pr [PR number]`
+**Purpose**: Comprehensive Pull Request review  
+**Argument**: Pull Request number to review  
+**Usage Examples**:
+```bash
+/review-pr 789
+/review-pr 101
+```
+
+### GitHub Templates
+
+This template includes template files for structured Issue and PR creation:
+
+#### Issue Templates (`.github/ISSUE_TEMPLATE/`)
+- **`bug_report.yml`** - Detailed template for bug reports
+- **`feature_request.yml`** - Template for feature requests
+- **`documentation.yml`** - Template for documentation improvements
+
+#### PR Templates (`.github/PULL_REQUEST_TEMPLATE/`)
+- **`pull_request_template.md`** - Standard template for Pull Requests
+
+These templates are automatically referenced by Claude Code custom commands, enabling consistent quality Issue and PR creation.
+
+### Basic Usage of Claude Code
+
+1. **Interactive Coding**
+   ```bash
+   claude
+   ```
+   You can ask questions about the project or request code fixes in interactive mode.
+
+2. **Headless Mode**
+   ```bash
+   claude -p "Please fix TypeScript errors"
+   ```
+   You can execute tasks in non-interactive mode.
+
+3. **File Reference**
+   ```bash
+   # Reference specific files
+   > Explain the implementation of @src/components/ui/button.tsx
+   
+   # Directory reference
+   > Tell me about the structure of @src/app
+   ```
+
+### Recommended Workflow
+
+#### Developer Customer Journey
+1. **Start**: Plan today's work with `/start-work`
+2. **Issue Creation**: Clear requirement definition with `/create-issue`
+3. **Development Execution**: Systematic implementation with `/work-on-issue`
+4. **Review**: Quality assurance with `/review-pr`
+5. **Daily Management**: Routine work with `/daily-workflow`
+
+#### Development Phases
+1. **Understanding Phase**: Requirement analysis and planning
+2. **Environment Preparation**: Development environment setup and branch creation
+3. **Investigation Phase**: Understanding existing code and context
+4. **Implementation Phase**: Code creation following project standards
+5. **Quality Assurance**: Test execution and code quality verification
+6. **Documentation**: Documentation updates and review preparation
+7. **Review & Improvement**: Feedback response and implementation improvement
+8. **Completion**: Code merge and cleanup
+
+For detailed usage, refer to the [Claude Code official documentation](https://docs.anthropic.com/en/docs/claude-code/overview).
+
 ## Maintainer
 
 This repository is primarily managed by the following members. Feel free to contact us via Slack, etc., if you have any questions.

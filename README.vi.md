@@ -641,6 +641,181 @@ Do đó, chúng tôi cho phép triển khai thông qua GitHub Actions sử dụn
 
 Điều này cung cấp cho cả pipeline CI/CD và Dependabot quyền truy cập cần thiết để triển khai Vercel.
 
+## Hỗ trợ Claude Code
+
+Template này hỗ trợ [Claude Code](https://claude.ai/code). Claude Code là một trợ lý mã hóa AI được phát triển bởi Anthropic có thể được sử dụng trực tiếp từ dòng lệnh.
+
+### Thiết lập Claude Code
+
+1. **Cài đặt Claude Code**
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. **Cài đặt GitHub CLI (Bắt buộc)**
+   
+   Cần cài đặt GitHub CLI vì các lệnh tùy chỉnh sử dụng GitHub CLI:
+   
+   ```bash
+   # macOS (Homebrew)
+   brew install gh
+   
+   # Ubuntu/Debian
+   sudo apt install gh
+   
+   # Windows (Chocolatey)
+   choco install gh
+   
+   # Các nền tảng khác
+   # Tải xuống từ https://cli.github.com/
+   ```
+   
+   Thiết lập xác thực GitHub CLI:
+   
+   ```bash
+   gh auth login
+   ```
+
+3. **Thiết lập xác thực**
+   ```bash
+   claude
+   ```
+   Cần xác thực khi chạy lần đầu. Có thể xác thực qua Anthropic Console, Claude App (gói Pro/Max), hoặc Amazon Bedrock/Google Vertex AI.
+
+4. **Khởi tạo dự án**
+   ```bash
+   claude /init
+   ```
+   Lệnh này tự động tạo tệp CLAUDE.md cho dự án.
+
+### Cách thêm cấu trúc thư mục vào Claude Code
+
+Sau khi hoàn thành thiết lập dự án, chạy prompt sau trong Claude Code:
+
+```
+Phân tích cấu trúc thư mục của dự án và cập nhật phần "Project Structure" trong tệp CLAUDE.md với cấu trúc thư mục thực tế hiện tại. Tuân theo các yêu cầu sau:
+
+1. Kiểm tra các tệp và thư mục thực tế và ghi lại cấu trúc chính xác
+2. Giải thích ngắn gọn vai trò và mục đích của các tệp chính
+3. Nhóm một cách logic để nhà phát triển hiểu
+4. Bao gồm tệp kiểm thử, tệp cấu hình và tệp tài liệu
+5. Loại trừ các tệp được tạo tự động (.next/, node_modules/, v.v.)
+
+Sau khi cập nhật, cũng cập nhật tệp docs/directory-structure.md tương tự.
+```
+
+### Lệnh tùy chỉnh có sẵn
+
+Template này bao gồm các lệnh tùy chỉnh để cải thiện hiệu quả phát triển:
+
+#### Lệnh quy trình làm việc cốt lõi (5)
+
+##### `/create-issue [mô tả vấn đề/yêu cầu]`
+**Mục đích**: Tạo GitHub Issues  
+**Tham số**: Mô tả cụ thể về vấn đề hoặc yêu cầu tính năng  
+**Ví dụ sử dụng**:
+```bash
+/create-issue "Nút đăng nhập không hoạt động trên mobile Safari"
+/create-issue "Thêm tính năng tải lên ảnh đại diện người dùng"
+/create-issue "Cập nhật tài liệu cài đặt cho người dùng Windows"
+```
+
+##### `/work-on-issue [số Issue]`
+**Mục đích**: Thực hiện quy trình 8 giai đoạn để giải quyết issue  
+**Tham số**: Số Issue GitHub cần làm việc  
+**Ví dụ sử dụng**:
+```bash
+/work-on-issue 123
+/work-on-issue 456
+```
+
+##### `/refactor-code [mô tả mã/module mục tiêu]`
+**Mục đích**: Tái cấu trúc mã có hệ thống  
+**Tham số**: Mô tả mục tiêu tái cấu trúc (đường dẫn tệp, tên module, hoặc chức năng)  
+**Ví dụ sử dụng**:
+```bash
+/refactor-code "auth module"
+/refactor-code "src/components/UserProfile.tsx"
+/refactor-code "logic kết nối cơ sở dữ liệu"
+```
+
+##### `/create-pr [mô tả nội dung PR]`
+**Mục đích**: Tạo Pull Request từ các thay đổi hiện tại  
+**Tham số**: Mô tả thay đổi sẽ trở thành tiêu đề PR  
+**Ví dụ sử dụng**:
+```bash
+/create-pr "Sửa lỗi xác thực trong form đăng nhập"
+/create-pr "Thêm hỗ trợ chế độ tối"
+/create-pr "Cải thiện hiệu suất truy vấn cơ sở dữ liệu"
+```
+
+##### `/review-pr [số PR]`
+**Mục đích**: Đánh giá Pull Request toàn diện  
+**Tham số**: Số Pull Request cần đánh giá  
+**Ví dụ sử dụng**:
+```bash
+/review-pr 789
+/review-pr 101
+```
+
+### Template GitHub
+
+Template này bao gồm các tệp template để tạo Issue và PR có cấu trúc:
+
+#### Template Issue (`.github/ISSUE_TEMPLATE/`)
+- **`bug_report.yml`** - Template chi tiết cho báo cáo lỗi
+- **`feature_request.yml`** - Template cho yêu cầu tính năng
+- **`documentation.yml`** - Template cho cải thiện tài liệu
+
+#### Template PR (`.github/PULL_REQUEST_TEMPLATE/`)
+- **`pull_request_template.md`** - Template chuẩn cho Pull Request
+
+Các template này được tham chiếu tự động bởi các lệnh tùy chỉnh của Claude Code, cho phép tạo Issue và PR với chất lượng nhất quán.
+
+### Cách sử dụng cơ bản của Claude Code
+
+1. **Mã hóa tương tác**
+   ```bash
+   claude
+   ```
+   Bạn có thể đặt câu hỏi về dự án hoặc yêu cầu sửa mã trong chế độ tương tác.
+
+2. **Chế độ không đầu**
+   ```bash
+   claude -p "Vui lòng sửa lỗi TypeScript"
+   ```
+   Bạn có thể thực hiện tác vụ trong chế độ không tương tác.
+
+3. **Tham chiếu tệp**
+   ```bash
+   # Tham chiếu tệp cụ thể
+   > Giải thích việc triển khai @src/components/ui/button.tsx
+   
+   # Tham chiếu thư mục
+   > Cho tôi biết về cấu trúc của @src/app
+   ```
+
+### Quy trình làm việc được khuyến nghị
+
+#### Hành trình khách hàng của nhà phát triển
+1. **Bắt đầu**: Lập kế hoạch công việc hôm nay với `/start-work`
+2. **Tạo Issue**: Định nghĩa yêu cầu rõ ràng với `/create-issue`
+3. **Thực hiện phát triển**: Triển khai có hệ thống với `/work-on-issue`
+4. **Đánh giá**: Đảm bảo chất lượng với `/review-pr`
+5. **Quản lý hàng ngày**: Công việc thường ngày với `/daily-workflow`
+
+#### Các giai đoạn phát triển
+1. **Giai đoạn hiểu**: Phân tích yêu cầu và lập kế hoạch
+2. **Chuẩn bị môi trường**: Thiết lập môi trường phát triển và tạo nhánh
+3. **Giai đoạn điều tra**: Hiểu mã hiện có và bối cảnh
+4. **Giai đoạn triển khai**: Tạo mã theo tiêu chuẩn dự án
+5. **Đảm bảo chất lượng**: Thực hiện kiểm thử và xác minh chất lượng mã
+6. **Tài liệu hóa**: Cập nhật tài liệu và chuẩn bị đánh giá
+7. **Đánh giá & Cải thiện**: Phản hồi và cải thiện triển khai
+8. **Hoàn thành**: Hợp nhất mã và dọn dẹp
+
+Để biết cách sử dụng chi tiết, tham khảo [tài liệu chính thức của Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview).
+
 ## Người bảo trì
 
 Repository này chủ yếu được quản lý bởi các thành viên sau. Hãy liên hệ với chúng tôi qua Slack, v.v., nếu bạn có bất kỳ câu hỏi nào.

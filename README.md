@@ -661,6 +661,181 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
 
 これにより、CI/CDパイプラインとDependabotの両方がVercelへのデプロイに必要なアクセス権を持ちます。
 
+## Claude Code対応
+
+このテンプレートは[Claude Code](https://claude.ai/code)に対応しています。Claude Codeは、Anthropic社が開発したAIコーディングアシスタントで、コマンドラインから直接利用できます。
+
+### Claude Codeの設定
+
+1. **Claude Codeのインストール**
+   ```bash
+   npm install -g @anthropic-ai/claude-code
+   ```
+
+2. **GitHub CLIのインストール（必須）**
+   
+   カスタムコマンドがGitHub CLIを使用するため、GitHub CLIのインストールが必要です：
+   
+   ```bash
+   # macOS (Homebrew)
+   brew install gh
+   
+   # Ubuntu/Debian
+   sudo apt install gh
+   
+   # Windows (Chocolatey)
+   choco install gh
+   
+   # その他のプラットフォーム
+   # https://cli.github.com/ からダウンロード
+   ```
+   
+   GitHub CLIの認証設定：
+   
+   ```bash
+   gh auth login
+   ```
+
+3. **認証設定**
+   ```bash
+   claude
+   ```
+   初回実行時に認証が必要です。Anthropic Console、Claude App（Pro/Maxプラン）、またはAmazon Bedrock/Google Vertex AIでの認証が可能です。
+
+4. **プロジェクト初期化**
+   ```bash
+   claude /init
+   ```
+   このコマンドでプロジェクト用のCLAUDE.mdファイルが自動生成されます。
+
+### ディレクトリ構造をClaude Codeに追加する方法
+
+プロジェクトのセットアップが完了した後、以下のプロンプトをClaude Codeで実行してください：
+
+```
+プロジェクトのディレクトリ構造を分析し、CLAUDE.mdファイルの「Project Structure」セクションを現在の実際のディレクトリ構造で更新してください。以下の要件に従ってください：
+
+1. 実際のファイルとディレクトリを確認して、正確な構造を記載する
+2. 主要なファイルの役割と目的を簡潔に説明する
+3. 開発者が理解しやすいように、論理的なグループ分けを行う
+4. テストファイル、設定ファイル、ドキュメントファイルも含める
+5. 自動生成されるファイル（.next/, node_modules/等）は除外する
+
+更新後、docs/directory-structure.mdファイルも同様に更新してください。
+```
+
+### 利用可能なカスタムコマンド
+
+このテンプレートには、開発効率を向上させるカスタムコマンドが含まれています：
+
+#### 核となるワークフローコマンド（5つ）
+
+##### `/create-issue [問題/要望の説明]`
+**用途**: GitHub Issueの作成  
+**引数**: 問題や機能要求の具体的な説明文  
+**実行例**:
+```bash
+/create-issue "Login button doesn't work on mobile Safari"
+/create-issue "Add user profile photo upload feature"
+/create-issue "Update installation docs for Windows users"
+```
+
+##### `/work-on-issue [Issue番号]`
+**用途**: Issue解決のための8段階ワークフロー実行  
+**引数**: 作業対象のGitHub Issue番号  
+**実行例**:
+```bash
+/work-on-issue 123
+/work-on-issue 456
+```
+
+##### `/refactor-code [対象コード/モジュールの説明]`
+**用途**: 体系的なコードリファクタリング  
+**引数**: リファクタリング対象の説明（ファイルパス、モジュール名、または機能名）  
+**実行例**:
+```bash
+/refactor-code "auth module"
+/refactor-code "src/components/UserProfile.tsx"
+/refactor-code "database connection logic"
+```
+
+##### `/create-pr [PR内容の説明]`
+**用途**: 現在の変更からPull Request作成  
+**引数**: PRのタイトルとなる変更内容の説明  
+**実行例**:
+```bash
+/create-pr "Fix authentication bug in login form"
+/create-pr "Add dark mode support"
+/create-pr "Improve database query performance"
+```
+
+##### `/review-pr [PR番号]`
+**用途**: Pull Requestの包括的レビュー  
+**引数**: レビュー対象のPull Request番号  
+**実行例**:
+```bash
+/review-pr 789
+/review-pr 101
+```
+
+### GitHubテンプレート
+
+このテンプレートには、構造化されたIssueとPR作成のためのテンプレートファイルが含まれています：
+
+#### Issueテンプレート（`.github/ISSUE_TEMPLATE/`）
+- **`bug_report.yml`** - バグレポート用の詳細なテンプレート
+- **`feature_request.yml`** - 機能要望用のテンプレート
+- **`documentation.yml`** - ドキュメント改善用のテンプレート
+
+#### PRテンプレート（`.github/PULL_REQUEST_TEMPLATE/`）
+- **`pull_request_template.md`** - Pull Request用の標準テンプレート
+
+これらのテンプレートはClaude Codeのカスタムコマンドから自動的に参照され、一貫した品質のIssueとPRを作成できます。
+
+### Claude Codeの基本的な使い方
+
+1. **対話的なコーディング**
+   ```bash
+   claude
+   ```
+   対話モードでプロジェクトについて質問したり、コード修正を依頼できます。
+
+2. **ヘッドレスモード**
+   ```bash
+   claude -p "TypeScriptのエラーを修正してください"
+   ```
+   非対話モードでタスクを実行できます。
+
+3. **ファイル参照**
+   ```bash
+   # 特定のファイルを参照
+   > @src/components/ui/button.tsx の実装を説明してください
+   
+   # ディレクトリ参照
+   > @src/app の構造を教えてください
+   ```
+
+### 推奨ワークフロー
+
+#### 開発者のカスタマージャーニー
+1. **開始**: `/project:start-work` で今日の作業を計画
+2. **Issue作成**: `/project:create-issue` で明確な要件定義
+3. **開発実行**: `/project:work-on-issue` で体系的な実装
+4. **レビュー**: `/project:review-pr` で品質保証
+5. **日常管理**: `/project:daily-workflow` でルーチン作業
+
+#### 開発フェーズ
+1. **理解フェーズ**: 要件分析と計画立案
+2. **環境準備**: 開発環境セットアップとブランチ作成
+3. **調査フェーズ**: 既存コード理解とコンテキスト把握
+4. **実装フェーズ**: プロジェクト標準に従ったコード作成
+5. **品質保証**: テスト実行とコード品質確認
+6. **文書化**: ドキュメント更新とレビュー準備
+7. **レビュー・改善**: フィードバック対応と実装改善
+8. **完了**: コードマージとクリーンアップ
+
+詳細な使い方については、[Claude Code公式ドキュメント](https://docs.anthropic.com/en/docs/claude-code/overview)を参照してください。
+
 ## Maintainer
 
 このリポジトリの管理は以下のメンバーを中心に行っています。何かあればお気軽にSlack等でお声がけください。
