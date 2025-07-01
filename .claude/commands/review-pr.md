@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(gh pr:*), Bash(git:*), Edit
+allowed-tools: Bash, Read, Edit, MultiEdit, Glob, Grep, LS, TodoWrite, TodoRead, WebSearch, WebFetch, Task
 description: Comprehensive Pull Request review with automated analysis and feedback
 ---
 
@@ -47,16 +47,25 @@ gh pr diff $ARGUMENTS --name-only
 ### Step 2: Code Quality Analysis
 
 #### 2.1 Review Changed Files
-Examine each changed file systematically using file references:
+
+I'll examine each changed file systematically:
 
 ```bash
 # Get list of changed files
 CHANGED_FILES=$(gh pr diff $ARGUMENTS --name-only)
 
-# Review each file (use @ syntax to examine files)
-echo "Files to review:"
-echo "$CHANGED_FILES"
+# TodoWrite: Track review progress for each file
+# - Review file 1: [name]
+# - Review file 2: [name]
+# - Check test coverage
+# - Verify documentation
 ```
+
+I can:
+- Read entire files to understand context
+- Search for usage patterns of changed code
+- Check for similar code that might need the same changes
+- Analyze test coverage for modified areas
 
 For each file, consider:
 - **Code Structure**: Is the code well-organized and readable?
@@ -65,7 +74,23 @@ For each file, consider:
 - **Performance**: Are there any performance concerns?
 - **Security**: Are there potential security vulnerabilities?
 
-#### 2.2 Check Code Standards Compliance
+#### 2.2 Analyze Code Patterns
+
+I'll search for potential issues across the codebase:
+
+```bash
+# Search for common code smells
+# Check for console.log statements
+grep -r "console\.log" --include="*.ts" --include="*.tsx"
+
+# Look for TODO/FIXME comments
+grep -r "TODO\|FIXME" --include="*.ts" --include="*.tsx"
+
+# Find potential security issues
+# Search for hardcoded credentials, eval usage, etc.
+```
+
+#### 2.3 Check Code Standards Compliance
 ```bash
 # Clone PR branch for local testing (if needed)
 gh pr checkout $ARGUMENTS
@@ -147,9 +172,28 @@ gh pr view $ARGUMENTS --json commits | jq -r '.commits[] | "\(.messageHeadline)\
 gh pr diff $ARGUMENTS --stat
 ```
 
-### Step 7: Provide Structured Feedback
+### Step 7: Comprehensive Code Analysis
 
-#### 7.1 Categorize Feedback
+#### 7.1 Deep Code Review
+
+With full tool access, I can perform thorough analysis:
+
+```bash
+# Read specific files to understand implementation details
+# Search for related code patterns
+# Check test coverage for changed functionality
+# Analyze dependencies and imports
+```
+
+I'll also:
+- Compare with existing patterns in the codebase
+- Check if similar code exists that could be refactored
+- Verify that changes follow project conventions from CLAUDE.md
+- Look for potential performance implications
+
+### Step 8: Provide Structured Feedback
+
+#### 8.1 Categorize Feedback
 Organize your review comments by priority:
 
 **🔴 Critical Issues** (Must fix before merge):
@@ -170,7 +214,7 @@ Organize your review comments by priority:
 - Refactoring opportunities
 - Documentation enhancements
 
-#### 7.2 Leave Review Comments
+#### 8.2 Leave Review Comments
 ```bash
 # Add general review comment
 gh pr review $ARGUMENTS --comment --body "## Code Review Summary
@@ -195,9 +239,9 @@ gh pr review $ARGUMENTS --comment --body "## Code Review Summary
 # gh pr review $ARGUMENTS --comment --body "Specific feedback about implementation"
 ```
 
-### Step 8: Make Review Decision
+### Step 9: Make Review Decision
 
-#### 8.1 Choose Appropriate Review Action
+#### 9.1 Choose Appropriate Review Action
 ```bash
 # Approve if ready to merge
 gh pr review $ARGUMENTS --approve --body "✅ **APPROVED**
@@ -233,7 +277,7 @@ Overall this looks good! I've left some suggestions for improvement, but nothing
 Feel free to address the suggestions in this PR or future ones as appropriate."
 ```
 
-#### 8.2 Follow Up Actions
+#### 9.2 Follow Up Actions
 ```bash
 # Add helpful labels based on review
 gh pr edit $ARGUMENTS --add-label "needs-changes"  # or "ready-to-merge"
@@ -326,6 +370,33 @@ gh pr review $ARGUMENTS --request-changes --body "Please address these issues"
 # Re-request review after changes
 gh pr review $ARGUMENTS --comment --body "Ready for re-review"
 ```
+
+## Advanced Review Features
+
+### Code Analysis Capabilities
+
+With expanded tool access, I can:
+- **Read entire codebases** to understand architectural impact
+- **Search for patterns** to ensure consistency
+- **Analyze dependencies** to identify breaking changes
+- **Check test coverage** to verify quality
+- **Research best practices** for complex scenarios
+
+### Task Management Integration
+
+I'll use TodoWrite/TodoRead to:
+- Track review progress through files
+- Ensure all aspects are reviewed
+- Monitor feedback implementation
+- Coordinate with multiple reviewers
+
+### Research and Learning
+
+For complex reviews, I can:
+- Search for similar implementations online
+- Look up library documentation
+- Find security best practices
+- Research performance optimization techniques
 
 ## Review Best Practices
 

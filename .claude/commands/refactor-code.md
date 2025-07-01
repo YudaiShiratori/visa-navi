@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(git:*), Edit, Bash(bun run:*)
+allowed-tools: Bash, Read, Edit, MultiEdit, Write, Glob, Grep, LS, TodoWrite, TodoRead, WebSearch, Task
 description: Systematic code refactoring with analysis, planning, and quality assurance
 ---
 
@@ -20,14 +20,37 @@ Think carefully about the refactoring goals and follow this comprehensive approa
 ### Step 1: Analysis and Planning
 
 #### 1.1 Understand Current State
-Analyze the code you want to refactor using file references:
-- Examine the target code: @$ARGUMENTS (if it's a file path)
-- Review related files and dependencies
-- Understand the current architecture and patterns
+
+I'll analyze the code systematically:
+
+```bash
+# Search for the target code
+# If $ARGUMENTS is a file path, read it directly
+# If $ARGUMENTS is a pattern, search for it
+```
+
+I can:
+- Read files directly to understand implementation
+- Search for usage patterns across the codebase
+- Analyze dependencies and imports
+- Find similar code patterns that might need the same refactoring
 
 #### 1.2 Identify Refactoring Goals
+
+I'll create a structured task list to track refactoring progress:
+
 ```bash
-# Create refactoring plan
+# TodoWrite: Create refactoring tasks
+# - Analyze current code structure
+# - Identify code smells
+# - Plan refactoring approach
+# - Implement changes incrementally
+# - Test each change
+# - Update documentation
+```
+
+```bash
+# Document refactoring plan
 echo "## Refactoring Plan for: $ARGUMENTS
 
 ### Current Issues Identified:
@@ -89,7 +112,22 @@ bun run type-check > typecheck_before.txt 2>&1 || true
 
 ### Step 3: Incremental Refactoring
 
-#### 3.1 Apply Refactoring Techniques
+#### 3.1 Search for Refactoring Opportunities
+
+I'll search the codebase for patterns that need refactoring:
+
+```bash
+# Find duplicate code patterns
+# grep -r "pattern" --include="*.ts" --include="*.tsx"
+
+# Find long functions (lines > 50)
+# find . -name "*.ts" -o -name "*.tsx" | xargs wc -l | sort -nr
+
+# Search for complex conditionals
+# grep -r "if.*&&.*||" --include="*.ts" --include="*.tsx"
+```
+
+#### 3.2 Apply Refactoring Techniques
 
 **Code Smells to Address:**
 
@@ -118,7 +156,15 @@ bun run type-check > typecheck_before.txt 2>&1 || true
    - Be consistent with naming conventions
    - Avoid abbreviations and unclear terms
 
-#### 3.2 Make Incremental Changes
+#### 3.3 Make Incremental Changes
+
+I'll use advanced editing capabilities for efficient refactoring:
+
+```bash
+# Use MultiEdit for bulk changes across a file
+# Use Edit for targeted changes
+# Track each change in the todo list
+```
 ```bash
 # Make small, focused changes
 # Test after each change
@@ -133,7 +179,7 @@ git commit -m "refactor: extract utility function for data validation
 - No functional changes"
 ```
 
-#### 3.3 Common Refactoring Patterns
+#### 3.4 Common Refactoring Patterns
 
 **Extract Function:**
 ```typescript
@@ -213,12 +259,21 @@ diff test_results_before.txt test_results_after.txt || echo "Test results compar
 ### Step 5: Documentation and Communication
 
 #### 5.1 Update Documentation
+
+I'll ensure all documentation is current:
+
 ```bash
-# Update code comments
+# Read existing documentation
+# Check README.md for needed updates
+# Update inline comments
 # Add JSDoc for new functions
-# Update README if public API changed
-# Document architectural decisions
 ```
+
+I can also:
+- Search for outdated documentation
+- Update type definitions
+- Ensure examples are current
+- Add migration guides if needed
 
 #### 5.2 Create Comprehensive Commit
 ```bash
@@ -360,6 +415,33 @@ git commit -m "refactor: partial improvement for $ARGUMENTS - checkpoint"
 # Create PR for current progress
 # Plan next phase of refactoring
 ```
+
+## Advanced Refactoring Features
+
+### Code Analysis
+
+With full tool access, I can:
+- **Read entire files** to understand complete context
+- **Search patterns** across the entire codebase
+- **Analyze dependencies** to assess impact
+- **Find all usages** before making changes
+- **Check test coverage** for safety
+
+### Task Management
+
+I'll use TodoWrite/TodoRead throughout to:
+- Track refactoring progress
+- Ensure no steps are missed
+- Provide visibility into current work
+- Document decisions and rationale
+
+### Research Capabilities
+
+For complex refactoring, I can:
+- Search for best practices online
+- Find similar refactoring examples
+- Research design patterns
+- Look up library documentation
 
 ## Best Practices
 

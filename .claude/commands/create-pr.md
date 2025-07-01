@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(gh pr:*), Bash(git:*), Edit
+allowed-tools: Bash, Read, Edit, MultiEdit, Glob, Grep, LS, TodoWrite, TodoRead, WebSearch, Task
 description: Create Pull Request from current changes with comprehensive analysis
 ---
 
@@ -21,7 +21,22 @@ Think about the changes you've made and follow this systematic approach to creat
 
 ### Step 1: Analyze and Prepare Changes
 
-#### 1.1 Review Current Changes
+#### 1.1 Comprehensive Change Analysis
+
+I'll analyze all changes systematically:
+
+```bash
+# Search for TODOs or FIXMEs that might need addressing
+grep -r "TODO\|FIXME" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx"
+```
+
+I can also:
+- Read modified files to understand changes in context
+- Search for related code that might be affected
+- Analyze test coverage for changed code
+- Check for any breaking changes
+
+#### 1.2 Review Current Changes
 ```bash
 # Review uncommitted changes
 git diff
@@ -59,6 +74,19 @@ git push origin $(git branch --show-current)
 
 ### Step 2: Quality Verification
 
+#### 2.0 Track Quality Checks
+
+I'll create a task list to ensure all quality checks pass:
+
+```bash
+# TodoWrite: Quality check tasks
+# - Run unit tests
+# - Check TypeScript types
+# - Verify code formatting
+# - Run build process
+# - Check for console.logs or debug code
+```
+
 #### 2.1 Run Comprehensive Checks
 ```bash
 # Run all quality checks
@@ -89,15 +117,27 @@ bun run check:write
 # Resolve linting issues
 ```
 
-### Step 3: Create Pull Request
+### Step 3: Analyze Code Impact
 
-#### 3.1 Auto-Generate PR (Recommended)
+#### 3.1 Search for Dependencies
+
+I'll analyze the impact of changes:
+
+```bash
+# Find all files that import changed modules
+# Search for usage patterns of modified functions
+# Check for potential breaking changes
+```
+
+### Step 4: Create Pull Request
+
+#### 4.1 Auto-Generate PR (Recommended)
 ```bash
 # Let GitHub CLI generate title and description from commits
 gh pr create --fill
 ```
 
-#### 3.2 Custom PR with Template
+#### 4.2 Custom PR with Template
 ```bash
 # Create with custom title and structured template
 gh pr create \
@@ -105,7 +145,9 @@ gh pr create \
   --template .github/PULL_REQUEST_TEMPLATE/pull_request_template.md
 ```
 
-#### 3.3 Manual PR Creation (Advanced)
+#### 4.3 Enhanced PR Creation
+
+I'll create a PR with comprehensive context from my analysis:
 ```bash
 # Create PR with comprehensive manual description
 gh pr create \
@@ -156,7 +198,7 @@ EOF
 )"
 ```
 
-### Step 4: Enhance PR Metadata
+### Step 5: Enhance PR Metadata
 
 #### 4.1 Add Metadata and Context
 ```bash
@@ -194,7 +236,7 @@ gh pr edit $PR_NUMBER --add-label "enhancement"
 # Related to #456"
 ```
 
-### Step 5: Final Verification
+### Step 6: Final Verification
 
 #### 5.1 Review Created PR
 ```bash
@@ -221,7 +263,7 @@ Review your PR against these criteria:
 - [ ] **Documentation updates** included if needed
 - [ ] **Code quality** meets project standards
 
-### Step 6: Request Review
+### Step 7: Request Review
 
 #### 6.1 Mark Ready and Request Review
 ```bash
@@ -313,6 +355,33 @@ gh pr merge $PR_NUMBER --rebase --delete-branch  # Rebase merge
 # Auto-merge when checks pass
 gh pr merge $PR_NUMBER --auto --squash --delete-branch
 ```
+
+## Advanced PR Features
+
+### Code Analysis Integration
+
+With full tool access, I can:
+- **Read all changed files** to provide detailed PR descriptions
+- **Search for related code** to identify potential impacts
+- **Analyze test coverage** to ensure changes are properly tested
+- **Find similar patterns** to maintain consistency
+- **Check documentation** to ensure it's updated
+
+### Task Management
+
+I'll use TodoWrite/TodoRead to:
+- Track PR creation steps
+- Ensure all quality checks pass
+- Monitor review feedback
+- Track required changes
+
+### Research Capabilities
+
+For complex PRs, I can:
+- Search for PR best practices
+- Find examples of similar changes
+- Research impact of breaking changes
+- Look up library migration guides
 
 ## Best Practices
 

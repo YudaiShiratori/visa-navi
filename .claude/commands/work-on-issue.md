@@ -1,5 +1,5 @@
 ---
-allowed-tools: Bash(gh issue:*), Bash(git:*), Edit, Bash(bun run:*)
+allowed-tools: Bash, Read, Edit, MultiEdit, Write, Glob, Grep, LS, TodoWrite, TodoRead, WebSearch, WebFetch, NotebookRead, NotebookEdit
 description: Complete issue-driven development workflow with 8 structured phases
 ---
 
@@ -15,7 +15,7 @@ Complete issue-driven development workflow for resolving GitHub issues systemati
 
 ## 8-Phase Development Process
 
-Think carefully about this issue and follow the systematic approach below to ensure comprehensive resolution.
+I'll use a structured task list to track progress through each phase. Think carefully about this issue and follow the systematic approach below to ensure comprehensive resolution.
 
 ### Phase 1: Issue Understanding & Planning
 
@@ -89,11 +89,20 @@ bun run check
 ```
 
 #### 3.2 Code Investigation
-Use the `@` syntax to reference relevant files:
-- Examine @src/components/ for UI issues
-- Check @src/server/api/ for API problems  
-- Review @src/lib/ for utility functions
-- Look at @__tests__/ for existing test coverage
+
+I'll search and analyze the codebase to understand the issue:
+
+```bash
+# Search for related code patterns
+# Example: grep -r "pattern" src/
+# Example: find . -name "*.tsx" -path "*/components/*"
+```
+
+I can also:
+- Read specific files to understand implementation
+- Search for usage patterns across the codebase
+- Analyze test coverage for affected areas
+- Check for similar existing solutions
 
 #### 3.3 Update Issue with Findings
 ```bash
@@ -114,7 +123,20 @@ gh issue comment $ARGUMENTS --body "## Investigation Results
 
 ### Phase 4: Implementation
 
-#### 4.1 Make Code Changes
+#### 4.1 Track Implementation Progress
+
+I'll create a detailed task list for the implementation:
+
+```bash
+# TodoWrite: Create tasks for each implementation step
+# - Write/update tests
+# - Implement core functionality
+# - Update types/interfaces
+# - Add error handling
+# - Update documentation
+```
+
+#### 4.2 Make Code Changes
 Think step by step about the implementation:
 
 1. **Start with tests** (if doing TDD):
@@ -123,15 +145,16 @@ Think step by step about the implementation:
 
 2. **Implement the fix/feature**:
    - Make minimal, focused changes
-   - Follow project coding standards
+   - Follow project coding standards (from CLAUDE.md)
    - Add proper error handling
+   - Use Read/Edit/MultiEdit tools efficiently
 
 3. **Update related code**:
    - Modify types/interfaces if needed
    - Update documentation
    - Add/update comments
 
-#### 4.2 Incremental Testing
+#### 4.3 Incremental Testing
 ```bash
 # Run tests frequently during development
 bun run test
@@ -143,7 +166,7 @@ bun run type-check
 bun run check
 ```
 
-#### 4.3 Commit Progress
+#### 4.4 Commit Progress
 ```bash
 # Make atomic commits
 git add .
@@ -252,9 +275,26 @@ gh issue edit $ARGUMENTS --remove-label "status:in-progress" --add-label "status
 ```
 
 #### 7.3 Address Review Feedback
+
 When you receive review comments:
+
 ```bash
-# Address feedback and push updates
+# Fetch and analyze review comments
+gh pr view --comments
+
+# TodoWrite: Track review feedback items
+# - Address comment 1: [description]
+# - Address comment 2: [description]
+# - Update tests if needed
+```
+
+I'll systematically address each piece of feedback:
+
+```bash
+# Make changes based on feedback
+# Use Read/Edit tools to implement suggestions
+
+# Commit and push updates
 git add .
 git commit -m "address review feedback: [description]"
 git push origin fix/issue-$ARGUMENTS
@@ -296,6 +336,34 @@ Thanks for reporting this issue!"
 git branch -d fix/issue-$ARGUMENTS
 git push origin --delete fix/issue-$ARGUMENTS
 ```
+
+## Advanced Features
+
+### Task Management Integration
+
+Throughout the workflow, I'll use TodoWrite/TodoRead to:
+- Track progress through each phase
+- Break down complex tasks into subtasks
+- Ensure nothing is forgotten
+- Provide visibility into current status
+
+### Code Analysis Capabilities
+
+With expanded tool access, I can:
+- Read entire files to understand context
+- Search for patterns across the codebase
+- Analyze dependencies and imports
+- Find similar implementations
+- Check test coverage
+- Validate against project standards
+
+### Research Capabilities
+
+For complex issues, I can:
+- Search documentation online
+- Look up best practices
+- Find similar solutions in other projects
+- Research library usage and APIs
 
 ## Quality Checklist
 
