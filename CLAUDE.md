@@ -10,7 +10,7 @@ This is a Next.js TypeScript full-stack development template based on the T3 Sta
 - **TypeScript** - Type-safe JavaScript development
 - **Tailwind CSS** - Utility-first CSS framework
 - **tRPC** - End-to-end type-safe API communication
-- **Biome** - Fast linter & formatter (Rust-based, 10-100x faster than ESLint/Prettier)
+- **Ultracite** - AI-ready code formatter and linter (built on Biome)
 - **Zod** - TypeScript-first schema validation
 - **Vitest** - Fast unit testing framework
 - **Playwright** - Modern E2E testing framework
@@ -29,9 +29,10 @@ This is a Next.js TypeScript full-stack development template based on the T3 Sta
 - `bun run start` - Start production server
 
 ### Code Quality
-- `bun run check` - Check code quality with Biome
-- `bun run check:write` - Auto-fix code issues
-- `bun run type-check` - Run TypeScript type checking
+- `bun run check` - Check code quality with Ultracite
+- `bun run check:write` - Auto-fix code issues with Ultracite
+- `bun run check:unsafe` - Apply unsafe fixes with Ultracite
+- `bun run typecheck` - Run TypeScript type checking
 
 ### Testing
 - `bun run test` - Run unit tests with Vitest
@@ -164,8 +165,8 @@ src/
 
 ## Important Notes
 
-- Always run type checking after making changes: `bun run type-check`
-- Use Biome for consistent code formatting: `bun run check:write`
+- Always run type checking after making changes: `bun run typecheck`
+- Use Ultracite for consistent code formatting: `bun run check:write`
 - Prefer running single tests during development for performance
 - Keep dependencies up to date using Dependabot PRs
 - Follow the existing patterns in the codebase for consistency
