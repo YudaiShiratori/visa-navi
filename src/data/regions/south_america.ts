@@ -94,10 +94,10 @@ export const southAmericaCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
-      purpose: ["tourism", "transit"],
+      purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "90日以内の観光、外交・公用目的の滞在はビザ不要",
+      "90日以内の観光、短期商用、外交・公用目的の滞在はビザ不要",
       "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "未使用査証欄5頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -107,7 +107,7 @@ export const southAmericaCountries: Country[] = [
     notes: [
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "アマゾン地域（Amazonas, Loreto, Madre de Dios, San Martin, Ucayali）への渡航には黄熱予防接種証明書が強く推奨される",
-      "業務目的は事前にビザ取得が必要",
+      "2025年7月1日より、日本人は90日以内の短期商用目的でペルーに滞在する際のビザ取得が免除",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にDNI（身分証明書）の取得が必要な場合あり",
