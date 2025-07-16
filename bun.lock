@@ -38,7 +38,7 @@
         "tailwindcss": "^4.1.11",
         "tw-animate-css": "^1.3.5",
         "typescript": "^5.8.3",
-        "ultracite": "^5.0.27",
+        "ultracite": "^5.0.35",
         "vitest": "^3.1.4",
       },
     },
@@ -698,7 +698,7 @@
 
     "typescript": ["typescript@5.8.3", "", { "bin": { "tsc": "bin/tsc", "tsserver": "bin/tsserver" } }, "sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ=="],
 
-    "ultracite": ["ultracite@5.0.27", "", { "dependencies": { "@clack/prompts": "^0.11.0", "commander": "^14.0.0", "deepmerge": "^4.3.1", "jsonc-parser": "^3.3.1", "vitest": "^3.2.4" }, "bin": { "ultracite": "dist/index.js" } }, "sha512-0P+00N0K49xItXrWp/zFvz4ScsioYbu80IuhFc+3thwFCk8OWFZJDkpviMgkw/FQEHaJfXnlt3A4qYXRboS9rQ=="],
+    "ultracite": ["ultracite@5.0.35", "", { "dependencies": { "@clack/prompts": "^0.11.0", "commander": "^14.0.0", "deepmerge": "^4.3.1", "jsonc-parser": "^3.3.1", "vitest": "^3.2.4" }, "bin": { "ultracite": "dist/index.js" } }, "sha512-Gvv5JoJw/8VaQwVW7Y9UQFncdrahvgoCh3QV8APLNoq6HZe4wpYHZJ3wuSpgq/CR8nKSOM2dnERbhb9jSC1nGg=="],
 
     "undici-types": ["undici-types@7.8.0", "", {}, "sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw=="],
 
