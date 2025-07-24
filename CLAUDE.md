@@ -76,6 +76,29 @@ This is a Next.js TypeScript full-stack development template based on the T3 Sta
 
 ## Testing Guidelines
 
+### Test-Driven Development (TDD) - t-wada Style
+**MANDATORY**: Always follow t-wada's TDD methodology when implementing new features or fixing bugs.
+
+**Red-Green-Refactor Cycle**:
+1. **Red**: Write a failing test that describes the desired behavior
+2. **Green**: Write the minimal code that makes the test pass
+3. **Refactor**: Improve code quality while keeping tests green
+
+**Core Principles**:
+- Never write production code without a failing test first
+- Write the simplest code that passes the test (avoid over-engineering)
+- Take small, incremental steps (one test case at a time)
+- Use descriptive test names that express behavior, not implementation
+- Focus on what the code should do, not how it does it
+- Triangulate when discovering the right abstraction (add multiple test cases)
+
+**Implementation Order**:
+1. Start with the simplest failing test case
+2. Make it pass with minimal code
+3. Add more test cases to drive out edge cases and abstractions
+4. Refactor only when tests are green
+5. Repeat for each new behavior
+
 ### Unit Testing with Vitest
 - Test files should be placed in `__tests__/` directory
 - Use `.test.ts` or `.test.tsx` extensions
