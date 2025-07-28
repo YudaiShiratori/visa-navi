@@ -841,4 +841,3 @@ For detailed usage, refer to the [Claude Code official documentation](https://do
 This repository is primarily managed by the following members. Feel free to contact us via Slack, etc., if you have any questions.
 
 - Kazuma Endo
-- Yudai Shiratori 

@@ -821,4 +821,3 @@ Các template này được tham chiếu tự động bởi các lệnh tùy ch�
 Repository này chủ yếu được quản lý bởi các thành viên sau. Hãy liên hệ với chúng tôi qua Slack, v.v., nếu bạn có bất kỳ câu hỏi nào.
 
 - Kazuma Endo
-- Yudai Shiratori 
