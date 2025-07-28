@@ -216,6 +216,27 @@ src/
 - Keep dependencies updated for security patches
 - Use environment variables for sensitive configuration
 
+## Claude AI Guidance
+
+### Custom Instructions for Development
+Follow these guidelines when assisting with code generation, reviews, or modifications:
+
+- **Coding Principles**: Prioritize understandability in code. Use meaningful names for variables/functions. Add comments explaining 'why' not 'what'. Format code consistently with proper indentation and grouping. Simplify control flows using guards and early returns. Decompose complex logic into smaller parts. Optimize variable scopes and eliminate unnecessary temporaries. Include tests and examples to demonstrate intent.
+
+- **UI/UX Design**: Design user-centered interfaces with clarity, simplicity, consistency, and efficiency. Follow visual hierarchy, thoughtful color/typography, intuitive interactions, accessibility (WCAG), and responsive design. Use shadcn/ui for components and adhere to component-driven design.
+
+- **Package Management**: Use bun for all package operations: `bun add {packages}` for adding, `bun install` for dependencies. For UI components: `bunx --bun shadcn@latest add {components}`.
+
+- **Testing**: Use Vitest for unit tests. Place tests in __tests__ with .test.ts(x) naming. Ensure test independence, readability (Given-When-Then), proper mocking, assertions, and coverage of error cases.
+
+- **Linting and Formatting**: Use Biome via `bun run check:write` for safe fixes. Avoid violations like noForEach, noUnusedVariables, useExhaustiveDependencies, noExplicitAny.
+
+- **Documentation**: Update docs/ when code changes, especially docs/directory-structure.md for structure updates.
+
+- **General**: Prevent duplicates by checking existing implementations. Follow TDD (Red-Green-Refactor). Use GitHub CLI for issues/PRs.
+
+These instructions ensure consistency in both CI/CD and local development.
+
 ---
 
 This configuration is optimized for Claude Code usage. The AI assistant should follow these guidelines when working with this codebase to ensure consistency and quality.

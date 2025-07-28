@@ -18,10 +18,16 @@ jobs:
     #   github.event.pull_request.user.login == 'new-developer' ||
     #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
     
+    # Skip review for certain conditions
+    if: |
+      !contains(github.event.pull_request.title, '[skip-review]') &&
+      !contains(github.event.pull_request.title, '[WIP]')
+    
     runs-on: ubuntu-latest
+    # Permissions for the job - extended for Claude to perform reviews and writes
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write  # Enable writing reviews and comments on PRs
       issues: read
       id-token: write
     
@@ -37,23 +43,26 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
 
-          # Optional: Specify model (defaults to Claude Sonnet 4, uncomment for Claude Opus 4)
+          # Specify model if needed (uncomment to use a different model)
           # model: "claude-opus-4-20250514"
-          
-          # Direct prompt for automated review (no @claude mention needed)
-          direct_prompt: |
-            Please review this pull request and provide feedback on:
-            - Code quality and best practices
-            - Potential bugs or issues
-            - Performance considerations
-            - Security concerns
-            - Test coverage
-            
-            Be constructive and helpful in your feedback.
 
-          # Optional: Use sticky comments to make Claude reuse the same comment on subsequent pushes to the same PR
-          # use_sticky_comment: true
-          
+          # Direct prompt for automated review, customized for project needs
+          direct_prompt: |
+            Review this pull request focusing on:
+            - Code quality, best practices, and adherence to project coding rules (understandability, naming, comments, formatting)
+            - Potential bugs, performance issues, security concerns
+            - Test coverage and suggestions for unit tests using Vitest
+            - UI/UX alignment with design guidelines (clarity, consistency, accessibility)
+            - Proper use of bun, shadcn/ui, Biome linter
+            - Suggestions for improvements or refactoring
+            Be constructive, reference specific lines, and suggest code changes if appropriate.
+
+          # Enable sticky comments for ongoing reviews
+          use_sticky_comment: true
+
+          # Allow Claude to run project-specific commands for verification
+          allowed_tools: "Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(grep:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(echo:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*)"
+
           # Optional: Customize review based on file types
           # direct_prompt: |
           #   Review this PR focusing on:
@@ -67,12 +76,4 @@ jobs:
           #   ${{ github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR' && 
           #   'Welcome! Please review this PR from a first-time contributor. Be encouraging and provide detailed explanations for any suggestions.' ||
           #   'Please provide a thorough code review focusing on our coding standards and best practices.' }}
-          
-          # Optional: Add specific tools for running tests or linting
-          # allowed_tools: "Bash(npm run test),Bash(npm run lint),Bash(npm run typecheck)"
-          
-          # Optional: Skip review for certain conditions
-          # if: |
-          #   !contains(github.event.pull_request.title, '[skip-review]') &&
-          #   !contains(github.event.pull_request.title, '[WIP]')
 
