@@ -56,4 +56,3 @@ node_modules/
 .claude/settings.json
 .claude/conversations/
 CLAUDE.local.md
-.mcp.json
