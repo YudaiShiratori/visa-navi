@@ -200,22 +200,21 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90, evisaAvailable: true },
     conditions: [
-      "電子渡航認証（eTA）の取得が必要",
-      "パスポート残存6ヶ月以上必要",
-      "黄熱病予防接種証明書が必要（推奨）",
+      "2024年以降は電子渡航認証（eTA）必須",
+      "航空会社はeTA未取得旅客の搭乗拒否/制裁対象",
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ke/index.html" },
-  },
+  }, // source: https://immigration.ecitizen.go.ke/travelers-obligations
   {
     id: "lesotho",
     name: "レソト",
     code: "LS",
     region: "africa",
-    visaRequirement: { type: "visa_free", duration: 14, purpose: ["tourism"] },
-    conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
+    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
+    conditions: ["日本国籍は3か月まで査証免除"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/lesotho/index.html" },
-  },
+  }, // source: https://www.mofa.go.jp/mofaj/area/lesotho/data.html
   {
     id: "madagascar",
     name: "マダガスカル",
@@ -291,16 +290,14 @@ export const africaCountries: Country[] = [
     name: "モザンビーク",
     code: "MZ",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30 },
+    visaRequirement: { type: "visa_free", duration: 30, purpose: ["tourism", "business"] },
     conditions: [
-      "事前にビザ取得が必要（東京の大使館で申請可能）",
-      "主要空港到着時にもビザ申請可能",
-      "パスポート残存6ヶ月以上必要",
-      "黄熱病予防接種証明書が必要（推奨）",
+      "日本国籍は観光・商用等で30日/回（年間最大90日）まで査証免除",
+      "入国前に電子事前登録（PAE）と入国税の支払いが必要",
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mozambique/index.html" },
-  },
+  }, // source: https://www.mz.emb-japan.go.jp/itpr_ja/11_000001_00616.html
   {
     id: "namibia",
     name: "ナミビア",
@@ -446,15 +443,14 @@ export const africaCountries: Country[] = [
     name: "ザンビア",
     code: "ZM",
     region: "africa",
-    visaRequirement: { type: "evisa", duration: 90, evisaAvailable: true },
+    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism", "business"] },
     conditions: [
-      "e-Visaまたは到着ビザの取得が必要",
-      "パスポート残存6ヶ月以上必要",
-      "黄熱病予防接種証明書が必要（推奨）",
+      "2022年11月7日以降、日本国籍は観光・商用等で最長90日まで査証免除",
+      "復路/第三国行き航空券の提示を求められる場合あり",
     ],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/zambia/index.html" },
-  },
+  }, // source: https://www.mofa.go.jp/mofaj/toko/visa/japanese/passport/visa_exempted.html#zambia
   {
     id: "zimbabwe",
     name: "ジンバブエ",
@@ -713,13 +709,9 @@ export const africaCountries: Country[] = [
     name: "エスワティニ",
     code: "SZ",
     region: "africa",
-    visaRequirement: { type: "evisa", duration: 60, evisaAvailable: true },
-    conditions: [
-      "事前にe-Visaの取得が必要",
-      "旅券残存3か月以上必要",
-      "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要",
-    ],
+    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism", "business"] },
+    conditions: ["日本国籍は滞在最長90日まで査証免除"],
     notes: [],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/eswatini/index.html" },
-  },
+  }, // source: https://www.za.emb-japan.go.jp/files/100233453.pdf
 ];

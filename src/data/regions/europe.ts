@@ -21,7 +21,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザ（VLS）の取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
@@ -47,7 +47,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には滞在許可（Aufenthaltserlaubnis）が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/germany/index.html",
@@ -74,7 +74,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
@@ -101,7 +101,7 @@ export const europeCountries: Country[] = [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/spain/index.html",
@@ -109,27 +109,22 @@ export const europeCountries: Country[] = [
   },
   {
     id: "uk",
-    name: "イギリス",
+    name: "イギリス（グレートブリテン及び北アイルランド連合王国）",
     code: "GB",
     region: "europe",
     visaRequirement: {
-      type: "evisa",
+      type: "visa_free",
       duration: 180,
       evisaAvailable: true,
       purpose: ["tourism", "business", "transit", "education"],
     },
     conditions: [
-      "パスポートの残存有効期間が帰国日まで有効なもの",
-      "出国用航空券（乗車券、乗船券も可）の所持が必要",
-      "滞在費用証明の持参が必要",
-      "入国時に提示可能な滞在資格の裏付け資料（入学許可書、招聘状など）の準備が望ましい",
-      "6か月未満の観光、親族・知人訪問、業務、短期留学目的の滞在はビザ不要",
-      "2025年1月8日渡航分よりeTA（電子渡航認証）の取得が必要",
-      "英国への入国を伴わない乗り継ぎはETA取得が不要（2025年1月17日～）",
+      "2025-01-08以降、短期渡航はETA（Electronic Travel Authorisation）必須",
+      "2025-01-17以降、英国の入国審査を通過しないエアサイド・トランジットはETA不要",
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uk/index.html",
@@ -156,7 +151,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/switzerland/index.html",
@@ -184,7 +179,7 @@ export const europeCountries: Country[] = [
     notes: [
       "カリブ海領土は別条件",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/netherlands/index.html",
@@ -211,7 +206,7 @@ export const europeCountries: Country[] = [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "8日以上滞在する場合は滞在地の市役所への登録が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belgium/index.html",
@@ -240,7 +235,7 @@ export const europeCountries: Country[] = [
       "180日間の滞在は、入国後最初の90日間の後、引き続き90日間滞在する場合のみ可能",
       "出国後の再入国には制限があるため、事前に確認が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/austria/index.html",
@@ -266,7 +261,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sweden/index.html",
@@ -293,7 +288,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/norway/index.html",
@@ -320,7 +315,7 @@ export const europeCountries: Country[] = [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "グリーンランドとフェロー諸島はシェンゲン圏外",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/denmark/index.html",
@@ -346,7 +341,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/finland/index.html",
@@ -372,7 +367,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/poland/index.html",
@@ -398,7 +393,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/czech/index.html",
@@ -424,7 +419,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/portugal/index.html",
@@ -472,7 +467,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/greece/index.html",
@@ -498,7 +493,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hungary/index.html",
@@ -524,7 +519,7 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/romania/index.html",
@@ -544,7 +539,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bulgaria/index.html",
@@ -571,7 +566,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/croatia/index.html",
@@ -591,7 +586,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovakia/index.html",
@@ -611,7 +606,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovenia/index.html",
@@ -637,7 +632,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/estonia/index.html",
@@ -657,7 +652,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/latvia/index.html",
@@ -677,7 +672,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/lithuania/index.html",
@@ -695,7 +690,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/malta/index.html",
@@ -721,7 +716,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cyprus/index.html",
@@ -748,7 +743,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/iceland/index.html",
@@ -820,7 +815,7 @@ export const europeCountries: Country[] = [
     conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "90日以内の滞在はビザ不要"],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/serbia/index.html",
@@ -838,7 +833,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belarus/index.html",
@@ -857,7 +852,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/liechtenstein/index.html",
@@ -872,7 +867,7 @@ export const europeCountries: Country[] = [
     conditions: ["シェンゲン協定加盟国", "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/luxembourg/index.html",
@@ -912,7 +907,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/albania/index.html",
@@ -949,7 +944,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bosnia/index.html",
@@ -967,7 +962,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/moldova/index.html",
@@ -986,7 +981,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/monaco/index.html",
@@ -1004,7 +999,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
@@ -1028,7 +1023,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macedonia/index.html",
@@ -1047,7 +1042,7 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（手数料20ユーロ）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sanmarino/index.html",

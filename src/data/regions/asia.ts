@@ -28,7 +28,7 @@ export const asiaCountries: Country[] = [
       "資金証明とTDAC登録は観光目的の渡航者全員（日本人含む）が対象",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/thailand/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/thai/index.html",
     },
   },
   {
@@ -197,12 +197,11 @@ export const asiaCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 30,
-      purpose: ["tourism"],
+      purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が6ヶ月以上必要",
-      "出国用の航空券の所持が必要",
-      "30日以内の滞在はビザ不要",
+      "日本国籍は観光・商用目的で30日まで査証免除（EO 408 対象）",
+      "復路/第三国行き航空券が必要",
     ],
     notes: [
       "30日を超える滞在にはビザの申請が必要",
@@ -212,7 +211,7 @@ export const asiaCountries: Country[] = [
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/philippines/index.html",
     },
-  },
+  }, // sources: https://tokyo.philembassy.net/ja/consular-section/services-for-foreign-nationals/visa/ （EO408案内）, https://londonpe.dfa.gov.ph/images/consular/visa/2023/VISA_FREE_UNDER_EO_408.pdf
   {
     id: "indonesia",
     name: "インドネシア",

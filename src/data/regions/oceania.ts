@@ -13,17 +13,14 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism", "business", "visit"],
     },
     conditions: [
-      "3ヵ月以内の観光、業務、知人・親族訪問目的の滞在はビザ不要",
-      "帰国時まで有効な旅券、ETA（電子渡航認証）の事前取得が必要",
-      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
-      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
-      "エクアドルのガラパゴス諸島への渡航者は除く",
+      "日本国籍は観光・商用等の短期滞在にETA（Subclass 601）が必要",
+      "申請はAustralian ETAアプリを使用（アプリ利用料AUD 20）",
     ],
     notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/australia/index.html",
     },
-  },
+  }, // sources: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601, https://www.anzen.mofa.go.jp/m/mbimmigration_071.html
   {
     id: "northern_mariana_islands",
     name: "北マリアナ諸島（サイパン）",
