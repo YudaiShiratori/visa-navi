@@ -1,8 +1,16 @@
 pre-commit:
-  commands:
-    check:
-      run: ./node_modules/.bin/biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+  jobs:
+    - run: bunx ultracite fix
+      glob: 
+        - "*.js"
+        - "*.jsx"
+        - "*.ts"
+        - "*.tsx"
+        - "*.json"
+        - "*.jsonc"
+        - "*.css"
       stage_fixed: true
-    typecheck:
-      run: ./node_modules/.bin/tsc --noEmit {staged_files}
+    - run: bun run test
+      glob: "*.{js,ts}"
+    - run: bunx tsc --noEmit
       glob: "*.{ts,tsx}"
