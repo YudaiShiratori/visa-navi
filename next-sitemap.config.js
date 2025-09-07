@@ -1,5 +1,5 @@
 /** @type {import('next-sitemap').IConfig} */
-module.exports = {
+const config = {
   siteUrl: "https://visa-navi.vercel.app",
   generateRobotsTxt: true,
   robotsTxtOptions: {
@@ -15,3 +15,5 @@ module.exports = {
   changefreq: "weekly",
   priority: 0.7,
 };
+
+export default config;
