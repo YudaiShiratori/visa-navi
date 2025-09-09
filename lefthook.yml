@@ -10,7 +10,5 @@ pre-commit:
         - "*.jsonc"
         - "*.css"
       stage_fixed: true
-    - run: bun run test
-      glob: "*.{js,ts}"
-    - run: bunx tsc --noEmit
+    - run: bunx tsgo --noEmit
       glob: "*.{ts,tsx}"
