@@ -73,6 +73,8 @@ This is a Next.js TypeScript full-stack development template based on the T3 Sta
 - Implement proper error boundaries for robust UX
 - Follow React best practices (hooks rules, component composition)
 - Use Shadcn/UI components as base for custom UI elements
+- Follow the design system documented in `src/app/design-system/` for all UI implementations
+- Use design tokens defined in `src/styles/globals.css` for consistent styling across the application
 
 ## Testing Guidelines
 
@@ -223,7 +225,7 @@ Follow these guidelines when assisting with code generation, reviews, or modific
 
 - **Coding Principles**: Prioritize understandability in code. Use meaningful names for variables/functions. Add comments explaining 'why' not 'what'. Format code consistently with proper indentation and grouping. Simplify control flows using guards and early returns. Decompose complex logic into smaller parts. Optimize variable scopes and eliminate unnecessary temporaries. Include tests and examples to demonstrate intent.
 
-- **UI/UX Design**: Design user-centered interfaces with clarity, simplicity, consistency, and efficiency. Follow visual hierarchy, thoughtful color/typography, intuitive interactions, accessibility (WCAG), and responsive design. Use shadcn/ui for components and adhere to component-driven design.
+- **UI/UX Design**: Design user-centered interfaces with clarity, simplicity, consistency, and efficiency. Follow visual hierarchy, thoughtful color/typography, intuitive interactions, accessibility (WCAG), and responsive design. Use shadcn/ui for components and adhere to component-driven design. **IMPORTANT**: Follow the design system documented in `src/app/design-system/` and use design tokens from `src/styles/globals.css` for all UI implementations to ensure consistency.
 
 - **Package Management**: Use bun for all package operations: `bun add {packages}` for adding, `bun install` for dependencies. For UI components: `bunx --bun shadcn@latest add {components}`.
 
