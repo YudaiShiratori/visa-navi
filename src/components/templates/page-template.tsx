@@ -33,29 +33,29 @@ export function PageTemplate({
   onBackClick,
 }: PageTemplateProps) {
   return (
-    <main className="flex flex-1 flex-col gap-4 p-4 pt-0">
+    <main className="flex flex-1 flex-col">
       <div className={cn("min-h-full bg-background", className)}>
         {/* Page Header Section */}
-        <div className="mb-6 border-border/50 border-b bg-background/80 backdrop-blur-sm">
-          <div className="container mx-auto px-4 py-4 sm:px-8">
+        <div className="border-border/40 border-b bg-background">
+          <div className="container mx-auto px-4 py-5 sm:px-8 sm:py-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0 flex-1">
                 {(title || description) && (
                   <div className="flex items-center gap-3">
                     {showBackButton && (
                       <BackButton
-                        className="size-7 p-0 text-muted-foreground hover:text-foreground"
+                        className="size-8 shrink-0 rounded-lg border bg-card p-0 text-muted-foreground shadow-sm transition-all hover:bg-accent hover:text-foreground hover:shadow"
                         onClick={onBackClick}
                       />
                     )}
-                    <div className="min-w-0 flex-1 space-y-1">
+                    <div className="min-w-0 flex-1 space-y-1.5">
                       {title && (
-                        <h1 className="truncate font-bold text-2xl text-foreground tracking-tight">
+                        <h1 className="truncate font-bold text-3xl text-foreground tracking-tight">
                           {title}
                         </h1>
                       )}
                       {description && (
-                        <p className="text-muted-foreground text-sm">
+                        <p className="text-balance text-muted-foreground text-sm leading-relaxed">
                           {description}
                         </p>
                       )}
@@ -72,7 +72,7 @@ export function PageTemplate({
         </div>
 
         {/* Page Content */}
-        <div className="container mx-auto space-y-8 px-4 sm:px-8">
+        <div className="container mx-auto space-y-12 px-4 py-8 sm:px-8 sm:py-12">
           {children}
         </div>
       </div>
@@ -103,63 +103,64 @@ export function PageHero({
   className,
 }: PageHeroProps) {
   const gradientClasses = {
-    primary: "bg-gradient-to-br from-primary/10 via-secondary/10 to-background",
-    secondary: "bg-gradient-to-br from-secondary/15 via-background to-muted/10",
-    accent: "bg-gradient-to-br from-accent/20 via-background to-muted/20",
-    muted: "bg-gradient-to-br from-muted/30 via-background to-accent/10",
+    primary: "bg-gradient-to-br from-primary/10 via-primary/5 to-background",
+    secondary:
+      "bg-gradient-to-br from-secondary/15 via-secondary/5 to-background",
+    accent: "bg-gradient-to-br from-accent/20 via-accent/5 to-background",
+    muted: "bg-gradient-to-br from-muted/30 via-muted/10 to-background",
   };
 
   const blurColors = {
-    primary: "bg-primary/10",
-    secondary: "bg-secondary/10",
-    accent: "bg-accent/15",
-    muted: "bg-muted/20",
+    primary: "bg-primary/20",
+    secondary: "bg-secondary/20",
+    accent: "bg-accent/25",
+    muted: "bg-muted/30",
   };
 
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl border p-8 shadow-lg md:p-12",
+        "group relative overflow-hidden rounded-2xl border border-border/50 p-10 shadow-xl transition-shadow duration-300 hover:shadow-2xl md:p-16",
         gradientClasses[gradient],
         className
       )}
     >
-      <div className="relative z-10 space-y-6">
+      <div className="relative z-10 space-y-8">
         {badges && badges.length > 0 && (
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-2.5">
             {badges.map((badge) => (
               <Badge
-                className={badge.className}
+                className={cn("px-3 py-1.5 text-xs shadow-sm", badge.className)}
                 key={badge.label}
                 variant={badge.variant || "secondary"}
               >
-                {badge.icon && <span className="mr-1">{badge.icon}</span>}
+                {badge.icon && <span className="mr-1.5">{badge.icon}</span>}
                 {badge.label}
               </Badge>
             ))}
           </div>
         )}
-        <div className="max-w-3xl space-y-4">
-          <h2 className="font-bold text-4xl text-foreground tracking-tight md:text-5xl">
+        <div className="max-w-4xl space-y-6">
+          <h2 className="font-bold text-4xl text-foreground leading-tight tracking-tight md:text-6xl">
             {title}
           </h2>
           {description && (
-            <p className="text-lg text-muted-foreground md:text-xl">
+            <p className="text-balance text-lg text-muted-foreground leading-relaxed md:text-xl">
               {description}
             </p>
           )}
         </div>
-        {actions && <div className="flex flex-wrap gap-3">{actions}</div>}
+        {actions && <div className="flex flex-wrap gap-3 pt-2">{actions}</div>}
       </div>
       <div
         className={cn(
-          "-right-20 -top-20 pointer-events-none absolute size-64 rounded-full blur-3xl",
+          "-right-24 -top-24 pointer-events-none absolute size-80 rounded-full opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-80",
           blurColors[gradient]
         )}
       />
       <div
         className={cn(
-          "-bottom-20 -left-20 pointer-events-none absolute size-64 rounded-full blur-3xl",
+          "-bottom-24 -left-24 pointer-events-none absolute size-80 rounded-full opacity-60 blur-3xl transition-opacity duration-500 group-hover:opacity-80",
           blurColors[gradient === "primary" ? "secondary" : "primary"]
         )}
       />
@@ -181,31 +182,31 @@ export function PageSection({
   spacing = "md",
 }: PageSectionProps) {
   const spacingClasses = {
+    sm: "space-y-5",
+    md: "space-y-7",
+    lg: "space-y-10",
+    xl: "space-y-12",
+  };
+
+  const contentSpacingClasses = {
     sm: "space-y-4",
     md: "space-y-6",
     lg: "space-y-8",
     xl: "space-y-10",
   };
 
-  const contentSpacingClasses = {
-    sm: "space-y-3",
-    md: "space-y-4",
-    lg: "space-y-6",
-    xl: "space-y-8",
-  };
-
   return (
     <section className={cn(spacingClasses[spacing], className)}>
       {(title || description || action) && (
         <div className="flex items-start justify-between gap-6">
-          <div className="min-w-0 flex-1 space-y-2">
+          <div className="min-w-0 flex-1 space-y-3">
             {title && (
-              <h2 className="font-semibold text-foreground text-xl tracking-tight">
+              <h2 className="font-bold text-2xl text-foreground tracking-tight md:text-3xl">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="max-w-2xl text-muted-foreground text-sm leading-relaxed">
+              <p className="max-w-3xl text-balance text-base text-muted-foreground leading-relaxed">
                 {description}
               </p>
             )}
@@ -236,35 +237,42 @@ export function PageCard({
   icon,
 }: PageCardProps) {
   const variantClasses = {
-    default: "bg-card text-card-foreground border shadow-sm",
-    elevated: "bg-card text-card-foreground border shadow-lg",
-    outlined: "bg-card text-card-foreground border-2 shadow-none",
+    default: "bg-card text-card-foreground border border-border/60 shadow-md",
+    elevated: "bg-card text-card-foreground border border-border/50 shadow-xl",
+    outlined: "bg-card text-card-foreground border-2 border-border shadow-sm",
     ghost: "bg-transparent text-card-foreground border-0 shadow-none",
   };
 
   const hoverClasses = hover
-    ? "transition-all duration-200 hover:shadow-xl hover:scale-[1.02]"
-    : "transition-shadow duration-200";
+    ? "transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] hover:border-border"
+    : "transition-all duration-200 hover:shadow-lg";
 
   return (
-    <Card className={cn(variantClasses[variant], hoverClasses, className)}>
+    <Card
+      className={cn(
+        variantClasses[variant],
+        hoverClasses,
+        "rounded-xl",
+        className
+      )}
+    >
       {(title || description || action || icon) && (
-        <CardHeader className="flex items-start space-y-2 pb-4">
+        <CardHeader className="flex items-start space-y-3 pb-5">
           <div className="flex w-full items-start justify-between gap-4">
             <div className="flex min-w-0 flex-1 gap-4">
               {icon && (
-                <div className="shrink-0 rounded-lg bg-primary/10 p-3 text-primary">
+                <div className="shrink-0 rounded-xl bg-primary/10 p-3.5 text-primary shadow-sm">
                   {icon}
                 </div>
               )}
-              <div className="min-w-0 flex-1 space-y-2">
+              <div className="min-w-0 flex-1 space-y-2.5">
                 {title && (
-                  <CardTitle className="font-semibold text-foreground text-lg leading-tight">
+                  <CardTitle className="font-bold text-foreground text-xl leading-tight">
                     {title}
                   </CardTitle>
                 )}
                 {description && (
-                  <CardDescription className="text-muted-foreground text-sm leading-relaxed">
+                  <CardDescription className="text-balance text-muted-foreground text-sm leading-relaxed">
                     {description}
                   </CardDescription>
                 )}
@@ -300,24 +308,26 @@ export function PageFeatureCard({
   return (
     <div
       className={cn(
-        "group relative overflow-hidden rounded-lg border bg-card p-6 shadow-sm transition-all hover:shadow-lg",
+        "group relative overflow-hidden rounded-xl border border-border/50 bg-card p-7 shadow-md transition-all duration-300 hover:border-border hover:shadow-2xl",
         className
       )}
     >
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div className="flex items-start justify-between">
           <div
             className={cn(
-              "rounded-xl bg-primary/10 p-3 shadow-sm transition-transform group-hover:scale-110",
+              "rounded-xl bg-primary/10 p-4 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md",
               iconColor
             )}
           >
             {icon}
           </div>
         </div>
-        <div className="space-y-2">
-          <h3 className="font-semibold text-foreground text-lg">{title}</h3>
-          <p className="text-muted-foreground text-sm leading-relaxed">
+        <div className="space-y-3">
+          <h3 className="font-bold text-foreground text-xl leading-tight">
+            {title}
+          </h3>
+          <p className="text-balance text-muted-foreground text-sm leading-relaxed">
             {description}
           </p>
         </div>
@@ -344,38 +354,40 @@ export function PageStepCard({
 }: PageStepCardProps) {
   const variantClasses = {
     primary: {
-      bg: "bg-primary/5",
-      badge: "bg-primary/10 text-primary",
+      bg: "bg-primary/5 border border-primary/20",
+      badge: "bg-primary/15 text-primary shadow-sm",
     },
     secondary: {
-      bg: "bg-secondary/5",
-      badge: "bg-secondary/10 text-secondary-foreground",
+      bg: "bg-secondary/5 border border-secondary/20",
+      badge: "bg-secondary/15 text-secondary-foreground shadow-sm",
     },
     accent: {
-      bg: "bg-accent/5",
-      badge: "bg-accent/10 text-accent-foreground",
+      bg: "bg-accent/5 border border-accent/20",
+      badge: "bg-accent/15 text-accent-foreground shadow-sm",
     },
   };
 
   return (
     <div
       className={cn(
-        "flex items-start gap-3 rounded-lg p-4",
+        "flex items-start gap-4 rounded-xl p-5 transition-colors hover:bg-opacity-80",
         variantClasses[variant].bg,
         className
       )}
     >
       <div
         className={cn(
-          "flex size-8 shrink-0 items-center justify-center rounded-full font-bold text-sm",
+          "flex size-10 shrink-0 items-center justify-center rounded-full font-bold text-base",
           variantClasses[variant].badge
         )}
       >
         {step}
       </div>
-      <div className="flex-1">
-        <h4 className="mb-1 font-semibold text-foreground text-sm">{title}</h4>
-        <p className="text-muted-foreground text-sm">{description}</p>
+      <div className="flex-1 space-y-1.5">
+        <h4 className="font-bold text-base text-foreground">{title}</h4>
+        <p className="text-balance text-muted-foreground text-sm leading-relaxed">
+          {description}
+        </p>
       </div>
     </div>
   );

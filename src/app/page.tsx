@@ -39,16 +39,16 @@ export default async function Home() {
           actions={
             <>
               <Link href="/design-system">
-                <Button className="shadow-md" size="lg">
-                  <Box className="mr-2 size-4" />
+                <Button className="h-11 shadow-lg" size="lg">
+                  <Box className="mr-2 size-5" />
                   デザインシステムを見る
                 </Button>
               </Link>
               <Link href="https://create.t3.gg" target="_blank">
-                <Button size="lg" variant="outline">
-                  <BookOpen className="mr-2 size-4" />
+                <Button className="h-11 shadow-md" size="lg" variant="outline">
+                  <BookOpen className="mr-2 size-5" />
                   ドキュメント
-                  <ExternalLink className="ml-2 size-3" />
+                  <ExternalLink className="ml-2 size-4" />
                 </Button>
               </Link>
             </>
@@ -56,24 +56,19 @@ export default async function Home() {
           badges={[
             {
               label: "フルスタックテンプレート",
-              icon: <Sparkles className="size-3" />,
+              icon: <Sparkles className="size-3.5" />,
               variant: "secondary",
-              className: "bg-primary/20 text-primary",
+              className: "bg-primary/15 text-primary border-primary/30",
             },
             {
               label: "T3 Stack",
-              icon: <Zap className="size-3" />,
+              icon: <Zap className="size-3.5" />,
               variant: "secondary",
-              className: "bg-secondary/20 text-secondary-foreground",
+              className:
+                "bg-secondary/15 text-secondary-foreground border-secondary/30",
             },
           ]}
-          description={
-            <>
-              TypeScript、tRPC、Tailwind CSSを統合した
-              <br />
-              エンタープライズグレードのNext.jsテンプレート
-            </>
-          }
+          description="TypeScript、tRPC、Tailwind CSSを統合したエンタープライズグレードのNext.jsテンプレート。型安全なフルスタック開発を今すぐ始めましょう。"
           gradient="primary"
           title={
             <>
@@ -86,22 +81,24 @@ export default async function Home() {
 
         {/* デザインシステムセクション */}
         <PageSection
-          description="アプリケーション全体で一貫性のあるデザインを実現"
+          description="統一されたデザイントークンとコンポーネントで、一貫性のある美しいUIを構築"
+          spacing="lg"
           title="デザインシステム"
         >
           <PageGrid cols={2} gap="lg">
             <Link className="group" href="/design-system/colors">
               <PageCard
                 description="OKLCH色空間による美しいカラーパレット"
+                hover
                 title="カラーシステム"
                 variant="elevated"
               >
-                <div className="flex items-center justify-between">
-                  <Palette className="size-10 text-primary transition-transform group-hover:scale-110" />
-                  <div className="flex gap-1.5">
-                    <div className="size-8 rounded-md bg-primary shadow-sm" />
-                    <div className="size-8 rounded-md bg-secondary shadow-sm" />
-                    <div className="size-8 rounded-md bg-accent shadow-sm" />
+                <div className="flex items-center justify-between pt-2">
+                  <Palette className="size-12 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80" />
+                  <div className="flex gap-2">
+                    <div className="size-10 rounded-lg bg-primary shadow-md transition-transform group-hover:scale-110" />
+                    <div className="size-10 rounded-lg bg-secondary shadow-md transition-transform group-hover:scale-110" />
+                    <div className="size-10 rounded-lg bg-accent shadow-md transition-transform group-hover:scale-110" />
                   </div>
                 </div>
               </PageCard>
@@ -109,14 +106,17 @@ export default async function Home() {
             <Link className="group" href="/design-system/typography">
               <PageCard
                 description="読みやすさを追求したタイポグラフィシステム"
+                hover
                 title="タイポグラフィ"
                 variant="elevated"
               >
-                <div className="flex items-center justify-between">
-                  <Type className="size-10 text-primary transition-transform group-hover:scale-110" />
-                  <div className="space-y-1 text-right">
-                    <div className="font-bold text-foreground text-lg">Aa</div>
-                    <div className="text-muted-foreground text-xs">
+                <div className="flex items-center justify-between pt-2">
+                  <Type className="size-12 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80" />
+                  <div className="space-y-2 text-right">
+                    <div className="font-bold text-2xl text-foreground transition-all group-hover:text-primary">
+                      Aa
+                    </div>
+                    <div className="text-muted-foreground text-sm">
                       Noto Sans JP
                     </div>
                   </div>
@@ -126,16 +126,17 @@ export default async function Home() {
             <Link className="group" href="/design-system/spacing">
               <PageCard
                 description="統一された余白設計による調和のとれたレイアウト"
+                hover
                 title="スペーシング"
                 variant="elevated"
               >
-                <div className="flex w-full items-center justify-between">
-                  <Ruler className="size-10 text-primary transition-transform group-hover:scale-110" />
-                  <div className="flex items-center gap-2">
-                    <div className="h-8 w-2 rounded bg-muted" />
-                    <div className="h-8 w-4 rounded bg-muted" />
-                    <div className="h-8 w-6 rounded bg-muted" />
-                    <div className="h-8 w-8 rounded bg-primary" />
+                <div className="flex w-full items-center justify-between pt-2">
+                  <Ruler className="size-12 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80" />
+                  <div className="flex items-center gap-2.5">
+                    <div className="h-10 w-2 rounded-md bg-muted shadow-sm transition-all group-hover:bg-primary/30" />
+                    <div className="h-10 w-4 rounded-md bg-muted shadow-sm transition-all group-hover:bg-primary/30" />
+                    <div className="h-10 w-6 rounded-md bg-muted shadow-sm transition-all group-hover:bg-primary/30" />
+                    <div className="h-10 w-10 rounded-md bg-primary shadow-md transition-all group-hover:scale-110" />
                   </div>
                 </div>
               </PageCard>
@@ -143,14 +144,15 @@ export default async function Home() {
             <Link className="group" href="/design-system/components">
               <PageCard
                 description="再利用可能なUIコンポーネントライブラリ"
+                hover
                 title="コンポーネント"
                 variant="elevated"
               >
-                <div className="flex w-full items-center justify-between">
-                  <Code className="size-10 text-primary transition-transform group-hover:scale-110" />
-                  <div className="flex flex-col gap-1.5">
-                    <div className="h-6 w-16 rounded-md border bg-background shadow-sm" />
-                    <div className="h-6 w-20 rounded-md border-2 border-primary/20 bg-primary/10" />
+                <div className="flex w-full items-center justify-between pt-2">
+                  <Code className="size-12 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary/80" />
+                  <div className="flex flex-col gap-2.5">
+                    <div className="h-7 w-20 rounded-lg border border-border/60 bg-background shadow-md transition-all group-hover:border-primary/50 group-hover:shadow-lg" />
+                    <div className="h-7 w-24 rounded-lg border-2 border-primary/30 bg-primary/10 shadow-sm transition-all group-hover:border-primary/50 group-hover:bg-primary/20" />
                   </div>
                 </div>
               </PageCard>
@@ -160,7 +162,8 @@ export default async function Home() {
 
         {/* T3 スタックリソース */}
         <PageSection
-          description="強力なフルスタック開発のためのツールとドキュメント"
+          description="強力なフルスタック開発を始めるための公式ドキュメントとガイド"
+          spacing="lg"
           title="リソース"
         >
           <PageGrid cols={2} gap="lg">
@@ -171,17 +174,20 @@ export default async function Home() {
             >
               <PageCard
                 description="データベースと認証のセットアップガイド"
+                hover
                 title="First Steps"
                 variant="elevated"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-primary/10 p-2.5 transition-transform group-hover:scale-110">
-                      <BookOpen className="size-6 text-primary" />
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center gap-4">
+                    <div className="rounded-xl bg-primary/10 p-3.5 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                      <BookOpen className="size-7 text-primary" />
                     </div>
-                    <Badge variant="outline">ガイド</Badge>
+                    <Badge className="shadow-sm" variant="outline">
+                      ガイド
+                    </Badge>
                   </div>
-                  <ExternalLink className="size-5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <ExternalLink className="size-6 text-muted-foreground opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
                 </div>
               </PageCard>
             </Link>
@@ -192,17 +198,20 @@ export default async function Home() {
             >
               <PageCard
                 description="T3 Stackの詳細ドキュメント"
+                hover
                 title="Documentation"
                 variant="elevated"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-secondary/10 p-2.5 transition-transform group-hover:scale-110">
-                      <BookOpen className="size-6 text-secondary-foreground" />
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center gap-4">
+                    <div className="rounded-xl bg-secondary/10 p-3.5 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md">
+                      <BookOpen className="size-7 text-secondary-foreground" />
                     </div>
-                    <Badge variant="outline">ドキュメント</Badge>
+                    <Badge className="shadow-sm" variant="outline">
+                      ドキュメント
+                    </Badge>
                   </div>
-                  <ExternalLink className="size-5 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" />
+                  <ExternalLink className="size-6 text-muted-foreground opacity-0 transition-all group-hover:translate-x-1 group-hover:opacity-100" />
                 </div>
               </PageCard>
             </Link>
@@ -211,34 +220,35 @@ export default async function Home() {
 
         {/* tRPC デモ */}
         <PageSection
-          description="サーバーとクライアント間の型安全な通信"
+          description="エンドツーエンドで型安全なサーバー・クライアント間通信を実現"
+          spacing="lg"
           title="tRPC デモ"
         >
           <PageGrid cols={2} gap="lg">
             <PageCard
-              description="tRPCによるエンドツーエンドの型安全性を体験"
+              description="tRPCによる型安全なAPI通信を体験"
               title="サーバー通信テスト"
               variant="elevated"
             >
-              <div className="space-y-4">
-                <div className="flex items-center gap-2">
+              <div className="space-y-5 pt-2">
+                <div className="flex items-center gap-3">
                   <Badge
-                    className="bg-primary/10 text-primary"
+                    className="bg-primary/10 text-primary shadow-sm"
                     variant="secondary"
                   >
-                    <Zap className="mr-1 size-3" />
+                    <Zap className="mr-1.5 size-3.5" />
                     型安全
                   </Badge>
-                  <span className="text-muted-foreground text-xs">
+                  <span className="text-muted-foreground text-sm">
                     TypeScript
                   </span>
                 </div>
-                <div className="rounded-lg border bg-muted/30 p-4 shadow-inner">
-                  <div className="space-y-2">
-                    <div className="font-medium text-foreground text-xs">
+                <div className="rounded-xl border border-border/60 bg-muted/30 p-5 shadow-inner">
+                  <div className="space-y-3">
+                    <div className="font-semibold text-foreground text-sm">
                       Response:
                     </div>
-                    <p className="font-mono text-primary text-sm">
+                    <p className="font-mono text-base text-primary leading-relaxed">
                       {hello ? hello.greeting : "Loading tRPC query..."}
                     </p>
                   </div>

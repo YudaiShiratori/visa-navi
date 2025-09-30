@@ -70,18 +70,12 @@ export default function DesignSystemPage() {
         badges={[
           {
             label: "デザイントークン",
-            icon: <Sparkles className="size-3" />,
+            icon: <Sparkles className="size-3.5" />,
             variant: "secondary",
-            className: "bg-accent/20 text-accent-foreground",
+            className: "bg-accent/15 text-accent-foreground border-accent/30",
           },
         ]}
-        description={
-          <>
-            Shadcn/UIコンポーネントとglobals.cssのデザイントークンが
-            <br />
-            デザインシステムを形成し、アプリケーション全体のデザインを統一管理
-          </>
-        }
+        description="Shadcn/UIコンポーネントとglobals.cssのデザイントークンが統合され、アプリケーション全体で一貫性のある美しいデザインを実現します。"
         gradient="accent"
         title={
           <>
@@ -104,14 +98,14 @@ export default function DesignSystemPage() {
               <Link className="group" href={category.href} key={category.id}>
                 <PageFeatureCard
                   description={category.preview}
-                  icon={<IconComponent className="h-7 w-7" />}
+                  icon={<IconComponent className="size-8" />}
                   title={category.title}
                 >
-                  <div className="mt-4 flex items-center justify-between rounded-lg border bg-muted/30 p-3 transition-colors group-hover:bg-muted/50">
-                    <span className="font-medium text-foreground text-sm">
+                  <div className="mt-5 flex items-center justify-between rounded-xl border border-border/60 bg-muted/30 p-4 shadow-sm transition-all duration-300 group-hover:border-border group-hover:bg-muted/50 group-hover:shadow-md">
+                    <span className="font-semibold text-base text-foreground">
                       ガイドを見る
                     </span>
-                    <ArrowRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="size-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1" />
                   </div>
                 </PageFeatureCard>
               </Link>
@@ -122,6 +116,7 @@ export default function DesignSystemPage() {
 
       <PageSection
         description="デザインシステムの構成とワークフロー"
+        spacing="lg"
         title="デザインシステムアーキテクチャ"
       >
         <PageGrid cols={1} gap="lg">
@@ -130,22 +125,22 @@ export default function DesignSystemPage() {
             title="デザインシステムの構成要素"
             variant="elevated"
           >
-            <div className="space-y-4">
-              <div className="rounded-lg border bg-primary/5 p-4">
-                <h4 className="mb-3 font-medium text-foreground text-sm">
+            <div className="space-y-5 pt-2">
+              <div className="rounded-xl border border-primary/20 bg-primary/5 p-6 shadow-sm">
+                <h4 className="mb-4 font-bold text-base text-foreground">
                   🎨 デザインシステムの構成
                 </h4>
-                <div className="space-y-2 text-muted-foreground text-sm">
+                <div className="space-y-3 text-muted-foreground text-sm leading-relaxed">
                   <p>
                     •
-                    <strong className="text-foreground">
+                    <strong className="font-semibold text-foreground">
                       Shadcn/UIコンポーネント
                     </strong>
                     - 再利用可能なUIコンポーネントライブラリ
                   </p>
                   <p>
                     •
-                    <strong className="text-foreground">
+                    <strong className="font-semibold text-foreground">
                       globals.cssのデザイントークン
                     </strong>
                     - カラー、タイポグラフィ、スペーシングなどの設計値
@@ -157,11 +152,11 @@ export default function DesignSystemPage() {
                 </div>
               </div>
 
-              <div className="rounded-lg border bg-secondary/5 p-4">
-                <h4 className="mb-3 font-medium text-foreground text-sm">
+              <div className="rounded-xl border border-secondary/20 bg-secondary/5 p-6 shadow-sm">
+                <h4 className="mb-4 font-bold text-base text-foreground">
                   🛠️ tweakcnの役割
                 </h4>
-                <div className="space-y-2 text-muted-foreground text-sm">
+                <div className="space-y-3 text-muted-foreground text-sm leading-relaxed">
                   <p>
                     •
                     tweakcnは、デザイナーがGUI上でデザイントークンを視覚的に調整するためのツール
@@ -285,6 +280,7 @@ export default function DesignSystemPage() {
 
       <PageSection
         description="デザインシステムを効果的に活用するための原則"
+        spacing="lg"
         title="デザイン原則"
       >
         <PageGrid cols={2} gap="lg">
@@ -293,7 +289,7 @@ export default function DesignSystemPage() {
             title="一貫性"
             variant="elevated"
           >
-            <div className="space-y-2 text-muted-foreground text-sm">
+            <div className="space-y-3 pt-2 text-muted-foreground text-sm leading-relaxed">
               <p>• 同じ目的には同じデザイントークンを使用</p>
               <p>• カラー、タイポグラフィ、スペーシングの統一</p>
               <p>• 予測可能で学習しやすいインターフェース</p>
@@ -304,7 +300,7 @@ export default function DesignSystemPage() {
             title="スケーラビリティ"
             variant="elevated"
           >
-            <div className="space-y-2 text-muted-foreground text-sm">
+            <div className="space-y-3 pt-2 text-muted-foreground text-sm leading-relaxed">
               <p>• グローバルなデザイン変更が容易</p>
               <p>• 再利用可能なコンポーネント</p>
               <p>• チーム全体での効率的な協業</p>
