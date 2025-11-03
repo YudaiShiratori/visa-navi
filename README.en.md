@@ -54,6 +54,32 @@ It is actively used in HEART Dev projects.
 
 **Architecture Features**: Full-stack type safety with TypeScript + Next.js + tRPC, fast development toolchain, comprehensive testing environment
 
+### Design System
+
+This template includes a design system composed of **Shadcn/UI components** and **design tokens in globals.css**.
+
+#### Design System Composition
+- **Shadcn/UI Components** - Reusable UI component library (Button, Card, Input, etc.)
+- **Design tokens in globals.css** - CSS variables for colors, typography, spacing, etc.
+- This combination enables consistent design across the application
+
+#### GUI-based Styling with tweakcn
+
+Using [tweakcn](https://tweakcn.com/), designers can visually adjust design tokens in a GUI without writing code.
+
+**Workflow**:
+1. **Customize with tweakcn** - Visually adjust colors, typography, and spacing in the GUI
+2. **Paste into globals.css** - Copy the exported CSS to `src/styles/globals.css`
+3. **Instant reflection** - Since Shadcn/UI components reference design tokens, the entire app's design updates automatically
+
+#### Features
+- **Designer-friendly**: Customize without writing code using tweakcn's GUI
+- **Development efficiency**: Simply copy & paste CSS to apply changes to all components
+- **AI-compatible**: AI-generated UI automatically adheres to the design system
+- **Consistency**: All components use design tokens for a unified look & feel
+
+See the `/design-system` page for more details.
+
 ### Directory Structure
 
 ```

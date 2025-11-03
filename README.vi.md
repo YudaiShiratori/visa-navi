@@ -54,6 +54,32 @@ Dựa trên [T3 Stack](https://create.t3.gg/), bổ sung thêm các tính năng 
 
 **Đặc điểm kiến trúc**: Đảm bảo kiểu dữ liệu full-stack với TypeScript + Next.js + tRPC, chuỗi công cụ phát triển nhanh, môi trường testing toàn diện
 
+### Hệ thống thiết kế
+
+Template này bao gồm một hệ thống thiết kế được cấu thành từ **component Shadcn/UI** và **design token trong globals.css**.
+
+#### Cấu trúc hệ thống thiết kế
+- **Component Shadcn/UI** - Thư viện component UI có thể tái sử dụng (Button, Card, Input, v.v.)
+- **Design token trong globals.css** - Biến CSS cho màu sắc, typography, khoảng cách, v.v.
+- Sự kết hợp này cho phép thiết kế nhất quán trong toàn bộ ứng dụng
+
+#### Styling dựa trên GUI với tweakcn
+
+Sử dụng [tweakcn](https://tweakcn.com/), designer có thể điều chỉnh design token một cách trực quan trong GUI mà không cần viết code.
+
+**Quy trình làm việc**:
+1. **Tùy chỉnh với tweakcn** - Điều chỉnh màu sắc, typography và khoảng cách một cách trực quan trong GUI
+2. **Dán vào globals.css** - Sao chép CSS được xuất ra vào `src/styles/globals.css`
+3. **Phản ánh tức thì** - Vì các component Shadcn/UI tham chiếu đến design token, thiết kế của toàn bộ ứng dụng sẽ tự động cập nhật
+
+#### Tính năng
+- **Thân thiện với designer**: Tùy chỉnh mà không cần viết code bằng GUI của tweakcn
+- **Hiệu quả phát triển**: Chỉ cần sao chép & dán CSS để áp dụng thay đổi cho tất cả component
+- **Tương thích AI**: UI được tạo bởi AI tự động tuân theo hệ thống thiết kế
+- **Tính nhất quán**: Tất cả component sử dụng design token cho giao diện thống nhất
+
+Xem chi tiết tại trang `/design-system`.
+
 ### Cấu trúc thư mục
 
 ```
