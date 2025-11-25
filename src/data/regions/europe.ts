@@ -20,8 +20,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザ（VLS）の取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
@@ -46,8 +47,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には滞在許可（Aufenthaltserlaubnis）が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/germany/index.html",
@@ -73,8 +75,10 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の観光・業務目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
+      "90日を超える滞在にはビザが必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/italy/index.html",
@@ -100,8 +104,9 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "観光目的の場合、十分な経済力の証明として1日あたり約100ユーロ必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/spain/index.html",
@@ -119,12 +124,16 @@ export const europeCountries: Country[] = [
       purpose: ["tourism", "business", "transit", "education"],
     },
     conditions: [
-      "2025-01-08以降、短期渡航はETA（Electronic Travel Authorisation）必須",
-      "2025-01-17以降、英国の入国審査を通過しないエアサイド・トランジットはETA不要",
+      "短期渡航（6か月以下の観光・親族訪問・商用・短期留学等）はビザ不要",
+      "事前にETA（Electronic Travel Authorisation）の申請が必須",
+      "ETA料金は16ポンド、有効期間は2年間（複数回入国可）",
+      "英国の入国審査を通過しないエアサイド・トランジットはETA不要",
+      "パスポートの残存有効期間が滞在予定期間以上必要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "ETAは渡航前にオンラインで申請（数日の処理時間を見込む）",
+      "6か月を超える滞在や就労・留学目的の場合は別途ビザが必要",
+      "ETAは米国のESTAやカナダのeTAと同様の電子渡航認証制度",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/uk/index.html",
@@ -150,8 +159,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/switzerland/index.html",
@@ -178,8 +188,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "カリブ海領土は別条件",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/netherlands/index.html",
@@ -205,8 +216,9 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "8日以上滞在する場合は滞在地の市役所への登録が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belgium/index.html",
@@ -234,8 +246,9 @@ export const europeCountries: Country[] = [
     notes: [
       "180日間の滞在は、入国後最初の90日間の後、引き続き90日間滞在する場合のみ可能",
       "出国後の再入国には制限があるため、事前に確認が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/austria/index.html",
@@ -260,8 +273,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sweden/index.html",
@@ -287,8 +301,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/norway/index.html",
@@ -314,8 +329,9 @@ export const europeCountries: Country[] = [
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
       "グリーンランドとフェロー諸島はシェンゲン圏外",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/denmark/index.html",
@@ -340,8 +356,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/finland/index.html",
@@ -366,8 +383,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/poland/index.html",
@@ -392,8 +410,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/czech/index.html",
@@ -418,8 +437,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/portugal/index.html",
@@ -466,8 +486,9 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/greece/index.html",
@@ -492,8 +513,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hungary/index.html",
@@ -518,8 +540,9 @@ export const europeCountries: Country[] = [
     ],
     notes: [
       "90日を超える滞在には長期滞在ビザの取得が必要",
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/romania/index.html",
@@ -538,8 +561,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bulgaria/index.html",
@@ -565,8 +589,9 @@ export const europeCountries: Country[] = [
       "180日以内の期間に合計90日以内の観光、業務、外交・公用目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/croatia/index.html",
@@ -585,8 +610,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovakia/index.html",
@@ -605,8 +631,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/slovenia/index.html",
@@ -631,8 +658,9 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/estonia/index.html",
@@ -651,8 +679,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/latvia/index.html",
@@ -671,8 +700,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/lithuania/index.html",
@@ -689,8 +719,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/malta/index.html",
@@ -715,8 +746,9 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の一般、外交・公用目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/cyprus/index.html",
@@ -742,8 +774,9 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の観光、業務目的の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/iceland/index.html",
@@ -814,8 +847,9 @@ export const europeCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "90日以内の滞在はビザ不要"],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/serbia/index.html",
@@ -832,8 +866,9 @@ export const europeCountries: Country[] = [
       "ミンスク国際空港から入国・出国する場合など、特定の条件下で30日以内の滞在はビザ不要（要件確認）",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belarus/index.html",
@@ -851,8 +886,9 @@ export const europeCountries: Country[] = [
       "スイス経由での入国が一般的",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/liechtenstein/index.html",
@@ -866,8 +902,9 @@ export const europeCountries: Country[] = [
     visaRequirement: { type: "visa_free", duration: 90 },
     conditions: ["シェンゲン協定加盟国", "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/luxembourg/index.html",
@@ -906,8 +943,9 @@ export const europeCountries: Country[] = [
       "90日以内の滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/albania/index.html",
@@ -943,8 +981,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/bosnia/index.html",
@@ -961,8 +1000,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/moldova/index.html",
@@ -980,8 +1020,9 @@ export const europeCountries: Country[] = [
       "日本国籍者はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/monaco/index.html",
@@ -998,8 +1039,9 @@ export const europeCountries: Country[] = [
       "90日以内の観光・商用目的はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/montenegro/index.html",
@@ -1022,8 +1064,9 @@ export const europeCountries: Country[] = [
       "あらゆる180日間の期間内で90日以内の観光などの非営利活動目的による滞在はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macedonia/index.html",
@@ -1041,8 +1084,9 @@ export const europeCountries: Country[] = [
       "日本国籍者はビザ不要",
     ],
     notes: [
-      "2025年10月12日からEES（出入国管理システム）が段階的に導入予定",
-      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定",
+      "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
+      "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
+      "EESは初回入国時に登録が必要で、その後3年間有効",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/sanmarino/index.html",

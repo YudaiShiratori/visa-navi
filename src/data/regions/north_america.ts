@@ -24,7 +24,9 @@ export const northAmericaCountries: Country[] = [
       "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証)の事前取得以外にも多数あり",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
-      "ESTA手数料は2022年5月26日以降21USD",
+      "ESTA手数料は40USD",
+      "非移民ビザ申請時は基本料金に加えVisa Integrity Fee 250USDが必要（ESTA利用の短期滞在は免除）",
+      "非移民ビザの面接免除対象が縮小され、原則として対面面接が必要",
     ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
