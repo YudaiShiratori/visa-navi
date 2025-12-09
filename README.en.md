@@ -694,8 +694,25 @@ This template supports [Claude Code](https://claude.ai/code). Claude Code is an 
 ### Claude Code Setup
 
 1. **Claude Code Installation**
+   
+   Homebrew (macOS, Linux):
    ```bash
-   npm install -g @anthropic-ai/claude-code
+   brew install --cask claude-code
+   ```
+   
+   macOS, Linux, WSL:
+   ```bash
+   curl -fsSL https://claude.ai/install.sh | bash
+   ```
+   
+   Windows PowerShell:
+   ```powershell
+   irm https://claude.ai/install.ps1 | iex
+   ```
+   
+   Windows CMD:
+   ```cmd
+   curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
    ```
 
 2. **GitHub CLI Installation (Required)**

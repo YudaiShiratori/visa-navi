@@ -674,8 +674,25 @@ Template này hỗ trợ [Claude Code](https://claude.ai/code). Claude Code là 
 ### Thiết lập Claude Code
 
 1. **Cài đặt Claude Code**
+   
+   Homebrew (macOS, Linux):
    ```bash
-   npm install -g @anthropic-ai/claude-code
+   brew install --cask claude-code
+   ```
+   
+   macOS, Linux, WSL:
+   ```bash
+   curl -fsSL https://claude.ai/install.sh | bash
+   ```
+   
+   Windows PowerShell:
+   ```powershell
+   irm https://claude.ai/install.ps1 | iex
+   ```
+   
+   Windows CMD:
+   ```cmd
+   curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
    ```
 
 2. **Cài đặt GitHub CLI (Bắt buộc)**
