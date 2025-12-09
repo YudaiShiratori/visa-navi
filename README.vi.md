@@ -189,7 +189,7 @@ Tham khảo [trang chính thức](https://bun.sh/docs/installation) để biết
 ### Clone Repository
 
 ```bash
-git clone {URL của repository này}
+git clone git@github.com:sun-asterisk-internal/sun-nextjs-template.git
 ```
 
 ### Cấu hình Remote Repository

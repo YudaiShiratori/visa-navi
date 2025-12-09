@@ -189,7 +189,7 @@ Refer to the [official site](https://bun.sh/docs/installation) for more details.
 ### Clone Repository
 
 ```bash
-git clone {URL of this repository}
+git clone git@github.com:sun-asterisk-internal/sun-nextjs-template.git
 ```
 
 ### Configure Remote Repository

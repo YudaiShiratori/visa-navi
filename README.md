@@ -189,7 +189,7 @@ curl -fsSL https://bun.sh/install | bash
 ### リポジトリのクローン
 
 ```bash
-git clone {このリポジトリのURL}
+git clone git@github.com:sun-asterisk-internal/sun-nextjs-template.git
 ```
 
 ### リモートリポジトリの設定
