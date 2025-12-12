@@ -110,7 +110,7 @@ function FontFamilyCard({
           </div>
         </div>
 
-        {weights && (
+        {weights?.length ? (
           <div className="space-y-2">
             <h4 className="font-medium text-foreground text-sm">
               利用可能なウェイト
@@ -126,7 +126,7 @@ function FontFamilyCard({
               ))}
             </div>
           </div>
-        )}
+        ) : null}
 
         <div className="space-y-2">
           <h4 className="font-medium text-foreground text-sm">使用例</h4>

@@ -25,7 +25,6 @@ export function getCSSVariable(variableName: string): string {
   }
 
   if (!variableName.startsWith("--")) {
-    // biome-ignore lint/suspicious/noConsole: Warning users about incorrect CSS variable format
     console.warn(`CSS variable should start with '--': ${variableName}`);
     return "";
   }
@@ -33,22 +32,18 @@ export function getCSSVariable(variableName: string): string {
   try {
     const element = document.documentElement;
     if (!element) {
-      // biome-ignore lint/suspicious/noConsole: Warning for missing document element
       console.warn("document.documentElement is not available");
       return "";
     }
 
     const computedStyle = getComputedStyle(element);
     if (!computedStyle) {
-      // biome-ignore lint/suspicious/noConsole: Warning for getComputedStyle failure
       console.warn("getComputedStyle returned null for element");
       return "";
     }
-
     const value = computedStyle.getPropertyValue(variableName);
     return value ? value.trim() : "";
   } catch (error) {
-    // biome-ignore lint/suspicious/noConsole: Error logging for debugging CSS variable issues
     console.error(`Failed to get CSS variable ${variableName}:`, error);
     return "";
   }

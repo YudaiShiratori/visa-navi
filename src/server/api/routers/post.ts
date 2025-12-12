@@ -17,11 +17,9 @@ const posts: Post[] = [
 export const postRouter = createTRPCRouter({
   hello: publicProcedure
     .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
-    }),
+    .query(({ input }) => ({
+      greeting: `Hello ${input.text}`,
+    })),
 
   create: publicProcedure
     .input(z.object({ name: z.string().min(1) }))
@@ -34,7 +32,5 @@ export const postRouter = createTRPCRouter({
       return post;
     }),
 
-  getLatest: publicProcedure.query(() => {
-    return posts.at(-1) ?? null;
-  }),
+  getLatest: publicProcedure.query(() => posts.at(-1) ?? null),
 });

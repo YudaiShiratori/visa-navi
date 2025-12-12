@@ -51,16 +51,16 @@ function ComponentShowcase({
           <div className="space-y-2">
             <div className="flex items-center gap-3">
               <CardTitle className="font-semibold text-xl">{title}</CardTitle>
-              {category && (
+              {category ? (
                 <Badge className="font-normal text-xs" variant="secondary">
                   {category}
                 </Badge>
-              )}
+              ) : null}
             </div>
             <CardDescription className="text-sm leading-relaxed">
               {description}
             </CardDescription>
-            {variants && variants.length > 0 && (
+            {variants?.length ? (
               <div className="mt-2 flex flex-wrap gap-1">
                 {variants.map((variant) => (
                   <span
@@ -71,7 +71,7 @@ function ComponentShowcase({
                   </span>
                 ))}
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </CardHeader>

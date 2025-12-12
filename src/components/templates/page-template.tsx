@@ -40,28 +40,28 @@ export function PageTemplate({
           <div className="container mx-auto px-4 py-5 sm:px-8 sm:py-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="min-w-0 flex-1">
-                {(title || description) && (
+                {title || description ? (
                   <div className="flex items-center gap-3">
-                    {showBackButton && (
+                    {showBackButton ? (
                       <BackButton
                         className="size-8 shrink-0 rounded-lg border bg-card p-0 text-muted-foreground shadow-sm transition-all hover:bg-accent hover:text-foreground hover:shadow"
                         onClick={onBackClick}
                       />
-                    )}
+                    ) : null}
                     <div className="min-w-0 flex-1 space-y-1.5">
-                      {title && (
+                      {title ? (
                         <h1 className="truncate font-bold text-3xl text-foreground tracking-tight">
                           {title}
                         </h1>
-                      )}
-                      {description && (
+                      ) : null}
+                      {description ? (
                         <p className="text-balance text-muted-foreground text-sm leading-relaxed">
                           {description}
                         </p>
-                      )}
+                      ) : null}
                     </div>
                   </div>
-                )}
+                ) : null}
               </div>
               <div className="flex shrink-0 items-center gap-2">
                 {action}
@@ -126,7 +126,7 @@ export function PageHero({
       )}
     >
       <div className="relative z-10 space-y-8">
-        {badges && badges.length > 0 && (
+        {badges?.length ? (
           <div className="flex flex-wrap items-center gap-2.5">
             {badges.map((badge) => (
               <Badge
@@ -134,23 +134,27 @@ export function PageHero({
                 key={badge.label}
                 variant={badge.variant || "secondary"}
               >
-                {badge.icon && <span className="mr-1.5">{badge.icon}</span>}
+                {badge.icon ? (
+                  <span className="mr-1.5">{badge.icon}</span>
+                ) : null}
                 {badge.label}
               </Badge>
             ))}
           </div>
-        )}
+        ) : null}
         <div className="max-w-4xl space-y-6">
           <h2 className="font-bold text-4xl text-foreground leading-tight tracking-tight md:text-6xl">
             {title}
           </h2>
-          {description && (
+          {description ? (
             <p className="text-balance text-lg text-muted-foreground leading-relaxed md:text-xl">
               {description}
             </p>
-          )}
+          ) : null}
         </div>
-        {actions && <div className="flex flex-wrap gap-3 pt-2">{actions}</div>}
+        {actions ? (
+          <div className="flex flex-wrap gap-3 pt-2">{actions}</div>
+        ) : null}
       </div>
       <div
         className={cn(
@@ -197,23 +201,23 @@ export function PageSection({
 
   return (
     <section className={cn(spacingClasses[spacing], className)}>
-      {(title || description || action) && (
+      {title || description || action ? (
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0 flex-1 space-y-3">
-            {title && (
+            {title ? (
               <h2 className="font-bold text-2xl text-foreground tracking-tight md:text-3xl">
                 {title}
               </h2>
-            )}
-            {description && (
+            ) : null}
+            {description ? (
               <p className="max-w-3xl text-balance text-base text-muted-foreground leading-relaxed">
                 {description}
               </p>
-            )}
+            ) : null}
           </div>
-          {action && <div className="mt-1 flex-shrink-0">{action}</div>}
+          {action ? <div className="mt-1 flex-shrink-0">{action}</div> : null}
         </div>
-      )}
+      ) : null}
       <div className={contentSpacingClasses[spacing]}>{children}</div>
     </section>
   );
@@ -256,32 +260,32 @@ export function PageCard({
         className
       )}
     >
-      {(title || description || action || icon) && (
+      {title || description || action || icon ? (
         <CardHeader className="flex items-start space-y-3 pb-5">
           <div className="flex w-full items-start justify-between gap-4">
             <div className="flex min-w-0 flex-1 gap-4">
-              {icon && (
+              {icon ? (
                 <div className="shrink-0 rounded-xl bg-primary/10 p-3.5 text-primary shadow-sm">
                   {icon}
                 </div>
-              )}
+              ) : null}
               <div className="min-w-0 flex-1 space-y-2.5">
-                {title && (
+                {title ? (
                   <CardTitle className="font-bold text-foreground text-xl leading-tight">
                     {title}
                   </CardTitle>
-                )}
-                {description && (
+                ) : null}
+                {description ? (
                   <CardDescription className="text-balance text-muted-foreground text-sm leading-relaxed">
                     {description}
                   </CardDescription>
-                )}
+                ) : null}
               </div>
             </div>
-            {action && <div className="mt-1 flex-shrink-0">{action}</div>}
+            {action ? <div className="mt-1 flex-shrink-0">{action}</div> : null}
           </div>
         </CardHeader>
-      )}
+      ) : null}
       <CardContent className="pt-0">{children}</CardContent>
     </Card>
   );
@@ -452,18 +456,18 @@ export function PageEmptyState({
         className
       )}
     >
-      {icon && (
+      {icon ? (
         <div className="mb-6 rounded-full bg-muted p-4 text-muted-foreground/60">
           {icon}
         </div>
-      )}
+      ) : null}
       <h3 className="mb-3 font-semibold text-foreground">{title}</h3>
-      {description && (
+      {description ? (
         <p className="mb-8 max-w-lg text-muted-foreground text-sm leading-relaxed">
           {description}
         </p>
-      )}
-      {action && <div className="mt-2">{action}</div>}
+      ) : null}
+      {action ? <div className="mt-2">{action}</div> : null}
     </div>
   );
 }

@@ -109,7 +109,7 @@ const ColorSwatch = memo(({ token }: ColorSwatchProps) => {
         </div>
 
         {/* 使用例 */}
-        {token.usage && (
+        {token.usage?.length ? (
           <div className="space-y-2">
             <h4 className="font-medium text-foreground text-sm">使用例</h4>
             <div className="flex flex-wrap gap-1">
@@ -123,7 +123,7 @@ const ColorSwatch = memo(({ token }: ColorSwatchProps) => {
               ))}
             </div>
           </div>
-        )}
+        ) : null}
 
         {/* CSS変数 */}
         <div className="space-y-2">

@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite"],
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
   "files": {
     "ignoreUnknown": false,
     "includes": [
@@ -9,9 +9,9 @@
       "**/*.js",
       "**/*.jsx",
       "**/*.json",
-      "**/*.jsonc"
-    ],
-    "experimentalScannerIgnores": ["tsconfig.json"]
+      "**/*.jsonc",
+      "!!tsconfig.json"
+    ]
   },
   "linter": {
     "rules": {
@@ -20,7 +20,8 @@
           "level": "warn",
           "fix": "safe",
           "options": {
-            "functions": ["clsx", "cva", "cn"]
+            "attributes": ["className"],
+            "functions": ["clsx", "cva", "cn", "tw", "twMerge", "twJoin", "tv"]
           }
         }
       },
