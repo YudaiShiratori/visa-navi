@@ -1,7 +1,7 @@
 pre-commit:
   jobs:
-    - run: bunx ultracite fix
-      glob: 
+    - run: bun run check:write
+      glob:
         - "*.js"
         - "*.jsx"
         - "*.ts"
@@ -10,5 +10,5 @@ pre-commit:
         - "*.jsonc"
         - "*.css"
       stage_fixed: true
-    - run: bunx tsc --noEmit
+    - run: bun run typecheck
       glob: "*.{ts,tsx}"
