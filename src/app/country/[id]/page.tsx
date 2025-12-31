@@ -319,10 +319,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
               )}
 
               <div className="mt-8 text-center text-sm text-gray-500">
-                <p>
-                  この情報は{new Date().toLocaleDateString("ja-JP")}
-                  時点のものです。最新情報は各国大使館や外務省のウェブサイトでご確認ください。
-                </p>
+                <p>最新情報は各国大使館や外務省のウェブサイトでご確認ください。</p>
               </div>
             </div>
           </div>

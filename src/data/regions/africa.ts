@@ -200,10 +200,13 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90, evisaAvailable: true },
     conditions: [
-      "2024年以降は電子渡航認証（eTA）必須",
-      "航空会社はeTA未取得旅客の搭乗拒否/制裁対象",
+      "渡航前にeTA（Electronic Travel Authorization）のオンライン申請・承認取得が必要",
+      "ケニア政府の公式eTAサイトから申請する",
     ],
-    notes: [],
+    notes: [
+      "航空会社はeTA未取得旅客の搭乗拒否対象となる",
+      "在ケニア日本国大使館でも日本人旅行者にeTA事前取得が必要と案内されている",
+    ],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ke/index.html" },
   }, // source: https://immigration.ecitizen.go.ke/travelers-obligations
   {
@@ -303,14 +306,15 @@ export const africaCountries: Country[] = [
     name: "ナミビア",
     code: "NA",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30 },
+    visaRequirement: { type: "visa_required", duration: 90, evisaAvailable: true },
     conditions: [
-      "2025年4月1日から日本を含む33か国に対するビザ免除を撤廃",
-      "入国時にビザ取得（Visa on Arrival）または事前取得が必要",
+      "2025年4月1日から新たな査証制度が導入され、日本国籍者は入国にあたり査証取得が必要",
+      "取得方法：(1) オンライン（E-Visa）、(2) 到着時（Visa on Arrival）、(3) 駐日大使館申請",
+      "査証の有効（滞在）日数は申請する滞在予定に基づき決定され、最大90日",
       "パスポート残存6ヶ月以上",
       "出国用航空券",
     ],
-    notes: ["2025年4月1日以降はビザ免除措置が廃止", "到着ビザまたは事前ビザ申請が必要"],
+    notes: ["在ナミビア日本国大使館で新制度の詳細が案内されている"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/namibia/index.html" },
   },
   {
@@ -378,8 +382,11 @@ export const africaCountries: Country[] = [
     name: "ソマリア",
     code: "SO",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）"],
+    visaRequirement: { type: "evisa", evisaAvailable: true },
+    conditions: [
+      "2025年9月1日以降、入国には有効なeTA（eTAS）の保有が必要",
+      "ソマリア民間航空当局（SCAA）のAIC（航空情報通報）で案内されている",
+    ],
     notes: ["渡航中止勧告が発出されている", "ソマリランドは別途要件あり"],
     officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/somali/index.html" },
   },
