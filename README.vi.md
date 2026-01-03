@@ -749,57 +749,69 @@ Sau khi cập nhật, cũng cập nhật tệp docs/directory-structure.md tươ
 
 ### Lệnh tùy chỉnh có sẵn
 
-Template này bao gồm các lệnh tùy chỉnh để cải thiện hiệu quả phát triển:
+Template này bao gồm các lệnh tùy chỉnh để cải thiện hiệu quả phát triển. Mỗi lệnh sử dụng subagent để quản lý context hiệu quả.
 
-#### Lệnh quy trình làm việc cốt lõi (5)
+#### Lệnh quy trình làm việc (7)
 
 ##### `/create-issue [mô tả vấn đề/yêu cầu]`
-**Mục đích**: Tạo GitHub Issues  
-**Tham số**: Mô tả cụ thể về vấn đề hoặc yêu cầu tính năng  
+**Mục đích**: Tạo GitHub Issues (điều tra song song với Explore subagent)
 **Ví dụ sử dụng**:
 ```bash
 /create-issue "Nút đăng nhập không hoạt động trên mobile Safari"
 /create-issue "Thêm tính năng tải lên ảnh đại diện người dùng"
-/create-issue "Cập nhật tài liệu cài đặt cho người dùng Windows"
 ```
 
 ##### `/work-on-issue [số Issue]`
-**Mục đích**: Thực hiện quy trình 8 giai đoạn để giải quyết issue  
-**Tham số**: Số Issue GitHub cần làm việc  
+**Mục đích**: Quy trình giải quyết issue (kiểm tra chất lượng ủy quyền cho subagent)
 **Ví dụ sử dụng**:
 ```bash
 /work-on-issue 123
-/work-on-issue 456
 ```
 
 ##### `/refactor-code [mô tả mã/module mục tiêu]`
-**Mục đích**: Tái cấu trúc mã có hệ thống  
-**Tham số**: Mô tả mục tiêu tái cấu trúc (đường dẫn tệp, tên module, hoặc chức năng)  
+**Mục đích**: Tái cấu trúc mã (phân tích và xác minh chạy song song qua subagent)
 **Ví dụ sử dụng**:
 ```bash
 /refactor-code "auth module"
 /refactor-code "src/components/UserProfile.tsx"
-/refactor-code "logic kết nối cơ sở dữ liệu"
 ```
 
 ##### `/create-pr [mô tả nội dung PR]`
-**Mục đích**: Tạo Pull Request từ các thay đổi hiện tại  
-**Tham số**: Mô tả thay đổi sẽ trở thành tiêu đề PR  
+**Mục đích**: Tạo Pull Request (kiểm tra chất lượng ủy quyền cho subagent)
 **Ví dụ sử dụng**:
 ```bash
 /create-pr "Sửa lỗi xác thực trong form đăng nhập"
 /create-pr "Thêm hỗ trợ chế độ tối"
-/create-pr "Cải thiện hiệu suất truy vấn cơ sở dữ liệu"
 ```
 
-##### `/review-pr [số PR]`
-**Mục đích**: Đánh giá Pull Request toàn diện  
-**Tham số**: Số Pull Request cần đánh giá  
+##### `/pr-review [số PR]`
+**Mục đích**: Đánh giá Pull Request (ưu tiên skill code-review, fallback subagent)
 **Ví dụ sử dụng**:
 ```bash
-/review-pr 789
-/review-pr 101
+/pr-review 789
 ```
+
+##### `/analyze [mục tiêu]`
+**Mục đích**: Phân tích codebase (điều tra song song với 4 Explore subagent)
+**Ví dụ sử dụng**:
+```bash
+/analyze src/components/Button.tsx
+/analyze "tính năng xác thực"
+/analyze src/lib/
+```
+
+##### `/commit [mô tả]`
+**Mục đích**: Tạo commit (kiểm tra chất lượng ủy quyền cho subagent)
+**Ví dụ sử dụng**:
+```bash
+/commit "Thêm tính năng xác thực người dùng"
+```
+
+#### Agent tùy chỉnh
+
+##### `build-verifier`
+**Mục đích**: Tự động chạy kiểm tra chất lượng (typecheck, linter, test)
+Được gọi sau khi thay đổi mã để xác minh build và sửa lỗi nếu tìm thấy.
 
 ### Template GitHub
 
@@ -844,7 +856,7 @@ Các template này được tham chiếu tự động bởi các lệnh tùy ch�
 1. **Bắt đầu**: Lập kế hoạch công việc hôm nay với `/start-work`
 2. **Tạo Issue**: Định nghĩa yêu cầu rõ ràng với `/create-issue`
 3. **Thực hiện phát triển**: Triển khai có hệ thống với `/work-on-issue`
-4. **Đánh giá**: Đảm bảo chất lượng với `/review-pr`
+4. **Đánh giá**: Đảm bảo chất lượng với `/pr-review`
 5. **Quản lý hàng ngày**: Công việc thường ngày với `/daily-workflow`
 
 #### Các giai đoạn phát triển

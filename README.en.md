@@ -769,57 +769,69 @@ After updating, also update the docs/directory-structure.md file similarly.
 
 ### Available Custom Commands
 
-This template includes custom commands to improve development efficiency:
+This template includes custom commands to improve development efficiency. Each command uses subagents for efficient context management.
 
-#### Core Workflow Commands (5)
+#### Workflow Commands (7)
 
 ##### `/create-issue [problem/request description]`
-**Purpose**: Create GitHub Issues  
-**Argument**: Specific description of the problem or feature request  
+**Purpose**: Create GitHub Issues (parallel investigation with Explore subagent)
 **Usage Examples**:
 ```bash
 /create-issue "Login button doesn't work on mobile Safari"
 /create-issue "Add user profile photo upload feature"
-/create-issue "Update installation docs for Windows users"
 ```
 
 ##### `/work-on-issue [Issue number]`
-**Purpose**: Execute 8-phase workflow for issue resolution  
-**Argument**: GitHub Issue number to work on  
+**Purpose**: Issue resolution workflow (quality checks delegated to subagent)
 **Usage Examples**:
 ```bash
 /work-on-issue 123
-/work-on-issue 456
 ```
 
 ##### `/refactor-code [target code/module description]`
-**Purpose**: Systematic code refactoring  
-**Argument**: Description of refactoring target (file path, module name, or functionality)  
+**Purpose**: Code refactoring (analysis and verification run in parallel via subagent)
 **Usage Examples**:
 ```bash
 /refactor-code "auth module"
 /refactor-code "src/components/UserProfile.tsx"
-/refactor-code "database connection logic"
 ```
 
 ##### `/create-pr [PR content description]`
-**Purpose**: Create Pull Request from current changes  
-**Argument**: Description of changes that will become the PR title  
+**Purpose**: Create Pull Request (quality checks delegated to subagent)
 **Usage Examples**:
 ```bash
 /create-pr "Fix authentication bug in login form"
 /create-pr "Add dark mode support"
-/create-pr "Improve database query performance"
 ```
 
-##### `/review-pr [PR number]`
-**Purpose**: Comprehensive Pull Request review  
-**Argument**: Pull Request number to review  
+##### `/pr-review [PR number]`
+**Purpose**: Pull Request review (code-review skill preferred, subagent fallback)
 **Usage Examples**:
 ```bash
-/review-pr 789
-/review-pr 101
+/pr-review 789
 ```
+
+##### `/analyze [target]`
+**Purpose**: Codebase analysis (parallel investigation with 4 Explore subagents)
+**Usage Examples**:
+```bash
+/analyze src/components/Button.tsx
+/analyze "authentication feature"
+/analyze src/lib/
+```
+
+##### `/commit [description]`
+**Purpose**: Create commit (quality checks delegated to subagent)
+**Usage Examples**:
+```bash
+/commit "Add user authentication feature"
+```
+
+#### Custom Agents
+
+##### `build-verifier`
+**Purpose**: Automatically run quality checks (typecheck, linter, test)
+Invoked after code changes to verify build and fix errors if found.
 
 ### GitHub Templates
 
@@ -864,7 +876,7 @@ These templates are automatically referenced by Claude Code custom commands, ena
 1. **Start**: Plan today's work with `/start-work`
 2. **Issue Creation**: Clear requirement definition with `/create-issue`
 3. **Development Execution**: Systematic implementation with `/work-on-issue`
-4. **Review**: Quality assurance with `/review-pr`
+4. **Review**: Quality assurance with `/pr-review`
 5. **Daily Management**: Routine work with `/daily-workflow`
 
 #### Development Phases

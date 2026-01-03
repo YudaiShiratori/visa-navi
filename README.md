@@ -769,57 +769,69 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
 
 ### 利用可能なカスタムコマンド
 
-このテンプレートには、開発効率を向上させるカスタムコマンドが含まれています：
+このテンプレートには、開発効率を向上させるカスタムコマンドが含まれています。各コマンドはsubagentを活用してコンテキストを効率的に管理します。
 
-#### 核となるワークフローコマンド（5つ）
+#### ワークフローコマンド（7つ）
 
 ##### `/create-issue [問題/要望の説明]`
-**用途**: GitHub Issueの作成  
-**引数**: 問題や機能要求の具体的な説明文  
+**用途**: GitHub Issueの作成（Explore subagentで類似Issue・関連コードを並列調査）
 **実行例**:
 ```bash
-/create-issue "Login button doesn't work on mobile Safari"
-/create-issue "Add user profile photo upload feature"
-/create-issue "Update installation docs for Windows users"
+/create-issue "ログインボタンがモバイルSafariで動作しない"
+/create-issue "ユーザープロフィール写真のアップロード機能を追加"
 ```
 
 ##### `/work-on-issue [Issue番号]`
-**用途**: Issue解決のための8段階ワークフロー実行  
-**引数**: 作業対象のGitHub Issue番号  
+**用途**: Issue解決ワークフロー（品質チェックをsubagentに委譲）
 **実行例**:
 ```bash
 /work-on-issue 123
-/work-on-issue 456
 ```
 
 ##### `/refactor-code [対象コード/モジュールの説明]`
-**用途**: 体系的なコードリファクタリング  
-**引数**: リファクタリング対象の説明（ファイルパス、モジュール名、または機能名）  
+**用途**: コードリファクタリング（分析・検証をsubagentで並列実行）
 **実行例**:
 ```bash
 /refactor-code "auth module"
 /refactor-code "src/components/UserProfile.tsx"
-/refactor-code "database connection logic"
 ```
 
 ##### `/create-pr [PR内容の説明]`
-**用途**: 現在の変更からPull Request作成  
-**引数**: PRのタイトルとなる変更内容の説明  
+**用途**: Pull Request作成（品質チェックをsubagentに委譲）
 **実行例**:
 ```bash
-/create-pr "Fix authentication bug in login form"
-/create-pr "Add dark mode support"
-/create-pr "Improve database query performance"
+/create-pr "認証バグを修正"
+/create-pr "ダークモードを追加"
 ```
 
-##### `/review-pr [PR番号]`
-**用途**: Pull Requestの包括的レビュー  
-**引数**: レビュー対象のPull Request番号  
+##### `/pr-review [PR番号]`
+**用途**: Pull Requestレビュー（code-reviewスキル優先、subagentフォールバック）
 **実行例**:
 ```bash
-/review-pr 789
-/review-pr 101
+/pr-review 789
 ```
+
+##### `/analyze [対象]`
+**用途**: コードベース分析（4つのExplore subagentで並列調査）
+**実行例**:
+```bash
+/analyze src/components/Button.tsx
+/analyze 認証機能
+/analyze src/lib/
+```
+
+##### `/commit [説明]`
+**用途**: コミット作成（品質チェックをsubagentに委譲、日本語対応）
+**実行例**:
+```bash
+/commit "ユーザー認証機能を追加"
+```
+
+#### カスタムエージェント
+
+##### `build-verifier`
+**用途**: 品質チェック（typecheck, linter, test）を自動実行
+コード変更後に自動的に呼び出され、エラーがあれば修正を試みます。
 
 ### GitHubテンプレート
 
@@ -864,7 +876,7 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
 1. **開始**: `/project:start-work` で今日の作業を計画
 2. **Issue作成**: `/project:create-issue` で明確な要件定義
 3. **開発実行**: `/project:work-on-issue` で体系的な実装
-4. **レビュー**: `/project:review-pr` で品質保証
+4. **レビュー**: `/pr-review` で品質保証
 5. **日常管理**: `/project:daily-workflow` でルーチン作業
 
 #### 開発フェーズ
