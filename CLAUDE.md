@@ -42,7 +42,8 @@ This is a Next.js TypeScript full-stack development template based on the T3 Sta
 - `bunx playwright install` - Install Playwright browsers
 
 ### Git Hooks
-- `bunx lefthook install` - Install git hooks for automatic formatting
+- Git hooks are automatically installed via `bun install` (postinstall script)
+- Hooks run Ultracite formatting and TypeScript type checking on pre-commit
 
 ### GitHub Operations
 - `gh issue list` - List GitHub issues

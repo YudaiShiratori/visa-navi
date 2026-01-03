@@ -210,12 +210,6 @@ bun install
 bunx playwright install
 ```
 
-### Configure lefthook
-
-```bash
-bunx lefthook install
-```
-
 ### Start Development Server
 
 ```bash
@@ -644,7 +638,7 @@ bun run check:write # Automatically fix issues
 
 ### Git Hooks (Lefthook)
 
-Automatic formatting with Biome is performed before commits. No special operation is required. Settings can be changed in `lefthook.yml`.
+Git hooks are automatically set up when running `bun install`. Automatic formatting with Biome and TypeScript type checking are performed before commits. Settings can be changed in `lefthook.yml`.
 
 ## Vercel Deployment Configuration
 

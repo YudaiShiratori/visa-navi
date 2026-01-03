@@ -210,12 +210,6 @@ bun install
 bunx playwright install
 ```
 
-### lefthookの設定
-
-```bash
-bunx lefthook install
-```
-
 ### 開発サーバーの起動
 
 ```bash
@@ -644,7 +638,7 @@ bun run check:write # 問題を自動修正
 
 ### Git Hooks（Lefthook）
 
-コミット前にBiomeによる自動フォーマットが実行されます。特別な操作は不要です。設定は `lefthook.yml` で変更できます。
+`bun install` 実行時に Git hooks が自動的にセットアップされます。コミット前にBiomeによる自動フォーマットと TypeScript の型チェックが実行されます。設定は `lefthook.yml` で変更できます。
 
 ## Vercelへのデプロイ設定
 

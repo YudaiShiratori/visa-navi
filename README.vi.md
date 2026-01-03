@@ -210,12 +210,6 @@ bun install
 bunx playwright install
 ```
 
-### Cấu hình lefthook
-
-```bash
-bunx lefthook install
-```
-
 ### Khởi động Development Server
 
 ```bash
@@ -624,7 +618,7 @@ bun run check:write # Tự động sửa vấn đề
 
 ### Git Hooks (Lefthook)
 
-Định dạng tự động bằng Biome được thực hiện trước khi commit. Không cần thao tác đặc biệt. Cài đặt có thể thay đổi trong `lefthook.yml`.
+Git hooks được tự động thiết lập khi chạy `bun install`. Định dạng tự động bằng Biome và kiểm tra kiểu TypeScript được thực hiện trước khi commit. Cài đặt có thể thay đổi trong `lefthook.yml`.
 
 ## Cấu hình triển khai Vercel
 
