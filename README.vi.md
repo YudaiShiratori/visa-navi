@@ -803,9 +803,9 @@ Template này bao gồm các lệnh tùy chỉnh để cải thiện hiệu qu�
 
 #### Agent tùy chỉnh
 
-##### `build-verifier`
-**Mục đích**: Tự động chạy kiểm tra chất lượng (typecheck, linter, test)
-Được gọi sau khi thay đổi mã để xác minh build và sửa lỗi nếu tìm thấy.
+##### `quality-verifier`
+**Mục đích**: Tự động chạy kiểm tra chất lượng (check:write, typecheck, test) và tự động sửa lỗi
+Được gọi sau khi thay đổi mã để xác minh build và sửa lỗi. Trả về yêu cầu sửa lỗi cho các vấn đề không thể tự động sửa.
 
 ### Template GitHub
 

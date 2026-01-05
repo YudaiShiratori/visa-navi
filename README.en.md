@@ -823,9 +823,9 @@ This template includes custom commands to improve development efficiency. Each c
 
 #### Custom Agents
 
-##### `build-verifier`
-**Purpose**: Automatically run quality checks (typecheck, linter, test)
-Invoked after code changes to verify build and fix errors if found.
+##### `quality-verifier`
+**Purpose**: Automatically run quality checks (check:write, typecheck, test) and auto-fix errors
+Invoked after code changes to verify build and fix errors. Returns fix requests for issues that cannot be auto-fixed.
 
 ### GitHub Templates
 
