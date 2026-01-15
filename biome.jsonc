@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": ["cypress/**"]
+  },
+  "javascript": {
+    "globals": ["cy", "Cypress", "describe", "it", "beforeEach", "afterEach", "before", "after", "expect"]
+  },
+  "linter": {
+    "rules": {
+      "nursery": {
+        "useSortedClasses": {
+          "level": "warn",
+          "fix": "safe",
+          "options": {
+            "attributes": ["className"],
+            "functions": ["clsx", "cva", "cn", "tw", "twMerge", "twJoin", "tv"]
+          }
+        }
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "suspicious": {
+        "noUnknownAtRules": "off"
+      }
+    }
+  }
+}

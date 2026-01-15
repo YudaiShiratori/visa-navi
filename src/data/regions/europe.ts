@@ -462,7 +462,9 @@ export const europeCountries: Country[] = [
       "6か月以内の滞在は目的にかかわらずビザ不要",
       "短期商用の場合は、入国時に訪問先からの招聘状等などの提示が求められることがあり提示ができない場合入国拒否になる事もある",
     ],
-    notes: ["3か月を超える滞在は、現地警察署等で外国人登録と滞在許可の取得が必要"],
+    notes: [
+      "3か月を超える滞在は、現地警察署等で外国人登録と滞在許可の取得が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/ireland/index.html",
     },
@@ -846,7 +848,10 @@ export const europeCountries: Country[] = [
     code: "RS",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["パスポート残存有効期間が入国時3ヶ月以上必要", "90日以内の滞在はビザ不要"],
+    conditions: [
+      "パスポート残存有効期間が入国時3ヶ月以上必要",
+      "90日以内の滞在はビザ不要",
+    ],
     notes: [
       "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
       "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
@@ -901,7 +906,10 @@ export const europeCountries: Country[] = [
     code: "LU",
     region: "europe",
     visaRequirement: { type: "visa_free", duration: 90 },
-    conditions: ["シェンゲン協定加盟国", "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要"],
+    conditions: [
+      "シェンゲン協定加盟国",
+      "パスポート残存有効期間が滞在予定期間＋3ヶ月以上必要",
+    ],
     notes: [
       "EES（Entry/Exit System）による入国時の生体認証登録が導入済み（顔写真・指紋の登録が必要）",
       "2026年第4四半期よりETIAS（欧州渡航情報認証）の事前取得が必要となる予定（7ユーロ、3年有効予定）",
@@ -962,7 +970,10 @@ export const europeCountries: Country[] = [
       duration: 90,
       purpose: ["tourism", "business"],
     },
-    conditions: ["フランスまたはスペインの入国条件を満たしていること", "90日以内の滞在はビザ不要"],
+    conditions: [
+      "フランスまたはスペインの入国条件を満たしていること",
+      "90日以内の滞在はビザ不要",
+    ],
     notes: [
       "国内空港が無いため、フランスまたはスペインから陸路で入国するが、入国の際、出入国審査は行われない",
       "滞在中にパスポート、航空券の提示を求められる場合がある",

@@ -1,21 +1,33 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
+import { resolve } from "node:path";
 import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [react()],
   cacheDir: ".vitest-cache",
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src/"),
+    },
+  },
   test: {
     globals: true,
-    environment: "happy-dom",
+    environment: "jsdom",
     setupFiles: ["./test/setup-test-env.ts"],
     coverage: {
       provider: "v8",
       reporter: ["text", "json", "html"],
-      exclude: ["node_modules/", "test/", "**/*.d.ts", "**/*.test.{ts,tsx}", "cypress/", ".next/"],
+      exclude: [
+        "node_modules/",
+        "test/",
+        "**/*.d.ts",
+        "**/*.test.{ts,tsx}",
+        "cypress/",
+        ".next/",
+      ],
     },
     reporters: ["default", "junit"],
     outputFile: {
@@ -34,13 +46,7 @@ export default defineConfig({
     isolate: false,
     bail: 1,
 
-    testTimeout: 10000,
-    hookTimeout: 10000,
-
-    environmentOptions: {
-      jsdom: {
-        resources: "usable",
-      },
-    },
+    testTimeout: 10_000,
+    hookTimeout: 10_000,
   },
 });

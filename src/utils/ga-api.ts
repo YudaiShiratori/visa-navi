@@ -8,15 +8,20 @@ const propertyId = process.env.GA_PROPERTY_ID;
 try {
   analyticsDataClient = new BetaAnalyticsDataClient();
 } catch (error) {
-  console.error("Google Analytics APIクライアントの初期化に失敗しました:", error);
+  console.error(
+    "Google Analytics APIクライアントの初期化に失敗しました:",
+    error
+  );
 }
 
 /**
  * 過去7日間のページビューを取得する
  */
 export async function getPageViewsLast7Days() {
-  if (!analyticsDataClient || !propertyId) {
-    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+  if (!(analyticsDataClient && propertyId)) {
+    console.error(
+      "Google Analytics APIクライアントまたはプロパティIDが設定されていません"
+    );
     return [];
   }
 
@@ -41,14 +46,14 @@ export async function getPageViewsLast7Days() {
       ],
     });
 
-    if (!response || !response.rows || response.rows.length === 0) {
+    if (!(response && response.rows) || response.rows.length === 0) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
 
     return response.rows.map((row) => {
       const date = row.dimensionValues?.[0].value || "";
-      const count = parseInt(row.metricValues?.[0].value || "0", 10);
+      const count = Number.parseInt(row.metricValues?.[0].value || "0", 10);
 
       // YYYYMMDD形式の日付をYYYY-MM-DD形式に変換
       const formattedDate = date
@@ -71,8 +76,10 @@ export async function getPageViewsLast7Days() {
  * 人気のページを取得する
  */
 export async function getTopPages() {
-  if (!analyticsDataClient || !propertyId) {
-    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+  if (!(analyticsDataClient && propertyId)) {
+    console.error(
+      "Google Analytics APIクライアントまたはプロパティIDが設定されていません"
+    );
     return [];
   }
 
@@ -106,14 +113,14 @@ export async function getTopPages() {
       limit: 10,
     });
 
-    if (!response || !response.rows) {
+    if (!(response && response.rows)) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
 
     return response.rows.map((row) => {
       const path = row.dimensionValues?.[0].value || "";
-      const views = parseInt(row.metricValues?.[0].value || "0", 10);
+      const views = Number.parseInt(row.metricValues?.[0].value || "0", 10);
       return { path, views };
     });
   } catch (error) {
@@ -130,8 +137,10 @@ export async function getTopPages() {
  * 人気の検索キーワードを取得する
  */
 export async function getTopSearchTerms() {
-  if (!analyticsDataClient || !propertyId) {
-    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+  if (!(analyticsDataClient && propertyId)) {
+    console.error(
+      "Google Analytics APIクライアントまたはプロパティIDが設定されていません"
+    );
     return [];
   }
 
@@ -165,14 +174,14 @@ export async function getTopSearchTerms() {
       limit: 10,
     });
 
-    if (!response || !response.rows) {
+    if (!(response && response.rows)) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
 
     return response.rows.map((row) => {
       const term = row.dimensionValues?.[0].value || "";
-      const count = parseInt(row.metricValues?.[0].value || "0", 10);
+      const count = Number.parseInt(row.metricValues?.[0].value || "0", 10);
       return { term, count };
     });
   } catch (error) {
@@ -189,8 +198,10 @@ export async function getTopSearchTerms() {
  * 人気の地域を取得する
  */
 export async function getTopRegions() {
-  if (!analyticsDataClient || !propertyId) {
-    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+  if (!(analyticsDataClient && propertyId)) {
+    console.error(
+      "Google Analytics APIクライアントまたはプロパティIDが設定されていません"
+    );
     return [];
   }
 
@@ -224,14 +235,14 @@ export async function getTopRegions() {
       limit: 10,
     });
 
-    if (!response || !response.rows) {
+    if (!(response && response.rows)) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
 
     return response.rows.map((row) => {
       const region = row.dimensionValues?.[0].value || "";
-      const count = parseInt(row.metricValues?.[0].value || "0", 10);
+      const count = Number.parseInt(row.metricValues?.[0].value || "0", 10);
       return { region, count };
     });
   } catch (error) {
@@ -248,8 +259,10 @@ export async function getTopRegions() {
  * 人気の国を取得する
  */
 export async function getTopCountries() {
-  if (!analyticsDataClient || !propertyId) {
-    console.error("Google Analytics APIクライアントまたはプロパティIDが設定されていません");
+  if (!(analyticsDataClient && propertyId)) {
+    console.error(
+      "Google Analytics APIクライアントまたはプロパティIDが設定されていません"
+    );
     return [];
   }
 
@@ -283,14 +296,14 @@ export async function getTopCountries() {
       limit: 10,
     });
 
-    if (!response || !response.rows) {
+    if (!(response && response.rows)) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
 
     return response.rows.map((row) => {
       const country = row.dimensionValues?.[0].value || "";
-      const count = parseInt(row.metricValues?.[0].value || "0", 10);
+      const count = Number.parseInt(row.metricValues?.[0].value || "0", 10);
       return { country, count };
     });
   } catch (error) {

@@ -2,21 +2,22 @@ import { NextResponse } from "next/server";
 
 import {
   getPageViewsLast7Days,
-  getTopPages,
-  getTopSearchTerms,
-  getTopRegions,
   getTopCountries,
+  getTopPages,
+  getTopRegions,
+  getTopSearchTerms,
 } from "../../../utils/ga-api";
 
 export async function GET() {
   try {
-    const [pageViews, topPages, topSearchTerms, topRegions, topCountries] = await Promise.all([
-      getPageViewsLast7Days(),
-      getTopPages(),
-      getTopSearchTerms(),
-      getTopRegions(),
-      getTopCountries(),
-    ]);
+    const [pageViews, topPages, topSearchTerms, topRegions, topCountries] =
+      await Promise.all([
+        getPageViewsLast7Days(),
+        getTopPages(),
+        getTopSearchTerms(),
+        getTopRegions(),
+        getTopCountries(),
+      ]);
 
     return NextResponse.json({
       pageViews,

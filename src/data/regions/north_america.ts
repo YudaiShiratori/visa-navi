@@ -224,7 +224,10 @@ export const northAmericaCountries: Country[] = [
       "出国用航空券の所持が必要",
       "滞在費用証明（1日あたりUSD50相当額）の持参が必要",
     ],
-    notes: ["90日を超える滞在にはビザの取得が必要", "就労・留学目的の場合は別途ビザが必要"],
+    notes: [
+      "90日を超える滞在にはビザの取得が必要",
+      "就労・留学目的の場合は別途ビザが必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/belize/index.html",
     },

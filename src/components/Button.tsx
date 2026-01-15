@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -24,7 +24,8 @@ export function Button({
 
   const variantClasses = {
     primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
-    secondary: "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500",
+    secondary:
+      "bg-purple-600 text-white hover:bg-purple-700 focus:ring-purple-500",
     outline:
       "bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 focus:ring-blue-500",
   };
@@ -35,12 +36,19 @@ export function Button({
     lg: "py-3 px-6 text-lg",
   };
 
-  const disabledClasses = disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer";
+  const disabledClasses = disabled
+    ? "opacity-50 cursor-not-allowed"
+    : "cursor-pointer";
 
   const buttonClasses = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${disabledClasses} ${className}`;
 
   return (
-    <button type={type} className={buttonClasses} onClick={onClick} disabled={disabled}>
+    <button
+      className={buttonClasses}
+      disabled={disabled}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );

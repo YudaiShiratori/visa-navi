@@ -365,7 +365,10 @@ export const asiaCountries: Country[] = [
       "未使用査証欄2頁以上必要",
       "出国用航空券が必要",
     ],
-    notes: ["30日を超える滞在には事前にビザの取得が必要", "東京・大阪の大使館でビザ申請可能"],
+    notes: [
+      "30日を超える滞在には事前にビザの取得が必要",
+      "東京・大阪の大使館でビザ申請可能",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/mongolia/index.html",
     },
@@ -386,7 +389,10 @@ export const asiaCountries: Country[] = [
       "1ヶ月以上の滞在の場合は入国時3ヶ月以上の残存期間が必要",
       "出国用の予約済航空券が必要",
     ],
-    notes: ["90日を超える滞在には事前にビザの取得が必要", "入国カードの記入が必要"],
+    notes: [
+      "90日を超える滞在には事前にビザの取得が必要",
+      "入国カードの記入が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/hongkong/index.html",
     },
@@ -407,7 +413,10 @@ export const asiaCountries: Country[] = [
       "出国用の予約済航空券が必要",
       "滞在日数に応じた滞在費用が必要",
     ],
-    notes: ["90日を超える滞在には事前にビザの取得が必要", "入国カードの記入が必要"],
+    notes: [
+      "90日を超える滞在には事前にビザの取得が必要",
+      "入国カードの記入が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/macao/index.html",
     },
@@ -547,7 +556,10 @@ export const asiaCountries: Country[] = [
       "パスポート残存有効期間が入国時3ヶ月以上必要",
       "60日以内の観光・商用目的の滞在はビザ不要",
     ],
-    notes: ["60日を超える滞在の場合は現地で滞在登録が必要", "就労目的の場合は別途ビザ申請が必要"],
+    notes: [
+      "60日を超える滞在の場合は現地で滞在登録が必要",
+      "就労目的の場合は別途ビザ申請が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/kyrgyz/index.html",
     },
@@ -563,7 +575,10 @@ export const asiaCountries: Country[] = [
       evisaAvailable: true,
       purpose: ["tourism", "business"],
     },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "e-Visaの事前取得が必要"],
+    conditions: [
+      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "e-Visaの事前取得が必要",
+    ],
     notes: [
       "e-Visaはオンラインで申請可能（通常3日程度で発給）",
       "観光・商用目的のe-Visaは最大60日間の滞在が可能",
@@ -581,7 +596,10 @@ export const asiaCountries: Country[] = [
       type: "visa_required",
       duration: 10, // 一般的な観光ビザの期間
     },
-    conditions: ["パスポート残存有効期間が入国時6ヶ月以上必要", "必ず事前にビザの取得が必要"],
+    conditions: [
+      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "必ず事前にビザの取得が必要",
+    ],
     notes: [
       "ビザの事前取得が必要。招聘状が必要となる場合が多い",
       "現地ツアー会社などを通じた手配が一般的",

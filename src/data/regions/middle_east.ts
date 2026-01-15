@@ -7,7 +7,10 @@ export const middleEastCountries: Country[] = [
     code: "AF",
     region: "middle_east",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "入国にはビザが必要"],
+    conditions: [
+      "パスポートの残存有効期間が6ヶ月以上必要",
+      "入国にはビザが必要",
+    ],
     notes: [
       "現在、日本国政府はアフガニスタン全土に退避勧告を発出しています。アフガニスタンへの渡航は、どのような目的であれ止めてください。",
     ],
@@ -45,7 +48,10 @@ export const middleEastCountries: Country[] = [
     code: "YE",
     region: "middle_east",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["パスポートの残存有効期間が6ヶ月以上必要", "入国にはビザが必要"],
+    conditions: [
+      "パスポートの残存有効期間が6ヶ月以上必要",
+      "入国にはビザが必要",
+    ],
     notes: [
       "現在、日本国政府はイエメン全土に退避勧告を発出しています。イエメンへの渡航は、どのような目的であれ止めてください。",
     ],
@@ -213,7 +219,9 @@ export const middleEastCountries: Country[] = [
       "観光目的の滞在はE-VISAの取得が必要",
       "商用、就労目的は事前にビザ取得が必要",
     ],
-    notes: ["旅券にイスラエルの査証または出入国記録がある場合、ビザ発給可否は領事判断になる"],
+    notes: [
+      "旅券にイスラエルの査証または出入国記録がある場合、ビザ発給可否は領事判断になる",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/saudiarabia/index.html",
     },

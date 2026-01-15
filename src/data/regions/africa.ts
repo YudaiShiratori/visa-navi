@@ -20,7 +20,10 @@ export const africaCountries: Country[] = [
       "入国審査時に滞在先の住所や連絡先の提示が求められる場合がある",
       "パスポートに最低2ページの空白ページが必要",
     ],
-    notes: ["就労目的の場合は就労ビザの取得が必要", "現地での滞在延長は可能だが、事前申請が必要"],
+    notes: [
+      "就労目的の場合は就労ビザの取得が必要",
+      "現地での滞在延長は可能だが、事前申請が必要",
+    ],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/south_africa/index.html",
     },
@@ -31,9 +34,14 @@ export const africaCountries: Country[] = [
     code: "DZ",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 90 },
-    conditions: ["事前にビザ取得が必要", "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要",
+      "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要",
+    ],
     notes: ["一部地域に退避勧告、渡航中止勧告が発出されているため注意が必要"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/algeria/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/algeria/index.html",
+    },
   },
   {
     id: "angola",
@@ -51,7 +59,9 @@ export const africaCountries: Country[] = [
       "観光目的以外は事前にビザ取得が必要",
       "外交/公用、10歳以下のビザ申請以外は本人申請（受領は代理可）",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/angola/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/angola/index.html",
+    },
   },
   {
     id: "botswana",
@@ -60,7 +70,9 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存6ヶ月以上", "出国用航空券"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/botswana/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/botswana/index.html",
+    },
   },
   {
     id: "burundi",
@@ -73,7 +85,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/burundi/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/burundi/index.html",
+    },
   },
   {
     id: "cameroon",
@@ -81,9 +95,14 @@ export const africaCountries: Country[] = [
     code: "CM",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/cameroon/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/cameroon/index.html",
+    },
   },
   {
     id: "chad",
@@ -91,9 +110,14 @@ export const africaCountries: Country[] = [
     code: "TD",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（近隣国の大使館で申請）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/chad/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/chad/index.html",
+    },
   },
   {
     id: "comoros",
@@ -107,7 +131,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要（推奨）",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/comoros/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/comoros/index.html",
+    },
   },
   {
     id: "cote_d_ivoire",
@@ -121,7 +147,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/cote/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/cote/index.html",
+    },
   },
   {
     id: "djibouti",
@@ -135,14 +163,20 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/djibouti/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/djibouti/index.html",
+    },
   },
   {
     id: "egypt",
     name: "エジプト",
     code: "EG",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, evisaAvailable: true },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      evisaAvailable: true,
+    },
     conditions: [
       "事前にビザ取得が必要（e-Visa利用可能）",
       "空港到着時にもビザ取得可能",
@@ -151,7 +185,9 @@ export const africaCountries: Country[] = [
     notes: [
       "シナイ半島北部（北シナイ県）及びリビアとの国境地帯に渡航中止勧告が発出されているため注意が必要",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/egypt/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/egypt/index.html",
+    },
   },
   {
     id: "eritrea",
@@ -159,11 +195,16 @@ export const africaCountries: Country[] = [
     code: "ER",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 30 },
-    conditions: ["事前にビザ取得が必要", "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要",
+      "黄熱病流行国からの渡航者は黄熱予防接種証明書が必要",
+    ],
     notes: [
       "スーダンとの国境地帯、エチオピアとの国境地帯、ジブチとの国境地帯に渡航中止勧告が発出されているため注意が必要",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/eritrea/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/eritrea/index.html",
+    },
   },
   {
     id: "ethiopia",
@@ -181,7 +222,9 @@ export const africaCountries: Country[] = [
       "アディスアベバのボレ国際空港で取得するVisa On Arrivalは一時的に停止中",
       "一部地域に退避勧告、渡航中止勧告が発出されているため注意が必要",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ethiopia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/ethiopia/index.html",
+    },
   },
   {
     id: "ghana",
@@ -189,9 +232,14 @@ export const africaCountries: Country[] = [
     code: "GH",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 60 },
-    conditions: ["事前にビザ取得が必要", "全ての渡航者は黄熱予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要",
+      "全ての渡航者は黄熱予防接種証明書が必要",
+    ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/ghana/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/ghana/index.html",
+    },
   },
   {
     id: "kenya",
@@ -216,21 +264,29 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["日本国籍は3か月まで査証免除"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/lesotho/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/lesotho/index.html",
+    },
   }, // source: https://www.mofa.go.jp/mofaj/area/lesotho/data.html
   {
     id: "madagascar",
     name: "マダガスカル",
     code: "MG",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, evisaAvailable: true },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      evisaAvailable: true,
+    },
     conditions: [
       "到着ビザまたはe-Visaの取得が必要",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要（推奨）",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/madagascar/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/madagascar/index.html",
+    },
   },
   {
     id: "malawi",
@@ -244,7 +300,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/malawi/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/malawi/index.html",
+    },
   },
   {
     id: "mali",
@@ -252,9 +310,14 @@ export const africaCountries: Country[] = [
     code: "ML",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mali/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/mali/index.html",
+    },
   },
   {
     id: "mauritania",
@@ -268,7 +331,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mauritania/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/mauritania/index.html",
+    },
   },
   {
     id: "mauritius",
@@ -277,7 +342,9 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存滞在期間中有効", "出国用航空券", "滞在先証明"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mauritius/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/mauritius/index.html",
+    },
   },
   {
     id: "morocco",
@@ -286,27 +353,39 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存滞在期間中有効"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/morocco/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/morocco/index.html",
+    },
   },
   {
     id: "mozambique",
     name: "モザンビーク",
     code: "MZ",
     region: "africa",
-    visaRequirement: { type: "visa_free", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "日本国籍は観光・商用等で30日/回（年間最大90日）まで査証免除",
       "入国前に電子事前登録（PAE）と入国税の支払いが必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/mozambique/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/mozambique/index.html",
+    },
   }, // source: https://www.mz.emb-japan.go.jp/itpr_ja/11_000001_00616.html
   {
     id: "namibia",
     name: "ナミビア",
     code: "NA",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 90, evisaAvailable: true },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 90,
+      evisaAvailable: true,
+    },
     conditions: [
       "2025年4月1日から新たな査証制度が導入され、日本国籍者は入国にあたり査証取得が必要",
       "取得方法：(1) オンライン（E-Visa）、(2) 到着時（Visa on Arrival）、(3) 駐日大使館申請",
@@ -315,7 +394,9 @@ export const africaCountries: Country[] = [
       "出国用航空券",
     ],
     notes: ["在ナミビア日本国大使館で新制度の詳細が案内されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/namibia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/namibia/index.html",
+    },
   },
   {
     id: "niger",
@@ -323,9 +404,14 @@ export const africaCountries: Country[] = [
     code: "NE",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（近隣国の大使館で申請）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（近隣国の大使館で申請）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/niger/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/niger/index.html",
+    },
   },
   {
     id: "nigeria",
@@ -333,9 +419,14 @@ export const africaCountries: Country[] = [
     code: "NG",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/nigeria/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/nigeria/index.html",
+    },
   },
   {
     id: "rwanda",
@@ -349,7 +440,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/rwanda/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/rwanda/index.html",
+    },
   },
   {
     id: "senegal",
@@ -357,9 +450,14 @@ export const africaCountries: Country[] = [
     code: "SN",
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
-    conditions: ["パスポート残存6ヶ月以上必要", "黄熱病予防接種証明書が必要（推奨）"],
+    conditions: [
+      "パスポート残存6ヶ月以上必要",
+      "黄熱病予防接種証明書が必要（推奨）",
+    ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/senegal/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/senegal/index.html",
+    },
   },
   {
     id: "seychelles",
@@ -375,7 +473,9 @@ export const africaCountries: Country[] = [
       "オンラインでのTravel Authorization事前申請が必要",
     ],
     notes: ["到着時に入国許可（Visitor's Permit）が付与される"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/seychelles/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/seychelles/index.html",
+    },
   },
   {
     id: "somalia",
@@ -388,7 +488,9 @@ export const africaCountries: Country[] = [
       "ソマリア民間航空当局（SCAA）のAIC（航空情報通報）で案内されている",
     ],
     notes: ["渡航中止勧告が発出されている", "ソマリランドは別途要件あり"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/somali/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/somali/index.html",
+    },
   },
   {
     id: "south_sudan",
@@ -396,9 +498,14 @@ export const africaCountries: Country[] = [
     code: "SS",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/s_sudan/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/s_sudan/index.html",
+    },
   },
   {
     id: "sudan",
@@ -406,9 +513,14 @@ export const africaCountries: Country[] = [
     code: "SD",
     region: "africa",
     visaRequirement: { type: "visa_required", duration: 0 },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "黄熱病予防接種証明書が必要"],
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "黄熱病予防接種証明書が必要",
+    ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/sudan/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/sudan/index.html",
+    },
   },
   {
     id: "tanzania",
@@ -422,7 +534,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/tanzania/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/tanzania/index.html",
+    },
   },
   {
     id: "tunisia",
@@ -431,7 +545,9 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism"] },
     conditions: ["パスポート残存3ヶ月以上"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/tunisia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/tunisia/index.html",
+    },
   },
   {
     id: "uganda",
@@ -439,24 +555,35 @@ export const africaCountries: Country[] = [
     code: "UG",
     region: "africa",
     visaRequirement: { type: "evisa", duration: 90, evisaAvailable: true },
-    conditions: ["事前にe-Visaの取得が必要", "1歳以上の渡航者は黄熱予防接種証明書が必要"],
+    conditions: [
+      "事前にe-Visaの取得が必要",
+      "1歳以上の渡航者は黄熱予防接種証明書が必要",
+    ],
     notes: [
       "コンゴ民主共和国との国境地帯（ホイマ県以南）に渡航中止勧告が発出されているため注意が必要",
     ],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/uganda/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/uganda/index.html",
+    },
   },
   {
     id: "zambia",
     name: "ザンビア",
     code: "ZM",
     region: "africa",
-    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "2022年11月7日以降、日本国籍は観光・商用等で最長90日まで査証免除",
       "復路/第三国行き航空券の提示を求められる場合あり",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/zambia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/zambia/index.html",
+    },
   }, // source: https://www.mofa.go.jp/mofaj/toko/visa/japanese/passport/visa_exempted.html#zambia
   {
     id: "zimbabwe",
@@ -470,14 +597,20 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要（推奨）",
     ],
     notes: ["KAZAビザも利用可能"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/zimbabwe/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/zimbabwe/index.html",
+    },
   },
   {
     id: "gambia",
     name: "ガンビア",
     code: "GM",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "到着時のビザ取得も可能（アライバルビザ）",
@@ -486,56 +619,80 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/gambia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/gambia/index.html",
+    },
   },
   {
     id: "guinea",
     name: "ギニア",
     code: "GN",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/guinea/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/guinea/index.html",
+    },
   },
   {
     id: "guinea_bissau",
     name: "ギニアビサウ",
     code: "GW",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/guinea_bissau/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/guinea_bissau/index.html",
+    },
   },
   {
     id: "sierra_leone",
     name: "シエラレオネ",
     code: "SL",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/sierra_leone/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/sierra_leone/index.html",
+    },
   },
   {
     id: "liberia",
     name: "リベリア",
     code: "LR",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
@@ -543,14 +700,20 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/liberia/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/liberia/index.html",
+    },
   },
   {
     id: "togo",
     name: "トーゴ",
     code: "TG",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "到着時のビザ取得も可能（アライバルビザ）",
@@ -558,7 +721,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/togo/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/togo/index.html",
+    },
   },
   {
     id: "benin",
@@ -578,42 +743,60 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/benin/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/benin/index.html",
+    },
   },
   {
     id: "burkina_faso",
     name: "ブルキナファソ",
     code: "BF",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/burkina_faso/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/burkina_faso/index.html",
+    },
   },
   {
     id: "central_african_republic",
     name: "中央アフリカ共和国",
     code: "CF",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（フランスまたは近隣国の大使館で申請）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/c_africa/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/c_africa/index.html",
+    },
   },
   {
     id: "gabon",
     name: "ガボン",
     code: "GA",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "到着時のビザ取得も可能（アライバルビザ）",
@@ -621,14 +804,20 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/gabon/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/gabon/index.html",
+    },
   },
   {
     id: "congo_republic",
     name: "コンゴ共和国",
     code: "CG",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "到着時のビザ取得も可能（アライバルビザ）",
@@ -636,42 +825,60 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/congo_r/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/congo_r/index.html",
+    },
   },
   {
     id: "congo_dr",
     name: "コンゴ民主共和国",
     code: "CD",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/congo_d/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/congo_d/index.html",
+    },
   },
   {
     id: "equatorial_guinea",
     name: "赤道ギニア",
     code: "GQ",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "パスポート残存6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/e_guinea/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/e_guinea/index.html",
+    },
   },
   {
     id: "sao_tome",
     name: "サントメ・プリンシペ",
     code: "ST",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
     conditions: [
       "事前にビザ取得が必要（東京の大使館で申請可能）",
       "到着時のビザ取得も可能（アライバルビザ）",
@@ -679,7 +886,9 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/saotome/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/saotome/index.html",
+    },
   },
   {
     id: "cape_verde",
@@ -699,26 +908,43 @@ export const africaCountries: Country[] = [
       "黄熱病予防接種証明書が必要な場合あり",
     ],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/capeverde/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/capeverde/index.html",
+    },
   },
   {
     id: "libya",
     name: "リビア",
     code: "LY",
     region: "africa",
-    visaRequirement: { type: "visa_required", duration: 30, purpose: ["tourism", "business"] },
-    conditions: ["事前にビザ取得が必要（東京の大使館で申請可能）", "パスポート残存6ヶ月以上必要"],
+    visaRequirement: {
+      type: "visa_required",
+      duration: 30,
+      purpose: ["tourism", "business"],
+    },
+    conditions: [
+      "事前にビザ取得が必要（東京の大使館で申請可能）",
+      "パスポート残存6ヶ月以上必要",
+    ],
     notes: ["渡航中止勧告が発出されている"],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/libya/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/libya/index.html",
+    },
   },
   {
     id: "eswatini",
     name: "エスワティニ",
     code: "SZ",
     region: "africa",
-    visaRequirement: { type: "visa_free", duration: 90, purpose: ["tourism", "business"] },
+    visaRequirement: {
+      type: "visa_free",
+      duration: 90,
+      purpose: ["tourism", "business"],
+    },
     conditions: ["日本国籍は滞在最長90日まで査証免除"],
     notes: [],
-    officialLinks: { mofa: "https://www.mofa.go.jp/mofaj/area/eswatini/index.html" },
+    officialLinks: {
+      mofa: "https://www.mofa.go.jp/mofaj/area/eswatini/index.html",
+    },
   }, // source: https://www.za.emb-japan.go.jp/files/100233453.pdf
 ];

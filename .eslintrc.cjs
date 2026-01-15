@@ -1,3 +1,4 @@
+"use strict";
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -22,7 +23,7 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier"
+    "prettier",
   ],
 
   rules: {
@@ -88,7 +89,10 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unsafe-member-access": "off",
         "@typescript-eslint/no-unsafe-assignment": "off",
-        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "interface",
+        ],
         "@typescript-eslint/no-unused-vars": "warn",
       },
     },

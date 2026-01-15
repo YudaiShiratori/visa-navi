@@ -5,9 +5,9 @@ import { useState } from "react";
 
 import { type RegionId, regionColors } from "../constants/colors";
 import { getAllCountries } from "../data/regions";
+import type { Country } from "../data/types";
 import { sendGAEvent } from "../utils/analytics";
 
-import type { Country } from "../data/types";
 // 国データを取得
 const countries = getAllCountries();
 interface Region {
@@ -119,13 +119,16 @@ export function MapSelector() {
         {regionsWithCounts.map((region) => (
           <motion.div
             key={region.id}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
             whileHover={{ y: -8, scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <Link
-              href={`/region/${region.id}`}
               className="group relative flex h-full flex-col overflow-hidden rounded-xl p-4 transition-all duration-300 md:p-6"
+              href={`/region/${region.id}`}
+              onClick={() => handleRegionSelect(region.id, region.name)}
+              onMouseEnter={() => setActiveRegion(region.id)}
+              onMouseLeave={() => setActiveRegion(null)}
               style={{
                 backgroundColor: `${regionColors[region.id].light}30`,
                 borderColor: regionColors[region.id].main,
@@ -135,38 +138,35 @@ export function MapSelector() {
                     ? `0 10px 25px -5px ${regionColors[region.id].main}30`
                     : "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
               }}
-              onMouseEnter={() => setActiveRegion(region.id)}
-              onMouseLeave={() => setActiveRegion(null)}
-              onClick={() => handleRegionSelect(region.id, region.name)}
             >
-              <div className="absolute right-0 top-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24"></div>
+              <div className="absolute top-0 right-0 h-16 w-16 rounded-bl-full bg-gradient-to-bl from-white/10 to-transparent md:h-24 md:w-24" />
               <div className="relative z-10 flex flex-grow flex-col">
                 <h3
-                  className="mb-1 text-xl font-bold md:mb-2 md:text-2xl"
+                  className="mb-1 font-bold text-xl md:mb-2 md:text-2xl"
                   style={{ color: regionColors[region.id].main }}
                 >
                   {region.name}
                 </h3>
-                <p className="mb-3 text-xs text-gray-600 md:mb-4 md:text-sm">
+                <p className="mb-3 text-gray-600 text-xs md:mb-4 md:text-sm">
                   {region.description}
                 </p>
                 <div className="mt-auto flex items-center justify-between">
                   <div
-                    className="flex items-center text-xs font-medium md:text-sm"
+                    className="flex items-center font-medium text-xs md:text-sm"
                     style={{ color: regionColors[region.id].main }}
                   >
                     選択する
                     <svg
                       className="ml-1 h-3 w-3 transform transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
                       fill="none"
-                      viewBox="0 0 24 24"
                       stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
                       <path
+                        d="M9 5l7 7-7 7"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         strokeWidth={2}
-                        d="M9 5l7 7-7 7"
                       />
                     </svg>
                   </div>

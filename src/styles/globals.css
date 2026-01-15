@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
 @layer base {
   html {
@@ -15,4 +14,4 @@
   .container {
     @apply px-4 mx-auto;
   }
-} 
+}

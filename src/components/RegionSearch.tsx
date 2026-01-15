@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { visaStatusColors } from "../constants/colors";
 
@@ -97,7 +97,8 @@ interface RegionSearchProps {
 
 export default function RegionSearch({ countries }: RegionSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredCountries, setFilteredCountries] = useState<Country[]>(countries);
+  const [filteredCountries, setFilteredCountries] =
+    useState<Country[]>(countries);
 
   useEffect(() => {
     if (searchQuery) {
@@ -121,7 +122,11 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
       });
 
       // 優先度順に結合
-      setFilteredCountries([...exactMatches, ...startsWithMatches, ...includesMatches]);
+      setFilteredCountries([
+        ...exactMatches,
+        ...startsWithMatches,
+        ...includesMatches,
+      ]);
     } else {
       setFilteredCountries(countries);
     }
@@ -132,10 +137,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
       <div className="mb-6">
         <div className="relative mx-auto max-w-xl">
           <input
-            type="text"
-            placeholder="国名で検索..."
             className="w-full rounded-lg border border-gray-300 px-4 py-3 pr-10 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
-            value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onCompositionEnd={(e) => {
               const target = e.target as HTMLInputElement;
@@ -147,22 +149,25 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
               }
               if ("isComposing" in e && e.isComposing) return;
             }}
+            placeholder="国名で検索..."
+            type="text"
+            value={searchQuery}
           />
           <svg
-            className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+            className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-400"
             fill="none"
-            viewBox="0 0 24 24"
             stroke="currentColor"
+            viewBox="0 0 24 24"
           >
             <path
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             />
           </svg>
         </div>
-        <p className="mt-2 text-center text-sm text-gray-500">
+        <p className="mt-2 text-center text-gray-500 text-sm">
           {filteredCountries.length}カ国が見つかりました
         </p>
       </div>
@@ -171,33 +176,43 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
         {filteredCountries.map((country) => {
           // ビザステータスに基づいて色を決定
           const statusColor =
-            visaStatusColors[country.visaRequirement.type as keyof typeof visaStatusColors];
+            visaStatusColors[
+              country.visaRequirement.type as keyof typeof visaStatusColors
+            ];
 
           return (
             <Link
-              key={country.id}
-              href={`/country/${country.id}`}
               className="flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+              href={`/country/${country.id}`}
+              key={country.id}
             >
-              <div className="h-2" style={{ backgroundColor: statusColor.main }}></div>
+              <div
+                className="h-2"
+                style={{ backgroundColor: statusColor.main }}
+              />
               <div className="relative flex flex-1 flex-col p-5">
-                <h3 className="mr-28 text-lg font-medium text-gray-900 lg:mr-0">
-                  {searchQuery && country.name.toLowerCase().includes(searchQuery.toLowerCase())
+                <h3 className="mr-28 font-medium text-gray-900 text-lg lg:mr-0">
+                  {searchQuery &&
+                  country.name.toLowerCase().includes(searchQuery.toLowerCase())
                     ? highlightMatch(country.name, searchQuery)
                     : country.name}
                   {country.code && (
                     <span className="ml-2 inline-block align-middle">
                       <span
                         className={`fi fi-${country.code.toLowerCase()}`}
-                        style={{ width: "20px", height: "15px", display: "inline-block" }}
-                      ></span>
+                        style={{
+                          width: "20px",
+                          height: "15px",
+                          display: "inline-block",
+                        }}
+                      />
                     </span>
                   )}
                 </h3>
 
-                <div className="mr-28 mt-1 w-fit lg:mr-0">
+                <div className="mt-1 mr-28 w-fit lg:mr-0">
                   <div
-                    className="rounded-full px-3 py-1 text-xs font-medium"
+                    className="rounded-full px-3 py-1 font-medium text-xs"
                     style={{
                       backgroundColor: statusColor.light,
                       color: statusColor.main,
@@ -212,10 +227,13 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                 </div>
 
                 {country.visaRequirement.duration ? (
-                  <div className="absolute bottom-6 right-4 flex flex-shrink-0 flex-col items-end">
-                    <span className="text-xs text-gray-500">滞在可能期間</span>
+                  <div className="absolute right-4 bottom-6 flex flex-shrink-0 flex-col items-end">
+                    <span className="text-gray-500 text-xs">滞在可能期間</span>
                     <div>
-                      <span className="text-2xl font-bold" style={{ color: statusColor.main }}>
+                      <span
+                        className="font-bold text-2xl"
+                        style={{ color: statusColor.main }}
+                      >
                         {country.visaRequirement.duration}
                       </span>
                       <span className="ml-1 text-base text-gray-500">日間</span>
@@ -232,7 +250,9 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
 
       {searchQuery && filteredCountries.length === 0 && (
         <div className="mt-8 rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">
-          <p className="text-gray-500">「{searchQuery}」に一致する国が見つかりませんでした</p>
+          <p className="text-gray-500">
+            「{searchQuery}」に一致する国が見つかりませんでした
+          </p>
         </div>
       )}
     </>

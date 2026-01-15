@@ -190,7 +190,10 @@ export const oceaniaCountries: Country[] = [
       type: "visa_required",
       duration: 0,
     },
-    conditions: ["目的に関わらず事前にビザ取得が必要", "取得方法はナウル入国管理局に確認が必要"],
+    conditions: [
+      "目的に関わらず事前にビザ取得が必要",
+      "取得方法はナウル入国管理局に確認が必要",
+    ],
     notes: [],
     officialLinks: {
       mofa: "https://www.mofa.go.jp/mofaj/area/nauru/index.html",

@@ -1,34 +1,65 @@
+# dependencies
 node_modules
+/node_modules
+/.pnp
+.pnp.js
 
 # Next.js関連
 .next/
+/.next/
 out/
+/out/
 build/
+/build/
 .vercel/
+/.vercel
 *.tsbuildinfo
 next-env.d.ts
 .vitest-cache/
 
 # 環境変数
+.env
 .env*
 .env.local
+.env*.local
 .env.development.local
 .env.test.local
 .env.production.local
+
+# database
+/prisma/db.sqlite
+/prisma/db.sqlite-journal
+db.sqlite
 
 # ログファイル
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
 # テスト関連
 /cypress/screenshots
 /cypress/videos
 /test-results/
 /coverage/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+.playwright-mcp
 
 # macOS関連
 .DS_Store
+
+# misc
+*.pem
+
+# idea files
+.idea
+
+# Claude Code
+.claude/settings.local.json
+.claude/conversations/
+CLAUDE.local.md
 
 # その他
 service-account-key.json

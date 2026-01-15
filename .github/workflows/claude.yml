@@ -18,11 +18,13 @@ jobs:
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
     runs-on: ubuntu-latest
+    # Permissions for the job - extended to allow Claude to write comments and potentially more
     permissions:
       contents: read
-      pull-requests: read
-      issues: read
+      pull-requests: write  # Allow writing to pull requests for comments and reviews
+      issues: write  # Allow writing to issues for comments
       id-token: write
+      actions: read  # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -35,3 +37,14 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
 
+          # Additional permissions for Claude (optional, but enabling for more capabilities)
+          additional_permissions: |
+            actions: read
+            pull-requests: write
+            issues: write
+
+          # Enable specific tools Claude can use
+          allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(echo:*),Bash(grep:*)"
+
+          # Optional: Trigger when specific user is assigned to an issue
+          assignee_trigger: "claude"

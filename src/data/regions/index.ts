@@ -1,3 +1,4 @@
+import type { Country } from "../types";
 import { africaCountries } from "./africa";
 import { asiaCountries } from "./asia";
 import { europeCountries } from "./europe";
@@ -5,8 +6,6 @@ import { middleEastCountries } from "./middle_east";
 import { northAmericaCountries } from "./north_america";
 import { oceaniaCountries } from "./oceania";
 import { southAmericaCountries } from "./south_america";
-
-import type { Country } from "../types";
 
 // Note: 残りの地域のインポートを追加予定（アフリカ、中東）
 
@@ -46,7 +45,9 @@ export const getCountriesByRegion = (region: string): Country[] => {
 // IDから国データを取得する関数
 export const getCountryById = (id: string): Country | undefined => {
   const lowerId = id.toLowerCase();
-  return getAllCountries().find((country) => country.id.toLowerCase() === lowerId);
+  return getAllCountries().find(
+    (country) => country.id.toLowerCase() === lowerId
+  );
 };
 
 // 同じリージョン内で前後の国を取得するための関数
@@ -63,7 +64,9 @@ export const getAdjacentCountries = (id: string) => {
 
   const prev = currentIndex > 0 ? sameRegionCountries[currentIndex - 1] : null;
   const next =
-    currentIndex < sameRegionCountries.length - 1 ? sameRegionCountries[currentIndex + 1] : null;
+    currentIndex < sameRegionCountries.length - 1
+      ? sameRegionCountries[currentIndex + 1]
+      : null;
 
   return { prev, next };
 };

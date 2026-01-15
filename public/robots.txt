@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://visa-navi.vercel.app
+
+# Sitemaps
+Sitemap: https://visa-navi.vercel.app/sitemap.xml
