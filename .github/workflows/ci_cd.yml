@@ -119,16 +119,28 @@ jobs:
           restore-keys: |
             playwright-${{ runner.os }}-
 
+      - name: Check if E2E tests exist
+        id: check-e2e
+        run: |
+          if [ -d "e2e" ] && [ "$(ls -A e2e 2>/dev/null)" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "No E2E tests found, skipping..."
+          fi
+
       - name: Install Playwright browsers
+        if: steps.check-e2e.outputs.exists == 'true'
         run: bunx playwright install --with-deps
 
       - name: Run E2E tests
+        if: steps.check-e2e.outputs.exists == 'true'
         run: bun run test:e2e:ci
         env:
           CI: true
 
       - name: Upload Playwright report
-        if: always()
+        if: steps.check-e2e.outputs.exists == 'true' && always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
