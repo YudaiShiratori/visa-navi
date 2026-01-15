@@ -841,6 +841,32 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
 
 これらのテンプレートはClaude Codeのカスタムコマンドから自動的に参照され、一貫した品質のIssueとPRを作成できます。
 
+### AI アシスタント向けスキル
+
+このテンプレートには、[Vercel Labs Agent Skills](https://github.com/vercel-labs/agent-skills/tree/main) からインストールされたスキルが含まれています。これらのスキルは、複数のAIアシスタントで共有される知識ベースとして機能します。
+
+#### インストール済みスキル
+
+| スキル名 | 説明 |
+|---------|------|
+| **Vercel React Best Practices** | Vercel Engineering チームによる React/Next.js のパフォーマンス最適化ガイドライン。再レンダリング防止、バンドル最適化、サーバーサイドキャッシュなど50以上のルールを含みます。 |
+| **Web Design Guidelines** | UI コードのベストプラクティス、アクセシビリティ、デザイン原則に関するガイドライン。 |
+
+#### 対応AIアシスタント
+
+スキルは以下のディレクトリに配置され、各AIアシスタントで利用可能です：
+
+- `.claude/skills/` - Claude Code
+- `.cursor/skills/` - Cursor
+- `.codex/skills/` - OpenAI Codex CLI
+- `.github/skills/` - GitHub Copilot
+
+#### スキルの使用方法
+
+スキルは各AIアシスタントのコンテキストに自動的に読み込まれます。コードレビューやパフォーマンス最適化の際に、これらのベストプラクティスが適用されます。
+
+詳細は [Vercel Labs Agent Skills リポジトリ](https://github.com/vercel-labs/agent-skills) を参照してください。
+
 ### Claude Codeの基本的な使い方
 
 1. **対話的なコーディング**

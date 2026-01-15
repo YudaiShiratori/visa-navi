@@ -821,6 +821,32 @@ Template này bao gồm các tệp template để tạo Issue và PR có cấu t
 
 Các template này được tham chiếu tự động bởi các lệnh tùy chỉnh của Claude Code, cho phép tạo Issue và PR với chất lượng nhất quán.
 
+### Kỹ năng cho trợ lý AI
+
+Template này bao gồm các kỹ năng được cài đặt từ [Vercel Labs Agent Skills](https://github.com/vercel-labs/agent-skills/tree/main). Các kỹ năng này đóng vai trò là cơ sở kiến thức chung cho nhiều trợ lý AI.
+
+#### Kỹ năng đã cài đặt
+
+| Tên kỹ năng | Mô tả |
+|-------------|-------|
+| **Vercel React Best Practices** | Hướng dẫn tối ưu hóa hiệu suất React/Next.js từ đội ngũ Vercel Engineering. Bao gồm hơn 50 quy tắc về ngăn chặn re-render, tối ưu hóa bundle, caching phía server, và nhiều hơn nữa. |
+| **Web Design Guidelines** | Hướng dẫn về các thực hành tốt nhất cho mã UI, khả năng truy cập, và nguyên tắc thiết kế. |
+
+#### Trợ lý AI được hỗ trợ
+
+Kỹ năng được đặt trong các thư mục sau và có sẵn cho từng trợ lý AI:
+
+- `.claude/skills/` - Claude Code
+- `.cursor/skills/` - Cursor
+- `.codex/skills/` - OpenAI Codex CLI
+- `.github/skills/` - GitHub Copilot
+
+#### Cách sử dụng kỹ năng
+
+Kỹ năng được tự động tải vào context của từng trợ lý AI. Các thực hành tốt nhất này được áp dụng trong quá trình đánh giá mã và tối ưu hóa hiệu suất.
+
+Để biết thêm chi tiết, xem [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
+
 ### Cách sử dụng cơ bản của Claude Code
 
 1. **Mã hóa tương tác**

@@ -841,6 +841,32 @@ This template includes template files for structured Issue and PR creation:
 
 These templates are automatically referenced by Claude Code custom commands, enabling consistent quality Issue and PR creation.
 
+### AI Assistant Skills
+
+This template includes skills installed from [Vercel Labs Agent Skills](https://github.com/vercel-labs/agent-skills/tree/main). These skills serve as a shared knowledge base across multiple AI assistants.
+
+#### Installed Skills
+
+| Skill Name | Description |
+|------------|-------------|
+| **Vercel React Best Practices** | React/Next.js performance optimization guidelines from Vercel Engineering team. Includes 50+ rules covering re-render prevention, bundle optimization, server-side caching, and more. |
+| **Web Design Guidelines** | Guidelines for UI code best practices, accessibility, and design principles. |
+
+#### Supported AI Assistants
+
+Skills are placed in the following directories and available for each AI assistant:
+
+- `.claude/skills/` - Claude Code
+- `.cursor/skills/` - Cursor
+- `.codex/skills/` - OpenAI Codex CLI
+- `.github/skills/` - GitHub Copilot
+
+#### How to Use Skills
+
+Skills are automatically loaded into each AI assistant's context. These best practices are applied during code reviews and performance optimization.
+
+For more details, see the [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
+
 ### Basic Usage of Claude Code
 
 1. **Interactive Coding**
