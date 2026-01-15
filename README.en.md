@@ -851,6 +851,7 @@ This template includes skills installed from [Vercel Labs Agent Skills](https://
 |------------|-------------|
 | **Vercel React Best Practices** | React/Next.js performance optimization guidelines from Vercel Engineering team. Includes 50+ rules covering re-render prevention, bundle optimization, server-side caching, and more. |
 | **Web Design Guidelines** | Guidelines for UI code best practices, accessibility, and design principles. |
+| **Frontend Design** | Guidelines for creating high-quality frontend interfaces. Applied when building web components, pages, and applications. |
 
 #### Supported AI Assistants
 

@@ -831,6 +831,7 @@ Template này bao gồm các kỹ năng được cài đặt từ [Vercel Labs A
 |-------------|-------|
 | **Vercel React Best Practices** | Hướng dẫn tối ưu hóa hiệu suất React/Next.js từ đội ngũ Vercel Engineering. Bao gồm hơn 50 quy tắc về ngăn chặn re-render, tối ưu hóa bundle, caching phía server, và nhiều hơn nữa. |
 | **Web Design Guidelines** | Hướng dẫn về các thực hành tốt nhất cho mã UI, khả năng truy cập, và nguyên tắc thiết kế. |
+| **Frontend Design** | Hướng dẫn tạo giao diện frontend chất lượng cao. Được áp dụng khi xây dựng web components, trang và ứng dụng. |
 
 #### Trợ lý AI được hỗ trợ
 
