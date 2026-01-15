@@ -831,7 +831,6 @@ Template này bao gồm các kỹ năng được cài đặt từ [Vercel Labs A
 |-------------|-------|
 | **Vercel React Best Practices** | Hướng dẫn tối ưu hóa hiệu suất React/Next.js từ đội ngũ Vercel Engineering. Bao gồm hơn 50 quy tắc về ngăn chặn re-render, tối ưu hóa bundle, caching phía server, và nhiều hơn nữa. |
 | **Web Design Guidelines** | Hướng dẫn về các thực hành tốt nhất cho mã UI, khả năng truy cập, và nguyên tắc thiết kế. |
-| **Frontend Design** | Hướng dẫn tạo giao diện frontend chất lượng cao. Được áp dụng khi xây dựng web components, trang và ứng dụng. |
 
 #### Trợ lý AI được hỗ trợ
 
@@ -848,9 +847,11 @@ Kỹ năng được tự động tải vào context của từng trợ lý AI. C
 
 Để biết thêm chi tiết, xem [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
 
-### Cài đặt Plugin (Chỉ lần đầu)
+### Cài đặt Plugin (Bắt buộc - Chỉ lần đầu)
 
-Dự án này khuyến nghị sử dụng các plugin Claude Code sau. **Vui lòng cài đặt khi bạn tham gia dự án lần đầu**:
+Khi phát triển với Claude Code dựa trên template này, việc cài đặt các plugin sau được **khuyến nghị mạnh mẽ**. Một số lệnh tùy chỉnh và file kỹ năng phụ thuộc vào các plugin này (ví dụ: lệnh `/pr-review` sử dụng plugin `code-review`).
+
+**Vui lòng cài đặt khi bạn tham gia dự án lần đầu**:
 
 ```bash
 # Chạy các lệnh sau trong Claude Code (sử dụng --scope user để cài đặt toàn cục)
@@ -869,11 +870,12 @@ Dự án này khuyến nghị sử dụng các plugin Claude Code sau. **Vui lò
 | `context7` | Tham chiếu tài liệu thư viện |
 | `serena` | Phân tích mã ngữ nghĩa |
 | `typescript-lsp` | Tích hợp máy chủ ngôn ngữ TypeScript |
-| `code-review` | Tự động hóa đánh giá mã |
+| `code-review` | Tự động hóa đánh giá mã (sử dụng bởi `/pr-review`) |
 
 **Quan trọng**:
 - Sử dụng `--scope user` để plugin có sẵn trên tất cả các dự án
 - Không có `--scope user`, plugin chỉ được cài đặt cho dự án cụ thể, có thể gây ra lỗi "already installed" trong các dự án khác
+- Một số lệnh tùy chỉnh sẽ không hoạt động đúng nếu plugin chưa được cài đặt
 
 ### Cách sử dụng cơ bản của Claude Code
 

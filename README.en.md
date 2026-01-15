@@ -851,7 +851,6 @@ This template includes skills installed from [Vercel Labs Agent Skills](https://
 |------------|-------------|
 | **Vercel React Best Practices** | React/Next.js performance optimization guidelines from Vercel Engineering team. Includes 50+ rules covering re-render prevention, bundle optimization, server-side caching, and more. |
 | **Web Design Guidelines** | Guidelines for UI code best practices, accessibility, and design principles. |
-| **Frontend Design** | Guidelines for creating high-quality frontend interfaces. Applied when building web components, pages, and applications. |
 
 #### Supported AI Assistants
 
@@ -868,9 +867,11 @@ Skills are automatically loaded into each AI assistant's context. These best pra
 
 For more details, see the [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
 
-### Plugin Installation (First Time Only)
+### Plugin Installation (Required - First Time Only)
 
-This project recommends using the following Claude Code plugins. **Please install them when you first join the project**:
+When developing with Claude Code based on this template, installing the following plugins is **strongly recommended**. Some custom commands and skill files depend on these plugins (e.g., `/pr-review` command uses the `code-review` plugin).
+
+**Please install these when you first join the project**:
 
 ```bash
 # Run the following commands in Claude Code (use --scope user to install globally)
@@ -889,11 +890,12 @@ This project recommends using the following Claude Code plugins. **Please instal
 | `context7` | Library documentation reference |
 | `serena` | Semantic code analysis |
 | `typescript-lsp` | TypeScript language server integration |
-| `code-review` | Automated code review |
+| `code-review` | Automated code review (used by `/pr-review`) |
 
 **Important**:
 - Using `--scope user` makes plugins available across all projects
 - Without `--scope user`, plugins are installed only for the specific project, which may cause "already installed" errors in other projects
+- Some custom commands will not work properly if plugins are not installed
 
 ### Basic Usage of Claude Code
 
