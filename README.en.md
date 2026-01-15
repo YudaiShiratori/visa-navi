@@ -868,6 +868,33 @@ Skills are automatically loaded into each AI assistant's context. These best pra
 
 For more details, see the [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
 
+### Plugin Installation (First Time Only)
+
+This project recommends using the following Claude Code plugins. **Please install them when you first join the project**:
+
+```bash
+# Run the following commands in Claude Code (use --scope user to install globally)
+/plugin install frontend-design@claude-plugins-official --scope user
+/plugin install github@claude-plugins-official --scope user
+/plugin install context7@claude-plugins-official --scope user
+/plugin install serena@claude-plugins-official --scope user
+/plugin install typescript-lsp@claude-plugins-official --scope user
+/plugin install code-review@claude-plugins-official --scope user
+```
+
+| Plugin | Purpose |
+|--------|---------|
+| `frontend-design` | High-quality UI/UX design generation |
+| `github` | GitHub integration (Issue/PR operations) |
+| `context7` | Library documentation reference |
+| `serena` | Semantic code analysis |
+| `typescript-lsp` | TypeScript language server integration |
+| `code-review` | Automated code review |
+
+**Important**:
+- Using `--scope user` makes plugins available across all projects
+- Without `--scope user`, plugins are installed only for the specific project, which may cause "already installed" errors in other projects
+
 ### Basic Usage of Claude Code
 
 1. **Interactive Coding**

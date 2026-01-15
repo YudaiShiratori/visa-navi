@@ -848,6 +848,33 @@ Kỹ năng được tự động tải vào context của từng trợ lý AI. C
 
 Để biết thêm chi tiết, xem [Vercel Labs Agent Skills repository](https://github.com/vercel-labs/agent-skills).
 
+### Cài đặt Plugin (Chỉ lần đầu)
+
+Dự án này khuyến nghị sử dụng các plugin Claude Code sau. **Vui lòng cài đặt khi bạn tham gia dự án lần đầu**:
+
+```bash
+# Chạy các lệnh sau trong Claude Code (sử dụng --scope user để cài đặt toàn cục)
+/plugin install frontend-design@claude-plugins-official --scope user
+/plugin install github@claude-plugins-official --scope user
+/plugin install context7@claude-plugins-official --scope user
+/plugin install serena@claude-plugins-official --scope user
+/plugin install typescript-lsp@claude-plugins-official --scope user
+/plugin install code-review@claude-plugins-official --scope user
+```
+
+| Plugin | Mục đích |
+|--------|----------|
+| `frontend-design` | Tạo thiết kế UI/UX chất lượng cao |
+| `github` | Tích hợp GitHub (thao tác Issue/PR) |
+| `context7` | Tham chiếu tài liệu thư viện |
+| `serena` | Phân tích mã ngữ nghĩa |
+| `typescript-lsp` | Tích hợp máy chủ ngôn ngữ TypeScript |
+| `code-review` | Tự động hóa đánh giá mã |
+
+**Quan trọng**:
+- Sử dụng `--scope user` để plugin có sẵn trên tất cả các dự án
+- Không có `--scope user`, plugin chỉ được cài đặt cho dự án cụ thể, có thể gây ra lỗi "already installed" trong các dự án khác
+
 ### Cách sử dụng cơ bản của Claude Code
 
 1. **Mã hóa tương tác**

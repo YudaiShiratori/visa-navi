@@ -868,6 +868,33 @@ Dependabotにもこれらの秘密情報へのアクセスを許可するには:
 
 詳細は [Vercel Labs Agent Skills リポジトリ](https://github.com/vercel-labs/agent-skills) を参照してください。
 
+### プラグインのインストール（初回のみ）
+
+このプロジェクトでは以下のClaude Codeプラグインの使用を推奨しています。**初回参加時に各自でインストールしてください**:
+
+```bash
+# Claude Code内で以下のコマンドを実行（--scope user で全プロジェクト共通にインストール）
+/plugin install frontend-design@claude-plugins-official --scope user
+/plugin install github@claude-plugins-official --scope user
+/plugin install context7@claude-plugins-official --scope user
+/plugin install serena@claude-plugins-official --scope user
+/plugin install typescript-lsp@claude-plugins-official --scope user
+/plugin install code-review@claude-plugins-official --scope user
+```
+
+| プラグイン | 用途 |
+|-----------|------|
+| `frontend-design` | 高品質なUI/UXデザイン生成 |
+| `github` | GitHub統合（Issue/PR操作） |
+| `context7` | ライブラリドキュメント参照 |
+| `serena` | セマンティックコード解析 |
+| `typescript-lsp` | TypeScript言語サーバー連携 |
+| `code-review` | コードレビュー自動化 |
+
+**重要**:
+- `--scope user` を付けることで、全プロジェクトでプラグインが利用可能になります
+- `--scope user` を付けないと特定プロジェクトのみにインストールされ、他プロジェクトで「already installed」エラーが発生する場合があります
+
 ### Claude Codeの基本的な使い方
 
 1. **対話的なコーディング**
