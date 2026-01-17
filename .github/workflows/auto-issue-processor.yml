@@ -8,7 +8,7 @@ on:
       max_issues:
         description: '処理する最大Issue数'
         required: false
-        default: '5'
+        default: '10'
 
 jobs:
   collect-issues:
@@ -23,24 +23,26 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
-          # オープンIssueを取得
-          issues=$(gh issue list --state open --json number,title --limit 50)
+          # オープンIssueの番号を取得
+          issue_numbers=$(gh issue list --state open --json number --jq '.[].number' --limit 50)
 
           # PRが未作成のIssueをフィルタリング
-          filtered_issues="[]"
-          for row in $(echo "$issues" | jq -c '.[]'); do
-            issue_number=$(echo "$row" | jq -r '.number')
-            linked_prs=$(gh pr list --state all --search "Fixes #$issue_number OR Closes #$issue_number" --json number)
-            if [ "$(echo "$linked_prs" | jq '. | length')" -eq 0 ]; then
-              filtered_issues=$(echo "$filtered_issues" | jq --argjson issue "$row" '. + [$issue]')
+          filtered_numbers=()
+          for issue_number in $issue_numbers; do
+            linked_prs=$(gh pr list --state all --search "Fixes #$issue_number OR Closes #$issue_number" --json number --jq 'length')
+            if [ "$linked_prs" -eq 0 ]; then
+              filtered_numbers+=("$issue_number")
             fi
           done
 
-          max_issues=${{ github.event.inputs.max_issues || '5' }}
-          filtered_issues=$(echo "$filtered_issues" | jq ".[:$max_issues]")
+          max_issues=${{ github.event.inputs.max_issues || '10' }}
+          filtered_numbers=("${filtered_numbers[@]:0:$max_issues}")
 
-          echo "issues=$(echo "$filtered_issues" | jq -c '[.[].number]')" >> $GITHUB_OUTPUT
-          [ "$(echo "$filtered_issues" | jq '. | length')" -gt 0 ] && echo "has_issues=true" >> $GITHUB_OUTPUT || echo "has_issues=false" >> $GITHUB_OUTPUT
+          # JSON配列に変換
+          issues_json=$(printf '%s\n' "${filtered_numbers[@]}" | jq -R . | jq -s -c 'map(tonumber)')
+
+          echo "issues=$issues_json" >> $GITHUB_OUTPUT
+          [ ${#filtered_numbers[@]} -gt 0 ] && echo "has_issues=true" >> $GITHUB_OUTPUT || echo "has_issues=false" >> $GITHUB_OUTPUT
 
   process-issue:
     needs: collect-issues
@@ -48,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 1
+      max-parallel: 5
       matrix:
         issue: ${{ fromJson(needs.collect-issues.outputs.issues) }}
     permissions:
@@ -70,11 +72,13 @@ jobs:
       - run: bun install --frozen-lockfile
 
       - name: Run Claude Code for Issue #${{ matrix.issue }}
+        timeout-minutes: 20
         id: implement
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
+          mode: 'agent'
+          direct_prompt: |
             Work on Issue #${{ matrix.issue }}.
 
             1. View issue: gh issue view ${{ matrix.issue }}
@@ -108,11 +112,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Self-review and fix PR
+        timeout-minutes: 10
         if: steps.get-pr.outputs.pr_number != ''
         uses: anthropics/claude-code-action@beta
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          prompt: |
+          mode: 'agent'
+          direct_prompt: |
             自己レビューと修正を行います。PR #${{ steps.get-pr.outputs.pr_number }} をレビューしてください。
 
             1. PRの変更を確認: gh pr diff ${{ steps.get-pr.outputs.pr_number }}
