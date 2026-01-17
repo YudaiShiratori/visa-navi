@@ -18,7 +18,7 @@ Task tool で以下を **並列実行**：
 
 ### 2. Issue 作成
 
-タイプを判断（🐛 bug / ✨ enhancement / 📚 docs / 🔧 chore）して作成：
+タイプを判断（bug / enhancement / docs / chore）して作成：
 
 ```bash
 gh issue create --title "[タイトル]" --body "## 概要
