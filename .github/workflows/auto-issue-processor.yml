@@ -76,7 +76,7 @@ jobs:
         id: implement
         uses: anthropics/claude-code-action@beta
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
           direct_prompt: |
             Work on Issue #${{ matrix.issue }}.
@@ -116,7 +116,7 @@ jobs:
         if: steps.get-pr.outputs.pr_number != ''
         uses: anthropics/claude-code-action@beta
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
           direct_prompt: |
             自己レビューと修正を行います。PR #${{ steps.get-pr.outputs.pr_number }} をレビューしてください。
