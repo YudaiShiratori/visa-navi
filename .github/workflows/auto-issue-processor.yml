@@ -93,7 +93,7 @@ jobs:
 
             Follow CLAUDE.md guidelines. If issue is unclear, comment on it instead of creating PR.
 
-          allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(echo:*),Bash(grep:*),Bash(gh issue:*),Bash(gh pr:*)"
+          allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(git config:*),Bash(echo:*),Bash(grep:*),Bash(gh issue:*),Bash(gh pr:*)"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -136,7 +136,7 @@ jobs:
 
             修正が不要な場合も、レビュー完了のコメントを残してください。
 
-          allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(echo:*),Bash(grep:*),Bash(gh issue:*),Bash(gh pr:*)"
+          allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(git config:*),Bash(echo:*),Bash(grep:*),Bash(gh issue:*),Bash(gh pr:*)"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
