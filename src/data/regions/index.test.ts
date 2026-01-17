@@ -9,6 +9,8 @@ import {
   regionMap,
 } from "./index";
 
+const VISA_TYPE_REGEX = /^(visa_free|evisa|visa_required)$/;
+
 describe("regionMap", () => {
   it("全ての地域が定義されている", () => {
     expect(regionMap).toHaveProperty("asia");
@@ -41,9 +43,7 @@ describe("regionCountries", () => {
       expect(country.name).toBeDefined();
       expect(country.region).toBeDefined();
       expect(country.visaRequirement).toBeDefined();
-      expect(country.visaRequirement.type).toMatch(
-        /^(visa_free|evisa|visa_required)$/
-      );
+      expect(country.visaRequirement.type).toMatch(VISA_TYPE_REGEX);
     }
   });
 });
@@ -125,11 +125,13 @@ describe("getAdjacentCountries", () => {
   it("最後の国はnextがnull", () => {
     const asiaCountries = getCountriesByRegion("asia");
     if (asiaCountries.length > 0) {
-      const lastCountry = asiaCountries[asiaCountries.length - 1];
-      const { prev, next } = getAdjacentCountries(lastCountry.id);
-      expect(next).toBeNull();
-      if (asiaCountries.length > 1) {
-        expect(prev).toEqual(asiaCountries[asiaCountries.length - 2]);
+      const lastCountry = asiaCountries.at(-1);
+      if (lastCountry) {
+        const { prev, next } = getAdjacentCountries(lastCountry.id);
+        expect(next).toBeNull();
+        if (asiaCountries.length > 1) {
+          expect(prev).toEqual(asiaCountries.at(-2));
+        }
       }
     }
   });

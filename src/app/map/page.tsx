@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SearchCountries } from "../../components/SearchCountries";
+import { SearchCountries } from "../../components/search-countries";
 import { visaStatusColors } from "../../constants/colors";
 import { getCountriesByRegion } from "../../data/regions";
 
@@ -92,7 +92,9 @@ export default function MapPage() {
         {regions.map((region) => {
           const regionCountries = getCountriesByRegion(region.id);
 
-          if (regionCountries.length === 0) return null;
+          if (regionCountries.length === 0) {
+            return null;
+          }
 
           return (
             <div className="mb-10" key={region.id}>
@@ -142,11 +144,17 @@ export default function MapPage() {
                               color: statusColor.main,
                             }}
                           >
-                            {country.visaRequirement.type === "visa_free"
-                              ? "ビザなしで入国可能"
-                              : country.visaRequirement.type === "evisa"
-                                ? "ビザの事前取得が必要（電子ビザ可）"
-                                : "ビザの事前取得が必要"}
+                            {(() => {
+                              if (
+                                country.visaRequirement.type === "visa_free"
+                              ) {
+                                return "ビザなしで入国可能";
+                              }
+                              if (country.visaRequirement.type === "evisa") {
+                                return "ビザの事前取得が必要（電子ビザ可）";
+                              }
+                              return "ビザの事前取得が必要";
+                            })()}
                           </div>
                           {country.visaRequirement.duration && (
                             <div className="flex items-center justify-between">

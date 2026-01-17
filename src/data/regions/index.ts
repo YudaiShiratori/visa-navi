@@ -2,10 +2,10 @@ import type { Country } from "../types";
 import { africaCountries } from "./africa";
 import { asiaCountries } from "./asia";
 import { europeCountries } from "./europe";
-import { middleEastCountries } from "./middle_east";
-import { northAmericaCountries } from "./north_america";
+import { middleEastCountries } from "./middle-east";
+import { northAmericaCountries } from "./north-america";
 import { oceaniaCountries } from "./oceania";
-import { southAmericaCountries } from "./south_america";
+import { southAmericaCountries } from "./south-america";
 
 // Note: 残りの地域のインポートを追加予定（アフリカ、中東）
 
@@ -34,7 +34,7 @@ export const regionCountries: Record<string, Country[]> = {
 
 // 全ての国データを取得する関数
 export const getAllCountries = (): Country[] => {
-  return Object.values(regionCountries).flatMap((countries) => countries);
+  return Object.values(regionCountries).flat();
 };
 
 // 地域ごとの国データを取得する関数
@@ -53,14 +53,18 @@ export const getCountryById = (id: string): Country | undefined => {
 // 同じリージョン内で前後の国を取得するための関数
 export const getAdjacentCountries = (id: string) => {
   const country = getCountryById(id);
-  if (!country) return { prev: null, next: null };
+  if (!country) {
+    return { prev: null, next: null };
+  }
 
   const sameRegionCountries = getCountriesByRegion(country.region);
   const currentIndex = sameRegionCountries.findIndex(
     (c) => c.id.toLowerCase() === id.toLowerCase()
   );
 
-  if (currentIndex === -1) return { prev: null, next: null };
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
 
   const prev = currentIndex > 0 ? sameRegionCountries[currentIndex - 1] : null;
   const next =

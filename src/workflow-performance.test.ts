@@ -1,6 +1,6 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { load } from "js-yaml";
-import { join } from "path";
 import { describe, expect, it } from "vitest";
 
 interface WorkflowStep {
@@ -56,9 +56,8 @@ describe("Auto Issue Processor Workflow Performance", () => {
       (step) => step.id === "filter-issues"
     );
     expect(filterStep).toBeDefined();
-    expect(filterStep?.run).toContain(
-      "max_issues=${{ github.event.inputs.max_issues || '10' }}"
-    );
+    const expectedGhActionsSyntax = `max_issues=\${{ github.event.inputs.max_issues || '10' }}`;
+    expect(filterStep?.run).toContain(expectedGhActionsSyntax);
   });
 
   it("should have max-parallel set to 5 for concurrent processing", () => {

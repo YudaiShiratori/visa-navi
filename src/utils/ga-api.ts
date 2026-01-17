@@ -46,7 +46,7 @@ export async function getPageViewsLast7Days() {
       ],
     });
 
-    if (!(response && response.rows) || response.rows.length === 0) {
+    if (!response?.rows || response.rows.length === 0) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
@@ -113,7 +113,7 @@ export async function getTopPages() {
       limit: 10,
     });
 
-    if (!(response && response.rows)) {
+    if (!response?.rows) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
@@ -174,7 +174,7 @@ export async function getTopSearchTerms() {
       limit: 10,
     });
 
-    if (!(response && response.rows)) {
+    if (!response?.rows) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
@@ -235,7 +235,7 @@ export async function getTopRegions() {
       limit: 10,
     });
 
-    if (!(response && response.rows)) {
+    if (!response?.rows) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }
@@ -296,7 +296,7 @@ export async function getTopCountries() {
       limit: 10,
     });
 
-    if (!(response && response.rows)) {
+    if (!response?.rows) {
       console.log("Google Analytics APIからデータが返されませんでした");
       return [];
     }

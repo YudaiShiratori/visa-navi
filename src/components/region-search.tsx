@@ -83,12 +83,35 @@ const kanaMap: { [key: string]: string } = {
 };
 
 function convertToComparableString(str: string): string {
-  // ひらがなをカタカナに変換
   let result = str;
-  Object.entries(kanaMap).forEach(([hiragana, katakana]) => {
+  for (const [hiragana, katakana] of Object.entries(kanaMap)) {
     result = result.replace(new RegExp(hiragana, "g"), katakana);
-  });
+  }
   return result.toLowerCase();
+}
+
+function filterCountriesByQuery(
+  countries: Country[],
+  query: string
+): Country[] {
+  const normalizedQuery = convertToComparableString(query.trim());
+  const exactMatches: Country[] = [];
+  const startsWithMatches: Country[] = [];
+  const includesMatches: Country[] = [];
+
+  for (const country of countries) {
+    const normalizedName = convertToComparableString(country.name);
+
+    if (normalizedName === normalizedQuery) {
+      exactMatches.push(country);
+    } else if (normalizedName.startsWith(normalizedQuery)) {
+      startsWithMatches.push(country);
+    } else if (normalizedName.includes(normalizedQuery)) {
+      includesMatches.push(country);
+    }
+  }
+
+  return [...exactMatches, ...startsWithMatches, ...includesMatches];
 }
 
 interface RegionSearchProps {
@@ -102,31 +125,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
 
   useEffect(() => {
     if (searchQuery) {
-      const normalizedQuery = convertToComparableString(searchQuery.trim());
-
-      // 完全一致、前方一致、部分一致の順で優先度をつける
-      const exactMatches: Country[] = [];
-      const startsWithMatches: Country[] = [];
-      const includesMatches: Country[] = [];
-
-      countries.forEach((country) => {
-        const normalizedName = convertToComparableString(country.name);
-
-        if (normalizedName === normalizedQuery) {
-          exactMatches.push(country);
-        } else if (normalizedName.startsWith(normalizedQuery)) {
-          startsWithMatches.push(country);
-        } else if (normalizedName.includes(normalizedQuery)) {
-          includesMatches.push(country);
-        }
-      });
-
-      // 優先度順に結合
-      setFilteredCountries([
-        ...exactMatches,
-        ...startsWithMatches,
-        ...includesMatches,
-      ]);
+      setFilteredCountries(filterCountriesByQuery(countries, searchQuery));
     } else {
       setFilteredCountries(countries);
     }
@@ -147,13 +146,16 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
               if (e.key === "Enter") {
                 e.preventDefault();
               }
-              if ("isComposing" in e && e.isComposing) return;
+              if ("isComposing" in e && e.isComposing) {
+                return;
+              }
             }}
             placeholder="国名で検索..."
             type="text"
             value={searchQuery}
           />
           <svg
+            aria-hidden="true"
             className="absolute top-1/2 right-3 h-5 w-5 -translate-y-1/2 text-gray-400"
             fill="none"
             stroke="currentColor"
@@ -218,11 +220,15 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       color: statusColor.main,
                     }}
                   >
-                    {country.visaRequirement.type === "visa_free"
-                      ? "ビザなし"
-                      : country.visaRequirement.type === "evisa"
-                        ? "要電子ビザ"
-                        : "要ビザ"}
+                    {(() => {
+                      if (country.visaRequirement.type === "visa_free") {
+                        return "ビザなし";
+                      }
+                      if (country.visaRequirement.type === "evisa") {
+                        return "要電子ビザ";
+                      }
+                      return "要ビザ";
+                    })()}
                   </div>
                 </div>
 
@@ -239,9 +245,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       <span className="ml-1 text-base text-gray-500">日間</span>
                     </div>
                   </div>
-                ) : (
-                  <></>
-                )}
+                ) : null}
               </div>
             </Link>
           );
@@ -261,13 +265,17 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
 
 // 検索クエリに一致する部分をハイライト表示する関数
 function highlightMatch(text: string, query: string) {
-  if (!query) return text;
+  if (!query) {
+    return text;
+  }
 
   const normalizedText = text.toLowerCase();
   const normalizedQuery = query.toLowerCase();
   const index = normalizedText.indexOf(normalizedQuery);
 
-  if (index === -1) return text;
+  if (index === -1) {
+    return text;
+  }
 
   return (
     <>

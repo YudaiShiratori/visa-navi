@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { MapSelector } from "../components/MapSelector";
-import { SearchCountries } from "../components/SearchCountries";
+import { MapSelector } from "../components/map-selector";
+import { SearchCountries } from "../components/search-countries";
 
 export const metadata: Metadata = {
   title: "ビザナビ - 日本国籍保持者向けビザ情報サービス",
@@ -23,6 +23,7 @@ export default function Home() {
           <section className="animate-fade-in rounded-xl bg-white p-4 shadow-lg md:rounded-2xl md:p-8 md:shadow-xl">
             <h2 className="mb-4 flex items-center font-bold text-xl md:mb-6 md:text-2xl">
               <svg
+                aria-hidden="true"
                 className="mr-2 h-5 w-5 text-blue-500 md:h-6 md:w-6"
                 fill="none"
                 stroke="currentColor"
@@ -45,6 +46,7 @@ export default function Home() {
           <section className="animate-slide-up px-2 md:px-0">
             <h2 className="mb-6 flex items-center justify-center font-bold text-xl md:mb-8 md:text-2xl">
               <svg
+                aria-hidden="true"
                 className="mr-2 h-5 w-5 text-purple-500 md:h-6 md:w-6"
                 fill="none"
                 stroke="currentColor"

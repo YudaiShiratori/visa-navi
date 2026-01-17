@@ -7,21 +7,21 @@ import type React from "react";
 /**
  * Base props for page components (sections, cards, etc.)
  */
-export type BasePageComponentProps = {
+export interface BasePageComponentProps {
   children: React.ReactNode;
   className?: string;
   title?: string;
   description?: string;
-};
+}
 
 /**
  * Base props for grid layout components
  */
-export type BaseGridProps = {
+export interface BaseGridProps {
   children: React.ReactNode;
   className?: string;
   gap?: "sm" | "md" | "lg";
-};
+}
 
 /**
  * Grid props for standard layouts (supports up to 6 columns)

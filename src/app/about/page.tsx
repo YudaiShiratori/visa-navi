@@ -30,6 +30,7 @@ export default function AboutPage() {
             >
               ビザ情報を調べる
               <svg
+                aria-hidden="true"
                 className="ml-2 h-5 w-5"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -76,6 +77,7 @@ export default function AboutPage() {
             <div className="rounded-lg bg-white p-8 shadow-lg transition-transform hover:-translate-y-1">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
                 <svg
+                  aria-hidden="true"
                   className="h-8 w-8 text-blue-600"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -107,6 +109,7 @@ export default function AboutPage() {
             <div className="rounded-lg bg-white p-8 shadow-lg transition-transform hover:-translate-y-1">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
                 <svg
+                  aria-hidden="true"
                   className="h-8 w-8 text-blue-600"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -138,6 +141,7 @@ export default function AboutPage() {
             <div className="rounded-lg bg-white p-8 shadow-lg transition-transform hover:-translate-y-1">
               <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50">
                 <svg
+                  aria-hidden="true"
                   className="h-8 w-8 text-blue-600"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -197,6 +201,7 @@ export default function AboutPage() {
             <div className="flex items-start">
               <div className="mr-4 flex-shrink-0">
                 <svg
+                  aria-hidden="true"
                   className="h-6 w-6"
                   fill="currentColor"
                   viewBox="0 0 20 20"

@@ -11,6 +11,8 @@ const allRegionIds: RegionId[] = [
   "middle_east",
 ];
 
+const hexColorPattern = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/;
+
 describe("regionColors", () => {
   it("全ての地域IDに対して色が定義されている", () => {
     for (const regionId of allRegionIds) {
@@ -28,7 +30,6 @@ describe("regionColors", () => {
   });
 
   it("色コードが有効な形式である", () => {
-    const hexColorPattern = /^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$/;
     for (const regionId of allRegionIds) {
       const color = regionColors[regionId];
       expect(color.main).toMatch(hexColorPattern);

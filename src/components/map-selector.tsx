@@ -5,7 +5,6 @@ import { useState } from "react";
 
 import { type RegionId, regionColors } from "../constants/colors";
 import { getAllCountries } from "../data/regions";
-import type { Country } from "../data/types";
 import { sendGAEvent } from "../utils/analytics";
 
 // 国データを取得
@@ -21,10 +20,10 @@ interface Region {
 // 地域ごとの国の数を計算
 const getRegionWithCountryCounts = (): Region[] => {
   const countryCounts: Record<string, number> = {};
-  countries.forEach((country: Country) => {
+  for (const country of countries) {
     const region = country.region;
     countryCounts[region] = (countryCounts[region] || 0) + 1;
-  });
+  }
   return regions.map((region) => ({
     ...region,
     countryCount: countryCounts[region.id] || 0,
@@ -157,6 +156,7 @@ export function MapSelector() {
                   >
                     選択する
                     <svg
+                      aria-hidden="true"
                       className="ml-1 h-3 w-3 transform transition-transform group-hover:translate-x-1 md:h-4 md:w-4"
                       fill="none"
                       stroke="currentColor"
