@@ -26,11 +26,15 @@ jobs:
           # オープンIssueの番号を取得
           issue_numbers=$(gh issue list --state open --json number --jq '.[].number' --limit 50)
 
+          # 全PRの本文を取得（より正確なマッチングのため）
+          all_pr_bodies=$(gh pr list --state all --limit 100 --json number,body)
+
           # PRが未作成のIssueをフィルタリング
           filtered_numbers=()
           for issue_number in $issue_numbers; do
-            linked_prs=$(gh pr list --state all --search "Fixes #$issue_number OR Closes #$issue_number" --json number --jq 'length')
-            if [ "$linked_prs" -eq 0 ]; then
+            # PR本文に "Fixes #N" または "Closes #N" が含まれるかチェック
+            has_linked_pr=$(echo "$all_pr_bodies" | jq -r --arg num "#$issue_number" '[.[] | select(.body | test("(Fixes|Closes|Close|Fix|Resolves|Resolve) " + $num + "($|[^0-9])"; "i"))] | length')
+            if [ "$has_linked_pr" -eq 0 ]; then
               filtered_numbers+=("$issue_number")
             fi
           done
