@@ -9,7 +9,7 @@ on:
       max_issues:
         description: '処理する最大Issue数'
         required: false
-        default: '5'
+        default: '10'
 
 jobs:
   collect-issues:
@@ -37,7 +37,7 @@ jobs:
             fi
           done
 
-          max_issues=${{ github.event.inputs.max_issues || '5' }}
+          max_issues=${{ github.event.inputs.max_issues || '10' }}
           filtered_issues=$(echo "$filtered_issues" | jq ".[:$max_issues]")
 
           echo "issues=$(echo "$filtered_issues" | jq -c '[.[].number]')" >> $GITHUB_OUTPUT
@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      max-parallel: 1
+      max-parallel: 5
       matrix:
         issue: ${{ fromJson(needs.collect-issues.outputs.issues) }}
     permissions:
@@ -71,6 +71,7 @@ jobs:
       - run: bun install --frozen-lockfile
 
       - name: Run Claude Code for Issue #${{ matrix.issue }}
+        timeout-minutes: 20
         id: implement
         uses: anthropics/claude-code-action@beta
         with:
@@ -109,6 +110,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Self-review and fix PR
+        timeout-minutes: 10
         if: steps.get-pr.outputs.pr_number != ''
         uses: anthropics/claude-code-action@beta
         with:
