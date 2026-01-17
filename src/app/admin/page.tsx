@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// 型定義
 interface PageView {
   date: string;
   count: number;
@@ -28,12 +27,19 @@ interface Country {
   count: number;
 }
 
-// PageViewsChartコンポーネント
-function PageViewsChart({ data }: { data: PageView[] }) {
-  // データが空の場合は何も表示しない
-  if (data.length === 0) return null;
+interface AnalyticsData {
+  pageViews: PageView[];
+  topPages: Page[];
+  topSearchTerms: SearchTerm[];
+  topRegions: Region[];
+  topCountries: Country[];
+}
 
-  // 最大値を計算（グラフの高さの正規化に使用）
+function PageViewsChart({ data }: { data: PageView[] }) {
+  if (data.length === 0) {
+    return null;
+  }
+
   const maxCount = Math.max(...data.map((day) => day.count), 1);
 
   return (
@@ -54,12 +60,10 @@ function PageViewsChart({ data }: { data: PageView[] }) {
   );
 }
 
-// 最終更新日時を表示するコンポーネント
 function LastUpdated() {
   const [dateString, setDateString] = useState<string>("");
 
   useEffect(() => {
-    // クライアントサイドでのみ実行
     setDateString(new Date().toLocaleString("ja-JP"));
   }, []);
 
@@ -71,45 +75,83 @@ function LastUpdated() {
   );
 }
 
+function DataSection<T>({
+  title,
+  data,
+  emptyMessage,
+  renderItem,
+  getKey,
+}: {
+  title: string;
+  data: T[];
+  emptyMessage: string;
+  renderItem: (item: T) => React.ReactNode;
+  getKey: (item: T) => string;
+}) {
+  return (
+    <div>
+      <h2 className="mb-4 font-semibold text-gray-700 text-xl">{title}</h2>
+      {data.length > 0 ? (
+        <div className="rounded-lg bg-white p-4 shadow">
+          <ul className="divide-y divide-gray-200">
+            {data.map((item) => (
+              <li className="py-3" key={getKey(item)}>
+                {renderItem(item)}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="rounded-lg bg-white p-6 shadow">
+          <p className="text-center text-gray-500">{emptyMessage}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+async function fetchAnalyticsData(): Promise<AnalyticsData> {
+  const response = await fetch("/api/analytics");
+
+  if (!response.ok) {
+    throw new Error(`APIリクエストが失敗しました: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  return {
+    pageViews: data.pageViews || [],
+    topPages: data.topPages || [],
+    topSearchTerms: data.topSearchTerms || [],
+    topRegions: data.topRegions || [],
+    topCountries: data.topCountries || [],
+  };
+}
+
 export default function Analytics() {
-  const [pageViews, setPageViews] = useState<PageView[]>([]);
-  const [topPages, setTopPages] = useState<Page[]>([]);
-  const [topSearchTerms, setTopSearchTerms] = useState<SearchTerm[]>([]);
-  const [topRegions, setTopRegions] = useState<Region[]>([]);
-  const [topCountries, setTopCountries] = useState<Country[]>([]);
+  const [analyticsData, setAnalyticsData] = useState<AnalyticsData | null>(
+    null
+  );
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-        setError(null);
+    setIsLoading(true);
+    setError(null);
 
-        const response = await fetch("/api/analytics");
-
-        if (!response.ok) {
-          throw new Error(`APIリクエストが失敗しました: ${response.status}`);
-        }
-
-        const data = await response.json();
-
-        setPageViews(data.pageViews || []);
-        setTopPages(data.topPages || []);
-        setTopSearchTerms(data.topSearchTerms || []);
-        setTopRegions(data.topRegions || []);
-        setTopCountries(data.topCountries || []);
-      } catch (err) {
+    fetchAnalyticsData()
+      .then((data) => {
+        setAnalyticsData(data);
+      })
+      .catch((err) => {
         console.error("データの取得に失敗しました:", err);
         setError(
           err instanceof Error ? err.message : "データの取得に失敗しました"
         );
-      } finally {
+      })
+      .finally(() => {
         setIsLoading(false);
-      }
-    }
-
-    fetchData();
+      });
   }, []);
 
   return (
@@ -135,15 +177,15 @@ export default function Analytics() {
           <div className="flex h-64 items-center justify-center">
             <div className="text-gray-500 text-lg">データを読み込み中...</div>
           </div>
-        ) : (
+        ) : analyticsData ? (
           <>
             <div className="mb-8">
               <h2 className="mb-4 font-semibold text-gray-700 text-xl">
                 過去7日間のページビュー
               </h2>
-              {pageViews.length > 0 ? (
+              {analyticsData.pageViews.length > 0 ? (
                 <div className="rounded-lg bg-white p-4 shadow">
-                  <PageViewsChart data={pageViews} />
+                  <PageViewsChart data={analyticsData.pageViews} />
                 </div>
               ) : (
                 <div className="rounded-lg bg-white p-6 shadow">
@@ -155,130 +197,78 @@ export default function Analytics() {
             </div>
 
             <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-4 font-semibold text-gray-700 text-xl">
-                  人気のページ
-                </h2>
-                {topPages.length > 0 ? (
-                  <div className="rounded-lg bg-white p-4 shadow">
-                    <ul className="divide-y divide-gray-200">
-                      {topPages.map((page, index) => (
-                        <li className="py-3" key={index}>
-                          <div className="flex items-center justify-between">
-                            <span className="truncate text-gray-600 text-sm">
-                              {page.path}
-                            </span>
-                            <span className="ml-2 rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800 text-xs">
-                              {page.views}ビュー
-                            </span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="rounded-lg bg-white p-6 shadow">
-                    <p className="text-center text-gray-500">
-                      人気のページデータがありません。
-                    </p>
+              <DataSection
+                data={analyticsData.topPages}
+                emptyMessage="人気のページデータがありません。"
+                getKey={(page) => page.path}
+                renderItem={(page) => (
+                  <div className="flex items-center justify-between">
+                    <span className="truncate text-gray-600 text-sm">
+                      {page.path}
+                    </span>
+                    <span className="ml-2 rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800 text-xs">
+                      {page.views}ビュー
+                    </span>
                   </div>
                 )}
-              </div>
+                title="人気のページ"
+              />
 
-              <div>
-                <h2 className="mb-4 font-semibold text-gray-700 text-xl">
-                  人気の検索キーワード
-                </h2>
-                {topSearchTerms.length > 0 ? (
-                  <div className="rounded-lg bg-white p-4 shadow">
-                    <ul className="divide-y divide-gray-200">
-                      {topSearchTerms.map((term, index) => (
-                        <li className="py-3" key={index}>
-                          <div className="flex items-center justify-between">
-                            <span className="truncate text-gray-600 text-sm">
-                              {term.term}
-                            </span>
-                            <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-medium text-green-800 text-xs">
-                              {term.count}回
-                            </span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="rounded-lg bg-white p-6 shadow">
-                    <p className="text-center text-gray-500">
-                      検索キーワードデータがありません。
-                    </p>
+              <DataSection
+                data={analyticsData.topSearchTerms}
+                emptyMessage="検索キーワードデータがありません。"
+                getKey={(term) => term.term}
+                renderItem={(term) => (
+                  <div className="flex items-center justify-between">
+                    <span className="truncate text-gray-600 text-sm">
+                      {term.term}
+                    </span>
+                    <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-medium text-green-800 text-xs">
+                      {term.count}回
+                    </span>
                   </div>
                 )}
-              </div>
+                title="人気の検索キーワード"
+              />
             </div>
 
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div>
-                <h2 className="mb-4 font-semibold text-gray-700 text-xl">
-                  地域別アクセス数
-                </h2>
-                {topRegions.length > 0 ? (
-                  <div className="rounded-lg bg-white p-4 shadow">
-                    <ul className="divide-y divide-gray-200">
-                      {topRegions.map((region, index) => (
-                        <li className="py-3" key={index}>
-                          <div className="flex items-center justify-between">
-                            <span className="truncate text-gray-600 text-sm">
-                              {region.region}
-                            </span>
-                            <span className="ml-2 rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs">
-                              {region.count}回
-                            </span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="rounded-lg bg-white p-6 shadow">
-                    <p className="text-center text-gray-500">
-                      地域別アクセスデータがありません。
-                    </p>
+              <DataSection
+                data={analyticsData.topRegions}
+                emptyMessage="地域別アクセスデータがありません。"
+                getKey={(region) => region.region}
+                renderItem={(region) => (
+                  <div className="flex items-center justify-between">
+                    <span className="truncate text-gray-600 text-sm">
+                      {region.region}
+                    </span>
+                    <span className="ml-2 rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs">
+                      {region.count}回
+                    </span>
                   </div>
                 )}
-              </div>
+                title="地域別アクセス数"
+              />
 
-              <div>
-                <h2 className="mb-4 font-semibold text-gray-700 text-xl">
-                  国別アクセス数
-                </h2>
-                {topCountries.length > 0 ? (
-                  <div className="rounded-lg bg-white p-4 shadow">
-                    <ul className="divide-y divide-gray-200">
-                      {topCountries.map((country, index) => (
-                        <li className="py-3" key={index}>
-                          <div className="flex items-center justify-between">
-                            <span className="truncate text-gray-600 text-sm">
-                              {country.country}
-                            </span>
-                            <span className="ml-2 rounded-full bg-yellow-100 px-2 py-1 font-medium text-xs text-yellow-800">
-                              {country.count}回
-                            </span>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="rounded-lg bg-white p-6 shadow">
-                    <p className="text-center text-gray-500">
-                      国別アクセスデータがありません。
-                    </p>
+              <DataSection
+                data={analyticsData.topCountries}
+                emptyMessage="国別アクセスデータがありません。"
+                getKey={(country) => country.country}
+                renderItem={(country) => (
+                  <div className="flex items-center justify-between">
+                    <span className="truncate text-gray-600 text-sm">
+                      {country.country}
+                    </span>
+                    <span className="ml-2 rounded-full bg-yellow-100 px-2 py-1 font-medium text-xs text-yellow-800">
+                      {country.count}回
+                    </span>
                   </div>
                 )}
-              </div>
+                title="国別アクセス数"
+              />
             </div>
           </>
-        )}
+        ) : null}
 
         <LastUpdated />
       </div>

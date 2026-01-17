@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-export async function GET(request: NextRequest) {
+export function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const title = searchParams.get("title") || "ビザナビ";

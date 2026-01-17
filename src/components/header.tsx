@@ -90,6 +90,7 @@ export function Header() {
             >
               <span className="sr-only">メニューを開く</span>
               <svg
+                aria-hidden="true"
                 className="h-6 w-6"
                 fill="none"
                 stroke="currentColor"

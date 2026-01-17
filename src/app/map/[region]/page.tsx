@@ -62,6 +62,7 @@ export default function RegionPage({ params }: RegionParams) {
             href="/map"
           >
             <svg
+              aria-hidden="true"
               className="mr-1 h-5 w-5"
               fill="none"
               stroke="currentColor"
@@ -147,11 +148,15 @@ export default function RegionPage({ params }: RegionParams) {
                         color: statusColor.main,
                       }}
                     >
-                      {country.visaRequirement.type === "visa_free"
-                        ? "ビザなしで入国可能"
-                        : country.visaRequirement.type === "evisa"
-                          ? "ビザの事前取得が必要（電子ビザ可）"
-                          : "ビザの事前取得が必要"}
+                      {(() => {
+                        if (country.visaRequirement.type === "visa_free") {
+                          return "ビザなしで入国可能";
+                        }
+                        if (country.visaRequirement.type === "evisa") {
+                          return "ビザの事前取得が必要（電子ビザ可）";
+                        }
+                        return "ビザの事前取得が必要";
+                      })()}
                     </div>
                     {country.visaRequirement.duration && (
                       <div className="flex items-center justify-between">

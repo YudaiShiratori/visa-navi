@@ -89,6 +89,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
           title={adjacentCountries.prev.name}
         >
           <svg
+            aria-hidden="true"
             className="h-8 w-8 text-gray-600"
             fill="none"
             stroke="currentColor"
@@ -112,6 +113,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
           title={adjacentCountries.next.name}
         >
           <svg
+            aria-hidden="true"
             className="h-8 w-8 text-gray-600"
             fill="none"
             stroke="currentColor"
@@ -135,6 +137,7 @@ export default function CountryPage({ params }: { params: CountryParams }) {
             href={`/region/${country.region}`}
           >
             <svg
+              aria-hidden="true"
               className="mr-1 h-5 w-5"
               fill="none"
               stroke="currentColor"
@@ -218,11 +221,15 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                         : "ビザの事前取得が必要"}
                     </h3>
                     <p className="text-gray-600 text-sm">
-                      {country.visaRequirement.type === "visa_free"
-                        ? "パスポートのみで入国できます"
-                        : country.visaRequirement.evisaAvailable
-                          ? "🌐 電子ビザ（e-Visa）での申請が可能です"
-                          : "大使館または領事館でビザを申請する必要があります"}
+                      {(() => {
+                        if (country.visaRequirement.type === "visa_free") {
+                          return "パスポートのみで入国できます";
+                        }
+                        if (country.visaRequirement.evisaAvailable) {
+                          return "🌐 電子ビザ（e-Visa）での申請が可能です";
+                        }
+                        return "大使館または領事館でビザを申請する必要があります";
+                      })()}
                     </p>
                   </div>
                 </div>
@@ -245,26 +252,25 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                     入国条件
                   </h3>
                   <ul className="space-y-2">
-                    {country.conditions.map(
-                      (condition: string, index: number) => (
-                        <li className="flex items-start" key={index}>
-                          <svg
-                            className="mt-1 mr-2 h-5 w-5 flex-shrink-0 text-green-500"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M5 13l4 4L19 7"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                            />
-                          </svg>
-                          <span className="text-gray-700">{condition}</span>
-                        </li>
-                      )
-                    )}
+                    {country.conditions.map((condition: string) => (
+                      <li className="flex items-start" key={condition}>
+                        <svg
+                          aria-hidden="true"
+                          className="mt-1 mr-2 h-5 w-5 flex-shrink-0 text-green-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            d="M5 13l4 4L19 7"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                          />
+                        </svg>
+                        <span className="text-gray-700">{condition}</span>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
@@ -278,9 +284,10 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                     </h3>
                     {Array.isArray(country.notes) ? (
                       <ul className="space-y-2">
-                        {country.notes.map((note, index) => (
-                          <li className="flex items-start" key={index}>
+                        {country.notes.map((note) => (
+                          <li className="flex items-start" key={note}>
                             <svg
+                              aria-hidden="true"
                               className="mt-1 mr-2 h-5 w-5 flex-shrink-0 text-yellow-500"
                               fill="none"
                               stroke="currentColor"
@@ -309,16 +316,29 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                     公式リンク
                   </h3>
                   <div className="space-y-2">
-                    {Object.entries(country.officialLinks).map(
-                      ([key, url], index) => (
+                    {Object.entries(country.officialLinks).map(([key, url]) => {
+                      const getLinkLabel = (linkKey: string) => {
+                        if (linkKey === "mofa") {
+                          return "外務省";
+                        }
+                        if (linkKey === "embassy") {
+                          return "大使館";
+                        }
+                        if (linkKey === "k_eta") {
+                          return "K-ETA申請";
+                        }
+                        return linkKey;
+                      };
+                      return (
                         <a
                           className="flex items-center text-blue-600 hover:text-blue-800 hover:underline"
                           href={url}
-                          key={index}
+                          key={key}
                           rel="noopener noreferrer"
                           target="_blank"
                         >
                           <svg
+                            aria-hidden="true"
                             className="mr-2 h-5 w-5"
                             fill="none"
                             stroke="currentColor"
@@ -332,16 +352,10 @@ export default function CountryPage({ params }: { params: CountryParams }) {
                               strokeWidth={2}
                             />
                           </svg>
-                          {key === "mofa"
-                            ? "外務省"
-                            : key === "embassy"
-                              ? "大使館"
-                              : key === "k_eta"
-                                ? "K-ETA申請"
-                                : key}
+                          {getLinkLabel(key)}
                         </a>
-                      )
-                    )}
+                      );
+                    })}
                   </div>
                 </div>
               )}

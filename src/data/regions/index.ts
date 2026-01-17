@@ -34,7 +34,7 @@ export const regionCountries: Record<string, Country[]> = {
 
 // 全ての国データを取得する関数
 export const getAllCountries = (): Country[] => {
-  return Object.values(regionCountries).flatMap((countries) => countries);
+  return Object.values(regionCountries).flat();
 };
 
 // 地域ごとの国データを取得する関数
@@ -53,14 +53,18 @@ export const getCountryById = (id: string): Country | undefined => {
 // 同じリージョン内で前後の国を取得するための関数
 export const getAdjacentCountries = (id: string) => {
   const country = getCountryById(id);
-  if (!country) return { prev: null, next: null };
+  if (!country) {
+    return { prev: null, next: null };
+  }
 
   const sameRegionCountries = getCountriesByRegion(country.region);
   const currentIndex = sameRegionCountries.findIndex(
     (c) => c.id.toLowerCase() === id.toLowerCase()
   );
 
-  if (currentIndex === -1) return { prev: null, next: null };
+  if (currentIndex === -1) {
+    return { prev: null, next: null };
+  }
 
   const prev = currentIndex > 0 ? sameRegionCountries[currentIndex - 1] : null;
   const next =

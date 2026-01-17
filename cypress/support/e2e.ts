@@ -8,14 +8,15 @@
 
 import "./commands";
 
+const HYDRATION_ERROR_REGEX = /hydrat/i;
+const REACT_ERROR_418_REGEX = /Minified React error #418/;
+const REACT_ERROR_423_REGEX = /Minified React error #423/;
+
 Cypress.on("uncaught:exception", (err) => {
-  // Cypress and React Hydrating the document don't get along
-  // for some unknown reason. Hopefully we figure out why eventually
-  // so we can remove this.
   if (
-    /hydrat/i.test(err.message) ||
-    /Minified React error #418/.test(err.message) ||
-    /Minified React error #423/.test(err.message)
+    HYDRATION_ERROR_REGEX.test(err.message) ||
+    REACT_ERROR_418_REGEX.test(err.message) ||
+    REACT_ERROR_423_REGEX.test(err.message)
   ) {
     return false;
   }

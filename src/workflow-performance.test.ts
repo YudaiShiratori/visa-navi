@@ -1,6 +1,6 @@
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { load } from "js-yaml";
-import { join } from "path";
 import { describe, expect, it } from "vitest";
 
 interface WorkflowStep {

@@ -125,11 +125,13 @@ describe("getAdjacentCountries", () => {
   it("最後の国はnextがnull", () => {
     const asiaCountries = getCountriesByRegion("asia");
     if (asiaCountries.length > 0) {
-      const lastCountry = asiaCountries[asiaCountries.length - 1];
-      const { prev, next } = getAdjacentCountries(lastCountry.id);
-      expect(next).toBeNull();
-      if (asiaCountries.length > 1) {
-        expect(prev).toEqual(asiaCountries[asiaCountries.length - 2]);
+      const lastCountry = asiaCountries.at(-1);
+      if (lastCountry) {
+        const { prev, next } = getAdjacentCountries(lastCountry.id);
+        expect(next).toBeNull();
+        if (asiaCountries.length > 1) {
+          expect(prev).toEqual(asiaCountries.at(-2));
+        }
       }
     }
   });

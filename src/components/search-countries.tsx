@@ -119,7 +119,9 @@ export function SearchCountries() {
   // 最近の検索を保存する
   const saveRecentSearch = (countryId: string) => {
     const country = countries.find((c) => c.id === countryId);
-    if (!country) return;
+    if (!country) {
+      return;
+    }
 
     const newRecentSearches = [
       countryId,
@@ -178,7 +180,9 @@ export function SearchCountries() {
 
   // 検索結果のフィルタリング
   const filteredCountries = useMemo(() => {
-    if (!searchQuery.trim()) return [];
+    if (!searchQuery.trim()) {
+      return [];
+    }
 
     const normalizedQuery = convertToComparableString(searchQuery.trim());
 
@@ -248,9 +252,13 @@ export function SearchCountries() {
 
   // キーボード操作
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    if ("isComposing" in e && e.isComposing) return;
+    if ("isComposing" in e && e.isComposing) {
+      return;
+    }
 
-    if (!isExpanded) return;
+    if (!isExpanded) {
+      return;
+    }
 
     const results =
       filteredCountries.length > 0 ? filteredCountries : getRecentCountries();
@@ -287,13 +295,17 @@ export function SearchCountries() {
 
   // 検索結果のハイライト表示
   const highlightMatch = (text: string, query: string) => {
-    if (!query.trim()) return text;
+    if (!query.trim()) {
+      return text;
+    }
 
     const normalizedText = text.toLowerCase();
     const normalizedQuery = query.toLowerCase();
     const index = normalizedText.indexOf(normalizedQuery);
 
-    if (index === -1) return text;
+    if (index === -1) {
+      return text;
+    }
 
     return (
       <>
@@ -396,7 +408,9 @@ export function SearchCountries() {
                     key={country.id}
                     onClick={() => handleCountrySelect(country.id)}
                     onKeyDown={(e) => {
-                      if ("isComposing" in e && e.isComposing) return;
+                      if ("isComposing" in e && e.isComposing) {
+                        return;
+                      }
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
                         handleCountrySelect(country.id);
@@ -443,7 +457,9 @@ export function SearchCountries() {
                     key={country.id}
                     onClick={() => handleCountrySelect(country.id)}
                     onKeyDown={(e) => {
-                      if ("isComposing" in e && e.isComposing) return;
+                      if ("isComposing" in e && e.isComposing) {
+                        return;
+                      }
                       if (e.key === "Enter" || e.key === " ") {
                         e.preventDefault();
                         handleCountrySelect(country.id);

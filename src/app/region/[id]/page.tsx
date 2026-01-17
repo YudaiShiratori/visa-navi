@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import RegionSearch from "../../../components/RegionSearch";
+import RegionSearch from "../../../components/region-search";
 import { getCountriesByRegion } from "../../../data/regions";
 
 // 地域名のマッピング
@@ -61,6 +61,7 @@ export default async function RegionPage({ params }: Props) {
               href="/"
             >
               <svg
+                aria-hidden="true"
                 className="mr-1 h-5 w-5"
                 fill="none"
                 stroke="currentColor"
@@ -100,6 +101,7 @@ export default async function RegionPage({ params }: Props) {
             href="/"
           >
             <svg
+              aria-hidden="true"
               className="mr-1 h-5 w-5"
               fill="none"
               stroke="currentColor"
