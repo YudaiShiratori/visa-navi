@@ -5,7 +5,9 @@ import { Button } from "./Button";
 describe("Button", () => {
   it("children を正しくレンダリングする", () => {
     render(<Button>クリック</Button>);
-    expect(screen.getByRole("button", { name: "クリック" })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: "クリック" })
+    ).toBeInTheDocument();
   });
 
   it("クリックイベントが発火する", () => {
@@ -18,7 +20,11 @@ describe("Button", () => {
 
   it("disabled の場合クリックイベントが発火しない", () => {
     const handleClick = vi.fn();
-    render(<Button onClick={handleClick} disabled>クリック</Button>);
+    render(
+      <Button disabled onClick={handleClick}>
+        クリック
+      </Button>
+    );
 
     fireEvent.click(screen.getByRole("button"));
     expect(handleClick).not.toHaveBeenCalled();

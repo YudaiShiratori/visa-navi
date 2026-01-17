@@ -2,11 +2,20 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["ultracite/core", "ultracite/react", "ultracite/next"],
   "files": {
-    "ignoreUnknown": true,
-    "ignore": ["cypress/**"]
+    "ignoreUnknown": true
   },
   "javascript": {
-    "globals": ["cy", "Cypress", "describe", "it", "beforeEach", "afterEach", "before", "after", "expect"]
+    "globals": [
+      "cy",
+      "Cypress",
+      "describe",
+      "it",
+      "beforeEach",
+      "afterEach",
+      "before",
+      "after",
+      "expect"
+    ]
   },
   "linter": {
     "rules": {
