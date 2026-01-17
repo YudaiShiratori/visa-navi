@@ -82,6 +82,9 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
+          model: claude-opus-4-5-20251101
+          mcp_config: .github/mcp-actions.json
+          settings: .claude/settings.json
           direct_prompt: |
             Work on Issue #${{ matrix.issue }}.
 
@@ -122,6 +125,9 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
+          model: claude-opus-4-5-20251101
+          mcp_config: .github/mcp-actions.json
+          settings: .claude/settings.json
           direct_prompt: |
             自己レビューと修正を行います。PR #${{ steps.get-pr.outputs.pr_number }} をレビューしてください。
 
