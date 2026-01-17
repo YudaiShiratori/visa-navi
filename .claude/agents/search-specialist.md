@@ -1,6 +1,7 @@
 ---
 name: search-specialist
 description: 高度な検索テクニックと情報統合を使用するエキスパートウェブリサーチャー。検索演算子、結果フィルタリング、マルチソース検証のマスター。競合分析とファクトチェックを担当。深いリサーチ、情報収集、トレンド分析に PROACTIVELY 使用。
+tools: WebSearch, WebFetch
 model: haiku
 ---
 
