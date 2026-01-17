@@ -1,54 +1,55 @@
 # Codex Review Skill
 
-OpenAI Codex CLIを使用してコード変更をレビューし、AI間の直接対話を実現するSkillです。
+PR作成前にOpenAI Codex CLIでブランチ全体の変更をレビューするSkillです。
 
-## 概要
-
-Claude CodeがCodexを直接呼び出し、レビュー結果をCLI上で受け取ります。
+## ワークフロー
 
 ```
-Claude Code → codex コマンド実行 → Codexがレビュー → 結果をCLI出力 → Claude Codeが継続処理
+開発フェーズ（Codexレビューなし）
+  │
+  ├─ コード変更 → コミット
+  ├─ コード変更 → コミット
+  └─ コード変更 → コミット
+  │
+  ▼
+PRレビューフェーズ
+  │
+  ├─ /codex-review 実行
+  ├─ Codex: ブランチ全体をレビュー
+  │
+  ├─ APPROVED → PR作成
+  └─ FEEDBACK → 修正して再レビュー
 ```
 
 ## 使用方法
 
-### コード変更をレビューする
+### PR作成前にレビューを実行
 
 ```bash
-echo "レビュー内容" | .claude/skills/codex-review/scripts/launch-codex.sh
+.claude/skills/codex-review/scripts/launch-codex.sh
 ```
 
-または
+### レビュー内容
 
-```bash
-.claude/skills/codex-review/scripts/launch-codex.sh request.md
-```
-
-### ワークフロー
-
-1. Claude Codeがコード変更を生成
-2. `launch-codex.sh` を実行してCodexにレビュー依頼
-3. Codexが直接レビュー結果を出力
-4. Claude Codeが結果を読み取り：
-   - **APPROVED**: コミットを実行
-   - **FEEDBACK**: 修正して再レビュー
+- `git log main..HEAD` - ブランチのコミット一覧
+- `git diff main...HEAD` - ブランチ全体の差分
 
 ## 出力フォーマット
-
-Codexは以下のフォーマットで結果を出力します：
 
 ```
 ## 判定
 APPROVED
 
 ## コメント
-コードは問題ありません。
+[レビューコメント]
 ```
 
 ## 環境変数
 
 - `CODEX_PROJECT_DIR`: プロジェクトディレクトリ（デフォルト: カレントディレクトリ）
+- `CODEX_BASE_BRANCH`: ベースブランチ（デフォルト: main）
 
-## 前提条件
+## 使うタイミング
 
-- OpenAI Codex CLIがインストールされていること (`codex` コマンドが使用可能)
+- **使う:** PR作成前
+- **使わない:** 各コミット時（開発中は自由にコミット）
