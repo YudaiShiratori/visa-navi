@@ -1,8 +1,14 @@
-name: Claude Code Review
+# Temporarily disabled - using Codex Review instead
+# name: Claude Code Review
+#
+# on:
+#   pull_request:
+#     types: [opened, synchronize]
+
+name: Claude Code Review (Disabled)
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  workflow_dispatch:  # Manual trigger only
     # Optional: Only run on specific file changes
     # paths:
     #   - "src/**/*.ts"
