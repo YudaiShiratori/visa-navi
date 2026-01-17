@@ -82,20 +82,9 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
-
-          # Model: Opus, MCP config (context7 only for Actions)
-          claude_args: "--model claude-opus-4-5-20251101 --mcp-config .github/mcp-actions.json"
-
-          # Project settings
+          model: claude-opus-4-5-20251101
+          mcp_config: .github/mcp-actions.json
           settings: .claude/settings.json
-
-          # MCP plugins (serena excluded - uses Glob/Grep instead)
-          plugins: |
-            frontend-design@claude-plugins-official
-            github@claude-plugins-official
-            context7@claude-plugins-official
-            code-review@claude-plugins-official
-
           direct_prompt: |
             Work on Issue #${{ matrix.issue }}.
 
@@ -136,20 +125,9 @@ jobs:
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           mode: 'agent'
-
-          # Model: Opus, MCP config (context7 only for Actions)
-          claude_args: "--model claude-opus-4-5-20251101 --mcp-config .github/mcp-actions.json"
-
-          # Project settings
+          model: claude-opus-4-5-20251101
+          mcp_config: .github/mcp-actions.json
           settings: .claude/settings.json
-
-          # MCP plugins (serena excluded - uses Glob/Grep instead)
-          plugins: |
-            frontend-design@claude-plugins-official
-            github@claude-plugins-official
-            context7@claude-plugins-official
-            code-review@claude-plugins-official
-
           direct_prompt: |
             自己レビューと修正を行います。PR #${{ steps.get-pr.outputs.pr_number }} をレビューしてください。
 

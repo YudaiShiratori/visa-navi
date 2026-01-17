@@ -38,25 +38,12 @@ jobs:
         uses: anthropics/claude-code-action@beta
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-
-          # Model: Opus, MCP config (context7 only for Actions)
-          claude_args: "--model claude-opus-4-5-20251101 --mcp-config .github/mcp-actions.json"
-
-          # Project settings
+          model: claude-opus-4-5-20251101
+          mcp_config: .github/mcp-actions.json
           settings: .claude/settings.json
-
-          # MCP plugins (serena excluded - uses Glob/Grep instead)
-          plugins: |
-            frontend-design@claude-plugins-official
-            github@claude-plugins-official
-            context7@claude-plugins-official
-            code-review@claude-plugins-official
-
           additional_permissions: |
             actions: read
             pull-requests: write
             issues: write
-
           allowed_tools: "Bash(bun add:*),Bash(bun remove:*),Bash(bun install),Bash(bun run test:*),Bash(bun run check:*),Bash(bun run check:write),Bash(bun run check:unsafe),Bash(bun run build),Bash(bun run typecheck),Bash(ls:*),Bash(cat:*),Bash(find:*),Bash(mkdir:*),Bash(touch:*),Bash(mv:*),Bash(cp:*),Bash(git add:*),Bash(git commit:*),Bash(git push:*),Bash(git pull:*),Bash(git checkout:*),Bash(git branch:*),Bash(git diff:*),Bash(git status:*),Bash(git log:*),Bash(echo:*),Bash(grep:*)"
-
           assignee_trigger: "claude"
