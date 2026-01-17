@@ -92,7 +92,7 @@ jobs:
             5. Run quality checks: bun run check:write && bun run typecheck && bun run test
             6. Commit: git add . && git commit -m "fix: [description]\n\nFixes #${{ matrix.issue }}"
             7. Push: git push origin fix/issue-${{ matrix.issue }}
-            8. Create PR: gh pr create --title "Fix #${{ matrix.issue }}: [title]" --body "Fixes #${{ matrix.issue }}"
+            8. Create PR: gh pr create --title "[Issueのタイトルを参考に適切なタイトル]" --body "Fixes #${{ matrix.issue }}"
             9. Output the PR number at the end in format: PR_NUMBER=<number>
 
             Follow CLAUDE.md guidelines. If issue is unclear, comment on it instead of creating PR.
