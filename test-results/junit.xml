@@ -1,3 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="0" failures="0" errors="0" time="0">
+<testsuites name="vitest tests" tests="6" failures="0" errors="0" time="0.003607165">
+    <testsuite name="src/workflow-performance.test.ts" timestamp="2026-01-17T10:17:41.955Z" hostname="runnervmmtnos" tests="6" failures="0" errors="0" skipped="0" time="0.003607165">
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have optimized max_issues setting of 10" time="0.001310877">
+        </testcase>
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have max-parallel set to 5 for concurrent processing" time="0.000307862">
+        </testcase>
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have 20 minute timeout for implementation step" time="0.000173583">
+        </testcase>
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have 10 minute timeout for review step" time="0.000132767">
+        </testcase>
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have proper job dependencies configured" time="0.000153044">
+        </testcase>
+        <testcase classname="src/workflow-performance.test.ts" name="Auto Issue Processor Workflow Performance &gt; should have rate limiting protection" time="0.000201845">
+        </testcase>
+    </testsuite>
 </testsuites>
