@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getRegionDisplayName } from "./regionHelper";
+import { getRegionDisplayName } from "./region-helper";
 
 describe("getRegionDisplayName", () => {
   it("asia を アジア に変換する", () => {

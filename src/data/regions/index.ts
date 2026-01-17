@@ -2,10 +2,10 @@ import type { Country } from "../types";
 import { africaCountries } from "./africa";
 import { asiaCountries } from "./asia";
 import { europeCountries } from "./europe";
-import { middleEastCountries } from "./middle_east";
-import { northAmericaCountries } from "./north_america";
+import { middleEastCountries } from "./middle-east";
+import { northAmericaCountries } from "./north-america";
 import { oceaniaCountries } from "./oceania";
-import { southAmericaCountries } from "./south_america";
+import { southAmericaCountries } from "./south-america";
 
 // Note: 残りの地域のインポートを追加予定（アフリカ、中東）
 

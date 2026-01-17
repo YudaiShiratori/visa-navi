@@ -1,12 +1,13 @@
 import "@testing-library/jest-dom/vitest";
 
-declare global {
-  namespace Vi {
-    interface Assertion {
-      toBeInTheDocument(): void;
-      toHaveClass(...classNames: string[]): void;
-      toBeDisabled(): void;
-      toHaveAttribute(attr: string, value?: string): void;
-    }
-  }
+interface CustomMatchers<R = unknown> {
+  toBeInTheDocument(): R;
+  toHaveClass(...classNames: string[]): R;
+  toBeDisabled(): R;
+  toHaveAttribute(attr: string, value?: string): R;
+}
+
+declare module "vitest" {
+  interface Assertion<T = unknown> extends CustomMatchers<T> {}
+  interface AsymmetricMatchersContaining extends CustomMatchers {}
 }

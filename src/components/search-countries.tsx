@@ -357,6 +357,7 @@ export function SearchCountries() {
         >
           {searchQuery ? (
             <svg
+              aria-hidden="true"
               className="h-5 w-5"
               fill="none"
               stroke="currentColor"
@@ -371,6 +372,7 @@ export function SearchCountries() {
             </svg>
           ) : (
             <svg
+              aria-hidden="true"
               className="h-5 w-5"
               fill="none"
               stroke="currentColor"

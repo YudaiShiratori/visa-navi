@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { visaStatusColors } from "@/constants/colors";
 import { getAdjacentCountries, getCountryById } from "../../../data/regions";
-import { getRegionDisplayName } from "../../../utils/regionHelper";
+import { getRegionDisplayName } from "../../../utils/region-helper";
 
 interface CountryParams {
   id: string;

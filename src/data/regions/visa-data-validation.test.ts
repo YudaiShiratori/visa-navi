@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { getAllCountries, getCountriesByRegion } from ".";
 
+const VISA_TYPE_REGEX = /^(visa_free|evisa|visa_required)$/;
+const URL_REGEX = /^https?:\/\//;
+const MOFA_DOMAIN_REGEX = /mofa\.go\.jp/;
+const HTTPS_REGEX = /^https:/;
+
 describe("Visa Data Validation (2026年1月更新)", () => {
   describe("Data Structure Validation", () => {
     it("全ての国データが2026年基準のフィールドを満たしている", () => {
@@ -14,9 +19,7 @@ describe("Visa Data Validation (2026年1月更新)", () => {
         expect(country.visaRequirement).toBeDefined();
 
         // ビザタイプの妥当性確認
-        expect(country.visaRequirement.type).toMatch(
-          /^(visa_free|evisa|visa_required)$/
-        );
+        expect(country.visaRequirement.type).toMatch(VISA_TYPE_REGEX);
 
         // 期間が設定されている場合は正の数値であること
         if (country.visaRequirement.duration) {
@@ -25,7 +28,7 @@ describe("Visa Data Validation (2026年1月更新)", () => {
 
         // 公式リンクがある場合はURLの形式であること
         if (country.officialLinks?.mofa) {
-          expect(country.officialLinks.mofa).toMatch(/^https?:\/\//);
+          expect(country.officialLinks.mofa).toMatch(URL_REGEX);
         }
       }
     });
@@ -36,9 +39,9 @@ describe("Visa Data Validation (2026年1月更新)", () => {
       for (const country of allCountries) {
         if (country.officialLinks?.mofa) {
           // 外務省のドメインであることを確認
-          expect(country.officialLinks.mofa).toMatch(/mofa\.go\.jp/);
+          expect(country.officialLinks.mofa).toMatch(MOFA_DOMAIN_REGEX);
           // HTTPSであることを確認
-          expect(country.officialLinks.mofa).toMatch(/^https:/);
+          expect(country.officialLinks.mofa).toMatch(HTTPS_REGEX);
         }
       }
     });

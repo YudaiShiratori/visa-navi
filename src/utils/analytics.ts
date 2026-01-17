@@ -19,23 +19,21 @@ export function getGoogleAnalyticsScript(gaTrackingId: string): string {
  * @param {string} action - イベントアクション
  * @param {Object} params - イベントパラメータ
  */
-export function sendGAEvent(
-  action: string,
-  params: Record<string, any> = {}
-): void {
+type GtagParams = Record<string, string | number | boolean | undefined>;
+
+export function sendGAEvent(action: string, params: GtagParams = {}): void {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", action, params);
   }
 }
 
-// TypeScriptのグローバル型定義を拡張
 declare global {
   interface Window {
     gtag: (
       command: "event" | "config" | "js",
-      action: any,
-      params?: Record<string, any>
+      action: string | Date,
+      params?: GtagParams
     ) => void;
-    dataLayer: any[];
+    dataLayer: unknown[];
   }
 }
