@@ -3,6 +3,7 @@ name: Auto Issue Processor
 on:
   schedule:
     - cron: '0 15 * * *' # JST 00:00 = UTC 15:00
+    - cron: '30 9 * * *' # JST 18:30 = UTC 09:30 (テスト用)
   workflow_dispatch:
     inputs:
       max_issues:
