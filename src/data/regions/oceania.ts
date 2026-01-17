@@ -40,7 +40,7 @@ export const oceaniaCountries: Country[] = [
     ],
     notes: ["ESTAだけではない アメリカビザ免除のための10の条件"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
   },
   {
@@ -59,7 +59,7 @@ export const oceaniaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/kiribati/index.html",
     },
   },
   {
@@ -81,7 +81,7 @@ export const oceaniaCountries: Country[] = [
     ],
     notes: ["ESTAだけではない アメリカビザ免除のための10の条件"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
     },
   },
   {
@@ -100,7 +100,7 @@ export const oceaniaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
     },
   },
   {
@@ -216,7 +216,7 @@ export const oceaniaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/index.html",
+      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
     },
   },
   {

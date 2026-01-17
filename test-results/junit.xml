@@ -1,3 +1,113 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="0" failures="0" errors="0" time="0">
+<testsuites name="vitest tests" tests="50" failures="0" errors="0" time="0.241209387">
+    <testsuite name="src/components/Button.test.tsx" timestamp="2026-01-17T10:38:54.443Z" hostname="runnervmmtnos" tests="14" failures="0" errors="0" skipped="0" time="0.131290308">
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; children を正しくレンダリングする" time="0.074547239">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; クリックイベントが発火する" time="0.01020715">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; disabled の場合クリックイベントが発火しない" time="0.006672152">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; disabled の場合 disabled 属性が付与される" time="0.004498799">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; variant &gt; primary variant のクラスが適用される" time="0.004898737">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; variant &gt; secondary variant のクラスが適用される" time="0.003149216">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; variant &gt; outline variant のクラスが適用される" time="0.003884221">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; size &gt; sm サイズのクラスが適用される" time="0.003132105">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; size &gt; md サイズのクラスが適用される" time="0.004069236">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; size &gt; lg サイズのクラスが適用される" time="0.00321526">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; type &gt; デフォルトは button type" time="0.002883339">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; type &gt; submit type を指定できる" time="0.002536973">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; type &gt; reset type を指定できる" time="0.002507828">
+        </testcase>
+        <testcase classname="src/components/Button.test.tsx" name="Button &gt; カスタム className を追加できる" time="0.002459187">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/constants/colors.test.ts" timestamp="2026-01-17T10:38:54.448Z" hostname="runnervmmtnos" tests="7" failures="0" errors="0" skipped="0" time="0.003473894">
+        <testcase classname="src/constants/colors.test.ts" name="regionColors &gt; 全ての地域IDに対して色が定義されている" time="0.000532626">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="regionColors &gt; 各地域の色定義が必須プロパティを持つ" time="0.001131264">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="regionColors &gt; 色コードが有効な形式である" time="0.000673499">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="visaStatusColors &gt; 全てのビザステータスに色が定義されている" time="0.000243665">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="visaStatusColors &gt; 各ステータスの色定義が必須プロパティを持つ" time="0.00034244">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="visaStatusColors &gt; visa_free は緑系の色である" time="0.000121858">
+        </testcase>
+        <testcase classname="src/constants/colors.test.ts" name="visaStatusColors &gt; visa_required は赤系の色である" time="0.000115115">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/regionHelper.test.ts" timestamp="2026-01-17T10:38:54.454Z" hostname="runnervmmtnos" tests="8" failures="0" errors="0" skipped="0" time="0.00216673">
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; asia を アジア に変換する" time="0.000243014">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; europe を ヨーロッパ に変換する" time="0.0001501">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; north_america を 北米・中米・カリブ に変換する" time="0.000402072">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; south_america を 南米 に変換する" time="0.000193611">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; oceania を オセアニア に変換する" time="0.000131286">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; middle_east を 中東 に変換する" time="0.000125274">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; africa を アフリカ に変換する" time="0.000127959">
+        </testcase>
+        <testcase classname="src/utils/regionHelper.test.ts" name="getRegionDisplayName &gt; 未知の地域コードは その他 を返す" time="0.000161952">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/data/regions/index.test.ts" timestamp="2026-01-17T10:38:54.456Z" hostname="runnervmmtnos" tests="15" failures="0" errors="0" skipped="0" time="0.03072325">
+        <testcase classname="src/data/regions/index.test.ts" name="regionMap &gt; 全ての地域が定義されている" time="0.001431235">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="regionMap &gt; allRegions が regionMap のキーと一致する" time="0.000734022">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="regionCountries &gt; 全ての地域に国データが存在する" time="0.000773015">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="regionCountries &gt; 各国データが必須フィールドを持つ" time="0.022010824">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAllCountries &gt; 全ての国を配列で返す" time="0.000237494">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAllCountries &gt; 重複する国IDがない" time="0.000285784">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getCountriesByRegion &gt; 指定した地域の国のみを返す" time="0.000841643">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getCountriesByRegion &gt; 存在しない地域は空配列を返す" time="0.000239097">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getCountryById &gt; IDで国を取得できる" time="0.000537746">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getCountryById &gt; 大文字小文字を区別しない" time="0.000293648">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getCountryById &gt; 存在しないIDはundefinedを返す" time="0.000200145">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAdjacentCountries &gt; 前後の国を取得できる" time="0.000306343">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAdjacentCountries &gt; 最初の国はprevがnull" time="0.000234358">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAdjacentCountries &gt; 最後の国はnextがnull" time="0.000211936">
+        </testcase>
+        <testcase classname="src/data/regions/index.test.ts" name="getAdjacentCountries &gt; 存在しない国は prev と next が null" time="0.000186268">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/data/regions/visa-data-validation.test.ts" timestamp="2026-01-17T10:38:54.461Z" hostname="runnervmmtnos" tests="6" failures="0" errors="0" skipped="0" time="0.073555205">
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Data Structure Validation &gt; 全ての国データが2026年基準のフィールドを満たしている" time="0.054548036">
+        </testcase>
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Data Structure Validation &gt; 外務省公式リンクが最新の形式になっている" time="0.008620584">
+        </testcase>
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Recent Updates Validation &gt; タイのビザ免除期間が2026年基準で正しく設定されている" time="0.000527146">
+        </testcase>
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Recent Updates Validation &gt; ベトナムのビザ政策が2026年基準で正しく設定されている" time="0.000205484">
+        </testcase>
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Recent Updates Validation &gt; 韓国のK-ETAシステムが正しく反映されている" time="0.000252422">
+        </testcase>
+        <testcase classname="src/data/regions/visa-data-validation.test.ts" name="Visa Data Validation (2026年1月更新) &gt; Regional Data Consistency &gt; 全ての地域にデータが存在し、空ではない" time="0.006747062">
+        </testcase>
+    </testsuite>
 </testsuites>
