@@ -87,9 +87,9 @@ const kanaMap: { [key: string]: string } = {
 function convertToComparableString(str: string): string {
   // ひらがなをカタカナに変換
   let result = str;
-  Object.entries(kanaMap).forEach(([hiragana, katakana]) => {
+  for (const [hiragana, katakana] of Object.entries(kanaMap)) {
     result = result.replace(new RegExp(hiragana, "g"), katakana);
-  });
+  }
   return result.toLowerCase();
 }
 
@@ -191,7 +191,7 @@ export function SearchCountries() {
     const startsWithMatches: typeof countries = [];
     const includesMatches: typeof countries = [];
 
-    countries.forEach((country) => {
+    for (const country of countries) {
       const normalizedName = convertToComparableString(country.name);
 
       if (normalizedName === normalizedQuery) {
@@ -201,7 +201,7 @@ export function SearchCountries() {
       } else if (normalizedName.includes(normalizedQuery)) {
         includesMatches.push(country);
       }
-    });
+    }
 
     // 優先度順に結合
     return [...exactMatches, ...startsWithMatches, ...includesMatches].slice(
@@ -282,6 +282,8 @@ export function SearchCountries() {
       case "Escape":
         e.preventDefault();
         setIsExpanded(false);
+        break;
+      default:
         break;
     }
   };
@@ -392,109 +394,121 @@ export function SearchCountries() {
           ref={resultsRef}
           role="listbox"
         >
-          {filteredCountries.length > 0 ? (
-            <>
-              <div className="border-gray-100 border-b px-4 py-2 font-medium text-gray-500 text-xs">
-                検索結果
+          {(() => {
+            if (filteredCountries.length > 0) {
+              return (
+                <>
+                  <div className="border-gray-100 border-b px-4 py-2 font-medium text-gray-500 text-xs">
+                    検索結果
+                  </div>
+                  <ul>
+                    {filteredCountries.map((country, index) => (
+                      <li key={country.id}>
+                        <button
+                          aria-selected={index === selectedIndex}
+                          className={`w-full cursor-pointer px-4 py-3 text-left hover:bg-gray-50 ${
+                            index === selectedIndex ? "bg-gray-50" : ""
+                          }`}
+                          id={`result-${index}`}
+                          onClick={() => handleCountrySelect(country.id)}
+                          onKeyDown={(e) => {
+                            if ("isComposing" in e && e.isComposing) {
+                              return;
+                            }
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              handleCountrySelect(country.id);
+                            }
+                          }}
+                          role="option"
+                          type="button"
+                        >
+                          <div className="flex items-center">
+                            {country.code && (
+                              <span className="mr-2 flex-shrink-0">
+                                <span
+                                  className={`fi fi-${country.code.toLowerCase()}`}
+                                  style={{
+                                    width: "20px",
+                                    height: "15px",
+                                    display: "inline-block",
+                                  }}
+                                />
+                              </span>
+                            )}
+                            <div className="flex-1">
+                              <div className="font-medium text-gray-900">
+                                {highlightMatch(country.name, searchQuery)}
+                              </div>
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              );
+            }
+            if (recentCountries.length > 0) {
+              return (
+                <>
+                  <div className="border-gray-100 border-b px-4 py-2 font-medium text-gray-500 text-xs">
+                    最近の検索
+                  </div>
+                  <ul>
+                    {recentCountries.map((country, index) => (
+                      <li key={country.id}>
+                        <button
+                          aria-selected={index === selectedIndex}
+                          className={`w-full cursor-pointer px-4 py-3 text-left hover:bg-gray-50 ${
+                            index === selectedIndex ? "bg-gray-50" : ""
+                          }`}
+                          id={`result-${index}`}
+                          onClick={() => handleCountrySelect(country.id)}
+                          onKeyDown={(e) => {
+                            if ("isComposing" in e && e.isComposing) {
+                              return;
+                            }
+                            if (e.key === "Enter" || e.key === " ") {
+                              e.preventDefault();
+                              handleCountrySelect(country.id);
+                            }
+                          }}
+                          role="option"
+                          type="button"
+                        >
+                          <div className="flex items-center">
+                            {country.code && (
+                              <span className="mr-2 flex-shrink-0">
+                                <span
+                                  className={`fi fi-${country.code.toLowerCase()}`}
+                                  style={{
+                                    width: "20px",
+                                    height: "15px",
+                                    display: "inline-block",
+                                  }}
+                                />
+                              </span>
+                            )}
+                            <div className="flex-1">
+                              <div className="font-medium text-gray-900">
+                                {country.name}
+                              </div>
+                            </div>
+                          </div>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              );
+            }
+            return (
+              <div className="p-4 text-center text-gray-500 text-sm">
+                検索結果がありません
               </div>
-              <ul>
-                {filteredCountries.map((country, index) => (
-                  <button
-                    aria-selected={index === selectedIndex}
-                    className={`w-full cursor-pointer px-4 py-3 text-left hover:bg-gray-50 ${
-                      index === selectedIndex ? "bg-gray-50" : ""
-                    }`}
-                    id={`result-${index}`}
-                    key={country.id}
-                    onClick={() => handleCountrySelect(country.id)}
-                    onKeyDown={(e) => {
-                      if ("isComposing" in e && e.isComposing) {
-                        return;
-                      }
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleCountrySelect(country.id);
-                      }
-                    }}
-                    role="option"
-                  >
-                    <div className="flex items-center">
-                      {country.code && (
-                        <span className="mr-2 flex-shrink-0">
-                          <span
-                            className={`fi fi-${country.code.toLowerCase()}`}
-                            style={{
-                              width: "20px",
-                              height: "15px",
-                              display: "inline-block",
-                            }}
-                          />
-                        </span>
-                      )}
-                      <div className="flex-1">
-                        <div className="font-medium text-gray-900">
-                          {highlightMatch(country.name, searchQuery)}
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </ul>
-            </>
-          ) : recentCountries.length > 0 ? (
-            <>
-              <div className="border-gray-100 border-b px-4 py-2 font-medium text-gray-500 text-xs">
-                最近の検索
-              </div>
-              <ul>
-                {recentCountries.map((country, index) => (
-                  <button
-                    aria-selected={index === selectedIndex}
-                    className={`w-full cursor-pointer px-4 py-3 text-left hover:bg-gray-50 ${
-                      index === selectedIndex ? "bg-gray-50" : ""
-                    }`}
-                    id={`result-${index}`}
-                    key={country.id}
-                    onClick={() => handleCountrySelect(country.id)}
-                    onKeyDown={(e) => {
-                      if ("isComposing" in e && e.isComposing) {
-                        return;
-                      }
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        handleCountrySelect(country.id);
-                      }
-                    }}
-                    role="option"
-                  >
-                    <div className="flex items-center">
-                      {country.code && (
-                        <span className="mr-2 flex-shrink-0">
-                          <span
-                            className={`fi fi-${country.code.toLowerCase()}`}
-                            style={{
-                              width: "20px",
-                              height: "15px",
-                              display: "inline-block",
-                            }}
-                          />
-                        </span>
-                      )}
-                      <div className="flex-1">
-                        <div className="font-medium text-gray-900">
-                          {country.name}
-                        </div>
-                      </div>
-                    </div>
-                  </button>
-                ))}
-              </ul>
-            </>
-          ) : (
-            <div className="p-4 text-center text-gray-500 text-sm">
-              検索結果がありません
-            </div>
-          )}
+            );
+          })()}
         </div>
       )}
     </div>

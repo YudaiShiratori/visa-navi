@@ -90,6 +90,30 @@ function convertToComparableString(str: string): string {
   return result.toLowerCase();
 }
 
+function filterCountriesByQuery(
+  countries: Country[],
+  query: string
+): Country[] {
+  const normalizedQuery = convertToComparableString(query.trim());
+  const exactMatches: Country[] = [];
+  const startsWithMatches: Country[] = [];
+  const includesMatches: Country[] = [];
+
+  for (const country of countries) {
+    const normalizedName = convertToComparableString(country.name);
+
+    if (normalizedName === normalizedQuery) {
+      exactMatches.push(country);
+    } else if (normalizedName.startsWith(normalizedQuery)) {
+      startsWithMatches.push(country);
+    } else if (normalizedName.includes(normalizedQuery)) {
+      includesMatches.push(country);
+    }
+  }
+
+  return [...exactMatches, ...startsWithMatches, ...includesMatches];
+}
+
 interface RegionSearchProps {
   countries: Country[];
 }
@@ -101,31 +125,7 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
 
   useEffect(() => {
     if (searchQuery) {
-      const normalizedQuery = convertToComparableString(searchQuery.trim());
-
-      // 完全一致、前方一致、部分一致の順で優先度をつける
-      const exactMatches: Country[] = [];
-      const startsWithMatches: Country[] = [];
-      const includesMatches: Country[] = [];
-
-      for (const country of countries) {
-        const normalizedName = convertToComparableString(country.name);
-
-        if (normalizedName === normalizedQuery) {
-          exactMatches.push(country);
-        } else if (normalizedName.startsWith(normalizedQuery)) {
-          startsWithMatches.push(country);
-        } else if (normalizedName.includes(normalizedQuery)) {
-          includesMatches.push(country);
-        }
-      }
-
-      // 優先度順に結合
-      setFilteredCountries([
-        ...exactMatches,
-        ...startsWithMatches,
-        ...includesMatches,
-      ]);
+      setFilteredCountries(filterCountriesByQuery(countries, searchQuery));
     } else {
       setFilteredCountries(countries);
     }
@@ -220,11 +220,15 @@ export default function RegionSearch({ countries }: RegionSearchProps) {
                       color: statusColor.main,
                     }}
                   >
-                    {country.visaRequirement.type === "visa_free"
-                      ? "ビザなし"
-                      : country.visaRequirement.type === "evisa"
-                        ? "要電子ビザ"
-                        : "要ビザ"}
+                    {(() => {
+                      if (country.visaRequirement.type === "visa_free") {
+                        return "ビザなし";
+                      }
+                      if (country.visaRequirement.type === "evisa") {
+                        return "要電子ビザ";
+                      }
+                      return "要ビザ";
+                    })()}
                   </div>
                 </div>
 

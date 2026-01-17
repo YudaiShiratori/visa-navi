@@ -173,102 +173,112 @@ export default function Analytics() {
           </div>
         )}
 
-        {isLoading ? (
-          <div className="flex h-64 items-center justify-center">
-            <div className="text-gray-500 text-lg">データを読み込み中...</div>
-          </div>
-        ) : analyticsData ? (
-          <>
-            <div className="mb-8">
-              <h2 className="mb-4 font-semibold text-gray-700 text-xl">
-                過去7日間のページビュー
-              </h2>
-              {analyticsData.pageViews.length > 0 ? (
-                <div className="rounded-lg bg-white p-4 shadow">
-                  <PageViewsChart data={analyticsData.pageViews} />
+        {(() => {
+          if (isLoading) {
+            return (
+              <div className="flex h-64 items-center justify-center">
+                <div className="text-gray-500 text-lg">
+                  データを読み込み中...
                 </div>
-              ) : (
-                <div className="rounded-lg bg-white p-6 shadow">
-                  <p className="text-center text-gray-500">
-                    過去7日間のページビューデータがありません。
-                  </p>
-                </div>
-              )}
-            </div>
-
-            <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <DataSection
-                data={analyticsData.topPages}
-                emptyMessage="人気のページデータがありません。"
-                getKey={(page) => page.path}
-                renderItem={(page) => (
-                  <div className="flex items-center justify-between">
-                    <span className="truncate text-gray-600 text-sm">
-                      {page.path}
-                    </span>
-                    <span className="ml-2 rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800 text-xs">
-                      {page.views}ビュー
-                    </span>
+              </div>
+            );
+          }
+          if (!analyticsData) {
+            return null;
+          }
+          return (
+            <>
+              <div className="mb-8">
+                <h2 className="mb-4 font-semibold text-gray-700 text-xl">
+                  過去7日間のページビュー
+                </h2>
+                {analyticsData.pageViews.length > 0 ? (
+                  <div className="rounded-lg bg-white p-4 shadow">
+                    <PageViewsChart data={analyticsData.pageViews} />
+                  </div>
+                ) : (
+                  <div className="rounded-lg bg-white p-6 shadow">
+                    <p className="text-center text-gray-500">
+                      過去7日間のページビューデータがありません。
+                    </p>
                   </div>
                 )}
-                title="人気のページ"
-              />
+              </div>
 
-              <DataSection
-                data={analyticsData.topSearchTerms}
-                emptyMessage="検索キーワードデータがありません。"
-                getKey={(term) => term.term}
-                renderItem={(term) => (
-                  <div className="flex items-center justify-between">
-                    <span className="truncate text-gray-600 text-sm">
-                      {term.term}
-                    </span>
-                    <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-medium text-green-800 text-xs">
-                      {term.count}回
-                    </span>
-                  </div>
-                )}
-                title="人気の検索キーワード"
-              />
-            </div>
+              <div className="mb-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <DataSection
+                  data={analyticsData.topPages}
+                  emptyMessage="人気のページデータがありません。"
+                  getKey={(page) => page.path}
+                  renderItem={(page) => (
+                    <div className="flex items-center justify-between">
+                      <span className="truncate text-gray-600 text-sm">
+                        {page.path}
+                      </span>
+                      <span className="ml-2 rounded-full bg-blue-100 px-2 py-1 font-medium text-blue-800 text-xs">
+                        {page.views}ビュー
+                      </span>
+                    </div>
+                  )}
+                  title="人気のページ"
+                />
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <DataSection
-                data={analyticsData.topRegions}
-                emptyMessage="地域別アクセスデータがありません。"
-                getKey={(region) => region.region}
-                renderItem={(region) => (
-                  <div className="flex items-center justify-between">
-                    <span className="truncate text-gray-600 text-sm">
-                      {region.region}
-                    </span>
-                    <span className="ml-2 rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs">
-                      {region.count}回
-                    </span>
-                  </div>
-                )}
-                title="地域別アクセス数"
-              />
+                <DataSection
+                  data={analyticsData.topSearchTerms}
+                  emptyMessage="検索キーワードデータがありません。"
+                  getKey={(term) => term.term}
+                  renderItem={(term) => (
+                    <div className="flex items-center justify-between">
+                      <span className="truncate text-gray-600 text-sm">
+                        {term.term}
+                      </span>
+                      <span className="ml-2 rounded-full bg-green-100 px-2 py-1 font-medium text-green-800 text-xs">
+                        {term.count}回
+                      </span>
+                    </div>
+                  )}
+                  title="人気の検索キーワード"
+                />
+              </div>
 
-              <DataSection
-                data={analyticsData.topCountries}
-                emptyMessage="国別アクセスデータがありません。"
-                getKey={(country) => country.country}
-                renderItem={(country) => (
-                  <div className="flex items-center justify-between">
-                    <span className="truncate text-gray-600 text-sm">
-                      {country.country}
-                    </span>
-                    <span className="ml-2 rounded-full bg-yellow-100 px-2 py-1 font-medium text-xs text-yellow-800">
-                      {country.count}回
-                    </span>
-                  </div>
-                )}
-                title="国別アクセス数"
-              />
-            </div>
-          </>
-        ) : null}
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                <DataSection
+                  data={analyticsData.topRegions}
+                  emptyMessage="地域別アクセスデータがありません。"
+                  getKey={(region) => region.region}
+                  renderItem={(region) => (
+                    <div className="flex items-center justify-between">
+                      <span className="truncate text-gray-600 text-sm">
+                        {region.region}
+                      </span>
+                      <span className="ml-2 rounded-full bg-purple-100 px-2 py-1 font-medium text-purple-800 text-xs">
+                        {region.count}回
+                      </span>
+                    </div>
+                  )}
+                  title="地域別アクセス数"
+                />
+
+                <DataSection
+                  data={analyticsData.topCountries}
+                  emptyMessage="国別アクセスデータがありません。"
+                  getKey={(country) => country.country}
+                  renderItem={(country) => (
+                    <div className="flex items-center justify-between">
+                      <span className="truncate text-gray-600 text-sm">
+                        {country.country}
+                      </span>
+                      <span className="ml-2 rounded-full bg-yellow-100 px-2 py-1 font-medium text-xs text-yellow-800">
+                        {country.count}回
+                      </span>
+                    </div>
+                  )}
+                  title="国別アクセス数"
+                />
+              </div>
+            </>
+          );
+        })()}
 
         <LastUpdated />
       </div>
