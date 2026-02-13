@@ -16,13 +16,13 @@ const regionNames: Record<string, string> = {
 };
 
 interface Props {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const regionId = params.id;
+  const { id: regionId } = await params;
   const regionName = regionNames[regionId] || "不明な地域";
 
   return {
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function RegionPage({ params }: Props) {
-  const regionId = params.id;
+  const { id: regionId } = await params;
   const regionName = regionNames[regionId];
 
   // 地域が存在しない場合は404

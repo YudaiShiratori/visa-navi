@@ -12,9 +12,10 @@ interface CountryParams {
 export async function generateMetadata({
   params,
 }: {
-  params: CountryParams;
+  params: Promise<CountryParams>;
 }): Promise<Metadata> {
-  const country = getCountryById(params.id);
+  const { id } = await params;
+  const country = getCountryById(id);
 
   if (!country) {
     return {
@@ -36,8 +37,12 @@ export async function generateMetadata({
   };
 }
 
-export default function CountryPage({ params }: { params: CountryParams }) {
-  const { id } = params;
+export default async function CountryPage({
+  params,
+}: {
+  params: Promise<CountryParams>;
+}) {
+  const { id } = await params;
   const country = getCountryById(id);
 
   if (!country) {

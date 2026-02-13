@@ -6,15 +6,15 @@ import { regionDescriptions, regionNames } from "../../../constants/regions";
 import { getCountriesByRegion } from "../../../data/regions";
 
 interface RegionParams {
-  params: {
+  params: Promise<{
     region: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: RegionParams): Promise<Metadata> {
-  const { region } = params;
+  const { region } = await params;
   const regionName = regionNames[region as keyof typeof regionNames];
 
   if (!regionName) {
@@ -37,8 +37,8 @@ export async function generateMetadata({
   };
 }
 
-export default function RegionPage({ params }: RegionParams) {
-  const { region } = params;
+export default async function RegionPage({ params }: RegionParams) {
+  const { region } = await params;
   const regionName = regionNames[region as keyof typeof regionNames];
   const regionDescription =
     regionDescriptions[region as keyof typeof regionDescriptions];
