@@ -15,12 +15,15 @@ export const oceaniaCountries: Country[] = [
     conditions: [
       "日本国籍は観光・商用等の短期滞在にETA（Subclass 601）が必要",
       "申請はAustralian ETAアプリを使用（アプリ利用料AUD 20）",
+      "ETAの有効期間は12ヶ月で、1回の滞在は最大3ヶ月",
+      "ICチップ搭載パスポートが必要",
+      "復路航空券の所持が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/australia/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_071.html",
     },
-  }, // sources: https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/electronic-travel-authority-601, https://www.anzen.mofa.go.jp/m/mbimmigration_071.html
+  },
   {
     id: "northern_mariana_islands",
     name: "北マリアナ諸島（サイパン）",
@@ -32,15 +35,15 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "45日以内の業務、観光目的の滞在はグアム－北マリアナ諸島ビザ免除プログラム（Guam-CNMI VWP）あり",
-      "旅券残存帰国日まで有効なもの（入国時45日以上が望ましい）、出国用航空券、グアムー北マリアナ諸島連邦電子渡航認証「Guam-CNMI ETA」が必要",
-      "46日以上90日以内の業務、観光目的の滞在はアメリカビザ免除プログラム(Visa Waiver Program)あり",
-      "旅券残存帰国日まで有効なもの（入国時90日以上が望ましい）",
-      "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証) の事前取得以外にも多数あり",
+      "45日以内の観光・業務目的の滞在はGuam-CNMI VWP（ビザ免除プログラム）を利用可能",
+      "Guam-CNMI ETA（電子渡航認証）の事前取得が必要（無料、有効期間2年）",
+      "旅券残存帰国日まで有効なもの（入国時45日以上が望ましい）、出国用航空券が必要",
+      "46日以上90日以内の滞在はESTA（USD 21）の事前取得が必要",
+      "ESTA利用時は旅券残存帰国日まで有効なもの（入国時90日以上が望ましい）",
     ],
-    notes: ["ESTAだけではない アメリカビザ免除のための10の条件"],
+    notes: ["2024年11月29日よりGuam-CNMI ETAが紙のI-736フォームに代わり導入"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_226.html",
     },
   },
   {
@@ -57,9 +60,9 @@ export const oceaniaCountries: Country[] = [
       "30日以内の滞在はビザ不要",
       "旅券残存出国時6ヵ月以上、出国用航空券、十分な滞在費用が必要",
     ],
-    notes: [],
+    notes: ["滞在延長は移民局にて最大4ヶ月まで可能"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/kiribati/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_300.html",
     },
   },
   {
@@ -73,15 +76,15 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "45日以内の業務、観光目的の滞在はグアム－北マリアナ諸島ビザ免除プログラム（Guam-CNMI VWP）あり",
-      "旅券残存帰国日まで有効なもの（入国時45日以上が望ましい）、出国用航空券、グアムー北マリアナ諸島連邦電子渡航認証「Guam-CNMI ETA」が必要",
-      "46日以上90日以内の業務、観光目的の滞在はアメリカビザ免除プログラム(Visa Waiver Program)あり",
-      "旅券残存帰国日まで有効なもの（入国時90日以上が望ましい）",
-      "ビザ免除プログラムの必要要件は、ESTA(電子渡航認証) の事前取得以外にも多数あり",
+      "45日以内の観光・業務目的の滞在はGuam-CNMI VWP（ビザ免除プログラム）を利用可能",
+      "Guam-CNMI ETA（電子渡航認証）の事前取得が必要（無料、有効期間2年）",
+      "旅券残存帰国日まで有効なもの（入国時45日以上が望ましい）、出国用航空券が必要",
+      "46日以上90日以内の滞在はESTA（USD 21）の事前取得が必要",
+      "ESTA利用時は旅券残存帰国日まで有効なもの（入国時90日以上が望ましい）",
     ],
-    notes: ["ESTAだけではない アメリカビザ免除のための10の条件"],
+    notes: ["2024年11月29日よりGuam-CNMI ETAが紙のI-736フォームに代わり導入"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/usa/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_226.html",
     },
   },
   {
@@ -91,16 +94,16 @@ export const oceaniaCountries: Country[] = [
     region: "oceania",
     visaRequirement: {
       type: "visa_free",
-      duration: 30,
+      duration: 31,
       purpose: ["tourism"],
     },
     conditions: [
-      "30日以内の滞在はビザ不要",
+      "31日以内の滞在はビザ不要（入国時に自動的に滞在許可が発行される）",
       "旅券残存出国時6ヵ月以上、出国用航空券、ホテル予約確認が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_296.html",
     },
   },
   {
@@ -110,16 +113,16 @@ export const oceaniaCountries: Country[] = [
     region: "oceania",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 60,
       purpose: ["tourism"],
     },
     conditions: [
-      "90日以内の滞在はビザ不要",
-      "旅券残存出国時6ヵ月以上、出国用航空券、滞在資金、滞在先の住所・連絡が必要",
+      "60日以内の滞在はビザ不要（入国時にVisitor Permitが発行される）",
+      "旅券残存出国時6ヵ月以上、出国用航空券、滞在資金、滞在先の住所・連絡先が必要",
     ],
-    notes: [],
+    notes: ["滞在延長はWST 100で追加60日まで可能"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/samoa/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_076.html",
     },
   },
   {
@@ -138,9 +141,9 @@ export const oceaniaCountries: Country[] = [
       "黄熱に感染する危険のある国から来る、9か月以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
     ],
-    notes: [],
+    notes: ["滞在延長は最大90日まで可能"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/solomon/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_077.html",
     },
   },
   {
@@ -154,12 +157,12 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism"],
     },
     conditions: [
-      "入国時に30日以内で出国日までの滞在許可が付与される",
+      "入国時に30日以内の無料滞在許可が付与される",
       "旅券残存入国時6ヵ月以上、出国用航空券、十分な滞在費用が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/tuvalu/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_302.html",
     },
   },
   {
@@ -168,17 +171,20 @@ export const oceaniaCountries: Country[] = [
     code: "TO",
     region: "oceania",
     visaRequirement: {
-      type: "visa_required",
+      type: "visa_free",
       duration: 31,
       purpose: ["tourism"],
     },
     conditions: [
-      "観光目的の場合は到着空港で入国時に31日間滞在可能なビザが発給される",
+      "観光目的の場合は到着空港で入国時に31日間の無料滞在許可が発給される",
       "旅券残存入国時6ヵ月以上、未使用査証欄1頁以上、出国用航空券が必要",
     ],
-    notes: ["就労（取材を含む）目的は、事前に入国許可申請が必要"],
+    notes: [
+      "就労（取材を含む）目的は事前に入国許可申請が必要",
+      "滞在延長は69 TOP/月で最大6ヶ月まで可能",
+    ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/tonga/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_303.html",
     },
   },
   {
@@ -192,11 +198,13 @@ export const oceaniaCountries: Country[] = [
     },
     conditions: [
       "目的に関わらず事前にビザ取得が必要",
-      "取得方法はナウル入国管理局に確認が必要",
+      "ナウル入国管理局へメールまたは郵送で申請が必要",
+      "到着ビザおよび電子ビザの制度はなし",
+      "外交・公用旅券所持者のみビザ免除",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/nauru/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_301.html",
     },
   },
   {
@@ -210,13 +218,13 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism"],
     },
     conditions: [
-      "30日以内の滞在はビザ不要",
+      "30日以内の滞在はビザ不要（入国時に無料のVisitor Permitが発行される）",
       "旅券残存出国時3ヵ月以上、出国用航空券、滞在費用証明の持参、滞在先が決まっていることが必要",
       "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_306.html",
     },
   },
   {
@@ -232,13 +240,15 @@ export const oceaniaCountries: Country[] = [
     conditions: [
       "あらゆる180日間の期間内で90日以内の滞在はビザ不要",
       "旅券残存出国時3ヵ月以上、未使用査証欄見開き2頁以上、出国用航空券が必要",
-      "海外旅行保険、滞在費用証明（ホテル予約の提示なある場合は1日EUR65、提示がない場合は1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
+      "海外旅行保険、滞在費用証明（ホテル予約の提示がある場合は1日EUR65、提示がない場合は1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
     ],
-    notes: [],
+    notes: [
+      "2026年よりETIAS（欧州渡航情報認証制度）の事前取得が必要となる可能性あり",
+    ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_220.html",
     },
   },
   {
@@ -253,13 +263,14 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism", "business", "study", "official", "transit"],
     },
     conditions: [
-      "３ヵ月以内の観光、業務、就学、公用、通過目的の滞在はビザ不要",
-      "2019年10月1日入国分より、無査証にて入国・通過する場合は、NZeTA(電子渡航認証)の取得が事前に必要",
-      "旅券残存3ヵ月＋滞在日数以上、未使用査証欄1頁以上、出国用航空券、滞在資金（1ヵ月あたりNZD400、宿泊費未払の場合はNZD1,000相当の現金等）、第三国へのビザ（必要な場合）が必要",
+      "3ヵ月以内の観光、業務、就学、公用、通過目的の滞在はビザ不要だが、NZeTA（電子渡航認証）の事前取得が必要",
+      "NZeTA費用：アプリ申請NZD 17 / オンライン申請NZD 23（別途IVL NZD 100が必要、合計NZD 117〜123）",
+      "IVL（国際観光税）は2024年後半より徴収開始",
+      "旅券残存3ヵ月＋滞在日数以上、未使用査証欄1頁以上、出国用航空券、滞在資金（1ヵ月あたりNZD 400、宿泊費未払の場合はNZD 1,000相当の現金等）、第三国へのビザ（必要な場合）が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/newzealand/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_074.html",
     },
   },
   {
@@ -268,18 +279,17 @@ export const oceaniaCountries: Country[] = [
     code: "VU",
     region: "oceania",
     visaRequirement: {
-      type: "visa_required",
+      type: "visa_free",
       duration: 120,
-      purpose: ["tourism", "business"],
+      purpose: ["tourism"],
     },
     conditions: [
-      "業務目的は事前にビザ取得が必要",
-      "観光目的は到着空港で120日の観光ビザが発給される",
+      "観光目的は到着時に120日間の無料滞在許可が発給される（延長不可）",
       "旅券残存入国時6ヵ月以上、出国用航空券が必要",
     ],
-    notes: [],
+    notes: ["業務目的は事前にビザ取得が必要"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/vanuatu/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_078.html",
     },
   },
   {
@@ -288,18 +298,23 @@ export const oceaniaCountries: Country[] = [
     code: "PG",
     region: "oceania",
     visaRequirement: {
-      type: "visa_required",
-      duration: 0,
+      type: "evisa",
+      duration: 60,
+      evisaAvailable: true,
     },
-    conditions: ["事前にビザ取得が必要"],
-    notes: [
-      "観光、業務目的の到着ビザは2020年3月から発給停止中",
-      "外交・公用目的に限りポートモレスビー・ジャクソン国際空港での到着ビザ取得が可能（2023年9月末～）",
+    conditions: [
+      "事前に電子ビザ（e-Visa）の取得が必要（到着ビザは2020年3月より発給停止中）",
+      "観光ビザの費用はJPY 6,000",
+      "申請はwww.ica.gov.pgにて行う",
+      "2025年10月1日よりDigital Entry Registration（デジタル入国登録）が到着72時間前までに必要",
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港を経由した渡航者も黄熱予防接種証明書が必要",
     ],
+    notes: [
+      "外交・公用目的に限りポートモレスビー・ジャクソン国際空港での到着ビザ取得が可能（2023年9月末以降）",
+    ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/png/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_075.html",
     },
   },
   {
@@ -315,10 +330,11 @@ export const oceaniaCountries: Country[] = [
     conditions: [
       "30日以内の業務、観光、知人訪問目的の滞在はビザ不要",
       "旅券残存入国時6ヵ月以上、未使用査証欄1頁以上、出国用航空券、滞在費用証明の所持が必要",
+      "オンラインでの到着申告（QRコード取得）が必要",
     ],
-    notes: [],
+    notes: ["滞在延長はUSD 50で最大90日まで可能"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/palau/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_299.html",
     },
   },
   {
@@ -332,15 +348,15 @@ export const oceaniaCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "4ヶ月以内の観光、2週間以内の業務目的（業務打合せ）はビザ不要",
+      "4ヶ月（120日）以内の観光、2週間以内の業務目的（業務打合せ）はビザ不要",
       "旅券残存入国時6ヵ月＋滞在日数以上、未使用査証欄1頁以上、出国用航空券が必要",
       "滞在費用証明の持参が望ましい",
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
     ],
-    notes: [],
+    notes: ["滞在延長は移民局にてFJD 69/月で最大2ヶ月の追加が可能"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/fiji/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_073.html",
     },
   },
   {
@@ -356,13 +372,15 @@ export const oceaniaCountries: Country[] = [
     conditions: [
       "あらゆる180日間の期間内で90日以内の滞在はビザ不要",
       "旅券残存出国時3ヵ月以上、未使用査証欄見開き2頁以上、出国用航空券が必要",
-      "海外旅行保険、滞在費用証明（ホテル予約の提示なある場合は1日EUR65、提示がない場合は1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
+      "海外旅行保険、滞在費用証明（ホテル予約の提示がある場合は1日EUR65、提示がない場合は1日EUR120）、宿泊証明書（ホテル予約確認書等）の持参が望ましい",
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
     ],
-    notes: [],
+    notes: [
+      "2026年よりETIAS（欧州渡航情報認証制度）の事前取得が必要となる可能性あり",
+    ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/france/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_221.html",
     },
   },
   {
@@ -371,18 +389,17 @@ export const oceaniaCountries: Country[] = [
     code: "MH",
     region: "oceania",
     visaRequirement: {
-      type: "visa_required",
+      type: "visa_free",
       duration: 30,
-      purpose: ["tourism", "business"],
+      purpose: ["tourism"],
     },
     conditions: [
-      "30日以内の観光目的は到着空港でビザを取得する",
+      "30日以内の観光目的はビザ不要（入国時に自動的に入国許可）",
       "旅券残存入国時6ヵ月以上、未使用査証欄1頁以上、出国用航空券、滞在費用が必要",
-      "業務目的の滞在は事前に現地移民局から許可を得て到着空港でビザを取得する",
     ],
-    notes: [],
+    notes: ["業務目的の滞在は事前に現地移民局から許可を得る必要がある"],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/marshall/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_297.html",
     },
   },
   {
@@ -405,7 +422,7 @@ export const oceaniaCountries: Country[] = [
       "取引先会社が決定していて具体的な業務や金銭の動きがある場合は、現地受け入れ先をとおしてビジネスパーミットの取得が必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/micronesia/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_298.html",
     },
   },
 ];

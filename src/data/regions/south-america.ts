@@ -12,8 +12,8 @@ export const southAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "2023年9月30日から3年間の期限付きでビザ免除措置あり",
-      "90日以内の観光、親族・知人訪問、業務、学術会議・講演会・講習会等への参加、通過、芸術・スポーツ等の各種イベントへの参加目的はビザ不要",
+      "2023年10月1日発効の相互ビザ免除措置により、90日以内の観光・商用等の滞在はビザ不要（終了時期未定）",
+      "ICパスポート（ICAO準拠のICチップ搭載旅券）の所持が必要",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "未使用査証欄見開き2頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -22,12 +22,12 @@ export const southAmericaCountries: Country[] = [
     ],
     notes: [
       "黄熱予防接種証明書の持参が強く推奨される（特にアマゾン地域へ渡航する場合）",
-      "90日を超える滞在にはビザの取得が必要",
+      "90日の滞在後、ブラジル国内で最大90日間の延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にCPF（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/brazil/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_259.html",
     },
   },
   {
@@ -49,13 +49,11 @@ export const southAmericaCountries: Country[] = [
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "ブラジル、ボリビア、コロンビア、エクアドル、パナマ、パラグアイ、ペルー、ベネズエラから来る渡航者は、黄熱予防接種証明書が必要",
-      "90日を超える滞在にはビザの取得が必要",
+      "90日の滞在後、現地で最大90日間の延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にDNI（身分証明書）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/argentina/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_241.html",
     },
   },
   {
@@ -77,13 +75,13 @@ export const southAmericaCountries: Country[] = [
       "入国時に税関申告書の提出が必要",
     ],
     notes: [
+      "日本との間でワーキングホリデー協定あり",
       "イースター島(ラパ・ヌイ)へ渡航する場合は、入島許可証の事前取得が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にRUT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/chile/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_242.html",
     },
   },
   {
@@ -93,11 +91,12 @@ export const southAmericaCountries: Country[] = [
     region: "south_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 183,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "90日以内の観光、短期商用、外交・公用目的の滞在はビザ不要",
+      "2025年7月1日よりICパスポート所持者はビザ免除（暦年で最大183日間滞在可能）",
+      "ICパスポート（ICAO準拠のICチップ搭載旅券）の所持が必要",
       "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "未使用査証欄5頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -107,13 +106,11 @@ export const southAmericaCountries: Country[] = [
     notes: [
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "アマゾン地域（Amazonas, Loreto, Madre de Dios, San Martin, Ucayali）への渡航には黄熱予防接種証明書が強く推奨される",
-      "2025年7月1日より、日本人は90日以内の短期商用目的でペルーに滞在する際のビザ取得が免除",
-      "90日を超える滞在にはビザの取得が必要",
+      "183日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にDNI（身分証明書）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/peru/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_261.html",
     },
   },
   {
@@ -131,18 +128,16 @@ export const southAmericaCountries: Country[] = [
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "未使用査証欄2頁以上が必要",
       "出国用の航空券の所持が必要",
-      "入国フライトの搭乗72時間から1時間前に、出入国管理アプリ（Check-Mig）への登録が必要",
+      "空路入国の場合、Check-Mig（無料の事前登録システム）への登録が推奨される（apps.migracioncolombia.gov.coから申請。第三者の有料サイトに注意）",
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "アンゴラ、ブラジル、コンゴ民主共和国、ウガンダから来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
-      "乗り継ぎのため、上記国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "アマゾン地域への渡航には黄熱予防接種証明書が強く推奨される",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/colombia/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_248.html",
     },
   },
   {
@@ -153,10 +148,10 @@ export const southAmericaCountries: Country[] = [
     visaRequirement: {
       type: "visa_free",
       duration: 90,
-      purpose: ["tourism", "business", "transit"],
+      purpose: ["tourism"],
     },
     conditions: [
-      "90日以内の観光、営利行為を伴わない商談、視察、会議出席等での滞在はビザ不要",
+      "90日以内の観光目的の滞在はビザ不要",
       "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "未使用査証欄見開き2頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -164,14 +159,11 @@ export const southAmericaCountries: Country[] = [
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
-      "黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
-      "特にアマゾン地域へ渡航する場合は黄熱予防接種証明書の携行が強く推奨される",
       "90日を超える滞在にはビザの取得が必要",
-      "就労・留学目的の場合は別途ビザが必要",
+      "就労・留学・業務目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/venezuela/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_260.html",
     },
   },
   {
@@ -193,15 +185,13 @@ export const southAmericaCountries: Country[] = [
       "入国時に滞在目的と滞在先の申告が必要",
     ],
     notes: [
-      "ブラジル、コンゴ民主共和国、ウガンダからの渡航者及び乗り継ぎのため12時間以上滞在した1歳以上の渡航者は黄熱予防接種証明書が必要",
+      "ガラパゴス諸島へ渡航する場合はTransit Control Card（USD20）の取得およびガラパゴス国立公園入場料（USD100）の支払いが必要",
       "アマゾン地域への渡航には黄熱予防接種証明書が強く推奨される",
-      "ガラパゴス諸島へ渡航する場合は入島許可証（Transit Control Card）の事前取得とガラパゴス国立公園入場料（USD100）の支払いが必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/ecuador/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_243.html",
     },
   },
   {
@@ -221,17 +211,15 @@ export const southAmericaCountries: Country[] = [
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
       "ホテル予約確認書または滞在先住所の提示が必要",
-      "入国カード（Tarjeta Andina de Migración）の記入が必要",
+      "入国カード（Tarjeta Andina de Migracion）の記入が必要",
     ],
     notes: [
       "業務目的は事前にビザ取得が必要",
-      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "特にアマゾンやパンタナール地域への渡航の場合は黄熱予防接種証明書の携行が強く推奨される",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にNIT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/bolivia/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_258.html",
     },
   },
   {
@@ -253,13 +241,11 @@ export const southAmericaCountries: Country[] = [
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "ブラジル（アマゾナス州、ミナス・ジェライス州、サンパウロ州、リオ・グランデ・ド・スール州、ロライマ州）、ボリビア（サンタクルス県）、ペルー（ワヌコ州、フニン州、マドレ・デ・ディオス州、サン・マルティン州、ウカヤリ州）、コロンビア（カケタ県、ウイラ県、ナリーニョ県、プトゥマヨ県、バウペス県、トリマ県）、ガイアナ（ボア・ビスタ、シパルニ）から来る、1歳以上59歳以下の渡航者は黄熱予防接種証明書が必要",
-      "90日を超える滞在にはビザの取得が必要",
+      "90日の滞在後、現地で最大90日間の延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にRUC（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/paraguay/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_251.html",
     },
   },
   {
@@ -281,13 +267,11 @@ export const southAmericaCountries: Country[] = [
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "黄熱に感染する危険のある国（ブラジル、ボリビア、コロンビア、エクアドル、ガイアナ、パナマ、パラグアイ、ペルー、スリナム、トリニダード・トバゴ、ベネズエラ）から来る渡航者は黄熱予防接種証明書が必要",
-      "90日を超える滞在にはビザの取得が必要",
+      "90日の滞在後、最大180日まで延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
-      "入国時にRUT（納税者登録番号）の取得が必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/uruguay/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_252.html",
     },
   },
   {
@@ -309,13 +293,11 @@ export const southAmericaCountries: Country[] = [
       "入国カードの記入が必要",
     ],
     notes: [
-      "黄熱に感染する危険のある国から来る、１歳以上の渡航者は黄熱予防接種証明書が必要",
-      "乗り継ぎのため、黄熱に感染する危険のある国の空港に4時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/guyana/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_250.html",
     },
   },
   {
@@ -330,22 +312,20 @@ export const southAmericaCountries: Country[] = [
       purpose: ["tourism", "family_visit"],
     },
     conditions: [
+      "e-Tourist Card（電子ビザ）の事前取得が必要（USD50またはEUR50）",
       "パスポートの残存有効期間が滞在予定期間以上必要",
-      "観光、親族訪問目的以外は事前にe-Visaの取得が必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
-      "e-Visaの取得はSuriname E-VISA Websiteから可能",
-      "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
-      "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
+      "e-Tourist Cardはsuriname.vfsevisa.comから申請可能（シングルエントリー、90日間有効）",
       "すべての渡航者は黄熱予防接種証明書の携行が強く推奨される",
-      "ビザは90日間有効で、90日間の滞在が可能",
       "入国時に指紋採取が必要",
+      "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.mofa.go.jp/mofaj/area/suriname/index.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_253.html",
     },
   },
 ];
