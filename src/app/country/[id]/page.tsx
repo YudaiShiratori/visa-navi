@@ -163,14 +163,9 @@ export default async function CountryPage({
         <div className="mx-auto max-w-4xl">
           <div className="overflow-hidden rounded-xl bg-white shadow-lg">
             <div className="border-gray-200 border-b bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white">
-              <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-                <div>
-                  <h2 className="font-bold text-2xl">
-                    {country.name}のビザ情報
-                  </h2>
-                </div>
+              <div className="flex flex-col items-center gap-4">
                 {country.code && (
-                  <div className="flex items-center justify-center md:ml-auto md:justify-end">
+                  <div className="flex items-center justify-center">
                     <span
                       className={`fi fi-${country.code.toLowerCase()}`}
                       style={{
@@ -181,6 +176,11 @@ export default async function CountryPage({
                     />
                   </div>
                 )}
+                <div>
+                  <h2 className="font-bold text-2xl">
+                    {country.name}のビザ情報
+                  </h2>
+                </div>
               </div>
             </div>
 
