@@ -130,14 +130,17 @@ export const africaCountries: Country[] = [
     name: "チャド",
     code: "TD",
     region: "africa",
-    visaRequirement: { type: "visa_required" },
+    visaRequirement: { type: "evisa", evisaAvailable: true },
     conditions: [
-      "事前にビザ取得が必要（日本にチャド大使館なし、北京等で申請）",
+      "2026年5月11日より、新規ビザ申請は公式 eVisa プラットフォーム経由に一本化",
       "パスポート残存有効期間6ヶ月以上必要",
       "出国用航空券が必要",
       "黄熱病予防接種証明書が必須",
     ],
-    notes: [],
+    notes: [
+      "日本はチャド政府の免除国リストに含まれず、原則オンライン eVisa 申請が必要",
+      "日本にチャド大使館がないため、申請はオンライン完結またはパリ等での手続きとなる",
+    ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_137.html",
     },
@@ -220,12 +223,15 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "空港到着時にアライバルビザを取得可能（25米ドル現金）",
-      "e-Visaでの事前申請も可能",
+      "空港到着時にアライバルビザを取得可能（30米ドル現金、2026年3月1日に25米ドルから値上げ）",
+      "e-Visaでの事前申請も可能（2026年4月下旬より単数30米ドル・数次65米ドルに値上げ）",
       "パスポート残存有効期間6ヶ月以上・空白ページ見開き2ページ以上必要",
       "黄熱病流行国からの渡航者は予防接種証明書が必要",
     ],
-    notes: ["アライバルビザはシール式で自分でパスポートに貼付"],
+    notes: [
+      "アライバルビザはシール式で自分でパスポートに貼付",
+      "2026年3月1日以降、到着ビザ・eVisa とも料金が引き上げられているため、事前に最新料金を要確認",
+    ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_094.html",
     },
@@ -348,11 +354,11 @@ export const africaCountries: Country[] = [
     visaRequirement: {
       type: "visa_required",
       duration: 90,
-      evisaAvailable: false,
+      evisaAvailable: true,
     },
     conditions: [
-      "アライバルビザ（到着ビザ）を空港で取得可能",
-      "滞在期間に応じた費用：30日以内€35、60日以内€40、90日以内€50",
+      "アライバルビザ（到着ビザ）または事前 eVisa を取得可能",
+      "滞在期間に応じた費用：15日以内€30/$35（2026年2月16日に€10/$10から値上げ）、30日以内€35、60日以内€40、90日以内€50",
       "パスポートの残存有効期間が6ヶ月以上必要",
       "パスポートに未使用の査証欄が見開き2ページ以上必要",
       "復路航空券（帰国便）の提示が必要",

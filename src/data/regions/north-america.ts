@@ -197,6 +197,7 @@ export const northAmericaCountries: Country[] = [
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "2026年2月16日のビザ制度大幅変更（多数の国籍で到着ビザ廃止・事前審査ビザ化）後も、日本・EU・米国・カナダ・英国・スイス・豪州等のビザ免除は維持",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_252.html",
@@ -413,6 +414,7 @@ export const northAmericaCountries: Country[] = [
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "2026年5月5日よりデジタル到着カードのパイロット運用が開始（一部旅行者・便のみが対象、紙カードも当面併用）。案内を受けた場合はオンライン提出が必要",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_256.html",
@@ -462,12 +464,14 @@ export const northAmericaCountries: Country[] = [
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
       "現地滞在先が確保されていることが必要",
+      "2026年3月にオンライン Arrival/Departure Card 導入が発表され、入国・出国前72時間以内のオンライン提出と QR コード取得への移行が進行中（紙カードからの段階的切替）",
     ],
     notes: [
       "出国時に出国税TT$100/人の支払いが必要",
       "黄熱に感染する危険のある国です",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "オンライン Arrival/Departure Card の運用開始時期・対象便は段階的展開のため、渡航前に最新案内を要確認",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_260.html",
@@ -569,12 +573,14 @@ export const northAmericaCountries: Country[] = [
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
       "宿泊予約確認書の持参が必要",
+      "2026年3月2日より、電子 Embarkation/Disembarkation Card（ED Card）の事前オンライン提出が必要（出発前72時間以内）",
     ],
     notes: [
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
+      "電子 ED Card は入国・税関情報を含む。紙カードからオンライン提出に移行済み",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_259.html",
