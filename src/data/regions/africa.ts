@@ -17,7 +17,10 @@ export const africaCountries: Country[] = [
       "黄熱病流行国からの入国者は予防接種証明が必要",
       "未成年者の入国には両親の同意書が必要",
     ],
-    notes: ["就労目的は就労ビザの取得が必要"],
+    notes: [
+      "就労目的は就労ビザの取得が必要",
+      "2026年より電子渡航認証（ETA）制度が導入されたが、査証免除国の日本国籍者には任意（取得しなくても90日以内の無査証入国は可能）",
+    ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_122.html",
     },
@@ -76,7 +79,7 @@ export const africaCountries: Country[] = [
       purpose: ["tourism"],
     },
     conditions: [
-      "パスポートの残存有効期間が滞在期間＋6ヶ月以上必要",
+      "パスポートの残存有効期間が6ヶ月以上必要",
       "出国用航空券の提示が求められる場合あり",
     ],
     officialLinks: {
@@ -89,18 +92,17 @@ export const africaCountries: Country[] = [
     code: "BI",
     region: "africa",
     visaRequirement: {
-      type: "evisa",
+      type: "visa_required",
+      duration: 30,
       evisaAvailable: true,
     },
     conditions: [
-      "オンラインでのビザ申請と出入国登録が必須（https://migration.gov.bi/）",
+      "ブジュンブラ国際空港でアライバルビザを事前申請なしで取得可能（数次1ヶ月滞在90米ドル、または3日間滞在40米ドル）",
+      "オンライン事前申請（https://migration.gov.bi/）も可能で、空港での入国手続きが円滑になる",
       "パスポート残存有効期間6ヶ月以上必要",
-      "黄熱病予防接種証明書（イエローカード）が必須",
+      "黄熱病予防接種証明書（イエローカード、生後9ヶ月以上）が必須",
     ],
-    notes: [
-      "2023年7月より電子ビザ・出入国登録のオンライン化が実施",
-      "空港でのアライバルビザは廃止",
-    ],
+    notes: ["2021年12月よりブジュンブラ国際空港でのアライバルビザ発給が再開"],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_127.html",
     },
@@ -132,7 +134,7 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "evisa", evisaAvailable: true },
     conditions: [
-      "2026年5月11日より、新規ビザ申請は公式 eVisa プラットフォーム経由に一本化",
+      "新規ビザ申請は公式eVisaプラットフォーム（https://evisa.td/）経由への一本化が案内されている",
       "パスポート残存有効期間6ヶ月以上必要",
       "出国用航空券が必要",
       "黄熱病予防接種証明書が必須",
@@ -164,7 +166,7 @@ export const africaCountries: Country[] = [
       "ビザ代金はユーロ現金のみ（米ドル不可）",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_139.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_135.html",
     },
   },
   {
@@ -223,14 +225,16 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "空港到着時にアライバルビザを取得可能（30米ドル現金、2026年3月1日に25米ドルから値上げ）",
-      "e-Visaでの事前申請も可能（2026年4月下旬より単数30米ドル・数次65米ドルに値上げ）",
+      "空港到着時にアライバルビザを取得可能（2026年3月1日よりUS$30、現金払い）",
+      "e-Visaでの事前申請も可能（2026年4月下旬よりシングル30米ドル・数次65米ドル）",
       "パスポート残存有効期間6ヶ月以上・空白ページ見開き2ページ以上必要",
       "黄熱病流行国からの渡航者は予防接種証明書が必要",
     ],
     notes: [
       "アライバルビザはシール式で自分でパスポートに貼付",
-      "2026年3月1日以降、到着ビザ・eVisa とも料金が引き上げられているため、事前に最新料金を要確認",
+      "カイロ空港では2026年8月1日からQRコード式のデジタル到着ビザ（visaonarrival.gov.eg、US$30＋サービス料US$6）を試験運用中",
+      "2027年1月1日からシングルの到着ビザはUS$33に改定予定",
+      "手数料は改定されることがあるため渡航前に公式サイトで最新料金を要確認",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_094.html",
@@ -253,7 +257,7 @@ export const africaCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_097.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_139.html",
     },
   },
   {
@@ -268,7 +272,7 @@ export const africaCountries: Country[] = [
     },
     conditions: [
       "e-Visa事前申請が必須（https://www.evisa.gov.et/）",
-      "費用約122米ドル",
+      "観光ビザ（シングル）手数料は30日間62米ドル、90日間152米ドル（審査は通常3日）",
       "パスポート残存有効期間6ヶ月以上・空白ページ1ページ以上必要",
       "黄熱病感染リスク地域からの渡航者は予防接種証明書が必要",
     ],
@@ -383,18 +387,18 @@ export const africaCountries: Country[] = [
     code: "MW",
     region: "africa",
     visaRequirement: {
-      type: "evisa",
+      type: "visa_required",
       duration: 30,
       evisaAvailable: true,
     },
     conditions: [
       "e-Visa事前申請が可能（https://evisa.gov.mw/）",
-      "空港到着時のアライバルビザも取得可能（約75米ドル）",
+      "2026年2月24日発効の新制度でカテゴリー2国に区分され、空港到着時のアライバルビザも取得可能",
       "パスポート残存有効期間が十分必要",
       "黄熱病予防接種は必須ではないが近隣国からの入国時は推奨",
     ],
     notes: [
-      "e-Visa事前申請が推奨だがアライバルビザも利用可能",
+      "アライバルビザより事前のe-Visa取得が公式に推奨されている",
       "滞在延長は入国後に移民局で手続き可能",
     ],
     officialLinks: {
@@ -415,7 +419,7 @@ export const africaCountries: Country[] = [
     ],
     notes: ["アライバルビザは取得不可"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_116.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_121.html",
     },
   },
   {
@@ -475,7 +479,7 @@ export const africaCountries: Country[] = [
       purpose: ["tourism"],
     },
     conditions: [
-      "パスポート残存有効期間が入国時6ヶ月以上必要",
+      "パスポートの残存有効期間が滞在予定期間の終わりまで有効であることが必要（入国後90日以内に満了する場合は入国拒否の可能性あり）",
       "90日を超える滞在は警察署で「滞在許可証」の申請が必要",
     ],
     officialLinks: {
@@ -496,12 +500,12 @@ export const africaCountries: Country[] = [
       "入国時に手数料650メティカル（またはUSドル現金）の支払いが必要",
       "パスポート残存有効期間180日以上必要",
       "復路航空券・宿泊先予約確認書の提示が必要",
+      "2026年7月以降、航空会社の搭乗手続き時に電子渡航認証（ETA、evisa.gov.mz）の取得確認が厳格化されているため、渡航前の取得を推奨",
     ],
     notes: [
       "2023年3月31日より査証免除対象",
       "初回30日、現地移民局で30日延長可能（最長60日）",
       "60日以上は事前に大使館で数次査証を申請する必要あり",
-      "オンライン事前登録（E-Visa）義務は取り消し済み",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_123.html",
@@ -522,6 +526,7 @@ export const africaCountries: Country[] = [
       "取得方法3種類：(1)E-Visa（https://eservices.mhaiss.gov.na/）(2)アライバルビザ (3)駐日大使館申請",
       "パスポート残存有効期間6ヶ月以上・空白ページ3ページ以上必要",
       "往復航空券・旅行保険・宿泊先証明・資金証明が必要",
+      "査証手数料はアフリカ域外国籍者で1,600ナミビアドル＋3%の手数料（毎年見直し）",
     ],
     notes: ["2025年4月1日より新制度、在ナミビア日本国大使館で詳細案内あり"],
     officialLinks: {
@@ -535,13 +540,14 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: { type: "visa_required" },
     conditions: [
-      "事前にビザ取得が必要（日本にニジェール大使館なし、名誉領事館または近隣国で申請）",
+      "事前にビザ取得が必要（日本にニジェール大使館なし、在中国または在仏ニジェール大使館等で申請）",
+      "一次（30日）または数次（90日等）査証を取得可能",
       "出国用航空券の提示が必要",
       "黄熱病予防接種証明書が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_115.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_116.html",
     },
   },
   {
@@ -554,15 +560,13 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "オンラインe-Visa申請が必須（ナイジェリア移民局ポータルから申請）",
-      "パスポート顔写真ページ・往復航空券・ホテル予約票が必要",
-      "審査は提出後48時間以内に完了",
+      "オンラインe-Visa申請が必須（ナイジェリア移民局ポータルから申請、一部区分は大使館申請）",
+      "パスポート残存有効期間6ヶ月以上・往復航空券・ホテル予約票が必要",
+      "渡航前に保健省サイトでHealth Declaration Formの登録が必要",
+      "2025年5月より出・入国カード（Landing Card）が電子化、渡航前に専用サイトでオンライン申請が必要",
       "黄熱病予防接種証明書が必要",
     ],
-    notes: [
-      "2025年5月よりアライバルビザ廃止、e-Visa制度に移行",
-      "最大90日滞在（延長不可）",
-    ],
+    notes: ["2025年5月よりアライバルビザ廃止、e-Visa制度に移行"],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_115.html",
     },
@@ -623,13 +627,17 @@ export const africaCountries: Country[] = [
     },
     conditions: [
       "入国前にTravel Authorization（電子渡航認証）の事前取得が必須（https://seychelles.govtas.com/）",
+      "電子渡航申請は入国30日前から可能、手数料は希望処理時間に応じ10～70ユーロ（クレジットカード払い）",
       "パスポート残存有効期間が出国日まで有効であること",
       "復路航空券の所持が必要",
       "宿泊先の予約確認書が必要",
       "1日あたり最低150米ドルの滞在資金証明が必要",
       "黄熱病リスク国経由の場合は予防接種証明書が必要",
     ],
-    notes: ["到着時にVisitor's Permitが付与される（最長3ヶ月）"],
+    notes: [
+      "到着時にVisitor's Permitが付与される（最長90日）",
+      "延長は現地入国管理局で申請、1回あたり5,000セーシェル・ルピー、最長1年まで延長可能",
+    ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_108.html",
     },
@@ -644,11 +652,10 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "電子ビザまたは招聘状によるビザが必要",
-      "空路入国の場合はホテル等に招聘エントリーパーミットを依頼",
+      "2025年9月より全渡航者に電子ビザ（eVisa/eTAS、https://evisa.gov.so/）の事前取得が義務化",
       "日本にソマリア大使館なし（在ケニア大使館が兼轄）",
     ],
-    notes: [],
+    notes: ["全土に危険情報レベル4（退避勧告）が発出中、渡航は避けるべき"],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_110.html",
     },
@@ -658,13 +665,12 @@ export const africaCountries: Country[] = [
     name: "南スーダン",
     code: "SS",
     region: "africa",
-    visaRequirement: { type: "visa_required" },
+    visaRequirement: { type: "evisa", evisaAvailable: true },
     conditions: [
-      "ビザ取得が必要だが駐日南スーダン大使館ではビザ発給は準備中",
-      "米国・英国・ケニア・ウガンダ等の南スーダン大使館で事前に取得が必要",
+      "電子ビザ（e-Visa、https://www.evisa.gov.ss/）のオンライン事前申請・取得が可能",
       "黄熱病予防接種証明書が必要",
     ],
-    notes: ["日本でのビザ取得は現在不可"],
+    notes: ["全土に危険情報レベル4（退避勧告）が発出中、渡航は避けるべき"],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_301.html",
     },
@@ -707,7 +713,7 @@ export const africaCountries: Country[] = [
       "商用目的は「商用ビザ」が別途必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_126.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_111.html",
     },
   },
   {
@@ -721,7 +727,7 @@ export const africaCountries: Country[] = [
       purpose: ["tourism"],
     },
     conditions: ["パスポート残存有効期間が滞在日数＋3ヶ月以上必要"],
-    notes: ["3ヶ月超の滞在や就労目的は事前にビザ取得が必要"],
+    notes: ["3ヶ月超の滞在や就労目的は無査証で入国後、滞在許可証の取得が必要"],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_113.html",
     },
@@ -747,7 +753,7 @@ export const africaCountries: Country[] = [
       "初期滞在から追加60日間を2回まで延長可能",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_128.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_093.html",
     },
   },
   {
@@ -780,6 +786,7 @@ export const africaCountries: Country[] = [
     visaRequirement: {
       type: "visa_required",
       duration: 30,
+      evisaAvailable: true,
     },
     conditions: [
       "空港・国境地点でアライバルビザを取得可能",
@@ -790,9 +797,10 @@ export const africaCountries: Country[] = [
     notes: [
       "KAZAビザ（50USD）も利用可能（ビクトリア・フォールズ、ザンビア・ボツワナとの往来用）",
       "アライバルビザは現金での支払い（米ドル）",
+      "政府e-Visaサイト（evisa.gov.zw）での事前オンライン申請も選択可能",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_105.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_106.html",
     },
   },
   {
@@ -816,7 +824,7 @@ export const africaCountries: Country[] = [
       "入出国時に空港使用料1,000ダラシ相当が必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_138.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_277.html",
     },
   },
   {
@@ -826,15 +834,18 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: {
       type: "evisa",
+      duration: 90,
       evisaAvailable: true,
     },
     conditions: [
-      "e-Visaでのオンライン申請が可能",
+      "e-Visa（paf.gov.gn）でのオンライン申請が可能、滞在は最大90日",
+      "出国数日前までの申請が必要、黄熱病予防接種証明書等のアップロードが必要",
+      "入国時にe-Visa登録レシートを提示し、入国審査官がビザを発給・押印",
       "パスポート残存有効期間6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_102.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_099.html",
     },
   },
   {
@@ -854,7 +865,7 @@ export const africaCountries: Country[] = [
     ],
     notes: ["セネガル（ダカール）での申請が最もスムーズ"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_103.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_140.html",
     },
   },
   {
@@ -864,11 +875,13 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: {
       type: "visa_required",
-      duration: 90,
+      duration: 30,
+      evisaAvailable: true,
     },
     conditions: [
-      "空港到着時にアライバルビザ取得可能（80米ドル）",
-      "陸路国境でも取得可能（800,000レオン）",
+      "空港到着時にアライバルビザ取得可能（現金80米ドル）",
+      "事前にe-Visa（evisa.sl）でのオンライン申請も可能",
+      "入国時に30日または60日の滞在許可が付与される",
       "パスポート残存有効期間6ヶ月以上必要",
       "黄熱病予防接種証明書（イエローカード）が必須",
     ],
@@ -877,7 +890,7 @@ export const africaCountries: Country[] = [
       "西アフリカではアライバルビザ対応国が少なく利便性が高い",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_111.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_105.html",
     },
   },
   {
@@ -896,7 +909,7 @@ export const africaCountries: Country[] = [
     ],
     notes: ["入国後に移民局で延長可能"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_112.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_126.html",
     },
   },
   {
@@ -905,23 +918,21 @@ export const africaCountries: Country[] = [
     code: "TG",
     region: "africa",
     visaRequirement: {
-      type: "visa_required",
-      duration: 7,
+      type: "evisa",
+      duration: 15,
+      evisaAvailable: true,
     },
     conditions: [
-      "Voyage Togoサイトでの事前オンライン登録が必須",
-      "ロメ空港到着時に7日間有効のアライバルビザを取得可能",
-      "大使館申請の場合は最大90日",
+      "Voyage Togo（voyage.gouv.tg）での事前e-Visa申請が必須（事前申請なしの到着ビザは不可）",
+      "シングル15日有効（延長オプションで30日・90日等も選択可）",
+      "入国前に渡航者登録フォーム（Traveller Entry Form）の提出も必要",
       "パスポート残存有効期間が必要",
       "黄熱病予防接種証明書が必須（生後9ヶ月以上全員）",
       "出国用航空券・滞在費用証明が必要",
     ],
-    notes: [
-      "アライバルビザは事前オンライン登録が必須（Voyage Togo）",
-      "大使館での事前申請も可能（最大90日）",
-    ],
+    notes: ["長期滞在・就労等はVoyage Togoサイトで別途要件を確認"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_119.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_114.html",
     },
   },
   {
@@ -935,8 +946,8 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "オンラインeビザ申請のみ（https://evisa.gouv.bj/）",
-      "シングル30日60USD・マルチ30日85USD・マルチ90日110USD",
+      "オンラインeビザ申請のみ（https://evisa.bj/）",
+      "自己申請の場合シングル30日50ユーロ・マルチ30日75ユーロ・マルチ90日100ユーロ",
       "パスポート残存有効期間が必要",
       "出国用航空券が必要",
     ],
@@ -954,11 +965,13 @@ export const africaCountries: Country[] = [
     code: "BF",
     region: "africa",
     visaRequirement: {
-      type: "visa_required",
+      type: "evisa",
       duration: 30,
+      evisaAvailable: true,
     },
     conditions: [
-      "駐日ブルキナファソ大使館での事前申請が必要",
+      "e-Visaポータル（visaburkina.bf）でのオンライン申請が可能",
+      "駐日ブルキナファソ大使館での事前申請も可能",
       "パスポート残存有効期間6ヶ月以上必要",
       "黄熱病予防接種証明書が必要",
     ],
@@ -983,7 +996,7 @@ export const africaCountries: Country[] = [
     ],
     notes: ["在カメルーン日本国大使館が兼轄"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_140.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_112.html",
     },
   },
   {
@@ -993,7 +1006,7 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: {
       type: "evisa",
-      duration: 30,
+      duration: 90,
       evisaAvailable: true,
     },
     conditions: [
@@ -1001,6 +1014,7 @@ export const africaCountries: Country[] = [
       "リーブルヴィル国際空港からの空路入国者のみ対象（陸路は対象外）",
       "申請から概ね3日で発給通知",
       "発給通知をプリントアウトして入国時に提示",
+      "シングルエントリーは1〜3ヶ月から選択可能（最大90日）、料金70ユーロ＋手数料15ユーロ",
     ],
     notes: [
       "2023年10月より査証免除廃止",
@@ -1008,7 +1022,7 @@ export const africaCountries: Country[] = [
       "陸路国境でのe-VISA利用は不可",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_144.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_097.html",
     },
   },
   {
@@ -1027,7 +1041,7 @@ export const africaCountries: Country[] = [
     ],
     notes: ["アライバルビザの公式情報が不明確、事前申請を強く推奨"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_145.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_102.html",
     },
   },
   {
@@ -1038,18 +1052,21 @@ export const africaCountries: Country[] = [
     visaRequirement: {
       type: "visa_required",
       duration: 30,
+      evisaAvailable: true,
     },
     conditions: [
-      "駐日コンゴ民主共和国大使館での事前申請が必須",
+      "駐日コンゴ民主共和国大使館での事前申請が原則",
+      "公式eVisaポータル（https://evisa.gouv.cd/）でも観光・商用目的で申請可能（eVisa手数料300米ドル、審査72時間）",
+      "eVisa所持者には入国時に7日間有効の空港査証（VAP）が発給される（別途90米ドルを入国地で支払い、延長可）",
       "パスポート残存有効期間が必要・所持人記入欄記入必須",
       "黄熱病予防接種証明書（イエローカード）が全渡航者に必須（生後9ヶ月以上）",
       "未所持の場合は強制接種＋接種代金＋反則金が徴収される",
     ],
     notes: [
-      "ビザは必ず居住国（日本）で取得のこと（他国で取得したビザは無効と判定される可能性あり）",
+      "大使館で取得する場合は必ず居住国（日本）で取得のこと（他国で取得したビザは無効と判定される可能性あり）",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_146.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_103.html",
     },
   },
   {
@@ -1058,17 +1075,23 @@ export const africaCountries: Country[] = [
     code: "GQ",
     region: "africa",
     visaRequirement: {
-      type: "visa_required",
-      duration: 30,
+      type: "evisa",
+      duration: 90,
+      evisaAvailable: true,
     },
     conditions: [
       "日本に公館なし（中国・米国・フランス・スペイン・ガボン等で申請）",
-      "電子ビザサイトあり（equatorialguinea-E-Visa.com）",
+      "電子ビザサイト（equatorialguinea-evisa.com）でオンライン申請、処理は約72時間",
+      "e-Visa承認通知を印刷し空港（マラボ国際空港）到着時に提示、入国審査官がビザを発給・押印",
+      "短期ビザは最大90日有効",
       "パスポート残存有効期間が必要",
     ],
-    notes: ["日本でのビザ取得が困難", "アライバルビザの有無は不明確"],
+    notes: [
+      "日本でのビザ取得が困難",
+      "入国時に確実にパスポートへ査証印を押してもらうこと",
+    ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_148.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_276.html",
     },
   },
   {
@@ -1091,7 +1114,7 @@ export const africaCountries: Country[] = [
       "15日超過の場合は事前ビザ申請が必要（ポルトガル・ベルギー・フランス等で申請）",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_147.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_280.html",
     },
   },
   {
@@ -1105,18 +1128,17 @@ export const africaCountries: Country[] = [
       evisaAvailable: true,
     },
     conditions: [
-      "政府専用サイト「EASE」（https://www.ease.gov.cv/）での事前登録が必須",
-      "入国5日前までの申請を推奨",
-      "空港到着時にビザ取得",
-      "パスポート残存有効期間・査証欄確認が必要",
+      "入国目的を問わず査証が必要。短期滞在査証は到着空港でも取得可能",
+      "電子システム「EASE」（https://www.ease.gov.cv/）での入国5日前までの事前登録が推奨",
+      "空港保安税（TSA、3,400エスクード＝約31ユーロ）のオンライン支払いが必要",
+      "パスポート残存有効期間の確認が必要",
     ],
     notes: [
-      "事前承認なく到着すると罰金対象",
+      "2026年1月1日より対象91か国は査証の事前取得が義務化されたが、日本は対象外で到着空港での取得が引き続き可能",
       "日本に在外公館なし",
-      "空港使用料が別途必要な場合あり",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_149.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_275.html",
     },
   },
   {
@@ -1125,11 +1147,20 @@ export const africaCountries: Country[] = [
     code: "LY",
     region: "africa",
     visaRequirement: {
-      type: "visa_required",
+      type: "evisa",
       duration: 30,
+      evisaAvailable: true,
     },
-    conditions: ["事前にビザ取得が必要", "パスポート残存有効期間6ヶ月以上必要"],
-    notes: ["在日大使館でのビザ発給手続きは停止状態の可能性"],
+    conditions: [
+      "e-Visaサイト（https://evisa.gov.ly/）での事前オンライン申請が必要（2024年3月開始）",
+      "観光目的はツアーオペレーター・現地スポンサーの手配が必須（個人手配での渡航は不可）",
+      "シングルエントリー、査証自体の有効期間90日・滞在は最大30日、料金63米ドル",
+      "パスポート残存有効期間6ヶ月以上必要",
+    ],
+    notes: [
+      "外務省は渡航中止・退避を勧告する危険情報（レベル4）を発出中",
+      "在日大使館でのビザ発給手続きは停止状態の可能性",
+    ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_125.html",
     },
@@ -1141,7 +1172,7 @@ export const africaCountries: Country[] = [
     region: "africa",
     visaRequirement: {
       type: "visa_free",
-      duration: 90,
+      duration: 30,
       purpose: ["tourism", "business"],
     },
     conditions: [
@@ -1149,10 +1180,10 @@ export const africaCountries: Country[] = [
     ],
     notes: [
       "日本に在外公館なし（マレーシアに大使館）",
-      "90日超の場合は事前ビザ申請が必要",
+      "30日超の滞在は内務省（Ministry of Home Affairs）で30日間の延長申請が可能、60日超は残留許可（temporary residence permit）が必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_300.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_281.html",
     },
   },
 ];

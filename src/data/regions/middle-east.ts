@@ -14,7 +14,7 @@ export const middleEastCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_001.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_041.html",
     },
   },
   {
@@ -24,7 +24,7 @@ export const middleEastCountries: Country[] = [
     region: "middle_east",
     visaRequirement: {
       type: "visa_free",
-      duration: 30,
+      duration: 90,
       purpose: ["tourism", "business", "family_visit"],
     },
     conditions: [
@@ -34,13 +34,13 @@ export const middleEastCountries: Country[] = [
       "滞在中の費用を証明するものの提示を求められる場合あり",
       "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
-      "30日以内の観光、親族訪問、短期商用目的の滞在は入国時にOn Arrival Visaが無料で発給される",
+      "あらゆる180日間の期間内で90日以内の観光、親族訪問、短期商用目的の滞在は入国時にOn Arrival Visaが無料で発給される（2024年9月18日より滞在可能日数が30日から90日に延長）",
     ],
     notes: [
       "On Arrival Visaには10日間の猶予期間（滞在延長・ステータス変更用）がある",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_229.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_042.html",
     },
   },
   {
@@ -56,7 +56,7 @@ export const middleEastCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_250.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_043.html",
     },
   },
   {
@@ -84,7 +84,7 @@ export const middleEastCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_126.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_044.html",
     },
   },
   {
@@ -92,11 +92,11 @@ export const middleEastCountries: Country[] = [
     name: "イラク",
     code: "IQ",
     region: "middle_east",
-    visaRequirement: { type: "evisa", duration: 0, evisaAvailable: true },
+    visaRequirement: { type: "evisa", duration: 30, evisaAvailable: true },
     conditions: [
       "パスポートの残存有効期間が6ヶ月以上必要",
       "2025年3月1日よりe-Visaの事前取得が必須（到着ビザは廃止）",
-      "e-Visa費用: 約206,000 IQD（約145ユーロ）",
+      "e-Visa費用: 約206,000 IQD（約145ユーロ、有効滞在期間30日間）",
       "申請サイト: eservice.evisa.iq",
       "旅券にイスラエルのビザまたは出入国記録があるとビザは発給されない",
     ],
@@ -129,7 +129,7 @@ export const middleEastCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_042.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_046.html",
     },
   },
   {
@@ -144,17 +144,17 @@ export const middleEastCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が6ヶ月以上必要",
-      "14日以内の短期滞在はビザ不要",
-      "14日を超える滞在はe-Visaの事前取得が必要",
-      "e-Visa費用: 5 OMR（10日間）、20 OMR（30日間シングル）、50 OMR（1年間マルチプル）",
+      "パスポートの残存有効期間が6ヶ月以上必要（復路航空券・ホテル予約確認書の提示も必要）",
+      "14日以内の観光等の短期滞在はビザ不要（無査証入国の場合は延長・査証カテゴリー変更不可）",
+      "15日以上の中・長期滞在はe-Visaの事前取得が必要（オンアライバル査証も当面利用可）",
+      "e-Visa費用（2026年9月現在）: 20オマーン・リアル（30日間有効一次査証）、50オマーン・リアル（1年間有効数次査証、滞在期間30日間）",
       "黄熱に感染する危険のある国から来る、生後9か月以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
       "黄熱に感染する危険のある国には、アフリカ地域ではルワンダ、タンザニアへの渡航者も含む",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_227.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_047.html",
     },
   },
   {
@@ -180,7 +180,7 @@ export const middleEastCountries: Country[] = [
       "就労や家族滞在・長期滞在予定者は、通常カタールのスポンサー（現地受け入れ先等）を通じてビザ申請手続きが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_228.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_048.html",
     },
   },
   {
@@ -199,10 +199,12 @@ export const middleEastCountries: Country[] = [
       "3ヵ月以内の商用、観光目的の滞在は事前にe-Visaの取得が必要（2025年1月2日よりe-Visa再開）",
       "e-Visa費用: 3 KWD（約10米ドル）",
       "到着ビザ（Visa on Arrival）も利用可能（3 KWD）",
+      "2025年12月23日より入国する全外国人に健康保険加入が義務化",
+      "訪問ビザは公的保険料5KWDに加え、クウェート政府認可の民間保険への加入が必要（海外の旅行保険は不可）",
     ],
     notes: ["就労、家族滞在目的は事前にビザ取得が必要"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_226.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_049.html",
     },
   },
   {
@@ -229,7 +231,7 @@ export const middleEastCountries: Country[] = [
       "旅券にイスラエルの査証または出入国記録がある場合、ビザ発給可否は領事判断になる",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_230.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_050.html",
     },
   },
   {
@@ -250,7 +252,7 @@ export const middleEastCountries: Country[] = [
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_043.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_051.html",
     },
   },
   {
@@ -292,12 +294,13 @@ export const middleEastCountries: Country[] = [
       "パスポートの残存有効期間が6ヶ月以上必要",
       "黄熱に感染する危険のある国から来る、9か月以上の渡航者は黄熱予防接種証明書が必要",
       "乗り継ぎのため、黄熱に感染する危険のある国の空港に12時間以上滞在した渡航者も黄熱予防接種証明書が必要",
-      "到着ビザ（5 BD、シングル14日間）またはe-Visaで取得可能",
-      "e-Visa費用: 9 BD（シングル14日間）、29 BD（マルチプル3ヶ月）、89 BD（マルチプル1年間）",
+      "オン・アライバル・ビザ（空港到着時取得）: 一次査証（シングル、2週間まで）5BD、数次査証（各滞在1か月まで・3か月有効）12BD",
+      "事前にオンラインでe-Visa（evisa.gov.bh）の取得も可能（審査は原則72時間）",
+      "e-Visa料金: シングル2週間10BD、数次（各滞在1か月・3か月有効）17BD、数次（90日滞在・1年有効）45BD、数次（90日滞在・5年有効）65BD",
     ],
     notes: ["在日公館でのビザ発給は行っていない"],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_231.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_053.html",
     },
   },
   {
@@ -307,18 +310,18 @@ export const middleEastCountries: Country[] = [
     region: "middle_east",
     visaRequirement: {
       type: "visa_free",
-      duration: 30,
+      duration: 90,
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が到着時6ヶ月以上必要",
-      "日本国籍者は空港・国境での到着ビザが無料で発給される",
-      "30日以内の観光・業務目的の滞在が対象",
-      "e-Visaでの事前取得も可能だが、到着ビザが無料で簡便",
+      "パスポートの残存有効期間が到着時6ヶ月以上必要、かつ未使用査証欄2ページ以上必要",
+      "日本国籍者は空港または陸路の国境事務所において90日間の滞在許可（アライバル・ビザ）を無料で取得できる",
+      "外国人登録事務所等での更新により、入国日から最大180日まで滞在延長が可能",
+      "アレンビー橋（キング・フセイン橋）国境からの入国はアライバル・ビザの対象外で、事前にe-Visa等の取得が必要",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_127.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_054.html",
     },
   },
   {
@@ -332,13 +335,13 @@ export const middleEastCountries: Country[] = [
       purpose: ["tourism", "business"],
     },
     conditions: [
-      "パスポートの残存有効期間が6ヶ月以上必要",
+      "パスポートの残存有効期間が入国時1年以上必要",
       "空港での到着時に無料でビザが発給される（1ヶ月間、最大3ヶ月まで延長可）",
       "旅券にイスラエルのビザまたは出入国記録があるとビザは発給されない",
     ],
     notes: [],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_048.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_055.html",
     },
   },
   {
@@ -350,16 +353,22 @@ export const middleEastCountries: Country[] = [
       type: "visa_free",
       duration: 30,
       evisaAvailable: true,
+      purpose: ["tourism", "business"],
     },
     conditions: [
       "パスポート残存有効期間が入国時3ヶ月以上必要",
-      "空港での到着ビザが無料で取得可能（30日間）",
-      "ASAN e-Visa（オンライン申請）も利用可能（費用: 25米ドル、緊急: 65米ドル）",
+      "2026年7月1日から2027年7月1日までの期間限定措置として、一般旅券・公用旅券を所持する日本国民は査証免除（期間中の入国は最大3回、1回につき30日以内）。目的は観光に限定されない",
+      "15日以上滞在する場合は、査証の要否と別に、入国後速やかに滞在先宿泊施設または移民局での滞在登録が必要（未登録の場合は出国時に罰金）",
+      "4回目以降の入国や30日超の滞在等、査証免除の対象外となる場合はビザが必要",
+      "ヘイダル・アリエフ国際空港ではアライバル査証（一次有効・30日以内）を取得可能。ただし陸路国境・港湾では取得不可。旅券残存有効期間が6ヶ月未満の場合は空港でも取得できないことがある",
+      "e-Visa（一次有効・有効期間30日）も利用可能（費用: 25米ドル、緊急: 65米ドル）。30日を超える滞在や数次査証希望の場合は大使館での事前取得が必要",
       "申請サイト: evisa.gov.az",
     ],
-    notes: [],
+    notes: [
+      "査証免除措置は2027年7月1日までの時限措置。それ以降の取り扱いは改めて要確認",
+    ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_064.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcsafetymeasure_152.html",
     },
   },
 ];

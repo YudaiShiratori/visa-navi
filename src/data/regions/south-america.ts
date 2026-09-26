@@ -12,7 +12,7 @@ export const southAmericaCountries: Country[] = [
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "2023年10月1日発効の相互ビザ免除措置により、90日以内の観光・商用等の滞在はビザ不要（終了時期未定）",
+      "2023年10月1日発効の相互ビザ免除措置により、90日以内の観光・商用等の滞在はビザ不要（2029年9月29日まで延長）",
       "ICパスポート（ICAO準拠のICチップ搭載旅券）の所持が必要",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "未使用査証欄見開き2頁以上が必要",
@@ -25,6 +25,7 @@ export const southAmericaCountries: Country[] = [
       "90日の滞在後、ブラジル国内で最大90日間の延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
       "入国時にCPF（納税者登録番号）の取得が必要な場合あり",
+      "2026年12月1日発効の日伯ワーキングホリデー協定により、18〜30歳を対象に付随的就労を伴う最長1年の滞在制度が新設",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_259.html",
@@ -49,6 +50,7 @@ export const southAmericaCountries: Country[] = [
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
+      "政令366/2025（2025年5月29日官報掲載）により、入国する外国人は入国目的と医療保険加入を申告する宣誓書の提出が求められる（補償額等の細則は施行規則で定めるとされ、入国審査で保険証明の提示を求められる運用は確認されていない）",
       "90日の滞在後、現地で最大90日間の延長が可能",
       "就労・留学目的の場合は別途ビザが必要",
     ],
@@ -72,7 +74,7 @@ export const southAmericaCountries: Country[] = [
       "未使用査証欄1頁以上が必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
-      "入国時に税関申告書の提出が必要",
+      "税関申告（Declaración Jurada Digital）はwww.ingresoachile.clから入国前にオンラインで無料提出が可能（義務）",
     ],
     notes: [
       "日本との間でワーキングホリデー協定あり",
@@ -81,7 +83,7 @@ export const southAmericaCountries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_242.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_251.html",
     },
   },
   {
@@ -91,12 +93,11 @@ export const southAmericaCountries: Country[] = [
     region: "south_america",
     visaRequirement: {
       type: "visa_free",
-      duration: 183,
+      duration: 90,
       purpose: ["tourism", "business", "transit"],
     },
     conditions: [
-      "2025年7月1日よりICパスポート所持者はビザ免除（暦年で最大183日間滞在可能）",
-      "ICパスポート（ICAO準拠のICチップ搭載旅券）の所持が必要",
+      "90日以内の観光目的の滞在はビザ不要（入国審査官が付与する日数の範囲内）",
       "パスポートの残存有効期間が入国時6ヶ月以上必要",
       "未使用査証欄5頁以上が必要",
       "出国用の航空券の所持が必要",
@@ -106,8 +107,9 @@ export const southAmericaCountries: Country[] = [
     notes: [
       "黄熱に感染する危険のある国から来る、1歳以上の渡航者は黄熱予防接種証明書が必要",
       "アマゾン地域（Amazonas, Loreto, Madre de Dios, San Martin, Ucayali）への渡航には黄熱予防接種証明書が強く推奨される",
-      "183日を超える滞在にはビザの取得が必要",
+      "観光目的の場合、入国審査官が指定した滞在日数を超えての延長は不可",
       "就労・留学目的の場合は別途ビザが必要",
+      "2023年5月29日より空路入国時の出入国スタンプ押印は廃止（記録は移民局サイトで確認可能）",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_261.html",
@@ -128,7 +130,7 @@ export const southAmericaCountries: Country[] = [
       "パスポートの残存有効期間が入国時3ヶ月以上必要",
       "未使用査証欄2頁以上が必要",
       "出国用の航空券の所持が必要",
-      "空路入国の場合、Check-Mig（無料の事前登録システム）への登録が推奨される（apps.migracioncolombia.gov.coから申請。第三者の有料サイトに注意）",
+      "搭乗前にCheck-Mig（無料の事前登録システム）への登録が必要（apps.migracioncolombia.gov.coから申請。第三者の有料サイトに注意）",
       "ホテル予約確認書または滞在先住所の提示が必要",
     ],
     notes: [
@@ -161,6 +163,7 @@ export const southAmericaCountries: Country[] = [
     notes: [
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学・業務目的の場合は別途ビザが必要",
+      "2026年1月の非常事態宣言以降、外務省危険情報は一部国境地域でレベル3（渡航中止勧告）、それ以外の地域でレベル2（不要不急の渡航中止勧告）",
     ],
     officialLinks: {
       mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_260.html",
@@ -186,7 +189,7 @@ export const southAmericaCountries: Country[] = [
     ],
     notes: [
       "ガラパゴス諸島へ渡航する場合はTransit Control Card（USD20）の取得およびガラパゴス国立公園入場料（USD100）の支払いが必要",
-      "アマゾン地域への渡航には黄熱予防接種証明書が強く推奨される",
+      "黄熱予防接種は入国に義務付けられていないが、コンゴ民主共和国・ウガンダから入国（12時間以上の乗継を含む）する場合は接種証明書の提示が必要",
       "90日を超える滞在にはビザの取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
@@ -215,11 +218,11 @@ export const southAmericaCountries: Country[] = [
     ],
     notes: [
       "業務目的は事前にビザ取得が必要",
-      "特にアマゾンやパンタナール地域への渡航の場合は黄熱予防接種証明書の携行が強く推奨される",
+      "黄熱予防接種証明書（イエローカード）の提示が必要なのは政府指定の黄熱高リスク地域（ベニ県・パンド県全域、サンタクルス県の大半、低地・アマゾン流域等）を訪問する場合のみで、ラパスやサンタクルス市等の都市部のみの滞在では不要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_258.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_262.html",
     },
   },
   {
@@ -245,7 +248,7 @@ export const southAmericaCountries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_251.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_258.html",
     },
   },
   {
@@ -271,7 +274,7 @@ export const southAmericaCountries: Country[] = [
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_252.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_242.html",
     },
   },
   {
@@ -290,14 +293,14 @@ export const southAmericaCountries: Country[] = [
       "出国用の航空券の所持が必要",
       "滞在費用証明が必要",
       "宿泊予約確認書の持参が必要",
-      "入国カードの記入が必要",
+      "出入国審査・税関申告はオンラインポータル（ed.gpf.gov.gy）での事前登録が必要（空港に紙の書類はなし）",
     ],
     notes: [
-      "90日を超える滞在にはビザの取得が必要",
+      "許可された滞在期間を超える場合は、内務省（Ministry of Citizenship）で滞在延長許可の取得が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_250.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_294.html",
     },
   },
   {
@@ -312,20 +315,22 @@ export const southAmericaCountries: Country[] = [
       purpose: ["tourism", "family_visit"],
     },
     conditions: [
-      "e-Tourist Card（電子ビザ）の事前取得が必要（USD50またはEUR50）",
+      "入国料（Entry Fee）の事前支払いが必要（1入国USD50またはEUR50＋VFS手数料USD8/EUR8）",
       "パスポートの残存有効期間が滞在予定期間以上必要",
       "出国用の航空券の所持が必要",
       "十分な滞在資金の証明が必要",
       "ホテル予約確認書または滞在先住所の提示が必要",
+      "出入国審査・税関申告は出入国それぞれ3日前からicf.srでのオンライン事前登録が義務（2024年11月1日開始）",
     ],
     notes: [
-      "e-Tourist Cardはsuriname.vfsevisa.comから申請可能（シングルエントリー、90日間有効）",
+      "Entry Feeはsuriname.vfsevisa.comで支払い（シングルエントリー、90日間有効）",
+      "2025年5月1日より数次入国用のEntry Fee（USD75またはEUR75、初回入国から3か月間に最大5回入国可）も選択可能。0〜2歳は免除",
       "すべての渡航者は黄熱予防接種証明書の携行が強く推奨される",
       "入国時に指紋採取が必要",
       "就労・留学目的の場合は別途ビザが必要",
     ],
     officialLinks: {
-      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_253.html",
+      mofa: "https://www.anzen.mofa.go.jp/info/pcinfectionspothazardinfo_250.html",
     },
   },
 ];
